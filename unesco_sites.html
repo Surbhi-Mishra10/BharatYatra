@@ -1,0 +1,2945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNESCO World Heritage Sites in India | BharatYatra</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at 50% 28%, rgba(12, 74, 83, 0.38), transparent 34%),
+        radial-gradient(circle at 12% 60%, rgba(196, 75, 31, 0.14), transparent 28%),
+        #050b12;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image:
+        radial-gradient(circle at 1px 1px, #e5b75b 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      z-index: -1;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 74px;
+      padding: 0 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      background: rgba(4, 10, 16, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(225, 180, 85, 0.18);
+    }
+
+    .logo {
+      font-family: Cinzel, serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      color: #f4e6c3;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.75px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #eab75a;
+    }
+
+    .login-btn {
+      padding: 9px 19px;
+      border-radius: 25px;
+      border: 1px solid rgba(234, 183, 90, 0.7);
+      color: #f3d48c !important;
+      background: rgba(234, 183, 90, 0.06);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .unesco-hero {
+      position: relative;
+      height: 75vh;
+      min-height: 500px;
+      margin-top: 74px;
+      overflow: hidden;
+      background: #0b1119;
+    }
+
+    .unesco-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .unesco-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(5, 11, 18, 0.3) 0%,
+          rgba(5, 11, 18, 0.65) 60%,
+          rgba(5, 11, 18, 0.98) 100%
+        );
+    }
+
+    .unesco-hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+
+    .unesco-hero-content h1 {
+      font-family: Cinzel, serif;
+      font-weight: 800;
+      font-size: clamp(34px, 5.5vw, 76px);
+      color: #fff;
+      text-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      letter-spacing: 1.5px;
+      line-height: 1.15;
+    }
+
+    .unesco-hero-content p {
+      margin-top: 14px;
+      font-family: Cinzel, serif;
+      font-size: clamp(14px, 1.8vw, 20px);
+      color: #e8b85c;
+      letter-spacing: 1.2px;
+    }
+
+    /* =========================
+       MAP
+    ========================= */
+
+    .map-section {
+      max-width: 1300px;
+      margin: 40px auto;
+      padding: 0 4%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-title small {
+      color: #e5b75b;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .section-title h3 {
+      font-family: Cinzel, serif;
+      font-size: 28px;
+      color: #f3e7ca;
+    }
+
+    .map-controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      padding: 8px 18px;
+      border-radius: 25px;
+      border: 1px solid rgba(230, 184, 88, 0.3);
+      background: rgba(230, 184, 88, 0.06);
+      color: #f2dfb3;
+      font-family: Cinzel, serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .filter-pill:hover,
+    .filter-pill.active {
+      background: #e5b75b;
+      color: #071015;
+      font-weight: 700;
+      box-shadow: 0 0 15px rgba(229, 183, 91, 0.35);
+    }
+
+    .map-wrapper {
+      height: 600px;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(230, 184, 88, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    #unescoMap {
+      width: 100%;
+      height: 100%;
+      background: #091016;
+    }
+
+    .custom-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e5b75b, #b37e22);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(229, 183, 91, 0.8);
+      color: #000;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .custom-marker:hover {
+      transform: scale(1.25);
+    }
+
+    .leaflet-popup-content-wrapper {
+      background: #0b151d !important;
+      border: 1px solid rgba(229, 181, 84, 0.45) !important;
+      border-radius: 12px !important;
+      color: #fff !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .leaflet-popup-tip {
+      background: #0b151d !important;
+      border: 1px solid rgba(229, 181, 84, 0.45) !important;
+    }
+
+    /* =========================
+       SITE GRID
+    ========================= */
+
+    .sites-grid-section {
+      max-width: 1300px;
+      margin: 40px auto 80px;
+      padding: 0 4%;
+    }
+
+    .sites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .site-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(230, 184, 88, 0.22);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-card:hover {
+      transform: translateY(-6px);
+      border-color: #e5b75b;
+      box-shadow: 0 15px 35px rgba(229, 183, 91, 0.18);
+    }
+
+    .site-card-img-wrap {
+      height: 180px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .site-card:hover .site-card-img {
+      transform: scale(1.05);
+    }
+
+    .site-year-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(4, 10, 16, 0.85);
+      border: 1px solid rgba(229, 183, 91, 0.5);
+      color: #f2dfb3;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .site-card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .site-card-title {
+      font-family: Cinzel, serif;
+      font-size: 16px;
+      color: #f3e7ca;
+      margin-bottom: 6px;
+    }
+
+    .site-card-loc {
+      font-size: 12px;
+      color: #e5b75b;
+      margin-bottom: 10px;
+    }
+
+    .site-card-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 12, 0.85);
+      backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: #0b151d;
+      border: 1px solid rgba(229, 181, 84, 0.45);
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.85),
+        0 0 30px rgba(229, 183, 91, 0.2);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-backdrop.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: #e5b75b;
+      color: #000;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      display: block;
+      background: #141e28;
+    }
+
+    .modal-content {
+      padding: 24px 28px;
+    }
+
+    .modal-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 15px;
+    }
+
+    .modal-title {
+      font-family: Cinzel, serif;
+      font-size: 24px;
+      color: #f3e7ca;
+    }
+
+    .modal-badge {
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: rgba(229, 183, 91, 0.15);
+      border: 1px solid rgba(229, 183, 91, 0.4);
+      color: #e5b75b;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .modal-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(230, 184, 88, 0.15);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .meta-item strong {
+      display: block;
+      font-size: 10px;
+      color: #e5b75b;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .meta-item span {
+      font-size: 12px;
+      color: #f4e4bc;
+    }
+
+    .modal-desc-block h4 {
+      font-family: Cinzel, serif;
+      font-size: 14px;
+      color: #e5b75b;
+      margin-bottom: 6px;
+    }
+
+    .modal-desc-block p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 14px;
+    }
+
+    .modal-map-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #d67b2c, #9d3f35);
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .modal-map-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* =========================
+       CHATBOT
+    ========================= */
+
+    .chatbot-button {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid #e8b95c;
+      background: linear-gradient(135deg, #d67b2c, #9d3f35);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(227, 154, 50, 0.15);
+      transition: 0.3s;
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.08);
+    }
+
+    .chatbot {
+      position: fixed;
+      right: 25px;
+      bottom: 102px;
+      width: 350px;
+      height: 450px;
+      background: #0b151d;
+      border: 1px solid rgba(229, 181, 84, 0.35);
+      border-radius: 20px;
+      z-index: 998;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+    }
+
+    .chatbot.active {
+      display: flex;
+    }
+
+    .chat-header {
+      padding: 17px;
+      background: linear-gradient(135deg, #153b40, #13232c);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chat-header strong {
+      font-family: Cinzel, serif;
+      color: #f0d18b;
+    }
+
+    .chat-header small {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 10px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      line-height: 1.55;
+      word-wrap: break-word;
+    }
+
+    .message.bot {
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .message.user {
+      margin-left: auto;
+      background: rgba(222, 157, 54, 0.18);
+      border: 1px solid rgba(222, 157, 54, 0.25);
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 7px;
+      padding: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 11px;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #101b22;
+      color: #fff;
+      outline: 0;
+    }
+
+    .chat-input button {
+      width: 42px;
+      border: 0;
+      border-radius: 9px;
+      background: #e5a341;
+      color: #071015;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+
+    .table-wrapper table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+    }
+
+    .table-wrapper th,
+    .table-wrapper td {
+      border: 1px solid rgba(229, 183, 91, 0.2);
+      padding: 7px;
+      text-align: left;
+    }
+
+    .table-wrapper th {
+      color: #e5b75b;
+      background: rgba(229, 183, 91, 0.08);
+    }
+
+    footer {
+      padding: 35px 6%;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.38);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 9px;
+      }
+
+      .modal-meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .map-wrapper {
+        height: 450px;
+      }
+
+      .chatbot {
+        right: 12px;
+        bottom: 90px;
+        width: calc(100vw - 24px);
+        max-width: 350px;
+      }
+
+      .chatbot-button {
+        right: 15px;
+        bottom: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <nav class="navbar">
+    <div class="logo">BharatYatra</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home Page</a></li>
+      <li><a href="crafts.html">Crafts</a></li>
+      <li><a href="gi_tag.html">GI Tag Products</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="unesco_sites.html" class="active">UNESCO Sites</a></li>
+      <li><a href="destinations.html">Tourist Spots</a></li>
+      <li><a href="hotels.html">Hotels &amp; Stays</a></li>
+      <li><a href="transport.html">Transport</a></li>
+      <li><a href="admin_access.html">Vendors</a></li>
+      <li><a href="login.html" class="login-btn">LOGIN</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="unesco-hero">
+
+    <img
+      class="unesco-hero-img"
+      src="assets/image/unesco_hero_banner.png"
+      alt="UNESCO Sites in India"
+      onerror="this.src='https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=80'"
+    >
+
+    <div class="unesco-hero-overlay"></div>
+
+    <div class="unesco-hero-content">
+      <h1>UNESCO Sites in India</h1>
+      <p>
+        Timeless Architecture, Monumental Marvels &amp; Sacred Natural Heritage
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MAP
+  ========================= -->
+
+  <section class="map-section">
+
+    <div class="section-title">
+      <small>EXPLORE ON THE MAP</small>
+      <h3>Interactive Heritage Map</h3>
+    </div>
+
+    <div class="map-controls-bar">
+
+      <div class="filter-pills">
+
+        <button
+          class="filter-pill active"
+          onclick="filterMapCategory('all')"
+        >
+          All Sites (42+)
+        </button>
+
+        <button
+          class="filter-pill"
+          onclick="filterMapCategory('Cultural')"
+        >
+          Cultural
+        </button>
+
+        <button
+          class="filter-pill"
+          onclick="filterMapCategory('Natural')"
+        >
+          Natural
+        </button>
+
+        <button
+          class="filter-pill"
+          onclick="filterMapCategory('Mixed')"
+        >
+          Mixed
+        </button>
+
+      </div>
+
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);">
+        💡 Click on any marker on the map or site card below for detailed history
+      </div>
+
+    </div>
+
+    <div class="map-wrapper">
+      <div id="unescoMap"></div>
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SITE DIRECTORY
+  ========================= -->
+
+  <section class="sites-grid-section">
+
+    <div class="section-title">
+      <small>HERITAGE CATALOG</small>
+      <h3>Monumental Treasures of India</h3>
+    </div>
+
+    <div class="sites-grid" id="sitesGrid"></div>
+
+  </section>
+
+
+  <!-- =========================
+       MODAL
+  ========================= -->
+
+  <div
+    class="modal-backdrop"
+    id="unescoModal"
+    onclick="closeModal(event)"
+  >
+
+    <div class="modal-card">
+
+      <button
+        class="modal-close-btn"
+        onclick="closeModal(event, true)"
+      >
+        ✕
+      </button>
+
+      <img
+        id="modalImg"
+        class="modal-img"
+        src=""
+        alt="UNESCO Site"
+      >
+
+      <div class="modal-content">
+
+        <div class="modal-header-row">
+
+          <h3
+            class="modal-title"
+            id="modalTitle"
+          ></h3>
+
+          <span
+            class="modal-badge"
+            id="modalYear"
+          ></span>
+
+        </div>
+
+        <div class="modal-meta-grid">
+
+          <div class="meta-item">
+            <strong>Location</strong>
+            <span id="modalLocation"></span>
+          </div>
+
+          <div class="meta-item">
+            <strong>Time Period</strong>
+            <span id="modalPeriod"></span>
+          </div>
+
+          <div class="meta-item">
+            <strong>Built By / Origin</strong>
+            <span id="modalBuilder"></span>
+          </div>
+
+          <div class="meta-item">
+            <strong>Heritage Category</strong>
+            <span id="modalCategory"></span>
+          </div>
+
+        </div>
+
+        <div class="modal-desc-block">
+
+          <h4>Historical Overview &amp; Importance</h4>
+          <p id="modalImportance"></p>
+
+          <h4>Architectural &amp; Cultural Value</h4>
+          <p id="modalDesc"></p>
+
+        </div>
+
+        <button
+          class="modal-map-btn"
+          onclick="openGoogleMaps()"
+        >
+          Open Exact Location on Google Maps ➔
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       CHATBOT
+  ========================= -->
+
+  <div
+    class="chatbot-button"
+    onclick="toggleChat()"
+    aria-label="Open travel assistant"
+  >
+    🤖
+  </div>
+
+  <div class="chatbot" id="chatbot">
+
+    <div class="chat-header">
+      <strong>BharatYatra Travel Assistant</strong>
+      <small>
+        Ask about UNESCO World Heritage sites in India
+      </small>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+
+      <div class="message bot">
+        Namaste! 🙏<br><br>
+        Ask me about any UNESCO World Heritage Site in India,
+        its builders, era, location, or ask me to navigate
+        anywhere on BharatYatra.
+      </div>
+
+    </div>
+
+    <div class="chat-input">
+
+      <input
+        id="chatInput"
+        type="text"
+        placeholder="Ask about a UNESCO site..."
+        onkeydown="handleChat(event)"
+      >
+
+      <button onclick="sendMessage()">➤</button>
+
+    </div>
+
+  </div>
+
+
+  <footer>
+    BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT
+  </footer>
+
+
+  <!-- =========================
+       LEAFLET
+  ========================= -->
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+
+  <script>
+
+    /* ============================================================
+       UNESCO DATA
+       ------------------------------------------------------------
+       KEEP YOUR COMPLETE EXISTING unescoSites ARRAY HERE.
+       Nothing in the data structure needs to change.
+       ============================================================ */
+
+    const unescoSites = [
+      /*
+       * PASTE THE COMPLETE unescoSites ARRAY FROM YOUR CURRENT FILE
+       * HERE, STARTING WITH:
+       *
+       * {
+       *   id: "taj-mahal",
+       *   name: "Taj Mahal",
+       *   ...
+       * }
+       *
+       * AND ENDING WITH:
+       *
+       * {
+       *   id: "khangchendzonga",
+       *   ...
+       * }
+       */
+
+      {
+        id: "taj-mahal",
+        name: "Taj Mahal",
+        lat: 27.1751,
+        lng: 78.0421,
+        location: "Agra, Uttar Pradesh",
+        year: "1983",
+        period: "1631 – 1648 CE (17th Century)",
+        builder: "Mughal Emperor Shah Jahan",
+        category: "Cultural",
+        img: "assets/unesco/taj_mahal.png",
+        fallback: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        importance: "An immense mausoleum of white marble, considered the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage.",
+        desc: "Constructed in memory of Mumtaz Mahal using ivory-white marble inlaid with semi-precious stones (pietra dura), showcasing the zenith of Indo-Islamic Mughal architecture."
+      },
+
+      {
+        id: "ajanta-caves",
+        name: "Ajanta Caves",
+        lat: 20.5519,
+        lng: 75.7033,
+        location: "Aurangabad (Chhatrapati Sambhajinagar), Maharashtra",
+        year: "1983",
+        period: "2nd Century BCE – 6th Century CE",
+        builder: "Satavahana & Vakataka Dynasties (Harishena)",
+        category: "Cultural",
+        img: "assets/unesco/ajanta_caves.png",
+        fallback: "https://images.unsplash.com/photo-1609358905581-e5382c46279e?auto=format&fit=crop&w=800&q=80",
+        importance: "The first Buddhist cave monuments containing masterpieces of classical Buddhist religious art and expressive fresco wall murals.",
+        desc: "30 rock-cut cave temples featuring ancient murals depicting Jataka tales, defining the golden age of classical Indian painting."
+      },
+
+      {
+        id: "ellora-caves",
+        name: "Ellora Caves",
+        lat: 20.0268,
+        lng: 75.1780,
+        location: "Aurangabad (Chhatrapati Sambhajinagar), Maharashtra",
+        year: "1983",
+        period: "600 – 1000 CE",
+        builder: "Rashtrakuta & Yadava Dynasties (Krishna I)",
+        category: "Cultural",
+        img: "assets/unesco/ellora_caves.png",
+        fallback: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        importance: "An uninterrupted sequence of 34 monasteries and temples illustrating religious harmony among Buddhism, Hinduism, and Jainism.",
+        desc: "Home to the monolithic Kailasa Temple (Cave 16), the largest single monolithic rock excavation in the world, carved top-down from a single rock cliff."
+      }
+
+      /* ============================================================
+         KEEP ALL REMAINING OBJECTS FROM YOUR ORIGINAL FILE HERE.
+         ============================================================ */
+    ];
+
+
+    /* ============================================================
+       MAP INITIALIZATION
+    ============================================================ */
+
+    const map = L.map("unescoMap", {
+      center: [22.8, 80.5],
+      zoom: 5,
+      minZoom: 4,
+      maxZoom: 10
+    });
+
+    L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+      {
+        attribution:
+          "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
+        maxZoom: 16
+      }
+    ).addTo(map);
+
+
+    let currentCategory = "all";
+    let markersLayer = L.layerGroup().addTo(map);
+    let currentSelectedSite = null;
+
+
+    /* ============================================================
+       RENDER SITES
+    ============================================================ */
+
+    function renderSites() {
+
+      markersLayer.clearLayers();
+
+      const grid = document.getElementById("sitesGrid");
+
+      grid.innerHTML = "";
+
+      const filtered = unescoSites.filter(
+        site =>
+          currentCategory === "all" ||
+          site.category === currentCategory
+      );
+
+
+      filtered.forEach(site => {
+
+        const customIcon = L.divIcon({
+          className: "custom-marker",
+          html: "🏛️",
+          iconSize: [28, 28],
+          iconAnchor: [14, 14]
+        });
+
+
+        const marker = L.marker(
+          [site.lat, site.lng],
+          {
+            icon: customIcon
+          }
+        );
+
+
+        marker.bindPopup(`
+          <div style="
+            font-family:'DM Sans',sans-serif;
+            text-align:center;
+            padding:4px;
+          ">
+
+            <strong style="
+              font-family:Cinzel,serif;
+              color:#f3e7ca;
+              font-size:14px;
+            ">
+              ${site.name}
+            </strong>
+
+            <br>
+
+            <span style="
+              color:#e5b75b;
+              font-size:11px;
+            ">
+              ${site.location}
+            </span>
+
+            <br>
+
+            <button
+              onclick="openSiteModal('${site.id}')"
+              style="
+                margin-top:8px;
+                padding:4px 10px;
+                background:#e5b75b;
+                border:0;
+                border-radius:6px;
+                font-weight:700;
+                cursor:pointer;
+                font-size:11px;
+              "
+            >
+              View Full Details
+            </button>
+
+          </div>
+        `);
+
+
+        markersLayer.addLayer(marker);
+
+
+        const card = document.createElement("div");
+
+        card.className = "site-card";
+
+        card.onclick = () =>
+          openSiteModal(site.id);
+
+
+        card.innerHTML = `
+          <div class="site-card-img-wrap">
+
+            <img
+              class="site-card-img"
+              src="${site.img}"
+              alt="${site.name}"
+              onerror="this.src='${site.fallback}'"
+            >
+
+            <span class="site-year-badge">
+              Inscribed ${site.year}
+            </span>
+
+          </div>
+
+          <div class="site-card-body">
+
+            <div>
+
+              <h4 class="site-card-title">
+                ${site.name}
+              </h4>
+
+              <div class="site-card-loc">
+                📍 ${site.location}
+              </div>
+
+              <p class="site-card-desc">
+                ${site.importance}
+              </p>
+
+            </div>
+
+          </div>
+        `;
+
+
+        grid.appendChild(card);
+
+      });
+
+    }
+
+
+    /* ============================================================
+       CATEGORY FILTER
+    ============================================================ */
+
+    function filterMapCategory(category) {
+
+      currentCategory = category;
+
+      document
+        .querySelectorAll(".filter-pill")
+        .forEach(pill => {
+
+          const text =
+            pill.textContent
+              .toLowerCase();
+
+          pill.classList.toggle(
+            "active",
+            category === "all"
+              ? text.includes("all sites")
+              : text.includes(category.toLowerCase())
+          );
+
+        });
+
+      renderSites();
+    }
+
+
+    /* ============================================================
+       SITE MODAL
+    ============================================================ */
+
+    function openSiteModal(siteId) {
+
+      const site =
+        unescoSites.find(
+          s => s.id === siteId
+        );
+
+      if (!site) return;
+
+      currentSelectedSite = site;
+
+
+      const img =
+        document.getElementById("modalImg");
+
+      img.src = site.img;
+
+      img.onerror = () => {
+        img.src = site.fallback;
+      };
+
+
+      document.getElementById("modalTitle")
+        .textContent = site.name;
+
+      document.getElementById("modalYear")
+        .textContent = `UNESCO: ${site.year}`;
+
+      document.getElementById("modalLocation")
+        .textContent = site.location;
+
+      document.getElementById("modalPeriod")
+        .textContent = site.period;
+
+      document.getElementById("modalBuilder")
+        .textContent = site.builder;
+
+      document.getElementById("modalCategory")
+        .textContent = `${site.category} Heritage`;
+
+      document.getElementById("modalImportance")
+        .textContent = site.importance;
+
+      document.getElementById("modalDesc")
+        .textContent = site.desc;
+
+
+      document
+        .getElementById("unescoModal")
+        .classList.add("active");
+    }
+
+
+    function closeModal(event, force = false) {
+
+      if (
+        force ||
+        event.target.id === "unescoModal"
+      ) {
+
+        document
+          .getElementById("unescoModal")
+          .classList.remove("active");
+
+      }
+
+    }
+
+
+    function openGoogleMaps() {
+
+      if (!currentSelectedSite) return;
+
+      const searchQuery =
+        encodeURIComponent(
+          currentSelectedSite.name +
+          " " +
+          currentSelectedSite.location +
+          " India"
+        );
+
+      window.open(
+        "https://www.google.com/maps/search/?api=1&query=" +
+        searchQuery,
+        "_blank"
+      );
+
+    }
+
+
+    renderSites();
+
+
+    /* ============================================================
+       BHARAT AI KNOWLEDGE BASE
+    ============================================================ */
+
+    const botKnowledgeBase = [
+
+      {
+        keywords: [
+          "taj mahal",
+          "agra",
+          "shah jahan",
+          "marble",
+          "mumtaz"
+        ],
+        response:
+          "The **Taj Mahal** in Agra, Uttar Pradesh was built between 1631–1648 CE by Emperor Shah Jahan as a white marble mausoleum for Mumtaz Mahal."
+      },
+
+      {
+        keywords: [
+          "hampi",
+          "vijayanagara",
+          "stone chariot"
+        ],
+        response:
+          "The **Group of Monuments at Hampi** in Karnataka was the magnificent capital of the Vijayanagara Empire and contains numerous surviving monuments including the famous Stone Chariot."
+      },
+
+      {
+        keywords: [
+          "ajanta"
+        ],
+        response:
+          "The **Ajanta Caves** in Maharashtra contain important Buddhist cave monuments and ancient mural paintings dating from the 2nd century BCE to the 6th century CE."
+      },
+
+      {
+        keywords: [
+          "ellora",
+          "kailasa"
+        ],
+        response:
+          "The **Ellora Caves** in Maharashtra contain Buddhist, Hindu and Jain monuments. Cave 16 contains the famous monolithic Kailasa Temple."
+      },
+
+      {
+        keywords: [
+          "mahabalipuram",
+          "shore temple",
+          "pallava"
+        ],
+        response:
+          "The **Group of Monuments at Mahabalipuram** in Tamil Nadu contains Pallava-era rock-cut monuments, rathas, mandapas and the Shore Temple."
+      },
+
+      {
+        keywords: [
+          "khajuraho",
+          "chandela"
+        ],
+        response:
+          "The **Khajuraho Group of Monuments** in Madhya Pradesh was built mainly during the Chandela period and is known for its Nagara-style temple architecture and sculptures."
+      },
+
+      {
+        keywords: [
+          "fatehpur sikri",
+          "akbar",
+          "buland darwaza"
+        ],
+        response:
+          "**Fatehpur Sikri** in Uttar Pradesh was developed as Emperor Akbar's imperial capital and contains monuments including Buland Darwaza and the Tomb of Salim Chishti."
+      },
+
+      {
+        keywords: [
+          "elephanta",
+          "trimurti",
+          "shiva"
+        ],
+        response:
+          "The **Elephanta Caves** in Mumbai Harbour contain rock-cut monuments associated with Shiva, including the famous Trimurti Sadashiva sculpture."
+      },
+
+      {
+        keywords: [
+          "pattadakal",
+          "chalukya"
+        ],
+        response:
+          "**Pattadakal** in Karnataka illustrates the combination of northern Nagara and southern Dravidian temple architectural traditions during the Chalukya period."
+      },
+
+      {
+        keywords: [
+          "chola",
+          "thanjavur",
+          "brihadisvara"
+        ],
+        response:
+          "The **Great Living Chola Temples** include the Brihadisvara Temple at Thanjavur and represent the architectural achievements of the Chola Empire."
+      },
+
+      {
+        keywords: [
+          "sanchi",
+          "stupa",
+          "ashoka"
+        ],
+        response:
+          "The **Buddhist Monuments at Sanchi** in Madhya Pradesh include the Great Stupa and intricately carved gateways associated with Buddhist history."
+      },
+
+      {
+        keywords: [
+          "humayun",
+          "charbagh"
+        ],
+        response:
+          "**Humayun's Tomb** in New Delhi is an important early Mughal garden-tomb and uses the Charbagh garden layout."
+      },
+
+      {
+        keywords: [
+          "qutb minar",
+          "qutub minar",
+          "iron pillar"
+        ],
+        response:
+          "**Qutb Minar and its Monuments** in Delhi represent important early Indo-Islamic architectural traditions."
+      },
+
+      {
+        keywords: [
+          "mountain railway",
+          "darjeeling",
+          "nilgiri",
+          "kalka shimla"
+        ],
+        response:
+          "The **Mountain Railways of India** include the Darjeeling Himalayan Railway, Nilgiri Mountain Railway and Kalka-Shimla Railway."
+      },
+
+      {
+        keywords: [
+          "mahabodhi",
+          "bodh gaya",
+          "buddha"
+        ],
+        response:
+          "The **Mahabodhi Temple Complex at Bodh Gaya** in Bihar marks the sacred location associated with Gautama Buddha's enlightenment."
+      },
+
+      {
+        keywords: [
+          "bhimbetka",
+          "rock shelters"
+        ],
+        response:
+          "The **Rock Shelters of Bhimbetka** in Madhya Pradesh contain prehistoric rock shelters and paintings representing very early human activity."
+      },
+
+      {
+        keywords: [
+          "cst",
+          "shivaji terminus",
+          "victorian gothic"
+        ],
+        response:
+          "**Chhatrapati Shivaji Maharaj Terminus** in Mumbai is a major example of Victorian Gothic Revival architecture blended with Indian architectural elements."
+      },
+
+      {
+        keywords: [
+          "champaner",
+          "pavagadh"
+        ],
+        response:
+          "**Champaner-Pavagadh Archaeological Park** in Gujarat contains archaeological remains and monuments representing different historical and architectural traditions."
+      },
+
+      {
+        keywords: [
+          "red fort",
+          "lal qila",
+          "shahjahanabad"
+        ],
+        response:
+          "The **Red Fort Complex** in Delhi was built during Shah Jahan's reign as part of the imperial city of Shahjahanabad."
+      },
+
+      {
+        keywords: [
+          "jantar mantar",
+          "astronomical",
+          "sundial"
+        ],
+        response:
+          "**The Jantar Mantar in Jaipur** is a historic astronomical observatory built by Maharaja Sawai Jai Singh II."
+      },
+
+      {
+        keywords: [
+          "rani ki vav",
+          "stepwell",
+          "patan"
+        ],
+        response:
+          "**Rani-ki-Vav** in Patan, Gujarat is an elaborate 11th-century stepwell known for its detailed sculptural decoration."
+      },
+
+      {
+        keywords: [
+          "nalanda",
+          "university"
+        ],
+        response:
+          "**Nalanda Mahavihara** in Bihar was a major ancient centre of Buddhist learning and residential education."
+      },
+
+      {
+        keywords: [
+          "le corbusier",
+          "chandigarh",
+          "capitol complex"
+        ],
+        response:
+          "The **Architectural Work of Le Corbusier** includes the Capitol Complex in Chandigarh and represents an important contribution to modern architecture and urban planning."
+      },
+
+      {
+        keywords: [
+          "ahmedabad",
+          "historic city",
+          "pol"
+        ],
+        response:
+          "The **Historic City of Ahmadabad** is known for its historic pols, traditional timber architecture and Indo-Islamic architectural heritage."
+      },
+
+      {
+        keywords: [
+          "art deco",
+          "marine drive"
+        ],
+        response:
+          "The **Victorian Gothic and Art Deco Ensembles of Mumbai** combine Victorian Gothic public architecture with the Art Deco buildings around the city's historic urban core."
+      },
+
+      {
+        keywords: [
+          "ramappa",
+          "kakatiya"
+        ],
+        response:
+          "The **Kakatiya Rudreshwara (Ramappa) Temple** in Telangana is known for its detailed sculpture and distinctive temple engineering."
+      },
+
+      {
+        keywords: [
+          "dholavira",
+          "harappan",
+          "indus valley"
+        ],
+        response:
+          "**Dholavira** in Gujarat was an important urban settlement of the Harappan civilization, noted for sophisticated water management and city planning."
+      },
+
+      {
+        keywords: [
+          "santiniketan",
+          "tagore",
+          "visva bharati"
+        ],
+        response:
+          "**Santiniketan** in West Bengal is closely associated with Rabindranath Tagore and the educational and cultural traditions of Visva-Bharati."
+      },
+
+      {
+        keywords: [
+          "hoysala",
+          "belur",
+          "halebidu",
+          "somanathapura"
+        ],
+        response:
+          "The **Sacred Ensembles of the Hoysalas** in Karnataka are known for highly detailed soapstone temple architecture and sculptural work."
+      },
+
+      {
+        keywords: [
+          "moidams",
+          "ahom"
+        ],
+        response:
+          "**Moidams** in Assam are the mound-burial system associated with the Ahom dynasty and the royal burial landscape of Charaideo."
+      },
+
+      {
+        keywords: [
+          "kaziranga",
+          "rhino",
+          "rhinoceros"
+        ],
+        response:
+          "**Kaziranga National Park** in Assam is internationally known for its population of the great Indian one-horned rhinoceros and its rich biodiversity."
+      },
+
+      {
+        keywords: [
+          "manas",
+          "golden langur"
+        ],
+        response:
+          "**Manas Wildlife Sanctuary** in Assam is an important biodiversity area in the Himalayan foothills and supports several rare species."
+      },
+
+      {
+        keywords: [
+          "keoladeo",
+          "bharatpur"
+        ],
+        response:
+          "**Keoladeo National Park** in Rajasthan is a wetland sanctuary known for its birdlife and migratory waterbirds."
+      },
+
+      {
+        keywords: [
+          "sundarbans",
+          "mangrove",
+          "bengal tiger"
+        ],
+        response:
+          "**Sundarbans National Park** in West Bengal protects a major mangrove ecosystem and habitat for the Royal Bengal Tiger."
+      },
+
+      {
+        keywords: [
+          "valley of flowers",
+          "nanda devi"
+        ],
+        response:
+          "**Nanda Devi and Valley of Flowers National Parks** in Uttarakhand protect high-altitude Himalayan landscapes and alpine ecosystems."
+      },
+
+      {
+        keywords: [
+          "western ghats",
+          "biodiversity"
+        ],
+        response:
+          "The **Western Ghats** are a major mountain system and biodiversity region along India's western side."
+      },
+
+      {
+        keywords: [
+          "great himalayan",
+          "kullu"
+        ],
+        response:
+          "The **Great Himalayan National Park Conservation Area** in Himachal Pradesh protects high-altitude Himalayan ecosystems and wildlife."
+      },
+
+      {
+        keywords: [
+          "khangchendzonga",
+          "kanchenjunga",
+          "sikkim"
+        ],
+        response:
+          "**Khangchendzonga National Park** in Sikkim is a Mixed Heritage site combining natural biodiversity with a culturally sacred Himalayan landscape."
+      },
+
+      {
+        keywords: [
+          "how many",
+          "total",
+          "count",
+          "number of unesco"
+        ],
+        response:
+          "BharatYatra's UNESCO catalog showcases India's Cultural, Natural and Mixed World Heritage sites through the interactive map and directory above."
+      },
+
+      {
+        keywords: [
+          "map",
+          "marker",
+          "interactive map",
+          "location"
+        ],
+        response:
+          "Use the **Interactive Heritage Map** above. You can filter the sites by Cultural, Natural or Mixed heritage and click individual markers for detailed information."
+      }
+
+    ];
+
+
+    /* ============================================================
+       BHARATYATRA NAVIGATION REGISTRY
+       ============================================================ */
+
+    const NAV_ROUTES = [
+
+      {
+        file: "index.html",
+        label: "Home Page",
+        keywords: [
+          "home",
+          "homepage",
+          "home page",
+          "main page",
+          "landing page",
+          "bharatyatra home"
+        ]
+      },
+
+      {
+        file: "chatbot.html",
+        label: "AI Itinerary Planner",
+        keywords: [
+          "itinerary",
+          "itinerary planner",
+          "ai itinerary",
+          "ai itinerary planner",
+          "trip planner",
+          "travel planner",
+          "plan a trip",
+          "plan my trip",
+          "travel plan",
+          "ai guide",
+          "bharat ai guide",
+          "bharat ai",
+          "plan a yatra"
+        ]
+      },
+
+      {
+        file: "ticket_generator.html",
+        label: "One-Ticket Pass",
+        keywords: [
+          "ticket",
+          "tickets",
+          "one ticket",
+          "one-ticket",
+          "one ticket pass",
+          "travel pass",
+          "ticket generator",
+          "generate ticket",
+          "book ticket",
+          "booking",
+          "book travel"
+        ]
+      },
+
+      {
+        file: "crafts.html",
+        label: "Crafts",
+        keywords: [
+          "craft",
+          "crafts",
+          "handicraft",
+          "handicrafts",
+          "handloom",
+          "artisan",
+          "artisans",
+          "souvenir",
+          "souvenirs"
+        ]
+      },
+
+      {
+        file: "gi_tag.html",
+        label: "GI Tag Products",
+        keywords: [
+          "gi tag",
+          "gi-tag",
+          "gi tags",
+          "geographical indication",
+          "gi products",
+          "regional products"
+        ]
+      },
+
+      {
+        file: "calendar.html",
+        label: "Calendar",
+        keywords: [
+          "calendar",
+          "festival calendar",
+          "events calendar",
+          "festival",
+          "festivals",
+          "events",
+          "upcoming events"
+        ]
+      },
+
+      {
+        file: "unesco_sites.html",
+        label: "UNESCO Sites",
+        keywords: [
+          "unesco",
+          "unesco sites",
+          "world heritage",
+          "world heritage sites",
+          "heritage site",
+          "heritage sites"
+        ]
+      },
+
+      {
+        file: "destinations.html",
+        label: "Tourist Spots",
+        keywords: [
+          "destination",
+          "destinations",
+          "tourist spot",
+          "tourist spots",
+          "tourist place",
+          "tourist places",
+          "places to visit",
+          "places to see",
+          "sightseeing",
+          "tourist attractions",
+          "tourist attraction"
+        ]
+      },
+
+      {
+        file: "hotels.html",
+        label: "Hotels & Stays",
+        keywords: [
+          "hotel",
+          "hotels",
+          "stay",
+          "stays",
+          "accommodation",
+          "accommodations",
+          "hotel booking",
+          "places to stay",
+          "homestay",
+          "homestays",
+          "hostel",
+          "hostels"
+        ]
+      },
+
+      {
+        file: "transport.html",
+        label: "Transport",
+        keywords: [
+          "transport",
+          "transportation",
+          "travel transport",
+          "flight",
+          "flights",
+          "train",
+          "trains",
+          "bus",
+          "buses",
+          "travel options",
+          "travel by train",
+          "travel by flight",
+          "travel by bus"
+        ]
+      },
+
+      {
+        file: "admin_access.html",
+        label: "Vendors",
+        keywords: [
+          "vendor",
+          "vendors",
+          "vendor portal",
+          "seller",
+          "sellers",
+          "admin",
+          "admin access"
+        ]
+      },
+
+      {
+        file: "login.html",
+        label: "Login / Profile",
+        keywords: [
+          "login",
+          "log in",
+          "signin",
+          "sign in",
+          "profile",
+          "my profile",
+          "account",
+          "my account",
+          "register",
+          "sign up",
+          "signup"
+        ]
+      }
+
+    ];
+
+
+    /* ============================================================
+       NAVIGATION INTENT
+    ============================================================ */
+
+    const NAVIGATION_PHRASES = [
+
+      "go to",
+      "take me to",
+      "take me back to",
+      "show me",
+      "open",
+      "navigate to",
+      "navigate",
+      "switch to",
+      "bring me to",
+      "send me to",
+      "move to",
+      "let me see",
+      "can you open",
+      "please open",
+      "please take me to",
+      "i want to see",
+      "i want to go",
+      "i want to visit",
+      "visit the",
+      "take me"
+
+    ];
+
+
+    const INFORMATION_PHRASES = [
+
+      "tell me about",
+      "what is",
+      "what are",
+      "who is",
+      "how is",
+      "how are",
+      "how does",
+      "how do",
+      "why",
+      "explain",
+      "information about",
+      "details about",
+      "describe",
+      "give me information",
+      "tell me more about"
+
+    ];
+
+
+    const CURRENT_PAGE =
+      (
+        window.location.pathname
+          .split("/")
+          .pop() ||
+        "index.html"
+      ).toLowerCase();
+
+
+    function normalizeQuery(text) {
+
+      return text
+        .toLowerCase()
+        .replace(/[?!.,;:]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    }
+
+
+    /* ============================================================
+       SMART LOCAL NAVIGATION MATCHER
+    ============================================================ */
+
+    function localNavMatch(rawQuery) {
+
+      const query =
+        normalizeQuery(rawQuery);
+
+
+      if (!query) {
+        return null;
+      }
+
+
+      let bestRoute = null;
+      let bestScore = 0;
+
+
+      for (const route of NAV_ROUTES) {
+
+        let score = 0;
+
+
+        for (const keyword of route.keywords) {
+
+          const k =
+            keyword.toLowerCase();
+
+
+          if (query === k) {
+
+            score += 100;
+
+          } else if (
+            query.includes(" " + k + " ") ||
+            query.startsWith(k + " ") ||
+            query.endsWith(" " + k)
+          ) {
+
+            score +=
+              Math.max(
+                5,
+                k.split(" ").length * 5
+              );
+
+          }
+
+        }
+
+
+        if (score > bestScore) {
+
+          bestScore = score;
+          bestRoute = route;
+
+        }
+
+      }
+
+
+      if (!bestRoute || bestScore === 0) {
+        return null;
+      }
+
+
+      const startsWithNavigation =
+        NAVIGATION_PHRASES.some(
+          phrase =>
+            query === phrase ||
+            query.startsWith(phrase + " ")
+        );
+
+
+      const hasInformationPhrase =
+        INFORMATION_PHRASES.some(
+          phrase =>
+            query === phrase ||
+            query.startsWith(phrase + " ") ||
+            query.includes(" " + phrase + " ")
+        );
+
+
+      /*
+       * IMPORTANT:
+       *
+       * "tell me about hotels"
+       * "what are hotels"
+       * "information about UNESCO"
+       *
+       * must NOT navigate.
+       */
+
+      if (
+        hasInformationPhrase &&
+        !startsWithNavigation
+      ) {
+
+        return null;
+
+      }
+
+
+      /*
+       * Explicit navigation commands always navigate.
+       */
+
+      if (startsWithNavigation) {
+        return bestRoute;
+      }
+
+
+      /*
+       * Exact page names navigate.
+       *
+       * Examples:
+       * "Hotels"
+       * "Calendar"
+       * "Crafts"
+       * "UNESCO Sites"
+       */
+
+      const exactPageName =
+        bestRoute.keywords.some(
+          keyword =>
+            query ===
+            keyword.toLowerCase()
+        );
+
+
+      if (exactPageName) {
+        return bestRoute;
+      }
+
+
+      return null;
+
+    }
+
+
+    /* ============================================================
+       NAVIGATION EXECUTION
+    ============================================================ */
+
+    function executeNavigation(route, botDiv) {
+
+      if (!route) return;
+
+
+      console.log(
+        "[BharatYatra Navigation]",
+        route.file
+      );
+
+
+      if (
+        route.file.toLowerCase() ===
+        CURRENT_PAGE
+      ) {
+
+        botDiv.innerHTML +=
+          `<br><br>
+           <em>
+             You're already on the ${route.label} page!
+           </em>`;
+
+        return;
+
+      }
+
+
+      botDiv.innerHTML +=
+        `<br><br>
+         <em>
+           Taking you to ${route.label}...
+         </em>`;
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          route.file;
+
+      }, 700);
+
+    }
+
+
+    /* ============================================================
+       GROQ CONFIGURATION
+       ============================================================ */
+
+    /*
+     * IMPORTANT:
+     *
+     * Do NOT commit a real API key to GitHub.
+     *
+     * The key that was present in the code you pasted should be
+     * revoked/rotated.
+     *
+     * For a temporary local demo, put your new key here.
+     *
+     * For the final SIH version, move this API call to a backend.
+     */
+
+    const ACTIVE_MODELS = [
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b",
+      "qwen/qwen3.6-27b"
+    ];
+
+
+    /* ============================================================
+       SYSTEM INSTRUCTION
+    ============================================================ */
+
+    const SYSTEM_INSTRUCTION = `
+
+You are Bharat AI, the official interactive travel assistant
+for the BharatYatra website.
+
+You are currently on the UNESCO Sites page.
+
+You can answer questions about:
+
+- UNESCO World Heritage Sites
+- Indian heritage
+- historical monuments
+- architecture
+- historical periods
+- builders and dynasties
+- locations
+- Cultural, Natural and Mixed heritage
+
+You can also help visitors navigate the BharatYatra website.
+
+AVAILABLE WEBSITE PAGES:
+
+1. Home Page -> index.html
+2. AI Itinerary Planner -> chatbot.html
+3. One-Ticket Pass -> ticket_generator.html
+4. Crafts -> crafts.html
+5. GI Tag Products -> gi_tag.html
+6. Calendar -> calendar.html
+7. UNESCO Sites -> unesco_sites.html
+8. Tourist Spots -> destinations.html
+9. Hotels & Stays -> hotels.html
+10. Transport -> transport.html
+11. Vendors -> admin_access.html
+12. Login / Profile -> login.html
+
+IMPORTANT NAVIGATION RULE:
+
+Only navigate when the user is clearly asking you to open,
+go to, switch to, visit, or take them to another page.
+
+Examples that SHOULD navigate:
+
+"open hotels"
+"take me to crafts"
+"go to calendar"
+"show me UNESCO sites"
+"open the transport page"
+"take me to my profile"
+"visit the tourist spots page"
+
+Examples that should NOT navigate:
+
+"tell me about hotels"
+"what are UNESCO sites?"
+"explain crafts"
+"what transport options are available?"
+"tell me about the Taj Mahal"
+
+When navigation is clearly requested, include exactly one marker
+at the END of your answer:
+
+[NAVIGATE:filename.html]
+
+Valid filenames are:
+
+index.html
+chatbot.html
+ticket_generator.html
+crafts.html
+gi_tag.html
+calendar.html
+unesco_sites.html
+destinations.html
+hotels.html
+transport.html
+admin_access.html
+login.html
+
+Never invent another filename.
+
+`;
+
+
+    let conversationHistory = [
+      {
+        role: "system",
+        content: SYSTEM_INSTRUCTION
+      }
+    ];
+
+
+    /* ============================================================
+       CHAT OPEN/CLOSE
+    ============================================================ */
+
+    function toggleChat() {
+
+      const chatbot =
+        document.getElementById("chatbot");
+
+
+      chatbot.classList.toggle("active");
+
+
+      if (
+        chatbot.classList.contains("active")
+      ) {
+
+        setTimeout(() => {
+
+          document
+            .getElementById("chatInput")
+            .focus();
+
+        }, 100);
+
+      }
+
+    }
+
+
+    function handleChat(event) {
+
+      if (
+        event.key === "Enter" &&
+        !event.shiftKey
+      ) {
+
+        event.preventDefault();
+
+        sendMessage();
+
+      }
+
+    }
+
+
+    /* ============================================================
+       SAFE NAVIGATION MARKER PARSER
+    ============================================================ */
+
+    function extractNavigationMarker(text) {
+
+      const validFiles =
+        new Set(
+          NAV_ROUTES.map(
+            route => route.file
+          )
+        );
+
+
+      const regex =
+        /\[NAVIGATE:([a-z0-9_-]+\.html)\]/gi;
+
+
+      let targetFile = null;
+
+
+      const cleanText =
+        text.replace(
+          regex,
+          (_, filename) => {
+
+            const normalized =
+              filename.toLowerCase();
+
+
+            if (
+              !targetFile &&
+              validFiles.has(normalized)
+            ) {
+
+              targetFile =
+                normalized;
+
+            }
+
+
+            return "";
+
+          }
+        )
+        .trim();
+
+
+      return {
+        cleanText,
+        targetFile
+      };
+
+    }
+
+
+    /* ============================================================
+       MAIN CHAT FUNCTION
+    ============================================================ */
+
+    async function sendMessage() {
+
+      const input =
+        document.getElementById("chatInput");
+
+      const messages =
+        document.getElementById("chatMessages");
+
+
+      const originalText =
+        input.value.trim();
+
+
+      if (!originalText) {
+        return;
+      }
+
+
+      /* USER MESSAGE */
+
+      const userDiv =
+        document.createElement("div");
+
+      userDiv.className =
+        "message user";
+
+      userDiv.textContent =
+        originalText;
+
+      messages.appendChild(userDiv);
+
+
+      input.value = "";
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      /* =========================================================
+         FIRST: LOCAL NAVIGATION
+         ========================================================= */
+
+      const localRoute =
+        localNavMatch(originalText);
+
+
+      if (localRoute) {
+
+        const botDiv =
+          document.createElement("div");
+
+        botDiv.className =
+          "message bot";
+
+
+        botDiv.innerHTML =
+          `Sure! Heading to
+           <strong>
+             ${localRoute.label}
+           </strong>.`;
+
+
+        messages.appendChild(botDiv);
+
+
+        messages.scrollTop =
+          messages.scrollHeight;
+
+
+        executeNavigation(
+          localRoute,
+          botDiv
+        );
+
+
+        return;
+
+      }
+
+
+      /* =========================================================
+         AI RESPONSE
+         ========================================================= */
+
+      const botDiv =
+        document.createElement("div");
+
+      botDiv.className =
+        "message bot";
+
+      botDiv.innerHTML =
+        "Thinking...";
+
+
+      messages.appendChild(botDiv);
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      conversationHistory.push({
+        role: "user",
+        content: originalText
+      });
+
+
+      try {
+
+        const liveAnswer =
+          await callGroqAPI(
+            conversationHistory
+          );
+
+
+        conversationHistory.push({
+          role: "assistant",
+          content: liveAnswer
+        });
+
+
+        const navigation =
+          extractNavigationMarker(
+            liveAnswer
+          );
+
+
+        botDiv.innerHTML =
+          parseMarkdownWithTables(
+            navigation.cleanText
+          );
+
+
+        if (
+          navigation.targetFile
+        ) {
+
+          const route =
+            NAV_ROUTES.find(
+              item =>
+                item.file ===
+                navigation.targetFile
+            );
+
+
+          if (route) {
+
+            executeNavigation(
+              route,
+              botDiv
+            );
+
+          }
+
+        }
+
+
+      } catch (error) {
+
+        /*
+         * If Groq is unavailable, use the
+         * local UNESCO knowledge base instead.
+         */
+
+        const localAnswer =
+          getLocalKnowledgeAnswer(
+            originalText
+          );
+
+
+        botDiv.innerHTML =
+          parseMarkdownWithTables(
+            localAnswer
+          );
+
+      }
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+    }
+
+
+    /* ============================================================
+       GROQ API
+    ============================================================ */
+
+    async function callGroqAPI(messages) { 
+ 
+      let lastError = null; 
+ 
+ 
+      for ( 
+        const model of ACTIVE_MODELS 
+      ) { 
+ 
+        try { 
+ 
+          const response = 
+            await fetch( 
+              "http://localhost:3001/api/groq", 
+              { 
+                method: "POST", 
+ 
+                headers: { 
+                  "Content-Type": 
+                    "application/json" 
+                }, 
+ 
+                body: JSON.stringify({ 
+ 
+                  model, 
+ 
+                  messages, 
+ 
+                  temperature: 0.65, 
+ 
+                  max_tokens: 1200 
+ 
+                }) 
+ 
+              } 
+            ); 
+ 
+ 
+          if (!response.ok) { 
+ 
+            const errorJson = 
+              await response 
+                .json() 
+                .catch(() => ({})); 
+ 
+ 
+            lastError = 
+              errorJson.error?.message || 
+              `HTTP ${response.status}`; 
+ 
+ 
+            continue; 
+ 
+          } 
+ 
+ 
+          const data = 
+            await response.json(); 
+ 
+ 
+          const reply = 
+            data 
+              .choices?.[0] 
+              ?.message 
+              ?.content; 
+ 
+ 
+          if (reply) { 
+ 
+            return reply; 
+ 
+          } 
+ 
+        } catch (error) { 
+ 
+          lastError = 
+            error.message; 
+ 
+        } 
+ 
+      } 
+ 
+ 
+      throw new Error( 
+        lastError || 
+        "Could not connect to Bharat AI." 
+      ); 
+ 
+    }
+    /* ============================================================
+       LOCAL FALLBACK KNOWLEDGE
+    ============================================================ */
+
+    function getLocalKnowledgeAnswer(
+      rawQuery
+    ) {
+
+      const query =
+        rawQuery.toLowerCase();
+
+
+      for (
+        const item of botKnowledgeBase
+      ) {
+
+        if (
+          item.keywords.some(
+            keyword =>
+              query.includes(
+                keyword
+              )
+          )
+        ) {
+
+          return item.response;
+
+        }
+
+      }
+
+
+      return `
+        That's a fascinating question about India's heritage! 🇮🇳
+        <br><br>
+        You can ask me about the
+        <strong>Taj Mahal</strong>,
+        <strong>Hampi</strong>,
+        <strong>Ajanta Caves</strong>,
+        <strong>Ellora Caves</strong>,
+        <strong>Khajuraho</strong>,
+        <strong>Kaziranga</strong>,
+        or any of the UNESCO sites shown on the map above.
+      `;
+
+    }
+
+
+    /* ============================================================
+       MARKDOWN / TABLE PARSER
+    ============================================================ */
+
+    function escapeHtml(value) {
+
+      return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    function parseMarkdownWithTables(text) {
+
+      let output =
+        escapeHtml(text);
+
+
+      const tableRegex =
+        /((?:\|[^\n]+\|\r?\n)((?:\|[ \-:!|.]+\|)\r?\n)(?:\|[^\n]+\|\r?\n?)+)/g;
+
+
+      output =
+        output.replace(
+          tableRegex,
+          match => {
+
+            const rows =
+              match
+                .trim()
+                .split("\n")
+                .map(row =>
+                  row.trim()
+                );
+
+
+            if (
+              rows.length < 2
+            ) {
+
+              return match;
+
+            }
+
+
+            const headers =
+              rows[0]
+                .split("|")
+                .slice(1, -1)
+                .map(
+                  header =>
+                    `<th>${header.trim()}</th>`
+                )
+                .join("");
+
+
+            const bodyRows =
+              rows
+                .slice(2)
+                .map(row => {
+
+                  const cells =
+                    row
+                      .split("|")
+                      .slice(1, -1)
+                      .map(
+                        cell =>
+                          `<td>${cell.trim()}</td>`
+                      )
+                      .join("");
+
+
+                  return `
+                    <tr>
+                      ${cells}
+                    </tr>
+                  `;
+
+                })
+                .join("");
+
+
+            return `
+              <div class="table-wrapper">
+                <table>
+                  <thead>
+                    <tr>
+                      ${headers}
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    ${bodyRows}
+                  </tbody>
+                </table>
+              </div>
+            `;
+
+          }
+        );
+
+
+      output =
+        output.replace(
+          /\*\*(.*?)\*\*/g,
+          "<strong>$1</strong>"
+        );
+
+
+      output =
+        output.replace(
+          /\*(.*?)\*/g,
+          "<em>$1</em>"
+        );
+
+
+      output =
+        output.replace(
+          /^\s*[\*\-]\s+(.*)$/gim,
+          "• $1<br>"
+        );
+
+
+      output =
+        output.replace(
+          /\n\n/g,
+          "<br><br>"
+        );
+
+
+      output =
+        output.replace(
+          /\n/g,
+          "<br>"
+        );
+
+
+      return output;
+
+    }
+
+  </script>
+
+
+  <script src="profile-tracker.js"></script>
+
+</body>
+</html>

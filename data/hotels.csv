@@ -1,0 +1,911 @@
+id,name,city,state,type,rating,roomsLeft,price,img,address
+91,Jaisalmer Grand Heritage Hotel 2,Jaisalmer,Rajasthan,Hotel,4.1 ★,8,4350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+92,Jaipur Traveler's Backpackers 2,Jaipur,Rajasthan,Hostel,3.8 ★,3,600,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Main Market
+93,Vellore Traveler's Backpackers 2,Vellore,Tamil Nadu,Hostel,4.4 ★,23,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+94,Amritsar Budget Inn 2,Amritsar,Punjab,Hotel,4.4 ★,1,1150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+95,Siliguri Royal Palace Residency 2,Siliguri,West Bengal,Hotel,4.0 ★,25,7150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+96,Jodhpur Royal Palace Residency 2,Jodhpur,Rajasthan,Hotel,4.2 ★,12,8850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+97,Mahabaleshwar Traditional Family Homestay 2,Mahabaleshwar,Maharashtra,Homestay,4.4 ★,13,2300,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+98,Warangal Traditional Family Homestay 2,Warangal,Telangana,Homestay,4.5 ★,12,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+99,Faridabad Grand Heritage Hotel 2,Faridabad,Haryana,Hotel,4.1 ★,10,4000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+100,Kota Premium Boutique Stay 2,Kota,Rajasthan,Hotel,4.3 ★,12,5000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+101,Dibrugarh City Comfort Hotel 2,Dibrugarh,Assam,Hotel,4.1 ★,22,4250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+102,Vadodara Traveler's Backpackers 2,Vadodara,Gujarat,Hostel,4.1 ★,15,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+103,Chennai Urban Student Living 2,Chennai,Tamil Nadu,PG,4.7 ★,25,1550,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+104,Solapur Traditional Family Homestay 2,Solapur,Maharashtra,Homestay,4.2 ★,3,2300,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+105,Guntur City Comfort Hotel 2,Guntur,Andhra Pradesh,Hotel,4.3 ★,21,3650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+106,Thiruvananthapuram City Comfort Hotel 2,Thiruvananthapuram,Kerala,Hotel,4.6 ★,18,3000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+107,Jalandhar Lakeside Guest House 2,Jalandhar,Punjab,Guest House,4.2 ★,8,1500,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+108,Pondicherry Grand Heritage Hotel 2,Pondicherry,Puducherry,Hotel,3.9 ★,4,4450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+109,Ludhiana Traveler's Backpackers 2,Ludhiana,Punjab,Hostel,4.2 ★,20,800,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+110,Kanyakumari Lakeside Guest House 2,Kanyakumari,Tamil Nadu,Guest House,4.7 ★,1,1450,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+111,Munnar Traditional Family Homestay 2,Munnar,Kerala,Homestay,4.2 ★,10,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+112,Shimla Grand Heritage Hotel 2,Shimla,Himachal Pradesh,Hotel,4.6 ★,24,5650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+113,Bhavnagar Traveler's Backpackers 2,Bhavnagar,Gujarat,Hostel,3.9 ★,21,650,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+114,Mysuru Grand Heritage Hotel 2,Mysuru,Karnataka,Hotel,4.6 ★,18,8450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+115,Mumbai Urban Student Living 2,Mumbai,Maharashtra,PG,4.3 ★,4,2050,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+116,Ooty Grand Heritage Hotel 2,Ooty,Tamil Nadu,Hotel,4.8 ★,3,4400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+117,Faridabad Lakeside Guest House 2,Faridabad,Haryana,Guest House,4.4 ★,5,1500,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Railway Station Road
+118,Surat Royal Palace Residency 2,Surat,Gujarat,Hotel,4.8 ★,14,6350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+119,Mangaluru Urban Student Living 2,Mangaluru,Karnataka,PG,4.2 ★,22,2500,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Heritage Area
+120,Rishikesh Peaceful Spiritual Retreat 2,Rishikesh,Uttarakhand,Ashram,4.3 ★,8,900,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+121,Darjeeling Grand Heritage Hotel 2,Darjeeling,West Bengal,Hotel,4.4 ★,19,5400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+122,Noida Urban Student Living 2,Noida,Uttar Pradesh,PG,3.9 ★,3,1550,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Heritage Area
+123,Noida Urban Student Living 3,Noida,Uttar Pradesh,PG,4.1 ★,16,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+124,Lucknow Urban Student Living 2,Lucknow,Uttar Pradesh,PG,4.8 ★,19,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+125,Jammu Traditional Family Homestay 2,Jammu,Jammu and Kashmir,Homestay,4.0 ★,4,2650,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+126,Ludhiana Premium Boutique Stay 2,Ludhiana,Punjab,Hotel,4.8 ★,2,4600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+127,Gwalior Urban Student Living 2,Gwalior,Madhya Pradesh,PG,4.7 ★,4,1850,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+128,Somnath Urban Student Living 2,Somnath,Gujarat,PG,4.0 ★,6,1900,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+129,Thanjavur Peaceful Spiritual Retreat 2,Thanjavur,Tamil Nadu,Ashram,3.9 ★,18,800,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,City Centre
+130,Nagpur Lakeside Guest House 2,Nagpur,Maharashtra,Guest House,4.8 ★,8,1550,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Tourist District
+131,Margao Premium Boutique Stay 2,Margao,Goa,Hotel,4.8 ★,2,5050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+132,Mumbai Lakeside Guest House 2,Mumbai,Maharashtra,Guest House,4.1 ★,15,1750,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Tourist District
+133,Margao City Comfort Hotel 2,Margao,Goa,Hotel,4.1 ★,2,4050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+134,Delhi Urban Student Living 2,Delhi,Delhi,PG,3.9 ★,19,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+135,Gorakhpur Grand Heritage Hotel 2,Gorakhpur,Uttar Pradesh,Hotel,4.4 ★,6,3900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+136,Faridabad Urban Student Living 2,Faridabad,Haryana,PG,4.1 ★,4,2400,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+137,Lonavala Urban Student Living 2,Lonavala,Maharashtra,PG,4.3 ★,19,2400,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+138,Guntur Lakeside Guest House 2,Guntur,Andhra Pradesh,Guest House,4.0 ★,23,1800,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Main Market
+139,Thiruvananthapuram Budget Inn 2,Thiruvananthapuram,Kerala,Hotel,4.5 ★,10,1600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+140,Noida Grand Heritage Hotel 2,Noida,Uttar Pradesh,Hotel,4.5 ★,19,4100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+141,Coorg Traveler's Backpackers 2,Coorg,Karnataka,Hostel,3.9 ★,12,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Main Market
+142,Itanagar Royal Palace Residency 2,Itanagar,Arunachal Pradesh,Hotel,4.3 ★,18,6900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+143,Nashik Urban Student Living 2,Nashik,Maharashtra,PG,4.4 ★,22,1650,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+144,Thiruvananthapuram City Comfort Hotel 3,Thiruvananthapuram,Kerala,Hotel,3.9 ★,18,2650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+145,Wayanad Urban Student Living 2,Wayanad,Kerala,PG,4.6 ★,7,2500,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+146,Vellore Premium Boutique Stay 2,Vellore,Tamil Nadu,Hotel,4.8 ★,2,4550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+147,Thrissur Grand Heritage Hotel 2,Thrissur,Kerala,Hotel,4.2 ★,5,7550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+148,Ahmedabad Urban Student Living 2,Ahmedabad,Gujarat,PG,4.4 ★,14,2350,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+149,Jaisalmer Grand Heritage Hotel 3,Jaisalmer,Rajasthan,Hotel,4.8 ★,5,6950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+150,Itanagar Traveler's Backpackers 2,Itanagar,Arunachal Pradesh,Hostel,4.0 ★,5,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+151,Imphal Lakeside Guest House 2,Imphal,Manipur,Guest House,4.7 ★,2,1850,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Main Market
+152,Thanjavur Urban Student Living 2,Thanjavur,Tamil Nadu,PG,4.2 ★,18,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+153,Vrindavan Lakeside Guest House 2,Vrindavan,Uttar Pradesh,Guest House,4.1 ★,6,1550,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Tourist District
+154,Aurangabad City Comfort Hotel 2,Aurangabad,Maharashtra,Hotel,4.8 ★,14,4300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+155,Munnar City Comfort Hotel 2,Munnar,Kerala,Hotel,4.6 ★,13,2550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+156,Chennai Royal Palace Residency 2,Chennai,Tamil Nadu,Hotel,4.8 ★,12,6950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+157,Coimbatore Grand Heritage Hotel 2,Coimbatore,Tamil Nadu,Hotel,4.0 ★,11,5250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+158,Alleppey Budget Inn 2,Alleppey,Kerala,Hotel,4.4 ★,22,1750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+159,Kolhapur City Comfort Hotel 2,Kolhapur,Maharashtra,Hotel,4.9 ★,6,4050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+160,Shirdi City Comfort Hotel 2,Shirdi,Maharashtra,Hotel,4.3 ★,24,3200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+161,Rajahmundry City Comfort Hotel 2,Rajahmundry,Andhra Pradesh,Hotel,4.8 ★,7,3000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+162,Dehradun Grand Heritage Hotel 2,Dehradun,Uttarakhand,Hotel,4.8 ★,18,7850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+163,Imphal Premium Boutique Stay 2,Imphal,Manipur,Hotel,4.8 ★,11,6000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+164,Secunderabad Traveler's Backpackers 2,Secunderabad,Telangana,Hostel,4.5 ★,11,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+165,Varanasi Royal Palace Residency 2,Varanasi,Uttar Pradesh,Hotel,4.5 ★,13,6100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+166,Vijayawada Budget Inn 2,Vijayawada,Andhra Pradesh,Hotel,4.7 ★,10,1350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+167,Patiala Traditional Family Homestay 2,Patiala,Punjab,Homestay,4.5 ★,11,2700,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+168,Haridwar Peaceful Spiritual Retreat 2,Haridwar,Uttarakhand,Ashram,4.4 ★,24,850,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+169,Wayanad Urban Student Living 3,Wayanad,Kerala,PG,4.5 ★,11,1600,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+170,Tirupati Budget Inn 2,Tirupati,Andhra Pradesh,Hotel,4.0 ★,1,950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+171,Jammu Traveler's Backpackers 2,Jammu,Jammu and Kashmir,Hostel,4.6 ★,15,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+172,Bengaluru Urban Student Living 2,Bengaluru,Karnataka,PG,4.2 ★,13,1850,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+173,Pune Peaceful Spiritual Retreat 2,Pune,Maharashtra,Ashram,4.7 ★,4,1050,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Main Market
+174,Bhavnagar Traditional Family Homestay 2,Bhavnagar,Gujarat,Homestay,4.6 ★,15,2050,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+175,Thanjavur Lakeside Guest House 2,Thanjavur,Tamil Nadu,Guest House,3.9 ★,5,2000,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+176,Bhubaneswar Lakeside Guest House 2,Bhubaneswar,Odisha,Guest House,4.8 ★,20,2100,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Tourist District
+177,Nainital Peaceful Spiritual Retreat 2,Nainital,Uttarakhand,Ashram,4.6 ★,16,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Temple Road
+178,Thanjavur Traditional Family Homestay 2,Thanjavur,Tamil Nadu,Homestay,4.1 ★,25,2800,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+179,Ooty Budget Inn 2,Ooty,Tamil Nadu,Hotel,3.9 ★,10,1400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+180,Kolkata Budget Inn 2,Kolkata,West Bengal,Hotel,4.4 ★,5,1100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+181,Ranchi Urban Student Living 2,Ranchi,Jharkhand,PG,4.6 ★,3,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+182,Konark Traditional Family Homestay 2,Konark,Odisha,Homestay,4.3 ★,7,2650,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Tourist District
+183,Thane Traditional Family Homestay 2,Thane,Maharashtra,Homestay,4.6 ★,13,2750,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,City Centre
+184,Dibrugarh Royal Palace Residency 2,Dibrugarh,Assam,Hotel,4.2 ★,14,8400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+185,Chennai Traveler's Backpackers 2,Chennai,Tamil Nadu,Hostel,4.1 ★,16,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+186,Darjeeling Traditional Family Homestay 2,Darjeeling,West Bengal,Homestay,4.7 ★,24,2500,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+187,Varanasi Lakeside Guest House 2,Varanasi,Uttar Pradesh,Guest House,4.4 ★,13,2200,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Old Town
+188,Aurangabad Grand Heritage Hotel 2,Aurangabad,Maharashtra,Hotel,4.3 ★,15,4650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+189,Kochi Budget Inn 2,Kochi,Kerala,Hotel,4.0 ★,11,1400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+190,Alleppey Urban Student Living 2,Alleppey,Kerala,PG,4.7 ★,9,1600,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+191,Navi Mumbai Urban Student Living 2,Navi Mumbai,Maharashtra,PG,3.9 ★,12,1850,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+192,Lonavala Traditional Family Homestay 2,Lonavala,Maharashtra,Homestay,4.8 ★,7,2200,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+193,Vrindavan Budget Inn 2,Vrindavan,Uttar Pradesh,Hotel,4.3 ★,4,1800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+194,Kasol Traditional Family Homestay 2,Kasol,Himachal Pradesh,Homestay,4.6 ★,6,3250,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+195,Bikaner Traditional Family Homestay 2,Bikaner,Rajasthan,Homestay,4.0 ★,10,2150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+196,Aurangabad Lakeside Guest House 2,Aurangabad,Maharashtra,Guest House,4.4 ★,13,1900,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Main Market
+197,Ghaziabad Traveler's Backpackers 2,Ghaziabad,Uttar Pradesh,Hostel,4.7 ★,8,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+198,Mount Abu Traditional Family Homestay 2,Mount Abu,Rajasthan,Homestay,4.4 ★,2,2800,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+199,Jalandhar Urban Student Living 2,Jalandhar,Punjab,PG,3.9 ★,21,2000,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+200,Amritsar Peaceful Spiritual Retreat 2,Amritsar,Punjab,Ashram,3.9 ★,12,1250,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Railway Station Road
+201,Vrindavan Traveler's Backpackers 2,Vrindavan,Uttar Pradesh,Hostel,4.6 ★,21,650,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+202,Panaji Premium Boutique Stay 2,Panaji,Goa,Hotel,4.7 ★,19,6550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+203,Rameswaram Peaceful Spiritual Retreat 2,Rameswaram,Tamil Nadu,Ashram,3.9 ★,15,900,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Railway Station Road
+204,Bodh Gaya Premium Boutique Stay 2,Bodh Gaya,Bihar,Hotel,4.3 ★,11,5150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+205,Coorg Premium Boutique Stay 2,Coorg,Karnataka,Hotel,4.1 ★,9,6350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+206,Nashik Traveler's Backpackers 2,Nashik,Maharashtra,Hostel,4.0 ★,8,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+207,Calangute Traveler's Backpackers 2,Calangute,Goa,Hostel,4.1 ★,16,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+208,Nainital Traditional Family Homestay 2,Nainital,Uttarakhand,Homestay,3.9 ★,8,2850,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+209,Visakhapatnam Urban Student Living 2,Visakhapatnam,Andhra Pradesh,PG,4.2 ★,18,2300,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Heritage Area
+210,Ludhiana Lakeside Guest House 2,Ludhiana,Punjab,Guest House,4.4 ★,12,2000,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Temple Road
+211,Visakhapatnam Royal Palace Residency 2,Visakhapatnam,Andhra Pradesh,Hotel,3.9 ★,7,7000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+212,Gandhinagar City Comfort Hotel 2,Gandhinagar,Gujarat,Hotel,4.6 ★,9,4500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+213,Wayanad Lakeside Guest House 2,Wayanad,Kerala,Guest House,4.7 ★,10,1800,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Heritage Area
+214,Bhavnagar Budget Inn 2,Bhavnagar,Gujarat,Hotel,4.6 ★,5,1300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+215,Satara Traveler's Backpackers 2,Satara,Maharashtra,Hostel,4.6 ★,5,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+216,Ajmer Peaceful Spiritual Retreat 2,Ajmer,Rajasthan,Ashram,4.4 ★,16,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Railway Station Road
+217,Siliguri City Comfort Hotel 2,Siliguri,West Bengal,Hotel,3.9 ★,16,2550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+218,Jabalpur Premium Boutique Stay 2,Jabalpur,Madhya Pradesh,Hotel,4.4 ★,22,4300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+219,Mathura Peaceful Spiritual Retreat 2,Mathura,Uttar Pradesh,Ashram,4.8 ★,3,900,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+220,Chandigarh Urban Student Living 2,Chandigarh,Chandigarh,PG,4.7 ★,8,2300,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+221,Mussoorie Peaceful Spiritual Retreat 2,Mussoorie,Uttarakhand,Ashram,4.1 ★,19,1050,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Temple Road
+222,Delhi Urban Student Living 3,Delhi,Delhi,PG,4.6 ★,25,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+223,Thiruvananthapuram Urban Student Living 2,Thiruvananthapuram,Kerala,PG,4.0 ★,6,2350,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+224,Gorakhpur Grand Heritage Hotel 3,Gorakhpur,Uttar Pradesh,Hotel,4.3 ★,20,6500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+225,Solapur Royal Palace Residency 2,Solapur,Maharashtra,Hotel,4.6 ★,23,7900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+226,Salem Lakeside Guest House 2,Salem,Tamil Nadu,Guest House,4.7 ★,21,2200,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Main Market
+227,Ludhiana City Comfort Hotel 2,Ludhiana,Punjab,Hotel,4.0 ★,5,3050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+228,Noida Grand Heritage Hotel 3,Noida,Uttar Pradesh,Hotel,4.7 ★,20,8250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+229,Kovalam Premium Boutique Stay 2,Kovalam,Kerala,Hotel,4.3 ★,10,6550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+230,Bilaspur Traveler's Backpackers 2,Bilaspur,Chhattisgarh,Hostel,4.3 ★,20,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+231,Puri Traditional Family Homestay 2,Puri,Odisha,Homestay,3.8 ★,8,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+232,Thane Lakeside Guest House 2,Thane,Maharashtra,Guest House,4.5 ★,9,2200,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,City Centre
+233,Rajkot Premium Boutique Stay 2,Rajkot,Gujarat,Hotel,4.5 ★,9,5150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+234,Dehradun Urban Student Living 2,Dehradun,Uttarakhand,PG,4.3 ★,3,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Heritage Area
+235,Ujjain Premium Boutique Stay 2,Ujjain,Madhya Pradesh,Hotel,4.5 ★,6,6100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+236,Pondicherry Royal Palace Residency 2,Pondicherry,Puducherry,Hotel,4.8 ★,25,8500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+237,Shimla Grand Heritage Hotel 3,Shimla,Himachal Pradesh,Hotel,4.1 ★,4,9250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+238,Mumbai Urban Student Living 3,Mumbai,Maharashtra,PG,4.4 ★,14,1550,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+239,Gangtok Traditional Family Homestay 2,Gangtok,Sikkim,Homestay,4.3 ★,15,2250,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+240,Munnar Urban Student Living 2,Munnar,Kerala,PG,4.8 ★,15,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+241,Kolhapur Lakeside Guest House 2,Kolhapur,Maharashtra,Guest House,4.5 ★,8,1550,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Temple Road
+242,Nagpur Urban Student Living 2,Nagpur,Maharashtra,PG,3.9 ★,4,2200,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+243,Vrindavan Urban Student Living 2,Vrindavan,Uttar Pradesh,PG,4.6 ★,17,1900,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+244,Panaji Lakeside Guest House 2,Panaji,Goa,Guest House,4.1 ★,18,1500,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Tourist District
+245,Somnath Peaceful Spiritual Retreat 2,Somnath,Gujarat,Ashram,4.4 ★,5,800,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Temple Road
+246,Chandigarh Premium Boutique Stay 2,Chandigarh,Chandigarh,Hotel,4.7 ★,9,4000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+247,Secunderabad Traditional Family Homestay 2,Secunderabad,Telangana,Homestay,4.4 ★,22,2750,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+248,Nainital Urban Student Living 2,Nainital,Uttarakhand,PG,4.2 ★,18,2350,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+249,Shimla Lakeside Guest House 2,Shimla,Himachal Pradesh,Guest House,4.8 ★,23,1800,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Old Town
+250,Ranchi Royal Palace Residency 2,Ranchi,Jharkhand,Hotel,4.7 ★,2,7000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+251,Bodh Gaya Traveler's Backpackers 2,Bodh Gaya,Bihar,Hostel,4.5 ★,21,550,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+252,Shirdi City Comfort Hotel 3,Shirdi,Maharashtra,Hotel,4.9 ★,11,2500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+253,Kota Urban Student Living 2,Kota,Rajasthan,PG,4.3 ★,24,1700,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+254,Vrindavan Grand Heritage Hotel 2,Vrindavan,Uttar Pradesh,Hotel,4.7 ★,9,5650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+255,Indore Urban Student Living 2,Indore,Madhya Pradesh,PG,4.7 ★,22,2350,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+256,Bhubaneswar Urban Student Living 2,Bhubaneswar,Odisha,PG,4.8 ★,16,2350,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+257,Faridabad Royal Palace Residency 2,Faridabad,Haryana,Hotel,4.6 ★,10,6450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+258,Dehradun Lakeside Guest House 2,Dehradun,Uttarakhand,Guest House,4.6 ★,23,1450,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Railway Station Road
+259,Surat Urban Student Living 2,Surat,Gujarat,PG,4.8 ★,2,2000,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+260,Warangal Budget Inn 2,Warangal,Telangana,Hotel,4.3 ★,8,1700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+261,Dwarka Royal Palace Residency 2,Dwarka,Gujarat,Hotel,3.9 ★,13,8950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+262,Raipur Lakeside Guest House 2,Raipur,Chhattisgarh,Guest House,4.0 ★,15,1700,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Railway Station Road
+263,Kodaikanal Traditional Family Homestay 2,Kodaikanal,Tamil Nadu,Homestay,4.8 ★,15,2700,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+264,Gorakhpur Grand Heritage Hotel 4,Gorakhpur,Uttar Pradesh,Hotel,4.8 ★,19,5400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+265,Kanyakumari Premium Boutique Stay 2,Kanyakumari,Tamil Nadu,Hotel,4.1 ★,13,7050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+266,Tiruchirappalli Budget Inn 2,Tiruchirappalli,Tamil Nadu,Hotel,4.2 ★,10,2000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+267,Thane Lakeside Guest House 3,Thane,Maharashtra,Guest House,4.5 ★,9,1300,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Old Town
+268,Amravati Lakeside Guest House 2,Amravati,Maharashtra,Guest House,4.6 ★,10,1650,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Old Town
+269,Dibrugarh Royal Palace Residency 3,Dibrugarh,Assam,Hotel,4.0 ★,9,5850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+270,Lonavala Budget Inn 2,Lonavala,Maharashtra,Hotel,4.3 ★,19,1600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+271,Jodhpur Peaceful Spiritual Retreat 2,Jodhpur,Rajasthan,Ashram,4.2 ★,14,850,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Main Market
+272,Lucknow Urban Student Living 3,Lucknow,Uttar Pradesh,PG,4.8 ★,12,2300,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+273,Kozhikode Traditional Family Homestay 2,Kozhikode,Kerala,Homestay,4.1 ★,16,2450,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+274,Bikaner Premium Boutique Stay 2,Bikaner,Rajasthan,Hotel,3.9 ★,25,5400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+275,Imphal Grand Heritage Hotel 2,Imphal,Manipur,Hotel,4.2 ★,9,6900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+276,Shimla Premium Boutique Stay 2,Shimla,Himachal Pradesh,Hotel,4.6 ★,9,7050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+277,Pushkar Peaceful Spiritual Retreat 2,Pushkar,Rajasthan,Ashram,4.3 ★,20,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Heritage Area
+278,Chennai Urban Student Living 3,Chennai,Tamil Nadu,PG,4.5 ★,15,1950,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+279,Bikaner City Comfort Hotel 2,Bikaner,Rajasthan,Hotel,4.8 ★,10,3750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+280,Udaipur City Comfort Hotel 2,Udaipur,Rajasthan,Hotel,4.4 ★,13,3650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+281,Amritsar Traditional Family Homestay 2,Amritsar,Punjab,Homestay,4.6 ★,14,3000,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+282,Calangute Traveler's Backpackers 3,Calangute,Goa,Hostel,4.8 ★,9,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Heritage Area
+283,Udupi Premium Boutique Stay 2,Udupi,Karnataka,Hotel,4.8 ★,12,4600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+284,Shillong Grand Heritage Hotel 2,Shillong,Meghalaya,Hotel,4.1 ★,4,6400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+285,Coorg Traditional Family Homestay 2,Coorg,Karnataka,Homestay,4.5 ★,1,2250,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+286,Rameswaram Lakeside Guest House 2,Rameswaram,Tamil Nadu,Guest House,4.7 ★,7,1400,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+287,Hubballi Traveler's Backpackers 2,Hubballi,Karnataka,Hostel,4.7 ★,8,700,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Airport Road
+288,Mumbai Budget Inn 2,Mumbai,Maharashtra,Hotel,4.9 ★,5,2000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+289,Rajkot City Comfort Hotel 2,Rajkot,Gujarat,Hotel,4.8 ★,5,2200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+290,Tiruchirappalli Traveler's Backpackers 2,Tiruchirappalli,Tamil Nadu,Hostel,3.8 ★,9,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Airport Road
+291,Amritsar Urban Student Living 2,Amritsar,Punjab,PG,4.6 ★,16,2200,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Heritage Area
+292,Pushkar Urban Student Living 2,Pushkar,Rajasthan,PG,4.0 ★,20,1550,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+293,Vijayawada Premium Boutique Stay 2,Vijayawada,Andhra Pradesh,Hotel,4.9 ★,2,7050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+294,Jalandhar Urban Student Living 3,Jalandhar,Punjab,PG,4.3 ★,15,1600,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+295,Puri Traditional Family Homestay 3,Puri,Odisha,Homestay,3.9 ★,9,2950,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+296,Cuttack Budget Inn 2,Cuttack,Odisha,Hotel,4.5 ★,10,1600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+297,Patiala Grand Heritage Hotel 2,Patiala,Punjab,Hotel,4.6 ★,21,7650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+298,Udupi Premium Boutique Stay 3,Udupi,Karnataka,Hotel,4.8 ★,14,6150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+299,Jabalpur Premium Boutique Stay 3,Jabalpur,Madhya Pradesh,Hotel,3.9 ★,14,6000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+300,Patna Lakeside Guest House 2,Patna,Bihar,Guest House,4.6 ★,16,1400,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Lake Road
+301,Kurukshetra City Comfort Hotel 2,Kurukshetra,Haryana,Hotel,3.9 ★,24,3350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+302,Delhi Urban Student Living 4,Delhi,Delhi,PG,4.4 ★,11,1650,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+303,Dibrugarh Peaceful Spiritual Retreat 2,Dibrugarh,Assam,Ashram,4.8 ★,14,750,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Temple Road
+304,Tirupati Premium Boutique Stay 2,Tirupati,Andhra Pradesh,Hotel,4.4 ★,7,4950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+305,Coimbatore Traditional Family Homestay 2,Coimbatore,Tamil Nadu,Homestay,4.2 ★,18,2550,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+306,Alleppey Traveler's Backpackers 2,Alleppey,Kerala,Hostel,4.7 ★,18,900,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+307,Aurangabad Traveler's Backpackers 2,Aurangabad,Maharashtra,Hostel,4.5 ★,23,650,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,City Centre
+308,Dwarka Budget Inn 2,Dwarka,Gujarat,Hotel,4.6 ★,11,1450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+309,Dwarka Peaceful Spiritual Retreat 2,Dwarka,Gujarat,Ashram,4.4 ★,13,800,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Airport Road
+310,Kolhapur City Comfort Hotel 3,Kolhapur,Maharashtra,Hotel,4.4 ★,13,3500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+311,Siliguri City Comfort Hotel 3,Siliguri,West Bengal,Hotel,4.1 ★,11,4000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+312,Kurukshetra Peaceful Spiritual Retreat 2,Kurukshetra,Haryana,Ashram,4.0 ★,25,1200,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,City Centre
+313,Panipat Royal Palace Residency 2,Panipat,Haryana,Hotel,4.5 ★,16,8850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+314,Chandigarh Budget Inn 2,Chandigarh,Chandigarh,Hotel,4.6 ★,4,1450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+315,Jaisalmer City Comfort Hotel 2,Jaisalmer,Rajasthan,Hotel,4.5 ★,16,3850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+316,Mahabaleshwar Royal Palace Residency 2,Mahabaleshwar,Maharashtra,Hotel,4.9 ★,2,5500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+317,Vijayawada Lakeside Guest House 2,Vijayawada,Andhra Pradesh,Guest House,4.6 ★,25,1700,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Temple Road
+318,Cuttack City Comfort Hotel 2,Cuttack,Odisha,Hotel,4.3 ★,14,2750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+319,Bodh Gaya Urban Student Living 2,Bodh Gaya,Bihar,PG,4.1 ★,18,2050,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+320,Indore Traditional Family Homestay 2,Indore,Madhya Pradesh,Homestay,3.8 ★,1,2700,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+321,Guntur Traveler's Backpackers 2,Guntur,Andhra Pradesh,Hostel,4.4 ★,23,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+322,Hyderabad Grand Heritage Hotel 2,Hyderabad,Telangana,Hotel,3.8 ★,11,4550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+323,Manali Traditional Family Homestay 2,Manali,Himachal Pradesh,Homestay,4.8 ★,3,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+324,Rameswaram Traveler's Backpackers 2,Rameswaram,Tamil Nadu,Hostel,4.2 ★,3,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+325,Darjeeling Royal Palace Residency 2,Darjeeling,West Bengal,Hotel,4.7 ★,3,9100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+326,Rajahmundry City Comfort Hotel 3,Rajahmundry,Andhra Pradesh,Hotel,4.7 ★,12,4500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+327,Tiruchirappalli Grand Heritage Hotel 2,Tiruchirappalli,Tamil Nadu,Hotel,4.1 ★,6,7350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+328,Ghaziabad City Comfort Hotel 2,Ghaziabad,Uttar Pradesh,Hotel,4.7 ★,16,3650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+329,Nainital Traditional Family Homestay 3,Nainital,Uttarakhand,Homestay,4.8 ★,21,3300,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+330,Puri Peaceful Spiritual Retreat 2,Puri,Odisha,Ashram,4.5 ★,5,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+331,Srinagar Traveler's Backpackers 2,Srinagar,Jammu and Kashmir,Hostel,4.1 ★,9,900,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,City Centre
+332,Dibrugarh Traveler's Backpackers 2,Dibrugarh,Assam,Hostel,4.1 ★,15,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,City Centre
+333,Itanagar Traditional Family Homestay 2,Itanagar,Arunachal Pradesh,Homestay,3.9 ★,3,2950,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+334,Vellore Budget Inn 2,Vellore,Tamil Nadu,Hotel,4.4 ★,24,950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+335,Somnath Premium Boutique Stay 2,Somnath,Gujarat,Hotel,4.3 ★,5,4350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+336,Ajmer Traditional Family Homestay 2,Ajmer,Rajasthan,Homestay,4.7 ★,23,2100,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+337,Rajkot Grand Heritage Hotel 2,Rajkot,Gujarat,Hotel,4.6 ★,15,6850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+338,Gorakhpur Budget Inn 2,Gorakhpur,Uttar Pradesh,Hotel,4.8 ★,13,1550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+339,Satara Traditional Family Homestay 2,Satara,Maharashtra,Homestay,4.5 ★,3,2500,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+340,Ranchi Royal Palace Residency 3,Ranchi,Jharkhand,Hotel,4.6 ★,22,8850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+341,Kolkata Grand Heritage Hotel 2,Kolkata,West Bengal,Hotel,4.5 ★,12,5450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+342,Lucknow Traveler's Backpackers 2,Lucknow,Uttar Pradesh,Hostel,4.8 ★,10,850,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+343,Konark Peaceful Spiritual Retreat 2,Konark,Odisha,Ashram,4.5 ★,24,1250,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+344,Jodhpur Traveler's Backpackers 2,Jodhpur,Rajasthan,Hostel,4.3 ★,12,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Heritage Area
+345,Tirupati Royal Palace Residency 2,Tirupati,Andhra Pradesh,Hotel,4.0 ★,25,8100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+346,Coimbatore Lakeside Guest House 2,Coimbatore,Tamil Nadu,Guest House,4.0 ★,10,1450,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+347,Shirdi Peaceful Spiritual Retreat 2,Shirdi,Maharashtra,Ashram,4.8 ★,20,850,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Old Town
+348,Gaya City Comfort Hotel 2,Gaya,Bihar,Hotel,4.0 ★,23,4150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+349,Rishikesh Grand Heritage Hotel 2,Rishikesh,Uttarakhand,Hotel,4.2 ★,24,5000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+350,Wayanad Traditional Family Homestay 2,Wayanad,Kerala,Homestay,4.7 ★,8,3150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+351,Tirupati Lakeside Guest House 2,Tirupati,Andhra Pradesh,Guest House,4.7 ★,7,1850,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Old Town
+352,Rishikesh Urban Student Living 2,Rishikesh,Uttarakhand,PG,4.1 ★,13,2300,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+353,Amritsar Lakeside Guest House 2,Amritsar,Punjab,Guest House,4.7 ★,20,1500,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Temple Road
+354,Satara Urban Student Living 2,Satara,Maharashtra,PG,4.8 ★,18,1650,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+355,Agra City Comfort Hotel 2,Agra,Uttar Pradesh,Hotel,4.6 ★,9,3600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+356,Meerut Traditional Family Homestay 2,Meerut,Uttar Pradesh,Homestay,3.9 ★,8,2700,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+357,Aurangabad Premium Boutique Stay 2,Aurangabad,Maharashtra,Hotel,4.2 ★,12,5500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+358,Panipat Budget Inn 2,Panipat,Haryana,Hotel,3.8 ★,4,2000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+359,Meerut City Comfort Hotel 2,Meerut,Uttar Pradesh,Hotel,4.1 ★,16,4400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+360,Srinagar Traveler's Backpackers 3,Srinagar,Jammu and Kashmir,Hostel,3.8 ★,3,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+361,Udupi Traditional Family Homestay 2,Udupi,Karnataka,Homestay,4.4 ★,24,2950,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+362,Ludhiana City Comfort Hotel 3,Ludhiana,Punjab,Hotel,4.1 ★,10,2550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+363,Ooty Traveler's Backpackers 2,Ooty,Tamil Nadu,Hostel,4.7 ★,15,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Lake Road
+364,Raipur Traveler's Backpackers 2,Raipur,Chhattisgarh,Hostel,3.8 ★,17,900,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Main Market
+365,Ayodhya Budget Inn 2,Ayodhya,Uttar Pradesh,Hotel,3.8 ★,12,1250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+366,Chandigarh Royal Palace Residency 2,Chandigarh,Chandigarh,Hotel,4.5 ★,17,7300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+367,Vellore Traditional Family Homestay 2,Vellore,Tamil Nadu,Homestay,4.4 ★,1,2600,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+368,Mahabaleshwar Traditional Family Homestay 3,Mahabaleshwar,Maharashtra,Homestay,4.9 ★,9,2200,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+369,Faridabad Budget Inn 2,Faridabad,Haryana,Hotel,4.6 ★,21,1050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+370,Kolkata City Comfort Hotel 2,Kolkata,West Bengal,Hotel,4.2 ★,11,4250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+371,Dharamshala Lakeside Guest House 2,Dharamshala,Himachal Pradesh,Guest House,4.3 ★,6,1500,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Lake Road
+372,Manali Grand Heritage Hotel 2,Manali,Himachal Pradesh,Hotel,4.0 ★,7,4100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+373,Tirupati Urban Student Living 2,Tirupati,Andhra Pradesh,PG,4.9 ★,18,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+374,Shirdi Peaceful Spiritual Retreat 3,Shirdi,Maharashtra,Ashram,4.0 ★,12,750,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Heritage Area
+375,Kozhikode City Comfort Hotel 2,Kozhikode,Kerala,Hotel,4.2 ★,13,3600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+376,Darjeeling Lakeside Guest House 2,Darjeeling,West Bengal,Guest House,4.3 ★,16,2050,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+377,Munnar Traditional Family Homestay 3,Munnar,Kerala,Homestay,4.6 ★,3,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+378,Dwarka Traditional Family Homestay 2,Dwarka,Gujarat,Homestay,4.2 ★,3,2500,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Temple Road
+379,Visakhapatnam Premium Boutique Stay 2,Visakhapatnam,Andhra Pradesh,Hotel,4.6 ★,6,6800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+380,Nainital Grand Heritage Hotel 2,Nainital,Uttarakhand,Hotel,4.8 ★,12,8150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+381,Thrissur Urban Student Living 2,Thrissur,Kerala,PG,4.7 ★,2,1600,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+382,Imphal Traveler's Backpackers 2,Imphal,Manipur,Hostel,4.6 ★,6,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Airport Road
+383,Rishikesh Grand Heritage Hotel 3,Rishikesh,Uttarakhand,Hotel,3.9 ★,25,7600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+384,Gangtok Premium Boutique Stay 2,Gangtok,Sikkim,Hotel,4.4 ★,20,5450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+385,Itanagar Budget Inn 2,Itanagar,Arunachal Pradesh,Hotel,4.6 ★,19,1100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+386,Imphal Budget Inn 2,Imphal,Manipur,Hotel,4.5 ★,8,1050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+387,Gandhinagar Traveler's Backpackers 2,Gandhinagar,Gujarat,Hostel,4.2 ★,18,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+388,Kochi Urban Student Living 2,Kochi,Kerala,PG,4.0 ★,20,1950,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+389,Mangaluru City Comfort Hotel 2,Mangaluru,Karnataka,Hotel,4.7 ★,15,2750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+390,Jaipur Urban Student Living 2,Jaipur,Rajasthan,PG,4.9 ★,11,2050,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+391,Hyderabad Traditional Family Homestay 2,Hyderabad,Telangana,Homestay,4.7 ★,23,3000,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+392,Gangtok Traveler's Backpackers 2,Gangtok,Sikkim,Hostel,3.9 ★,7,550,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Main Market
+393,Pondicherry Grand Heritage Hotel 3,Pondicherry,Puducherry,Hotel,4.4 ★,12,6450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+394,Lucknow Traveler's Backpackers 3,Lucknow,Uttar Pradesh,Hostel,3.9 ★,10,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+395,Khajuraho Traditional Family Homestay 2,Khajuraho,Madhya Pradesh,Homestay,4.7 ★,3,2200,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+396,Noida Traveler's Backpackers 2,Noida,Uttar Pradesh,Hostel,4.5 ★,12,550,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+397,Dwarka Peaceful Spiritual Retreat 3,Dwarka,Gujarat,Ashram,3.9 ★,17,750,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+398,Vrindavan Premium Boutique Stay 2,Vrindavan,Uttar Pradesh,Hotel,4.0 ★,23,5400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+399,Wayanad Traditional Family Homestay 3,Wayanad,Kerala,Homestay,4.1 ★,21,3150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Temple Road
+400,Varanasi Peaceful Spiritual Retreat 2,Varanasi,Uttar Pradesh,Ashram,4.5 ★,3,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Airport Road
+401,Vrindavan Royal Palace Residency 2,Vrindavan,Uttar Pradesh,Hotel,4.5 ★,20,7150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+402,Lonavala Traditional Family Homestay 3,Lonavala,Maharashtra,Homestay,3.8 ★,2,3300,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+403,Thiruvananthapuram Urban Student Living 3,Thiruvananthapuram,Kerala,PG,4.6 ★,14,2450,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+404,Raipur Peaceful Spiritual Retreat 2,Raipur,Chhattisgarh,Ashram,4.4 ★,21,950,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Railway Station Road
+405,Rameswaram Peaceful Spiritual Retreat 3,Rameswaram,Tamil Nadu,Ashram,4.6 ★,10,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+406,Delhi City Comfort Hotel 2,Delhi,Delhi,Hotel,4.3 ★,15,3300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+407,Ayodhya Premium Boutique Stay 2,Ayodhya,Uttar Pradesh,Hotel,4.6 ★,24,6200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+408,Lucknow Urban Student Living 4,Lucknow,Uttar Pradesh,PG,4.4 ★,4,2000,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+409,Kasol City Comfort Hotel 2,Kasol,Himachal Pradesh,Hotel,4.3 ★,5,2750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+410,Hyderabad Lakeside Guest House 2,Hyderabad,Telangana,Guest House,4.8 ★,14,1650,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Airport Road
+411,Cuttack Lakeside Guest House 2,Cuttack,Odisha,Guest House,4.6 ★,7,1550,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Railway Station Road
+412,Kasol Traveler's Backpackers 2,Kasol,Himachal Pradesh,Hostel,4.1 ★,1,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+413,Vellore Premium Boutique Stay 3,Vellore,Tamil Nadu,Hotel,4.1 ★,19,6250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+414,Amravati Royal Palace Residency 2,Amravati,Maharashtra,Hotel,4.5 ★,21,8000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+415,Nashik Traditional Family Homestay 2,Nashik,Maharashtra,Homestay,4.3 ★,9,2550,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Tourist District
+416,Imphal Grand Heritage Hotel 3,Imphal,Manipur,Hotel,3.9 ★,18,4700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+417,Kovalam Grand Heritage Hotel 2,Kovalam,Kerala,Hotel,4.4 ★,25,7000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+418,Mount Abu City Comfort Hotel 2,Mount Abu,Rajasthan,Hotel,3.9 ★,12,3600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+419,Imphal Traditional Family Homestay 2,Imphal,Manipur,Homestay,4.0 ★,17,2600,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+420,Lonavala Grand Heritage Hotel 2,Lonavala,Maharashtra,Hotel,4.0 ★,11,7150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+421,Shimla City Comfort Hotel 2,Shimla,Himachal Pradesh,Hotel,4.8 ★,5,3500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+422,Bhubaneswar City Comfort Hotel 2,Bhubaneswar,Odisha,Hotel,4.9 ★,24,3150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+423,Darjeeling Traveler's Backpackers 2,Darjeeling,West Bengal,Hostel,4.4 ★,16,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+424,Secunderabad Premium Boutique Stay 2,Secunderabad,Telangana,Hotel,3.8 ★,11,4700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+425,Visakhapatnam Traditional Family Homestay 2,Visakhapatnam,Andhra Pradesh,Homestay,4.6 ★,23,3000,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,City Centre
+426,Jammu Royal Palace Residency 2,Jammu,Jammu and Kashmir,Hotel,4.5 ★,25,8700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+427,Madurai Peaceful Spiritual Retreat 2,Madurai,Tamil Nadu,Ashram,4.4 ★,6,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Old Town
+428,Bodh Gaya City Comfort Hotel 2,Bodh Gaya,Bihar,Hotel,4.5 ★,2,4000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+429,Somnath Grand Heritage Hotel 2,Somnath,Gujarat,Hotel,4.1 ★,5,6100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+430,Khajuraho Traveler's Backpackers 2,Khajuraho,Madhya Pradesh,Hostel,4.5 ★,16,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,City Centre
+431,Prayagraj Urban Student Living 2,Prayagraj,Uttar Pradesh,PG,4.4 ★,22,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+432,Gaya Budget Inn 2,Gaya,Bihar,Hotel,4.0 ★,18,1400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+433,Dibrugarh Urban Student Living 2,Dibrugarh,Assam,PG,4.8 ★,22,2500,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+434,Panaji City Comfort Hotel 2,Panaji,Goa,Hotel,4.1 ★,18,3600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+435,Secunderabad Traditional Family Homestay 3,Secunderabad,Telangana,Homestay,4.6 ★,23,2750,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+436,Leh Premium Boutique Stay 2,Leh,Ladakh,Hotel,4.8 ★,24,6350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+437,Agra Budget Inn 2,Agra,Uttar Pradesh,Hotel,4.4 ★,13,1450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+438,Hyderabad Grand Heritage Hotel 3,Hyderabad,Telangana,Hotel,4.9 ★,3,5700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+439,Kodaikanal Traditional Family Homestay 3,Kodaikanal,Tamil Nadu,Homestay,4.0 ★,18,2650,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+440,Kozhikode City Comfort Hotel 3,Kozhikode,Kerala,Hotel,4.5 ★,19,2950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+441,Amravati Urban Student Living 2,Amravati,Maharashtra,PG,4.4 ★,21,1850,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+442,Kota Traveler's Backpackers 2,Kota,Rajasthan,Hostel,4.6 ★,4,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Airport Road
+443,Pune Lakeside Guest House 2,Pune,Maharashtra,Guest House,4.9 ★,6,1950,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Railway Station Road
+444,Leh Traditional Family Homestay 2,Leh,Ladakh,Homestay,4.6 ★,10,2750,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Temple Road
+445,Delhi Peaceful Spiritual Retreat 2,Delhi,Delhi,Ashram,3.9 ★,19,900,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+446,Shirdi Peaceful Spiritual Retreat 4,Shirdi,Maharashtra,Ashram,4.0 ★,6,750,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Tourist District
+447,Pondicherry City Comfort Hotel 2,Pondicherry,Puducherry,Hotel,4.6 ★,10,2300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+448,Secunderabad Traveler's Backpackers 3,Secunderabad,Telangana,Hostel,3.9 ★,11,650,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+449,Pondicherry Peaceful Spiritual Retreat 2,Pondicherry,Puducherry,Ashram,3.9 ★,17,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Temple Road
+450,Bengaluru Traditional Family Homestay 2,Bengaluru,Karnataka,Homestay,4.2 ★,24,2700,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Temple Road
+451,Gandhinagar Grand Heritage Hotel 2,Gandhinagar,Gujarat,Hotel,4.2 ★,10,7100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+452,Rajkot Traveler's Backpackers 2,Rajkot,Gujarat,Hostel,4.5 ★,13,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+453,Cuttack Grand Heritage Hotel 2,Cuttack,Odisha,Hotel,4.5 ★,6,4350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+454,Puri Lakeside Guest House 2,Puri,Odisha,Guest House,3.8 ★,13,1650,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Railway Station Road
+455,Munnar Lakeside Guest House 2,Munnar,Kerala,Guest House,4.1 ★,24,2400,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,City Centre
+456,Kochi Urban Student Living 3,Kochi,Kerala,PG,4.6 ★,2,1650,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+457,Visakhapatnam City Comfort Hotel 2,Visakhapatnam,Andhra Pradesh,Hotel,4.6 ★,23,3150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+458,Warangal Budget Inn 3,Warangal,Telangana,Hotel,4.0 ★,5,1650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+459,Shimla Traditional Family Homestay 2,Shimla,Himachal Pradesh,Homestay,4.5 ★,14,3150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+460,Udupi Traditional Family Homestay 3,Udupi,Karnataka,Homestay,4.5 ★,20,2100,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+461,Nainital Urban Student Living 3,Nainital,Uttarakhand,PG,4.2 ★,19,1650,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+462,Vellore City Comfort Hotel 2,Vellore,Tamil Nadu,Hotel,4.4 ★,6,3200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+463,Haridwar City Comfort Hotel 2,Haridwar,Uttarakhand,Hotel,4.0 ★,19,3750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+464,Rajahmundry Premium Boutique Stay 2,Rajahmundry,Andhra Pradesh,Hotel,3.9 ★,5,7250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+465,Shimla Urban Student Living 2,Shimla,Himachal Pradesh,PG,4.4 ★,22,1950,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+466,Indore Budget Inn 2,Indore,Madhya Pradesh,Hotel,3.8 ★,7,1800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+467,Mahabaleshwar Traveler's Backpackers 2,Mahabaleshwar,Maharashtra,Hostel,4.6 ★,18,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Lake Road
+468,Srinagar Grand Heritage Hotel 2,Srinagar,Jammu and Kashmir,Hotel,4.2 ★,25,4800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+469,Patna Lakeside Guest House 3,Patna,Bihar,Guest House,4.2 ★,13,1900,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Lake Road
+470,Kanpur Urban Student Living 2,Kanpur,Uttar Pradesh,PG,4.2 ★,6,2350,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+471,Varanasi Peaceful Spiritual Retreat 3,Varanasi,Uttar Pradesh,Ashram,4.0 ★,1,750,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Temple Road
+472,Dharamshala Peaceful Spiritual Retreat 2,Dharamshala,Himachal Pradesh,Ashram,4.4 ★,18,1050,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Main Market
+473,Thanjavur Premium Boutique Stay 2,Thanjavur,Tamil Nadu,Hotel,4.0 ★,7,4700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+474,Amritsar Traditional Family Homestay 3,Amritsar,Punjab,Homestay,4.8 ★,1,2350,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+475,Faridabad Grand Heritage Hotel 3,Faridabad,Haryana,Hotel,3.8 ★,20,7800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+476,Rameswaram Peaceful Spiritual Retreat 4,Rameswaram,Tamil Nadu,Ashram,4.2 ★,8,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Main Market
+477,New Delhi City Comfort Hotel 2,New Delhi,Delhi,Hotel,4.9 ★,8,5200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+478,Bhubaneswar Traveler's Backpackers 2,Bhubaneswar,Odisha,Hostel,4.6 ★,11,600,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+479,Ayodhya Lakeside Guest House 2,Ayodhya,Uttar Pradesh,Guest House,4.4 ★,14,1750,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Temple Road
+480,Delhi Urban Student Living 5,Delhi,Delhi,PG,4.5 ★,24,1750,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+481,Pondicherry Grand Heritage Hotel 4,Pondicherry,Puducherry,Hotel,4.2 ★,21,7750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+482,Bhubaneswar Urban Student Living 3,Bhubaneswar,Odisha,PG,4.2 ★,10,2100,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+483,Jammu Royal Palace Residency 3,Jammu,Jammu and Kashmir,Hotel,4.0 ★,23,5900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+484,New Delhi Urban Student Living 2,New Delhi,Delhi,PG,4.9 ★,18,2300,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+485,Jamshedpur Royal Palace Residency 2,Jamshedpur,Jharkhand,Hotel,4.0 ★,21,5500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+486,Itanagar Grand Heritage Hotel 2,Itanagar,Arunachal Pradesh,Hotel,4.6 ★,7,3800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+487,Gaya Urban Student Living 2,Gaya,Bihar,PG,4.5 ★,3,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+488,Udupi Premium Boutique Stay 4,Udupi,Karnataka,Hotel,4.8 ★,11,5900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+489,Coorg Lakeside Guest House 2,Coorg,Karnataka,Guest House,4.9 ★,4,2250,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Main Market
+490,Hampi Budget Inn 2,Hampi,Karnataka,Hotel,4.1 ★,11,1350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+491,Kasol Urban Student Living 2,Kasol,Himachal Pradesh,PG,4.2 ★,9,2050,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+492,Raipur Premium Boutique Stay 2,Raipur,Chhattisgarh,Hotel,4.7 ★,24,7000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+493,Hampi Budget Inn 3,Hampi,Karnataka,Hotel,4.3 ★,19,1250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+494,Navi Mumbai Budget Inn 2,Navi Mumbai,Maharashtra,Hotel,4.8 ★,19,1550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+495,Vrindavan Royal Palace Residency 3,Vrindavan,Uttar Pradesh,Hotel,4.1 ★,19,6550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+496,Darjeeling Budget Inn 2,Darjeeling,West Bengal,Hotel,4.7 ★,24,2100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+497,Manali City Comfort Hotel 2,Manali,Himachal Pradesh,Hotel,4.7 ★,6,2850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+498,Calangute City Comfort Hotel 2,Calangute,Goa,Hotel,4.8 ★,21,2700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+499,Solapur Traditional Family Homestay 3,Solapur,Maharashtra,Homestay,3.9 ★,22,2050,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,City Centre
+500,Khajuraho City Comfort Hotel 2,Khajuraho,Madhya Pradesh,Hotel,4.5 ★,3,4450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+501,Nashik Royal Palace Residency 2,Nashik,Maharashtra,Hotel,4.3 ★,2,8950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+502,Panaji Urban Student Living 2,Panaji,Goa,PG,3.8 ★,18,2350,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+503,Nagpur Grand Heritage Hotel 2,Nagpur,Maharashtra,Hotel,4.6 ★,18,5300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+504,Bilaspur Traditional Family Homestay 2,Bilaspur,Chhattisgarh,Homestay,4.5 ★,6,2150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+505,Mathura Budget Inn 2,Mathura,Uttar Pradesh,Hotel,4.5 ★,9,1450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+506,Indore Grand Heritage Hotel 2,Indore,Madhya Pradesh,Hotel,4.9 ★,15,7100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+507,Coimbatore Royal Palace Residency 2,Coimbatore,Tamil Nadu,Hotel,4.7 ★,3,5200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+508,Gwalior Budget Inn 2,Gwalior,Madhya Pradesh,Hotel,4.4 ★,2,1900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+509,Vadodara Grand Heritage Hotel 2,Vadodara,Gujarat,Hotel,4.7 ★,21,8500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+510,Udaipur Traditional Family Homestay 2,Udaipur,Rajasthan,Homestay,4.8 ★,8,2300,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+511,Jammu Royal Palace Residency 4,Jammu,Jammu and Kashmir,Hotel,4.8 ★,22,6750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+512,Solapur City Comfort Hotel 2,Solapur,Maharashtra,Hotel,4.7 ★,1,2850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+513,Ayodhya Peaceful Spiritual Retreat 2,Ayodhya,Uttar Pradesh,Ashram,4.6 ★,13,800,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Temple Road
+514,Ahmedabad Traveler's Backpackers 2,Ahmedabad,Gujarat,Hostel,4.4 ★,13,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+515,Konark Traveler's Backpackers 2,Konark,Odisha,Hostel,4.6 ★,23,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Lake Road
+516,Bilaspur Urban Student Living 2,Bilaspur,Chhattisgarh,PG,4.2 ★,4,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+517,Ghaziabad Budget Inn 2,Ghaziabad,Uttar Pradesh,Hotel,4.6 ★,20,1500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+518,Kolhapur Peaceful Spiritual Retreat 2,Kolhapur,Maharashtra,Ashram,4.7 ★,15,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Main Market
+519,Shillong Traveler's Backpackers 2,Shillong,Meghalaya,Hostel,4.2 ★,6,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+520,Bodh Gaya City Comfort Hotel 3,Bodh Gaya,Bihar,Hotel,4.5 ★,8,4450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+521,Kurukshetra Budget Inn 2,Kurukshetra,Haryana,Hotel,4.2 ★,21,1100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+522,Bhubaneswar Budget Inn 2,Bhubaneswar,Odisha,Hotel,3.9 ★,10,1600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+523,Kozhikode Grand Heritage Hotel 2,Kozhikode,Kerala,Hotel,3.9 ★,14,6350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+524,Ujjain City Comfort Hotel 2,Ujjain,Madhya Pradesh,Hotel,3.9 ★,18,2450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+525,Cuttack Peaceful Spiritual Retreat 2,Cuttack,Odisha,Ashram,3.8 ★,14,1050,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+526,Rameswaram Traditional Family Homestay 2,Rameswaram,Tamil Nadu,Homestay,4.0 ★,13,2250,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+527,Munnar Budget Inn 2,Munnar,Kerala,Hotel,4.3 ★,3,1250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+528,Thrissur Premium Boutique Stay 2,Thrissur,Kerala,Hotel,4.3 ★,3,6300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+529,Thanjavur Urban Student Living 3,Thanjavur,Tamil Nadu,PG,4.3 ★,20,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+530,Pushkar City Comfort Hotel 2,Pushkar,Rajasthan,Hotel,3.8 ★,13,3250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+531,Bodh Gaya Peaceful Spiritual Retreat 2,Bodh Gaya,Bihar,Ashram,4.2 ★,11,1050,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Old Town
+532,Kanpur Royal Palace Residency 2,Kanpur,Uttar Pradesh,Hotel,4.5 ★,23,6250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+533,Guntur City Comfort Hotel 3,Guntur,Andhra Pradesh,Hotel,4.2 ★,11,3100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+534,Rameswaram Premium Boutique Stay 2,Rameswaram,Tamil Nadu,Hotel,4.1 ★,13,6300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+535,Mangaluru Traveler's Backpackers 2,Mangaluru,Karnataka,Hostel,4.4 ★,22,850,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,City Centre
+536,Dharamshala Lakeside Guest House 3,Dharamshala,Himachal Pradesh,Guest House,4.0 ★,10,1400,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Tourist District
+537,Raipur City Comfort Hotel 2,Raipur,Chhattisgarh,Hotel,4.1 ★,9,4300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+538,Ludhiana Traditional Family Homestay 2,Ludhiana,Punjab,Homestay,3.9 ★,20,2750,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+539,Jabalpur Traveler's Backpackers 2,Jabalpur,Madhya Pradesh,Hostel,4.8 ★,23,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+540,Shirdi Peaceful Spiritual Retreat 5,Shirdi,Maharashtra,Ashram,4.2 ★,18,1200,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+541,Pushkar Peaceful Spiritual Retreat 3,Pushkar,Rajasthan,Ashram,4.5 ★,12,850,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Old Town
+542,Mahabaleshwar Urban Student Living 2,Mahabaleshwar,Maharashtra,PG,4.5 ★,21,2100,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Heritage Area
+543,Patiala Grand Heritage Hotel 3,Patiala,Punjab,Hotel,3.9 ★,8,6750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+544,Chennai Traveler's Backpackers 3,Chennai,Tamil Nadu,Hostel,4.2 ★,25,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+545,Bilaspur City Comfort Hotel 2,Bilaspur,Chhattisgarh,Hotel,4.9 ★,16,2500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+546,Chandigarh Lakeside Guest House 2,Chandigarh,Chandigarh,Guest House,3.9 ★,24,1500,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Heritage Area
+547,Tirupati Premium Boutique Stay 3,Tirupati,Andhra Pradesh,Hotel,4.7 ★,17,7050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+548,Jammu Grand Heritage Hotel 2,Jammu,Jammu and Kashmir,Hotel,4.6 ★,15,5500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+549,Secunderabad Grand Heritage Hotel 2,Secunderabad,Telangana,Hotel,4.6 ★,1,5650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+550,Surat Lakeside Guest House 2,Surat,Gujarat,Guest House,4.6 ★,17,1550,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+551,Gorakhpur Budget Inn 3,Gorakhpur,Uttar Pradesh,Hotel,4.3 ★,15,1250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+552,Gandhinagar City Comfort Hotel 3,Gandhinagar,Gujarat,Hotel,4.5 ★,13,2250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+553,Mysuru Royal Palace Residency 2,Mysuru,Karnataka,Hotel,4.3 ★,1,6350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+554,Alleppey Urban Student Living 3,Alleppey,Kerala,PG,4.7 ★,3,2400,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+555,Gandhinagar Budget Inn 2,Gandhinagar,Gujarat,Hotel,4.0 ★,4,1300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+556,Guntur Traveler's Backpackers 3,Guntur,Andhra Pradesh,Hostel,4.5 ★,19,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Heritage Area
+557,Dibrugarh Traditional Family Homestay 2,Dibrugarh,Assam,Homestay,4.5 ★,22,2450,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+558,Kurukshetra Peaceful Spiritual Retreat 3,Kurukshetra,Haryana,Ashram,4.1 ★,8,950,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+559,Dwarka Traveler's Backpackers 2,Dwarka,Gujarat,Hostel,4.0 ★,13,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+560,Prayagraj Traditional Family Homestay 2,Prayagraj,Uttar Pradesh,Homestay,4.3 ★,16,3000,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+561,Rajkot Traveler's Backpackers 3,Rajkot,Gujarat,Hostel,4.3 ★,5,550,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Heritage Area
+562,Mussoorie Urban Student Living 2,Mussoorie,Uttarakhand,PG,4.8 ★,1,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+563,Bengaluru Traditional Family Homestay 3,Bengaluru,Karnataka,Homestay,4.9 ★,17,3000,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+564,Ujjain Peaceful Spiritual Retreat 2,Ujjain,Madhya Pradesh,Ashram,4.3 ★,15,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Airport Road
+565,Kurukshetra Traditional Family Homestay 2,Kurukshetra,Haryana,Homestay,4.7 ★,8,2450,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,City Centre
+566,Thrissur Royal Palace Residency 2,Thrissur,Kerala,Hotel,4.1 ★,25,7900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+567,Pondicherry Traveler's Backpackers 2,Pondicherry,Puducherry,Hostel,3.9 ★,4,650,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+568,Imphal Traveler's Backpackers 3,Imphal,Manipur,Hostel,4.6 ★,25,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+569,Udupi Lakeside Guest House 2,Udupi,Karnataka,Guest House,3.9 ★,21,1650,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Temple Road
+570,Solapur Premium Boutique Stay 2,Solapur,Maharashtra,Hotel,4.2 ★,3,6800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+571,Tiruchirappalli City Comfort Hotel 2,Tiruchirappalli,Tamil Nadu,Hotel,4.6 ★,23,3300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+572,Jalandhar City Comfort Hotel 2,Jalandhar,Punjab,Hotel,4.0 ★,7,2850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+573,Guwahati Traveler's Backpackers 2,Guwahati,Assam,Hostel,4.5 ★,6,700,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+574,Hyderabad Traveler's Backpackers 2,Hyderabad,Telangana,Hostel,4.8 ★,17,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Lake Road
+575,Kanpur Lakeside Guest House 2,Kanpur,Uttar Pradesh,Guest House,4.7 ★,2,1700,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Airport Road
+576,Lucknow City Comfort Hotel 2,Lucknow,Uttar Pradesh,Hotel,4.6 ★,8,4350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+577,Calangute City Comfort Hotel 3,Calangute,Goa,Hotel,4.5 ★,21,4000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+578,Mussoorie Grand Heritage Hotel 2,Mussoorie,Uttarakhand,Hotel,4.7 ★,25,4450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+579,Alleppey Urban Student Living 4,Alleppey,Kerala,PG,4.8 ★,15,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Heritage Area
+580,Mumbai Traditional Family Homestay 2,Mumbai,Maharashtra,Homestay,4.7 ★,3,2700,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+581,Gurugram Traditional Family Homestay 2,Gurugram,Haryana,Homestay,4.2 ★,14,2300,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+582,Munnar Budget Inn 3,Munnar,Kerala,Hotel,4.1 ★,18,2000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+583,Margao Traditional Family Homestay 2,Margao,Goa,Homestay,4.8 ★,25,2050,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,City Centre
+584,Kota Urban Student Living 3,Kota,Rajasthan,PG,4.7 ★,1,1650,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+585,Rishikesh Urban Student Living 3,Rishikesh,Uttarakhand,PG,4.9 ★,14,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+586,Vijayawada City Comfort Hotel 2,Vijayawada,Andhra Pradesh,Hotel,4.8 ★,9,2450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+587,Kanyakumari Grand Heritage Hotel 2,Kanyakumari,Tamil Nadu,Hotel,4.5 ★,21,4550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+588,Indore Urban Student Living 3,Indore,Madhya Pradesh,PG,4.6 ★,25,1850,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+589,Jodhpur Traveler's Backpackers 3,Jodhpur,Rajasthan,Hostel,3.8 ★,16,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Airport Road
+590,Coimbatore Traveler's Backpackers 2,Coimbatore,Tamil Nadu,Hostel,4.3 ★,1,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Heritage Area
+591,Mount Abu Lakeside Guest House 2,Mount Abu,Rajasthan,Guest House,4.3 ★,5,2250,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Lake Road
+592,Madurai Traveler's Backpackers 2,Madurai,Tamil Nadu,Hostel,4.6 ★,4,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Heritage Area
+593,Itanagar Peaceful Spiritual Retreat 2,Itanagar,Arunachal Pradesh,Ashram,4.0 ★,25,850,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Airport Road
+594,Faridabad Traveler's Backpackers 2,Faridabad,Haryana,Hostel,3.8 ★,21,550,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+595,Guwahati Urban Student Living 2,Guwahati,Assam,PG,4.5 ★,5,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+596,Haridwar Peaceful Spiritual Retreat 3,Haridwar,Uttarakhand,Ashram,3.9 ★,4,850,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+597,Ranchi Budget Inn 2,Ranchi,Jharkhand,Hotel,4.3 ★,5,1250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+598,Kurukshetra Budget Inn 3,Kurukshetra,Haryana,Hotel,4.5 ★,24,1850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+599,Aurangabad Traditional Family Homestay 2,Aurangabad,Maharashtra,Homestay,4.5 ★,10,2300,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+600,Rajahmundry City Comfort Hotel 4,Rajahmundry,Andhra Pradesh,Hotel,4.2 ★,21,2350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+601,Pondicherry Budget Inn 2,Pondicherry,Puducherry,Hotel,4.1 ★,21,1850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+602,Nagpur Lakeside Guest House 3,Nagpur,Maharashtra,Guest House,4.8 ★,5,1900,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Old Town
+603,Amritsar Traveler's Backpackers 2,Amritsar,Punjab,Hostel,4.6 ★,25,800,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Lake Road
+604,Navi Mumbai Urban Student Living 3,Navi Mumbai,Maharashtra,PG,3.8 ★,7,1550,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+605,Indore Urban Student Living 4,Indore,Madhya Pradesh,PG,4.5 ★,17,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+606,Jabalpur Grand Heritage Hotel 2,Jabalpur,Madhya Pradesh,Hotel,4.4 ★,20,4450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+607,Kurukshetra Premium Boutique Stay 2,Kurukshetra,Haryana,Hotel,4.4 ★,7,4950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+608,Cuttack Budget Inn 3,Cuttack,Odisha,Hotel,4.5 ★,21,1950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+609,Tirupati Peaceful Spiritual Retreat 2,Tirupati,Andhra Pradesh,Ashram,4.6 ★,8,750,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Main Market
+610,Jaipur Peaceful Spiritual Retreat 2,Jaipur,Rajasthan,Ashram,3.9 ★,20,1200,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,City Centre
+611,Tirupati Peaceful Spiritual Retreat 3,Tirupati,Andhra Pradesh,Ashram,4.5 ★,6,800,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,City Centre
+612,Prayagraj Peaceful Spiritual Retreat 2,Prayagraj,Uttar Pradesh,Ashram,4.0 ★,12,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+613,Kochi City Comfort Hotel 2,Kochi,Kerala,Hotel,3.9 ★,25,3050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+614,Kolhapur Premium Boutique Stay 2,Kolhapur,Maharashtra,Hotel,4.3 ★,17,4400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+615,Ghaziabad Traveler's Backpackers 3,Ghaziabad,Uttar Pradesh,Hostel,4.4 ★,2,800,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+616,Surat Budget Inn 2,Surat,Gujarat,Hotel,4.1 ★,4,1800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+617,Madurai Peaceful Spiritual Retreat 3,Madurai,Tamil Nadu,Ashram,3.8 ★,1,900,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,City Centre
+618,Srinagar Premium Boutique Stay 2,Srinagar,Jammu and Kashmir,Hotel,4.8 ★,6,4600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+619,Amritsar Budget Inn 3,Amritsar,Punjab,Hotel,4.1 ★,24,1400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+620,Ghaziabad Traveler's Backpackers 4,Ghaziabad,Uttar Pradesh,Hostel,3.9 ★,22,450,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Airport Road
+621,Coimbatore Traditional Family Homestay 3,Coimbatore,Tamil Nadu,Homestay,4.9 ★,13,2100,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+622,Wayanad Traditional Family Homestay 4,Wayanad,Kerala,Homestay,4.1 ★,3,3150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+623,Nashik Budget Inn 2,Nashik,Maharashtra,Hotel,4.1 ★,10,1850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+624,Dharamshala Traveler's Backpackers 2,Dharamshala,Himachal Pradesh,Hostel,4.9 ★,25,600,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+625,Rameswaram City Comfort Hotel 2,Rameswaram,Tamil Nadu,Hotel,4.8 ★,1,2900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+626,Howrah Urban Student Living 2,Howrah,West Bengal,PG,4.6 ★,1,2000,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+627,Gaya Traditional Family Homestay 2,Gaya,Bihar,Homestay,4.6 ★,4,2300,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+628,Tiruchirappalli Premium Boutique Stay 2,Tiruchirappalli,Tamil Nadu,Hotel,4.9 ★,5,5750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+629,Mahabaleshwar Lakeside Guest House 2,Mahabaleshwar,Maharashtra,Guest House,4.8 ★,17,2150,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Heritage Area
+630,Manali Lakeside Guest House 2,Manali,Himachal Pradesh,Guest House,3.9 ★,4,2300,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Airport Road
+631,Bhopal Grand Heritage Hotel 2,Bhopal,Madhya Pradesh,Hotel,4.4 ★,14,7700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+632,Tiruchirappalli Royal Palace Residency 2,Tiruchirappalli,Tamil Nadu,Hotel,4.7 ★,13,7050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+633,Mussoorie Budget Inn 2,Mussoorie,Uttarakhand,Hotel,3.9 ★,7,1200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+634,Pushkar Royal Palace Residency 2,Pushkar,Rajasthan,Hotel,4.0 ★,15,7000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+635,Mount Abu Urban Student Living 2,Mount Abu,Rajasthan,PG,4.9 ★,7,2200,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+636,Dharamshala Budget Inn 2,Dharamshala,Himachal Pradesh,Hotel,3.9 ★,6,1950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+637,Lonavala Royal Palace Residency 2,Lonavala,Maharashtra,Hotel,4.7 ★,5,6100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+638,Shillong Budget Inn 2,Shillong,Meghalaya,Hotel,3.9 ★,10,1300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+639,Kolhapur Lakeside Guest House 3,Kolhapur,Maharashtra,Guest House,4.7 ★,18,2150,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Main Market
+640,Udaipur Royal Palace Residency 2,Udaipur,Rajasthan,Hotel,4.7 ★,5,5750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+641,Delhi Traditional Family Homestay 2,Delhi,Delhi,Homestay,4.9 ★,5,2300,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Tourist District
+642,Patna Urban Student Living 2,Patna,Bihar,PG,4.8 ★,3,2400,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+643,Kochi Lakeside Guest House 2,Kochi,Kerala,Guest House,3.9 ★,3,1600,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Railway Station Road
+644,Varanasi City Comfort Hotel 2,Varanasi,Uttar Pradesh,Hotel,4.7 ★,11,2550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+645,Dharamshala Grand Heritage Hotel 2,Dharamshala,Himachal Pradesh,Hotel,4.8 ★,14,8100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+646,Raipur Grand Heritage Hotel 2,Raipur,Chhattisgarh,Hotel,4.6 ★,6,5750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+647,Gandhinagar Royal Palace Residency 2,Gandhinagar,Gujarat,Hotel,4.3 ★,5,5200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+648,Rameswaram Peaceful Spiritual Retreat 5,Rameswaram,Tamil Nadu,Ashram,4.3 ★,18,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,City Centre
+649,Jaipur Royal Palace Residency 2,Jaipur,Rajasthan,Hotel,4.0 ★,7,8350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+650,Navi Mumbai Lakeside Guest House 2,Navi Mumbai,Maharashtra,Guest House,4.7 ★,12,2050,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+651,Margao Budget Inn 2,Margao,Goa,Hotel,4.4 ★,11,1500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+652,Dwarka Grand Heritage Hotel 2,Dwarka,Gujarat,Hotel,4.5 ★,1,8450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+653,New Delhi Traditional Family Homestay 2,New Delhi,Delhi,Homestay,4.3 ★,12,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+654,Gorakhpur Grand Heritage Hotel 5,Gorakhpur,Uttar Pradesh,Hotel,4.5 ★,9,6900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+655,Chennai Urban Student Living 4,Chennai,Tamil Nadu,PG,4.9 ★,13,2050,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+656,Bhavnagar Royal Palace Residency 2,Bhavnagar,Gujarat,Hotel,4.1 ★,24,7250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+657,Kolhapur Peaceful Spiritual Retreat 3,Kolhapur,Maharashtra,Ashram,4.2 ★,19,1200,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Airport Road
+658,Somnath Peaceful Spiritual Retreat 3,Somnath,Gujarat,Ashram,4.7 ★,16,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Temple Road
+659,Rajkot Premium Boutique Stay 3,Rajkot,Gujarat,Hotel,3.9 ★,8,5400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+660,Leh Grand Heritage Hotel 2,Leh,Ladakh,Hotel,4.8 ★,7,4750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+661,Bhavnagar Lakeside Guest House 2,Bhavnagar,Gujarat,Guest House,4.7 ★,11,1350,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,City Centre
+662,Meerut Traveler's Backpackers 2,Meerut,Uttar Pradesh,Hostel,4.8 ★,25,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+663,Imphal Lakeside Guest House 3,Imphal,Manipur,Guest House,4.2 ★,22,1900,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Old Town
+664,Kota Premium Boutique Stay 3,Kota,Rajasthan,Hotel,4.2 ★,6,6750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+665,Bhubaneswar City Comfort Hotel 3,Bhubaneswar,Odisha,Hotel,4.9 ★,23,4150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+666,Coimbatore Urban Student Living 2,Coimbatore,Tamil Nadu,PG,4.7 ★,13,1950,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+667,Varanasi Royal Palace Residency 3,Varanasi,Uttar Pradesh,Hotel,3.8 ★,23,8650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+668,Solapur City Comfort Hotel 3,Solapur,Maharashtra,Hotel,4.2 ★,20,2900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+669,Ajmer Lakeside Guest House 2,Ajmer,Rajasthan,Guest House,4.0 ★,24,1400,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Main Market
+670,Howrah Lakeside Guest House 2,Howrah,West Bengal,Guest House,4.0 ★,3,1800,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Railway Station Road
+671,Nashik Royal Palace Residency 3,Nashik,Maharashtra,Hotel,4.1 ★,3,7200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+672,Pushkar Peaceful Spiritual Retreat 4,Pushkar,Rajasthan,Ashram,3.9 ★,15,1050,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Airport Road
+673,Khajuraho Premium Boutique Stay 2,Khajuraho,Madhya Pradesh,Hotel,4.2 ★,18,6400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+674,Leh Traditional Family Homestay 3,Leh,Ladakh,Homestay,4.4 ★,25,2600,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+675,Mussoorie Grand Heritage Hotel 3,Mussoorie,Uttarakhand,Hotel,4.7 ★,10,3950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+676,Kochi Lakeside Guest House 3,Kochi,Kerala,Guest House,3.9 ★,6,1900,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Airport Road
+677,Ghaziabad Traveler's Backpackers 5,Ghaziabad,Uttar Pradesh,Hostel,4.8 ★,3,700,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+678,Panaji Urban Student Living 3,Panaji,Goa,PG,4.3 ★,21,1750,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+679,Dehradun City Comfort Hotel 2,Dehradun,Uttarakhand,Hotel,3.9 ★,7,2800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+680,Thiruvananthapuram Urban Student Living 4,Thiruvananthapuram,Kerala,PG,4.1 ★,4,1550,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+681,Calangute City Comfort Hotel 4,Calangute,Goa,Hotel,4.2 ★,14,2800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+682,Leh Royal Palace Residency 2,Leh,Ladakh,Hotel,3.8 ★,6,7550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+683,Jammu Traditional Family Homestay 3,Jammu,Jammu and Kashmir,Homestay,4.1 ★,13,2750,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+684,Thiruvananthapuram Grand Heritage Hotel 2,Thiruvananthapuram,Kerala,Hotel,4.4 ★,6,5850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+685,Itanagar City Comfort Hotel 2,Itanagar,Arunachal Pradesh,Hotel,3.8 ★,15,3650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+686,Coimbatore Traditional Family Homestay 4,Coimbatore,Tamil Nadu,Homestay,4.4 ★,5,2150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+687,Howrah Traditional Family Homestay 2,Howrah,West Bengal,Homestay,4.3 ★,25,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+688,Delhi Traditional Family Homestay 3,Delhi,Delhi,Homestay,4.7 ★,14,2850,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+689,Tiruchirappalli Premium Boutique Stay 3,Tiruchirappalli,Tamil Nadu,Hotel,3.9 ★,23,4200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+690,Meerut City Comfort Hotel 3,Meerut,Uttar Pradesh,Hotel,4.6 ★,6,2700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+691,Bengaluru City Comfort Hotel 2,Bengaluru,Karnataka,Hotel,4.3 ★,22,4100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+692,Meerut Traditional Family Homestay 3,Meerut,Uttar Pradesh,Homestay,4.1 ★,24,2100,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+693,Jamshedpur Traveler's Backpackers 2,Jamshedpur,Jharkhand,Hostel,4.4 ★,9,850,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+694,Nagpur Urban Student Living 3,Nagpur,Maharashtra,PG,4.5 ★,17,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+695,Chandigarh City Comfort Hotel 2,Chandigarh,Chandigarh,Hotel,4.4 ★,19,2500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+696,Kota Urban Student Living 4,Kota,Rajasthan,PG,4.8 ★,12,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+697,Ranchi Urban Student Living 3,Ranchi,Jharkhand,PG,4.4 ★,16,1550,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+698,Thrissur Budget Inn 2,Thrissur,Kerala,Hotel,4.5 ★,22,2000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+699,Shirdi Traveler's Backpackers 2,Shirdi,Maharashtra,Hostel,4.8 ★,23,600,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,City Centre
+700,Jammu Lakeside Guest House 2,Jammu,Jammu and Kashmir,Guest House,4.8 ★,1,1800,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Temple Road
+701,Tirupati Budget Inn 3,Tirupati,Andhra Pradesh,Hotel,4.3 ★,23,1950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+702,Madurai City Comfort Hotel 2,Madurai,Tamil Nadu,Hotel,4.9 ★,15,3200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+703,Chandigarh Urban Student Living 3,Chandigarh,Chandigarh,PG,3.9 ★,15,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+704,Margao Traditional Family Homestay 3,Margao,Goa,Homestay,4.8 ★,2,2800,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+705,Gurugram Budget Inn 2,Gurugram,Haryana,Hotel,4.4 ★,5,1950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+706,Kolhapur Royal Palace Residency 2,Kolhapur,Maharashtra,Hotel,4.8 ★,7,5350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+707,Solapur Premium Boutique Stay 3,Solapur,Maharashtra,Hotel,4.8 ★,23,5250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+708,Itanagar Traditional Family Homestay 3,Itanagar,Arunachal Pradesh,Homestay,4.4 ★,21,2150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,City Centre
+709,Ooty Premium Boutique Stay 2,Ooty,Tamil Nadu,Hotel,4.5 ★,6,7700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+710,Guwahati Budget Inn 2,Guwahati,Assam,Hotel,4.7 ★,9,2000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+711,Wayanad Grand Heritage Hotel 2,Wayanad,Kerala,Hotel,3.9 ★,19,9300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+712,Chennai Urban Student Living 5,Chennai,Tamil Nadu,PG,4.5 ★,9,2500,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+713,Thane Traditional Family Homestay 3,Thane,Maharashtra,Homestay,4.9 ★,22,2000,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+714,Lucknow Urban Student Living 5,Lucknow,Uttar Pradesh,PG,4.5 ★,1,1850,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+715,Visakhapatnam Urban Student Living 3,Visakhapatnam,Andhra Pradesh,PG,4.6 ★,9,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+716,Guwahati Premium Boutique Stay 2,Guwahati,Assam,Hotel,4.0 ★,10,7300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+717,Indore Urban Student Living 5,Indore,Madhya Pradesh,PG,3.8 ★,22,2050,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+718,Wayanad Budget Inn 2,Wayanad,Kerala,Hotel,3.9 ★,3,1550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+719,Cuttack Peaceful Spiritual Retreat 3,Cuttack,Odisha,Ashram,4.1 ★,23,1250,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Temple Road
+720,Somnath City Comfort Hotel 2,Somnath,Gujarat,Hotel,4.6 ★,2,4100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+721,Bhubaneswar Urban Student Living 4,Bhubaneswar,Odisha,PG,4.6 ★,21,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+722,Kochi Lakeside Guest House 4,Kochi,Kerala,Guest House,4.2 ★,24,1350,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Old Town
+723,Somnath Premium Boutique Stay 3,Somnath,Gujarat,Hotel,4.6 ★,22,7400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+724,Shillong Traveler's Backpackers 3,Shillong,Meghalaya,Hostel,4.7 ★,22,850,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Airport Road
+725,Warangal Grand Heritage Hotel 2,Warangal,Telangana,Hotel,3.9 ★,9,8100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+726,Dwarka Lakeside Guest House 2,Dwarka,Gujarat,Guest House,4.8 ★,21,1400,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Main Market
+727,Dibrugarh Royal Palace Residency 4,Dibrugarh,Assam,Hotel,4.8 ★,14,7100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+728,Kochi Traveler's Backpackers 2,Kochi,Kerala,Hostel,4.3 ★,4,800,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,City Centre
+729,Noida Traveler's Backpackers 3,Noida,Uttar Pradesh,Hostel,4.0 ★,4,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+730,Secunderabad Premium Boutique Stay 3,Secunderabad,Telangana,Hotel,4.8 ★,5,4850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+731,Siliguri Premium Boutique Stay 2,Siliguri,West Bengal,Hotel,4.4 ★,15,4900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+732,Dwarka Peaceful Spiritual Retreat 4,Dwarka,Gujarat,Ashram,4.3 ★,21,850,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Heritage Area
+733,New Delhi Grand Heritage Hotel 2,New Delhi,Delhi,Hotel,4.1 ★,25,9700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+734,Gorakhpur Premium Boutique Stay 2,Gorakhpur,Uttar Pradesh,Hotel,4.6 ★,3,4800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+735,Dehradun Urban Student Living 3,Dehradun,Uttarakhand,PG,4.2 ★,16,2100,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+736,Shirdi Urban Student Living 2,Shirdi,Maharashtra,PG,4.6 ★,1,2000,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+737,Somnath Grand Heritage Hotel 3,Somnath,Gujarat,Hotel,3.8 ★,24,5050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+738,Howrah Budget Inn 2,Howrah,West Bengal,Hotel,3.9 ★,17,1800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+739,Surat Grand Heritage Hotel 2,Surat,Gujarat,Hotel,3.9 ★,10,6400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+740,Darjeeling Traveler's Backpackers 3,Darjeeling,West Bengal,Hostel,4.6 ★,5,700,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+741,Shillong Urban Student Living 2,Shillong,Meghalaya,PG,4.0 ★,13,1500,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+742,Coimbatore Urban Student Living 3,Coimbatore,Tamil Nadu,PG,3.9 ★,24,1500,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+743,Vellore City Comfort Hotel 3,Vellore,Tamil Nadu,Hotel,4.2 ★,21,2300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+744,Kodaikanal Traditional Family Homestay 4,Kodaikanal,Tamil Nadu,Homestay,4.5 ★,20,2250,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+745,Thane Grand Heritage Hotel 2,Thane,Maharashtra,Hotel,3.9 ★,15,5900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+746,Kanyakumari Premium Boutique Stay 3,Kanyakumari,Tamil Nadu,Hotel,4.0 ★,23,4050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+747,Amritsar Peaceful Spiritual Retreat 3,Amritsar,Punjab,Ashram,4.5 ★,9,1200,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Old Town
+748,Prayagraj Traveler's Backpackers 2,Prayagraj,Uttar Pradesh,Hostel,4.8 ★,17,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+749,Mount Abu Budget Inn 2,Mount Abu,Rajasthan,Hotel,4.7 ★,16,1300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+750,Mangaluru Traditional Family Homestay 2,Mangaluru,Karnataka,Homestay,4.7 ★,7,2550,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Tourist District
+751,Warangal City Comfort Hotel 2,Warangal,Telangana,Hotel,4.4 ★,7,4400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+752,Konark Budget Inn 2,Konark,Odisha,Hotel,3.8 ★,3,1050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+753,Pondicherry City Comfort Hotel 3,Pondicherry,Puducherry,Hotel,3.9 ★,17,2400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+754,Kodaikanal Traditional Family Homestay 5,Kodaikanal,Tamil Nadu,Homestay,4.3 ★,10,2650,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+755,Amravati Grand Heritage Hotel 2,Amravati,Maharashtra,Hotel,4.0 ★,2,5350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+756,Guntur Premium Boutique Stay 2,Guntur,Andhra Pradesh,Hotel,3.9 ★,25,4250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+757,Prayagraj Peaceful Spiritual Retreat 3,Prayagraj,Uttar Pradesh,Ashram,4.0 ★,12,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Old Town
+758,Munnar Traditional Family Homestay 4,Munnar,Kerala,Homestay,3.9 ★,11,2500,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+759,Jabalpur Budget Inn 2,Jabalpur,Madhya Pradesh,Hotel,4.3 ★,13,2000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+760,Amritsar Peaceful Spiritual Retreat 4,Amritsar,Punjab,Ashram,4.7 ★,4,850,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,City Centre
+761,Gorakhpur Grand Heritage Hotel 6,Gorakhpur,Uttar Pradesh,Hotel,4.8 ★,16,7100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+762,Dwarka Traditional Family Homestay 3,Dwarka,Gujarat,Homestay,4.7 ★,20,2000,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+763,Panaji Lakeside Guest House 3,Panaji,Goa,Guest House,3.9 ★,14,2000,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,City Centre
+764,Gurugram Royal Palace Residency 2,Gurugram,Haryana,Hotel,4.1 ★,23,9600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+765,Coimbatore Lakeside Guest House 3,Coimbatore,Tamil Nadu,Guest House,4.5 ★,11,2100,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+766,Udaipur Royal Palace Residency 3,Udaipur,Rajasthan,Hotel,4.6 ★,16,7200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+767,Mathura Peaceful Spiritual Retreat 3,Mathura,Uttar Pradesh,Ashram,4.4 ★,20,750,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,City Centre
+768,Gorakhpur Traveler's Backpackers 2,Gorakhpur,Uttar Pradesh,Hostel,4.3 ★,16,550,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Lake Road
+769,Calangute Budget Inn 2,Calangute,Goa,Hotel,4.2 ★,9,1100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+770,Coimbatore Traveler's Backpackers 3,Coimbatore,Tamil Nadu,Hostel,4.2 ★,8,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+771,Haridwar Peaceful Spiritual Retreat 4,Haridwar,Uttarakhand,Ashram,4.3 ★,16,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Heritage Area
+772,Mount Abu Lakeside Guest House 3,Mount Abu,Rajasthan,Guest House,4.6 ★,1,1600,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Tourist District
+773,Khajuraho Grand Heritage Hotel 2,Khajuraho,Madhya Pradesh,Hotel,4.4 ★,3,7350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+774,Vijayawada Peaceful Spiritual Retreat 2,Vijayawada,Andhra Pradesh,Ashram,4.4 ★,21,1250,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Railway Station Road
+775,Siliguri Budget Inn 2,Siliguri,West Bengal,Hotel,3.9 ★,8,1600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+776,Jammu Urban Student Living 2,Jammu,Jammu and Kashmir,PG,4.2 ★,15,1650,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Lake Road
+777,Chennai Grand Heritage Hotel 2,Chennai,Tamil Nadu,Hotel,4.2 ★,21,5350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+778,Patna Urban Student Living 3,Patna,Bihar,PG,3.9 ★,6,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+779,Ujjain City Comfort Hotel 3,Ujjain,Madhya Pradesh,Hotel,4.5 ★,7,2550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+780,Udupi Premium Boutique Stay 5,Udupi,Karnataka,Hotel,4.7 ★,23,6150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+781,Chandigarh Grand Heritage Hotel 2,Chandigarh,Chandigarh,Hotel,4.5 ★,22,7250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+782,Mussoorie Traveler's Backpackers 2,Mussoorie,Uttarakhand,Hostel,4.4 ★,17,550,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+783,Pune Urban Student Living 2,Pune,Maharashtra,PG,3.9 ★,14,2400,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+784,Rajahmundry Traditional Family Homestay 2,Rajahmundry,Andhra Pradesh,Homestay,4.8 ★,23,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+785,Varanasi City Comfort Hotel 3,Varanasi,Uttar Pradesh,Hotel,4.5 ★,20,3200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+786,Ranchi Premium Boutique Stay 2,Ranchi,Jharkhand,Hotel,4.5 ★,23,5550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+787,Indore Lakeside Guest House 2,Indore,Madhya Pradesh,Guest House,4.9 ★,15,1500,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Airport Road
+788,Khajuraho Traveler's Backpackers 3,Khajuraho,Madhya Pradesh,Hostel,4.8 ★,17,650,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+789,Guntur Urban Student Living 2,Guntur,Andhra Pradesh,PG,4.8 ★,21,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+790,Hubballi Urban Student Living 2,Hubballi,Karnataka,PG,4.1 ★,12,1700,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+791,Bilaspur Traveler's Backpackers 3,Bilaspur,Chhattisgarh,Hostel,4.5 ★,23,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Heritage Area
+792,Leh Urban Student Living 2,Leh,Ladakh,PG,4.8 ★,23,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+793,Kovalam Peaceful Spiritual Retreat 2,Kovalam,Kerala,Ashram,4.3 ★,1,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+794,Aurangabad Budget Inn 2,Aurangabad,Maharashtra,Hotel,3.9 ★,2,1200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+795,Ahmedabad Lakeside Guest House 2,Ahmedabad,Gujarat,Guest House,4.6 ★,5,1350,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Temple Road
+796,Hampi Traditional Family Homestay 2,Hampi,Karnataka,Homestay,3.8 ★,15,2150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+797,Coimbatore Urban Student Living 4,Coimbatore,Tamil Nadu,PG,4.4 ★,8,2300,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+798,Amravati Lakeside Guest House 3,Amravati,Maharashtra,Guest House,4.2 ★,22,1800,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+799,Satara Grand Heritage Hotel 2,Satara,Maharashtra,Hotel,4.1 ★,20,8450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+800,Coimbatore Lakeside Guest House 4,Coimbatore,Tamil Nadu,Guest House,4.6 ★,21,1850,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Old Town
+801,Mysuru Urban Student Living 2,Mysuru,Karnataka,PG,4.9 ★,10,2200,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+802,Ghaziabad City Comfort Hotel 3,Ghaziabad,Uttar Pradesh,Hotel,4.0 ★,17,2550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+803,Lonavala Traveler's Backpackers 2,Lonavala,Maharashtra,Hostel,4.4 ★,5,550,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Old Town
+804,Kodaikanal Grand Heritage Hotel 2,Kodaikanal,Tamil Nadu,Hotel,4.3 ★,5,4100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+805,Puri Traditional Family Homestay 4,Puri,Odisha,Homestay,4.7 ★,21,2950,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Temple Road
+806,Calangute Traditional Family Homestay 2,Calangute,Goa,Homestay,4.4 ★,3,2500,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+807,Chennai Lakeside Guest House 2,Chennai,Tamil Nadu,Guest House,4.4 ★,17,1550,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Tourist District
+808,Gwalior Grand Heritage Hotel 2,Gwalior,Madhya Pradesh,Hotel,4.0 ★,7,7700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+809,Konark Traveler's Backpackers 3,Konark,Odisha,Hostel,4.0 ★,25,900,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+810,Jammu Lakeside Guest House 3,Jammu,Jammu and Kashmir,Guest House,4.7 ★,21,1300,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Lake Road
+811,Howrah Premium Boutique Stay 2,Howrah,West Bengal,Hotel,4.8 ★,20,5550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+812,Puri Traveler's Backpackers 2,Puri,Odisha,Hostel,4.7 ★,4,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+813,Wayanad Grand Heritage Hotel 3,Wayanad,Kerala,Hotel,4.4 ★,25,6450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+814,Rajahmundry Premium Boutique Stay 3,Rajahmundry,Andhra Pradesh,Hotel,3.8 ★,21,5200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+815,Kurukshetra Lakeside Guest House 2,Kurukshetra,Haryana,Guest House,4.0 ★,25,2150,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+816,Pune Urban Student Living 3,Pune,Maharashtra,PG,4.0 ★,21,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+817,Ajmer City Comfort Hotel 2,Ajmer,Rajasthan,Hotel,4.7 ★,24,3550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+818,Vrindavan Grand Heritage Hotel 3,Vrindavan,Uttar Pradesh,Hotel,4.6 ★,2,4050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+819,Satara City Comfort Hotel 2,Satara,Maharashtra,Hotel,4.1 ★,3,4000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+820,Kochi Budget Inn 3,Kochi,Kerala,Hotel,4.3 ★,13,1550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+821,Navi Mumbai Premium Boutique Stay 2,Navi Mumbai,Maharashtra,Hotel,3.9 ★,1,4400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+822,Mahabaleshwar Traditional Family Homestay 4,Mahabaleshwar,Maharashtra,Homestay,3.9 ★,17,2350,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Temple Road
+823,Vijayawada Traveler's Backpackers 2,Vijayawada,Andhra Pradesh,Hostel,4.1 ★,15,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+824,Kolhapur Urban Student Living 2,Kolhapur,Maharashtra,PG,4.4 ★,5,2100,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+825,Warangal Lakeside Guest House 2,Warangal,Telangana,Guest House,4.0 ★,22,1850,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,City Centre
+826,Ayodhya City Comfort Hotel 2,Ayodhya,Uttar Pradesh,Hotel,3.8 ★,20,3450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+827,Kurukshetra Premium Boutique Stay 3,Kurukshetra,Haryana,Hotel,4.6 ★,24,6200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+828,Khajuraho Lakeside Guest House 2,Khajuraho,Madhya Pradesh,Guest House,4.7 ★,5,1550,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Airport Road
+829,Chennai Urban Student Living 6,Chennai,Tamil Nadu,PG,4.1 ★,4,1750,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+830,Satara Traditional Family Homestay 3,Satara,Maharashtra,Homestay,4.8 ★,18,2700,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+831,Noida Budget Inn 2,Noida,Uttar Pradesh,Hotel,3.9 ★,4,1200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+832,Margao Lakeside Guest House 2,Margao,Goa,Guest House,4.2 ★,22,1650,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Lake Road
+833,Wayanad Traditional Family Homestay 5,Wayanad,Kerala,Homestay,4.8 ★,11,3050,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+834,Konark Peaceful Spiritual Retreat 3,Konark,Odisha,Ashram,4.1 ★,19,850,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Old Town
+835,Imphal Traditional Family Homestay 3,Imphal,Manipur,Homestay,4.9 ★,6,2000,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+836,Thanjavur Traditional Family Homestay 3,Thanjavur,Tamil Nadu,Homestay,4.6 ★,21,2650,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Temple Road
+837,Gangtok City Comfort Hotel 2,Gangtok,Sikkim,Hotel,4.6 ★,16,4000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+838,Shillong Traditional Family Homestay 2,Shillong,Meghalaya,Homestay,4.3 ★,4,2250,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+839,Panipat Traditional Family Homestay 2,Panipat,Haryana,Homestay,4.7 ★,5,2850,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+840,Thiruvananthapuram Urban Student Living 5,Thiruvananthapuram,Kerala,PG,4.5 ★,24,1600,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+841,Vellore Urban Student Living 2,Vellore,Tamil Nadu,PG,4.7 ★,19,2100,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+842,Coorg Peaceful Spiritual Retreat 2,Coorg,Karnataka,Ashram,4.4 ★,18,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Railway Station Road
+843,Mathura Traveler's Backpackers 2,Mathura,Uttar Pradesh,Hostel,4.0 ★,25,900,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+844,Kanpur Premium Boutique Stay 2,Kanpur,Uttar Pradesh,Hotel,4.4 ★,13,6300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+845,Nashik Urban Student Living 3,Nashik,Maharashtra,PG,4.7 ★,20,1750,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+846,Prayagraj Urban Student Living 3,Prayagraj,Uttar Pradesh,PG,4.0 ★,19,1700,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+847,Shillong Grand Heritage Hotel 3,Shillong,Meghalaya,Hotel,4.6 ★,8,3900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+848,Itanagar Royal Palace Residency 3,Itanagar,Arunachal Pradesh,Hotel,4.5 ★,17,7300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+849,Srinagar Lakeside Guest House 2,Srinagar,Jammu and Kashmir,Guest House,4.8 ★,2,2000,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Lake Road
+850,Thrissur Traditional Family Homestay 2,Thrissur,Kerala,Homestay,4.1 ★,18,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+851,Gaya Urban Student Living 3,Gaya,Bihar,PG,4.2 ★,21,1600,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+852,Kanyakumari Budget Inn 2,Kanyakumari,Tamil Nadu,Hotel,4.8 ★,17,1500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+853,Howrah Premium Boutique Stay 3,Howrah,West Bengal,Hotel,4.3 ★,20,4000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+854,Prayagraj Traveler's Backpackers 3,Prayagraj,Uttar Pradesh,Hostel,4.1 ★,17,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+855,Coorg City Comfort Hotel 2,Coorg,Karnataka,Hotel,4.0 ★,20,4900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+856,Madurai Traveler's Backpackers 3,Madurai,Tamil Nadu,Hostel,4.2 ★,4,800,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+857,Leh Royal Palace Residency 3,Leh,Ladakh,Hotel,4.0 ★,14,5600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+858,Mahabaleshwar City Comfort Hotel 2,Mahabaleshwar,Maharashtra,Hotel,4.5 ★,5,4600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+859,Lonavala Peaceful Spiritual Retreat 2,Lonavala,Maharashtra,Ashram,4.0 ★,6,950,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Airport Road
+860,Gwalior Traveler's Backpackers 2,Gwalior,Madhya Pradesh,Hostel,4.4 ★,1,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Temple Road
+861,Kurukshetra Budget Inn 4,Kurukshetra,Haryana,Hotel,4.5 ★,16,1650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+862,Chennai Traditional Family Homestay 2,Chennai,Tamil Nadu,Homestay,4.5 ★,19,2250,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+863,Rajahmundry Royal Palace Residency 2,Rajahmundry,Andhra Pradesh,Hotel,4.6 ★,11,7900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+864,Faridabad Royal Palace Residency 3,Faridabad,Haryana,Hotel,4.2 ★,4,5100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+865,Vellore Urban Student Living 3,Vellore,Tamil Nadu,PG,4.7 ★,20,1650,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+866,Jammu Lakeside Guest House 4,Jammu,Jammu and Kashmir,Guest House,4.5 ★,18,2100,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Lake Road
+867,Jodhpur Royal Palace Residency 3,Jodhpur,Rajasthan,Hotel,3.9 ★,20,8450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+868,Patiala Traveler's Backpackers 2,Patiala,Punjab,Hostel,4.2 ★,2,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+869,Jalandhar Royal Palace Residency 2,Jalandhar,Punjab,Hotel,4.7 ★,25,7400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+870,Kota Traveler's Backpackers 3,Kota,Rajasthan,Hostel,4.1 ★,25,600,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Lake Road
+871,Wayanad Urban Student Living 4,Wayanad,Kerala,PG,4.4 ★,9,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+872,Pune Urban Student Living 4,Pune,Maharashtra,PG,3.9 ★,1,2100,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+873,Guntur Premium Boutique Stay 3,Guntur,Andhra Pradesh,Hotel,3.9 ★,14,5600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+874,Ludhiana Traveler's Backpackers 3,Ludhiana,Punjab,Hostel,4.5 ★,22,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Main Market
+875,Khajuraho Traveler's Backpackers 4,Khajuraho,Madhya Pradesh,Hostel,4.4 ★,6,700,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+876,Panaji Royal Palace Residency 2,Panaji,Goa,Hotel,4.1 ★,12,8600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+877,Mount Abu Traditional Family Homestay 3,Mount Abu,Rajasthan,Homestay,4.3 ★,23,2500,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Lake Road
+878,Coorg Traveler's Backpackers 3,Coorg,Karnataka,Hostel,4.7 ★,18,900,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,City Centre
+879,Ahmedabad Budget Inn 2,Ahmedabad,Gujarat,Hotel,4.5 ★,3,1100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+880,Dehradun Grand Heritage Hotel 3,Dehradun,Uttarakhand,Hotel,4.1 ★,12,4000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+881,Shirdi Peaceful Spiritual Retreat 6,Shirdi,Maharashtra,Ashram,4.8 ★,13,1200,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+882,Kovalam Urban Student Living 2,Kovalam,Kerala,PG,4.5 ★,25,1750,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+883,Rishikesh Grand Heritage Hotel 4,Rishikesh,Uttarakhand,Hotel,4.7 ★,17,5300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+884,Solapur Traditional Family Homestay 4,Solapur,Maharashtra,Homestay,4.4 ★,23,2350,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+885,Vadodara Urban Student Living 2,Vadodara,Gujarat,PG,4.2 ★,21,1500,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+886,Jaipur Lakeside Guest House 2,Jaipur,Rajasthan,Guest House,4.7 ★,12,1900,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Tourist District
+887,Mangaluru Traveler's Backpackers 3,Mangaluru,Karnataka,Hostel,4.6 ★,3,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+888,Wayanad Traditional Family Homestay 6,Wayanad,Kerala,Homestay,4.4 ★,19,2800,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Heritage Area
+889,Thrissur Royal Palace Residency 3,Thrissur,Kerala,Hotel,4.9 ★,15,7550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+890,Pune Budget Inn 2,Pune,Maharashtra,Hotel,4.2 ★,4,1750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+891,Bilaspur Royal Palace Residency 2,Bilaspur,Chhattisgarh,Hotel,4.8 ★,17,6600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+892,Kanyakumari Urban Student Living 2,Kanyakumari,Tamil Nadu,PG,4.9 ★,19,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+893,Darjeeling Lakeside Guest House 3,Darjeeling,West Bengal,Guest House,4.3 ★,15,2400,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,City Centre
+894,Panaji City Comfort Hotel 3,Panaji,Goa,Hotel,3.9 ★,21,3350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+895,Guntur Premium Boutique Stay 4,Guntur,Andhra Pradesh,Hotel,4.2 ★,18,4050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+896,Thanjavur Royal Palace Residency 2,Thanjavur,Tamil Nadu,Hotel,4.2 ★,24,7150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+897,Bhavnagar Premium Boutique Stay 2,Bhavnagar,Gujarat,Hotel,4.2 ★,19,5700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+898,Somnath Urban Student Living 3,Somnath,Gujarat,PG,4.0 ★,24,1850,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+899,Hampi Royal Palace Residency 2,Hampi,Karnataka,Hotel,4.7 ★,20,7250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+900,Pushkar City Comfort Hotel 3,Pushkar,Rajasthan,Hotel,3.9 ★,22,3750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+901,Pune Urban Student Living 5,Pune,Maharashtra,PG,4.4 ★,2,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Heritage Area
+902,Guntur Premium Boutique Stay 5,Guntur,Andhra Pradesh,Hotel,4.9 ★,19,5750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+903,Dwarka Lakeside Guest House 3,Dwarka,Gujarat,Guest House,4.8 ★,9,1900,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Main Market
+904,Varanasi Grand Heritage Hotel 2,Varanasi,Uttar Pradesh,Hotel,4.7 ★,16,6950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+905,Bilaspur Budget Inn 2,Bilaspur,Chhattisgarh,Hotel,4.7 ★,25,1150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+906,Mount Abu Traditional Family Homestay 4,Mount Abu,Rajasthan,Homestay,4.3 ★,23,2200,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,City Centre
+907,Hubballi Budget Inn 2,Hubballi,Karnataka,Hotel,3.9 ★,12,1850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+908,Gandhinagar Traveler's Backpackers 3,Gandhinagar,Gujarat,Hostel,4.1 ★,16,900,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Heritage Area
+909,Imphal City Comfort Hotel 2,Imphal,Manipur,Hotel,4.3 ★,14,4400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+910,Imphal Traditional Family Homestay 4,Imphal,Manipur,Homestay,4.1 ★,6,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Airport Road
+911,Madurai Peaceful Spiritual Retreat 4,Madurai,Tamil Nadu,Ashram,4.6 ★,8,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Tourist District
+912,Bodh Gaya Royal Palace Residency 2,Bodh Gaya,Bihar,Hotel,4.7 ★,24,5950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+913,Nashik City Comfort Hotel 2,Nashik,Maharashtra,Hotel,4.3 ★,21,3850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+914,Guntur Traditional Family Homestay 2,Guntur,Andhra Pradesh,Homestay,4.1 ★,18,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,City Centre
+915,Indore City Comfort Hotel 2,Indore,Madhya Pradesh,Hotel,4.0 ★,7,3000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+916,Udaipur Royal Palace Residency 4,Udaipur,Rajasthan,Hotel,4.2 ★,12,7300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+917,Kodaikanal Premium Boutique Stay 2,Kodaikanal,Tamil Nadu,Hotel,4.3 ★,12,5800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+918,Rajkot Lakeside Guest House 2,Rajkot,Gujarat,Guest House,4.1 ★,11,2100,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Railway Station Road
+919,Nainital Peaceful Spiritual Retreat 3,Nainital,Uttarakhand,Ashram,4.2 ★,10,1100,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Airport Road
+920,Surat Urban Student Living 3,Surat,Gujarat,PG,4.8 ★,14,2500,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+921,Gwalior Traditional Family Homestay 2,Gwalior,Madhya Pradesh,Homestay,3.9 ★,6,2500,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+922,Guntur Budget Inn 2,Guntur,Andhra Pradesh,Hotel,4.1 ★,9,1850,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Tourist District
+923,Kozhikode Peaceful Spiritual Retreat 2,Kozhikode,Kerala,Ashram,4.7 ★,12,1200,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+924,Mussoorie Traveler's Backpackers 3,Mussoorie,Uttarakhand,Hostel,4.0 ★,1,550,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Main Market
+925,Kanyakumari Lakeside Guest House 3,Kanyakumari,Tamil Nadu,Guest House,4.6 ★,3,1600,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Airport Road
+926,Indore City Comfort Hotel 3,Indore,Madhya Pradesh,Hotel,3.9 ★,16,3950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+927,Aurangabad Traditional Family Homestay 3,Aurangabad,Maharashtra,Homestay,4.4 ★,3,2150,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Temple Road
+928,Vrindavan City Comfort Hotel 2,Vrindavan,Uttar Pradesh,Hotel,4.8 ★,13,3150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+929,Thanjavur Urban Student Living 4,Thanjavur,Tamil Nadu,PG,4.3 ★,5,1700,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+930,Vadodara Grand Heritage Hotel 3,Vadodara,Gujarat,Hotel,4.5 ★,11,6500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+931,Kozhikode Traveler's Backpackers 2,Kozhikode,Kerala,Hostel,3.9 ★,23,850,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Airport Road
+932,Shimla Traditional Family Homestay 3,Shimla,Himachal Pradesh,Homestay,4.5 ★,19,2900,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+933,Tirupati Peaceful Spiritual Retreat 4,Tirupati,Andhra Pradesh,Ashram,4.3 ★,8,800,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Railway Station Road
+934,Visakhapatnam Budget Inn 2,Visakhapatnam,Andhra Pradesh,Hotel,4.1 ★,10,900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+935,Kanpur Budget Inn 2,Kanpur,Uttar Pradesh,Hotel,4.3 ★,1,2000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+936,Leh Budget Inn 2,Leh,Ladakh,Hotel,4.6 ★,10,2050,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+937,Pune Urban Student Living 6,Pune,Maharashtra,PG,4.0 ★,18,2150,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+938,Thanjavur City Comfort Hotel 2,Thanjavur,Tamil Nadu,Hotel,4.6 ★,13,3400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+939,Thiruvananthapuram Grand Heritage Hotel 3,Thiruvananthapuram,Kerala,Hotel,4.5 ★,17,8350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+940,Kozhikode Royal Palace Residency 2,Kozhikode,Kerala,Hotel,4.6 ★,9,7600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+941,Faridabad City Comfort Hotel 2,Faridabad,Haryana,Hotel,4.1 ★,21,3650,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Old Town
+942,Mussoorie Budget Inn 3,Mussoorie,Uttarakhand,Hotel,4.5 ★,7,1550,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+943,Mathura Grand Heritage Hotel 2,Mathura,Uttar Pradesh,Hotel,4.4 ★,6,4150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+944,Munnar City Comfort Hotel 3,Munnar,Kerala,Hotel,4.3 ★,1,3200,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+945,Mathura Grand Heritage Hotel 3,Mathura,Uttar Pradesh,Hotel,4.0 ★,14,5450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+946,Patna Premium Boutique Stay 2,Patna,Bihar,Hotel,4.7 ★,11,4500,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+947,New Delhi Budget Inn 2,New Delhi,Delhi,Hotel,4.2 ★,18,1900,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+948,Bengaluru Peaceful Spiritual Retreat 2,Bengaluru,Karnataka,Ashram,4.1 ★,13,750,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+949,Thanjavur Budget Inn 2,Thanjavur,Tamil Nadu,Hotel,4.9 ★,8,950,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+950,Manali Traditional Family Homestay 3,Manali,Himachal Pradesh,Homestay,3.9 ★,22,2550,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Railway Station Road
+951,Jamshedpur Urban Student Living 2,Jamshedpur,Jharkhand,PG,4.1 ★,11,1750,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+952,Agra City Comfort Hotel 3,Agra,Uttar Pradesh,Hotel,4.5 ★,7,3350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+953,Udupi Lakeside Guest House 3,Udupi,Karnataka,Guest House,4.1 ★,14,1800,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,City Centre
+954,Surat Traditional Family Homestay 2,Surat,Gujarat,Homestay,4.4 ★,13,2350,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,City Centre
+955,Lonavala Urban Student Living 3,Lonavala,Maharashtra,PG,4.6 ★,23,2450,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Airport Road
+956,Patna Traditional Family Homestay 2,Patna,Bihar,Homestay,4.1 ★,16,2100,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Old Town
+957,Darjeeling Lakeside Guest House 4,Darjeeling,West Bengal,Guest House,4.9 ★,21,1500,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,City Centre
+958,Shillong Urban Student Living 3,Shillong,Meghalaya,PG,4.6 ★,4,1700,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+959,Salem Budget Inn 2,Salem,Tamil Nadu,Hotel,4.4 ★,21,1450,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Railway Station Road
+960,Bengaluru Grand Heritage Hotel 2,Bengaluru,Karnataka,Hotel,4.2 ★,24,5000,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Temple Road
+961,Lonavala Traveler's Backpackers 3,Lonavala,Maharashtra,Hostel,4.3 ★,10,850,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Railway Station Road
+962,Somnath Traditional Family Homestay 2,Somnath,Gujarat,Homestay,4.4 ★,11,2700,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Temple Road
+963,Ahmedabad Grand Heritage Hotel 2,Ahmedabad,Gujarat,Hotel,4.0 ★,10,5150,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+964,Imphal Premium Boutique Stay 3,Imphal,Manipur,Hotel,4.7 ★,17,6400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+965,Navi Mumbai Urban Student Living 4,Navi Mumbai,Maharashtra,PG,4.2 ★,20,1850,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Heritage Area
+966,Gurugram Urban Student Living 2,Gurugram,Haryana,PG,4.4 ★,13,1800,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+967,Raipur Traditional Family Homestay 2,Raipur,Chhattisgarh,Homestay,4.0 ★,10,2500,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Tourist District
+968,Puri City Comfort Hotel 2,Puri,Odisha,Hotel,4.4 ★,3,2300,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+969,Bhavnagar Peaceful Spiritual Retreat 2,Bhavnagar,Gujarat,Ashram,4.0 ★,16,900,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Lake Road
+970,Solapur Traveler's Backpackers 2,Solapur,Maharashtra,Hostel,4.7 ★,22,800,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+971,Kodaikanal Grand Heritage Hotel 3,Kodaikanal,Tamil Nadu,Hotel,4.0 ★,23,4350,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+972,Hubballi Urban Student Living 3,Hubballi,Karnataka,PG,4.8 ★,3,2200,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+973,Gangtok Urban Student Living 2,Gangtok,Sikkim,PG,4.8 ★,14,2050,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,City Centre
+974,Munnar Urban Student Living 3,Munnar,Kerala,PG,4.6 ★,10,1600,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Main Market
+975,Udaipur Grand Heritage Hotel 2,Udaipur,Rajasthan,Hotel,4.1 ★,13,4700,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+976,Thanjavur Traveler's Backpackers 2,Thanjavur,Tamil Nadu,Hostel,4.8 ★,18,1000,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+977,Chandigarh Urban Student Living 4,Chandigarh,Chandigarh,PG,4.6 ★,19,2050,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+978,Jalandhar Peaceful Spiritual Retreat 2,Jalandhar,Punjab,Ashram,4.0 ★,6,1150,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Tourist District
+979,Vellore Budget Inn 3,Vellore,Tamil Nadu,Hotel,4.0 ★,20,1600,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Heritage Area
+980,Guntur Traveler's Backpackers 4,Guntur,Andhra Pradesh,Hostel,4.9 ★,12,750,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+981,Puri Traditional Family Homestay 5,Puri,Odisha,Homestay,4.4 ★,7,2600,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+982,Kodaikanal Premium Boutique Stay 3,Kodaikanal,Tamil Nadu,Hotel,4.3 ★,13,4400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,City Centre
+983,Wayanad Urban Student Living 5,Wayanad,Kerala,PG,4.4 ★,10,1500,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Temple Road
+984,Chennai Royal Palace Residency 3,Chennai,Tamil Nadu,Hotel,4.1 ★,25,6750,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Bus Stand Road
+985,Rajahmundry Traveler's Backpackers 2,Rajahmundry,Andhra Pradesh,Hostel,4.8 ★,5,500,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,City Centre
+986,Manali Premium Boutique Stay 2,Manali,Himachal Pradesh,Hotel,4.0 ★,12,6100,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+987,Kodaikanal Traditional Family Homestay 6,Kodaikanal,Tamil Nadu,Homestay,3.9 ★,13,3200,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Main Market
+988,Ghaziabad Urban Student Living 2,Ghaziabad,Uttar Pradesh,PG,4.7 ★,6,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Old Town
+989,Udaipur Premium Boutique Stay 2,Udaipur,Rajasthan,Hotel,4.1 ★,24,6400,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+990,New Delhi Lakeside Guest House 2,New Delhi,Delhi,Guest House,4.2 ★,14,1950,https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80,Lake Road
+991,Madurai Peaceful Spiritual Retreat 5,Madurai,Tamil Nadu,Ashram,4.7 ★,1,1250,https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80,Tourist District
+992,Satara Budget Inn 2,Satara,Maharashtra,Hotel,3.8 ★,18,1800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Airport Road
+993,Cuttack Traveler's Backpackers 2,Cuttack,Odisha,Hostel,4.0 ★,2,950,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+994,Nainital Traditional Family Homestay 4,Nainital,Uttarakhand,Homestay,4.4 ★,3,2600,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80,Tourist District
+995,Hyderabad Urban Student Living 2,Hyderabad,Telangana,PG,4.0 ★,11,1600,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Railway Station Road
+996,Amravati Traveler's Backpackers 2,Amravati,Maharashtra,Hostel,4.1 ★,13,850,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Tourist District
+997,Lucknow Urban Student Living 6,Lucknow,Uttar Pradesh,PG,4.3 ★,7,2250,https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80,Tourist District
+998,Mysuru Budget Inn 2,Mysuru,Karnataka,Hotel,4.9 ★,17,1250,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Main Market
+999,Noida Budget Inn 3,Noida,Uttar Pradesh,Hotel,4.3 ★,22,1800,https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80,Lake Road
+1000,Jaisalmer Traveler's Backpackers 2,Jaisalmer,Rajasthan,Hostel,4.3 ★,12,600,https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80,Heritage Area

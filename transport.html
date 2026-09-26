@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Transport Hub | BharatYatra</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at 50% 28%, rgba(12, 74, 83, 0.38), transparent 34%),
+        radial-gradient(circle at 12% 60%, rgba(196, 75, 31, 0.14), transparent 28%),
+        #050b12;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image: radial-gradient(circle at 1px 1px, #e5b75b 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      z-index: -1;
+    }
+
+    /* =========================================================
+       NAVBAR
+       ========================================================= */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 74px;
+      padding: 0 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      background: rgba(4, 10, 16, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(225, 180, 85, 0.18);
+    }
+
+    .logo {
+      font-family: Cinzel, serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      color: #f4e6c3;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.75px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #eab75a;
+    }
+
+    .login-btn {
+      padding: 9px 19px;
+      border-radius: 25px;
+      border: 1px solid rgba(234, 183, 90, 0.7);
+      color: #f3d48c !important;
+      background: rgba(234, 183, 90, 0.06);
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .transport-hero {
+      margin-top: 114px;
+      text-align: center;
+      padding: 0 5%;
+    }
+
+    .transport-hero small {
+      color: #e5b75b;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .transport-hero h1 {
+      font-family: Cinzel, serif;
+      font-size: clamp(30px, 4.5vw, 54px);
+      color: #f3e7ca;
+      margin-bottom: 12px;
+    }
+
+    .transport-hero p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 14px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       MODE SELECTOR
+       ========================================================= */
+
+    .mode-bar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .mode-tab {
+      padding: 10px 24px;
+      border-radius: 20px;
+      border: 1px solid rgba(230, 184, 88, 0.3);
+      background: rgba(230, 184, 88, 0.05);
+      color: #f2dfb3;
+      font-family: Cinzel, serif;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .mode-tab.active,
+    .mode-tab:hover {
+      background: #e5b75b;
+      color: #071015;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       SEARCH PANEL
+       ========================================================= */
+
+    .search-panel {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 25px;
+      background: rgba(11, 21, 29, 0.9);
+      border: 1px solid rgba(229, 183, 91, 0.35);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) 140px;
+      gap: 15px;
+      align-items: end;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 10px;
+      color: #e5b75b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      background: #050b12;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      border-color: #e5b75b;
+    }
+
+    .search-submit-btn {
+      padding: 12px;
+      background: #e5b75b;
+      color: #071015;
+      font-weight: 700;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+      height: 43px;
+      transition: 0.2s;
+    }
+
+    .search-submit-btn:hover {
+      background: #f2dfb3;
+    }
+
+    /* =========================================================
+       TRANSPORT GRID
+       ========================================================= */
+
+    .transport-section {
+      max-width: 1300px;
+      margin: 0 auto 80px;
+      padding: 0 4%;
+    }
+
+    .transport-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .transport-card {
+      background: rgba(11, 21, 29, 0.85);
+      border: 1px solid rgba(230, 184, 88, 0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s ease;
+    }
+
+    .transport-card:hover {
+      transform: translateY(-5px);
+      border-color: #e5b75b;
+      box-shadow: 0 15px 35px rgba(229, 183, 91, 0.15);
+    }
+
+    .card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mode-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: #e5b75b;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .route-title {
+      font-family: Cinzel, serif;
+      font-size: 17px;
+      color: #f3e7ca;
+      margin-bottom: 4px;
+    }
+
+    .route-number {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 12px;
+    }
+
+    .schedule-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px dashed rgba(229, 183, 91, 0.3);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .schedule-box span {
+      display: block;
+      color: rgba(255,255,255,0.5);
+      font-size: 10px;
+      margin-bottom: 3px;
+    }
+
+    .schedule-box strong {
+      color: #f3e7ca;
+    }
+
+    .price-tag {
+      font-family: Cinzel, serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #f3d48c;
+    }
+
+    .book-btn {
+      width: 100%;
+      padding: 11px;
+      background: linear-gradient(135deg, #d67b2c, #9d3f35);
+      color: #fff;
+      border: 0;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .book-btn:hover {
+      opacity: 0.9;
+    }
+
+    .initial-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px;
+      font-family: Cinzel, serif;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 35px 6%;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.38);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* =========================================================
+       BHARATYATRA CHATBOT
+       ========================================================= */
+
+    .chatbot-fab {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 210, 132, 0.85);
+      background: linear-gradient(135deg, #d67b2c, #9d3f35);
+      color: #fff;
+      font-size: 27px;
+      cursor: pointer;
+      z-index: 3000;
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(214, 123, 44, 0.22);
+      transition: 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chatbot-fab:hover {
+      transform: translateY(-4px) scale(1.04);
+    }
+
+    .chatbot-panel {
+      position: fixed;
+      right: 24px;
+      bottom: 98px;
+      width: 380px;
+      max-width: calc(100vw - 30px);
+      height: 540px;
+      background: rgba(5, 12, 18, 0.98);
+      border: 1px solid rgba(229, 183, 91, 0.38);
+      border-radius: 18px;
+      overflow: hidden;
+      z-index: 2999;
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55),
+        0 0 35px rgba(229, 183, 91, 0.08);
+      display: none;
+      flex-direction: column;
+      backdrop-filter: blur(20px);
+    }
+
+    .chatbot-panel.open {
+      display: flex;
+      animation: chatbotOpen 0.22s ease;
+    }
+
+    @keyframes chatbotOpen {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .chatbot-header {
+      padding: 16px 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(214, 123, 44, 0.16),
+          rgba(157, 63, 53, 0.08)
+        );
+      border-bottom: 1px solid rgba(229, 183, 91, 0.2);
+    }
+
+    .chatbot-header-content {
+      min-width: 0;
+    }
+
+    .chatbot-header strong {
+      display: block;
+      font-family: Cinzel, serif;
+      font-size: 14px;
+      color: #f4e6c3;
+      margin-bottom: 4px;
+    }
+
+    .chatbot-header small {
+      display: block;
+      color: rgba(255,255,255,0.52);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .chatbot-close {
+      width: 31px;
+      height: 31px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(229, 183, 91, 0.25);
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      color: #f3d48c;
+      cursor: pointer;
+      font-size: 19px;
+      line-height: 1;
+    }
+
+    .chatbot-close:hover {
+      background: rgba(229, 183, 91, 0.12);
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(229,183,91,0.4) transparent;
+    }
+
+    .chat-message {
+      max-width: 88%;
+      padding: 10px 12px;
+      border-radius: 13px;
+      font-size: 12px;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+
+    .chat-message.bot {
+      align-self: flex-start;
+      background: rgba(17, 29, 38, 0.95);
+      border: 1px solid rgba(229, 183, 91, 0.17);
+      color: rgba(255,255,255,0.82);
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-message.user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, rgba(214,123,44,0.92), rgba(157,63,53,0.92));
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-message strong {
+      color: #f3d48c;
+    }
+
+    .chat-message.user strong {
+      color: #fff;
+    }
+
+    .chatbot-input-row {
+      padding: 12px;
+      border-top: 1px solid rgba(229, 183, 91, 0.17);
+      display: flex;
+      gap: 8px;
+      background: rgba(4, 10, 16, 0.95);
+    }
+
+    .chatbot-input {
+      min-width: 0;
+      flex: 1;
+      padding: 11px 12px;
+      border-radius: 10px;
+      outline: none;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: #071018;
+      color: #fff;
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+    }
+
+    .chatbot-input:focus {
+      border-color: rgba(229,183,91,0.65);
+    }
+
+    .chatbot-input::placeholder {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .chatbot-send {
+      width: 44px;
+      border: 0;
+      border-radius: 10px;
+      background: #e5b75b;
+      color: #071015;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .chatbot-send:hover {
+      background: #f2dfb3;
+    }
+
+    .chatbot-send:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .chatbot-typing {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .chatbot-typing span {
+      width: 5px;
+      height: 5px;
+      background: #e5b75b;
+      border-radius: 50%;
+      animation: typingDot 1s infinite ease-in-out;
+    }
+
+    .chatbot-typing span:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .chatbot-typing span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes typingDot {
+      0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+      }
+
+      30% {
+        transform: translateY(-4px);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-links a {
+        font-size: 9px;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .navbar {
+        height: auto;
+        min-height: 74px;
+        padding: 12px 4%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .search-panel {
+        grid-template-columns: 1fr;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      .search-submit-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .transport-hero {
+        margin-top: 105px;
+      }
+
+      .transport-hero h1 {
+        font-size: 32px;
+      }
+
+      .mode-bar {
+        gap: 8px;
+      }
+
+      .mode-tab {
+        padding: 9px 15px;
+      }
+
+      .transport-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .chatbot-panel {
+        right: 15px;
+        bottom: 88px;
+        width: calc(100vw - 30px);
+        height: 500px;
+      }
+
+      .chatbot-fab {
+        right: 17px;
+        bottom: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+       ========================================================= -->
+
+  <nav class="navbar">
+    <div class="logo">BharatYatra</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home Page</a></li>
+      <li><a href="crafts.html">Crafts</a></li>
+      <li><a href="gi_tag.html">GI Tag Products</a></li>
+      <li><a href="calender.html">Calender</a></li>
+      <li><a href="unesco_sites.html">UNESCO Sites</a></li>
+      <li><a href="destinations.html">Tourist Spots</a></li>
+      <li><a href="hotels.html">Hotels &amp; Stays</a></li>
+      <li><a href="transport.html" class="active">Transport</a></li>
+      <li><a href="admin_access.html">Vendors</a></li>
+      <li><a href="login.html" class="login-btn">LOGIN</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- =========================================================
+       HERO HEADER
+       ========================================================= -->
+
+  <section class="transport-hero">
+
+    <small>CSV SCHEDULE DATABASE SEARCH</small>
+
+    <h1>Smart Transport Hub</h1>
+
+    <p>
+      Search verified railway timetables and domestic flight routes
+      by entering your source and destination.
+    </p>
+
+  </section>
+
+
+  <!-- =========================================================
+       MODE SELECTOR
+       ========================================================= -->
+
+  <div class="mode-bar">
+
+    <button
+      class="mode-tab active"
+      id="tabTrain"
+      onclick="switchMode('train')"
+    >
+      🚆 Trains
+    </button>
+
+    <button
+      class="mode-tab"
+      id="tabFlight"
+      onclick="switchMode('flight')"
+    >
+      ✈️ Flights
+    </button>
+
+  </div>
+
+
+  <!-- =========================================================
+       SEARCH PANEL
+       ========================================================= -->
+
+  <div class="search-panel">
+
+    <div class="input-group">
+      <label id="labelSource">
+        Source City / Station
+      </label>
+
+      <input
+        type="text"
+        id="sourceInput"
+        placeholder="e.g. Guwahati, Nagpur, Delhi"
+      >
+    </div>
+
+    <div class="input-group">
+      <label id="labelDest">
+        Destination City / Station
+      </label>
+
+      <input
+        type="text"
+        id="destInput"
+        placeholder="e.g. Indore, Pune, Varanasi"
+      >
+    </div>
+
+    <button
+      class="search-submit-btn"
+      onclick="searchTransport()"
+    >
+      Search Routes ➔
+    </button>
+
+  </div>
+
+
+  <!-- =========================================================
+       TRANSPORT RESULTS
+       ========================================================= -->
+
+  <section class="transport-section">
+
+    <div
+      class="transport-grid"
+      id="transportGrid"
+    >
+      <div class="initial-state">
+        Enter your Source and Destination cities above to view available schedules.
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+    BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT
+  </footer>
+
+
+  <!-- =========================================================
+       BHARATYATRA AI TRAVEL ASSISTANT
+       ========================================================= -->
+
+  <button
+    class="chatbot-fab"
+    id="chatbotToggle"
+    type="button"
+    aria-label="Open BharatYatra Travel Assistant"
+    onclick="toggleChat()"
+  >
+    ✦
+  </button>
+
+
+  <div
+    class="chatbot-panel"
+    id="chatbot"
+    aria-hidden="true"
+  >
+
+    <div class="chatbot-header">
+
+      <div class="chatbot-header-content">
+        <strong>BharatYatra Travel Assistant</strong>
+
+        <small>
+          Ask about transport, travel or navigate to any BharatYatra page
+        </small>
+      </div>
+
+      <button
+        class="chatbot-close"
+        type="button"
+        onclick="toggleChat()"
+        aria-label="Close assistant"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="chatbot-messages"
+      id="chatMessages"
+    ></div>
+
+
+    <form
+      class="chatbot-input-row"
+      onsubmit="handleChatSubmit(event)"
+    >
+
+      <input
+        class="chatbot-input"
+        id="chatInput"
+        type="text"
+        autocomplete="off"
+        placeholder="Ask or say “go to Calendar”..."
+      >
+
+      <button
+        class="chatbot-send"
+        id="chatSend"
+        type="submit"
+        aria-label="Send message"
+      >
+        ➤
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <!-- =========================================================
+       TRANSPORT JAVASCRIPT
+       ========================================================= -->
+
+  <script>
+
+    let currentMode = 'train';
+    let trainsData = [];
+    let flightsData = [];
+
+
+    /* =========================================================
+       LOAD CSV DATASETS
+       ========================================================= */
+
+    async function loadDatasetFiles() {
+
+      try {
+
+        const trainRes = await fetch('data/trains.csv');
+
+        const trainText = await trainRes.text();
+
+        trainsData = parseCSV(trainText);
+
+
+        const flightRes = await fetch('data/flights.csv');
+
+        const flightText = await flightRes.text();
+
+        flightsData = parseCSV(flightText);
+
+      } catch (err) {
+
+        console.error(
+          "Error loading CSV datasets:",
+          err
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       CSV PARSER
+       ========================================================= */
+
+    function parseCSV(text) {
+
+      const lines = text.trim().split('\n');
+
+      if (lines.length < 2) {
+        return [];
+      }
+
+      const headers = lines[0]
+        .split(',')
+        .map(h => h.trim());
+
+      const result = [];
+
+
+      for (let i = 1; i < lines.length; i++) {
+
+        const currentLine =
+          lines[i].split(
+            /,(?=(?:(?:[^"]*"){2})*[^"]*$)/
+          );
+
+        const obj = {};
+
+
+        for (
+          let j = 0;
+          j < headers.length;
+          j++
+        ) {
+
+          let val =
+            currentLine[j]
+              ? currentLine[j].trim()
+              : '';
+
+          if (
+            val.startsWith('"') &&
+            val.endsWith('"')
+          ) {
+            val = val.slice(1, -1);
+          }
+
+          obj[headers[j]] = val;
+
+        }
+
+        result.push(obj);
+
+      }
+
+      return result;
+
+    }
+
+
+    /* =========================================================
+       SWITCH TRANSPORT MODE
+       ========================================================= */
+
+    function switchMode(mode) {
+
+      currentMode = mode;
+
+
+      document
+        .getElementById("tabTrain")
+        .classList.toggle(
+          "active",
+          mode === 'train'
+        );
+
+
+      document
+        .getElementById("tabFlight")
+        .classList.toggle(
+          "active",
+          mode === 'flight'
+        );
+
+
+      const lblSrc =
+        document.getElementById("labelSource");
+
+      const lblDst =
+        document.getElementById("labelDest");
+
+
+      if (mode === 'train') {
+
+        lblSrc.textContent =
+          "Station Name / Code (Source)";
+
+        lblDst.textContent =
+          "Train Name / Number (Optional)";
+
+      } else {
+
+        lblSrc.textContent =
+          "Source City";
+
+        lblDst.textContent =
+          "Destination City";
+
+      }
+
+
+      document.getElementById(
+        "transportGrid"
+      ).innerHTML = `
+
+        <div class="initial-state">
+          Switched to ${mode.toUpperCase()} search.
+          Enter parameters above and click Search.
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================================================
+       SEARCH TRANSPORT
+       ========================================================= */
+
+    function searchTransport() {
+
+      const input1 =
+        document
+          .getElementById("sourceInput")
+          .value
+          .toLowerCase()
+          .trim();
+
+
+      const input2 =
+        document
+          .getElementById("destInput")
+          .value
+          .toLowerCase()
+          .trim();
+
+
+      if (!input1) {
+
+        alert(
+          "Please enter at least the source / query parameter!"
+        );
+
+        return;
+
+      }
+
+
+      const grid =
+        document.getElementById(
+          "transportGrid"
+        );
+
+      grid.innerHTML = "";
+
+
+      /* =======================================================
+         TRAIN SEARCH
+         ======================================================= */
+
+      if (currentMode === 'train') {
+
+        const matchedTrains =
+          trainsData.filter(t => {
+
+            const stName =
+              (t.station_name || '')
+                .toLowerCase();
+
+            const stCode =
+              (t.station_code || '')
+                .toLowerCase();
+
+            const trName =
+              (t.train_name || '')
+                .toLowerCase();
+
+            const trNum =
+              (t.train_number || '')
+                .toLowerCase();
+
+
+            const matchesQuery1 =
+              stName.includes(input1) ||
+              stCode.includes(input1) ||
+              trName.includes(input1) ||
+              trNum.includes(input1);
+
+
+            const matchesQuery2 =
+              !input2 ||
+              stName.includes(input2) ||
+              stCode.includes(input2) ||
+              trName.includes(input2) ||
+              trNum.includes(input2);
+
+
+            return (
+              matchesQuery1 &&
+              matchesQuery2
+            );
+
+          });
+
+
+        if (matchedTrains.length === 0) {
+
+          grid.innerHTML = `
+
+            <div class="initial-state">
+              No matching train schedules found for your query.
+            </div>
+
+          `;
+
+          return;
+
+        }
+
+
+        matchedTrains
+          .slice(0, 15)
+          .forEach(t => {
+
+            const originVal =
+              document
+                .getElementById("sourceInput")
+                .value
+                .trim();
+
+
+            const destVal =
+              document
+                .getElementById("destInput")
+                .value
+                .trim() ||
+              t.station_name;
+
+
+            const chatRedirectUrl =
+              `chatbot.html?origin=${encodeURIComponent(originVal)}&dest=${encodeURIComponent(destVal)}&transport=Train: ${encodeURIComponent(t.train_name)}`;
+
+
+            grid.innerHTML += `
+
+              <div class="transport-card">
+
+                <div class="card-body">
+
+                  <div>
+
+                    <div class="mode-tag">
+                      🚆 IRCTC RAILWAY SCHEDULE
+                    </div>
+
+                    <h3 class="route-title">
+                      ${t.train_name}
+                    </h3>
+
+                    <div class="route-number">
+                      Train No: #${t.train_number}
+                      |
+                      Station:
+                      ${t.station_name}
+                      (${t.station_code})
+                    </div>
+
+
+                    <div class="schedule-box">
+
+                      <div>
+
+                        <span>
+                          Arrival
+                        </span>
+
+                        <strong>
+                          ${
+                            t.arrival &&
+                            t.arrival !== 'None'
+                              ? t.arrival
+                              : 'Source Origin'
+                          }
+                        </strong>
+
+                      </div>
+
+
+                      <div style="text-align:right;">
+
+                        <span>
+                          Departure
+                        </span>
+
+                        <strong>
+                          ${
+                            t.departure &&
+                            t.departure !== 'None'
+                              ? t.departure
+                              : 'Scheduled'
+                          }
+                        </strong>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  <a
+                    href="${chatRedirectUrl}"
+                    class="book-btn"
+                  >
+                    Book Train &amp; Plan with AI ➔
+                  </a>
+
+                </div>
+
+              </div>
+
+            `;
+
+          });
+
+
+      }
+
+      /* =======================================================
+         FLIGHT SEARCH
+         ======================================================= */
+
+      else {
+
+        const matchedFlights =
+          flightsData.filter(f => {
+
+            const src =
+              (f.Source || '')
+                .toLowerCase();
+
+            const dst =
+              (f.destination || '')
+                .toLowerCase();
+
+
+            return (
+              src.includes(input1) &&
+              (
+                !input2 ||
+                dst.includes(input2)
+              )
+            );
+
+          });
+
+
+        if (matchedFlights.length === 0) {
+
+          grid.innerHTML = `
+
+            <div class="initial-state">
+              No matching flight schedules found
+              from "${input1}"
+              to "${input2 || 'any'}".
+            </div>
+
+          `;
+
+          return;
+
+        }
+
+
+        matchedFlights
+          .slice(0, 12)
+          .forEach(f => {
+
+            const chatRedirectUrl =
+              `chatbot.html?origin=${encodeURIComponent(f.Source)}&dest=${encodeURIComponent(f.destination)}&transport=Flight: ${encodeURIComponent(f.airline)} (${f.flight_no})`;
+
+
+            grid.innerHTML += `
+
+              <div class="transport-card">
+
+                <div class="card-body">
+
+                  <div>
+
+                    <div class="mode-tag">
+                      ✈️ DOMESTIC FLIGHT SCHEDULE
+                    </div>
+
+                    <h3 class="route-title">
+                      ${f.airline}
+                    </h3>
+
+                    <div class="route-number">
+                      Flight No:
+                      ${f.flight_no}
+                      |
+                      Route:
+                      ${f.route}
+                    </div>
+
+
+                    <div class="schedule-box">
+
+                      <div>
+
+                        <span>
+                          Dep:
+                          ${f.dep_time}
+                        </span>
+
+                        <strong>
+                          ${f.Source}
+                        </strong>
+
+                      </div>
+
+
+                      <div style="text-align:right;">
+
+                        <span>
+                          Arr:
+                          ${f.Arrival_time}
+                        </span>
+
+                        <strong>
+                          ${f.destination}
+                        </strong>
+
+                      </div>
+
+                    </div>
+
+
+                    <div
+                      style="
+                        font-size: 12px;
+                        color: rgba(255,255,255,0.7);
+                        margin-bottom: 12px;
+                        display: flex;
+                        justify-content: space-between;
+                      "
+                    >
+
+                      <span>
+                        Duration:
+                        <strong>
+                          ${f.Duration}
+                        </strong>
+                      </span>
+
+                      <span>
+                        Stops:
+                        <strong>
+                          ${f.Total_stops}
+                        </strong>
+                      </span>
+
+                    </div>
+
+                  </div>
+
+
+                  <div
+                    style="
+                      display:flex;
+                      justify-content:space-between;
+                      align-items:center;
+                      margin-top:10px;
+                      gap:15px;
+                    "
+                  >
+
+                    <div class="price-tag">
+                      ₹${
+                        Number(
+                          f.Price || 4500
+                        ).toLocaleString(
+                          'en-IN'
+                        )
+                      }
+                    </div>
+
+
+                    <a
+                      href="${chatRedirectUrl}"
+                      class="book-btn"
+                      style="
+                        width: 180px;
+                        text-align:center;
+                      "
+                    >
+                      Book Flight &amp; AI Plan ➔
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            `;
+
+          });
+
+      }
+
+    }
+
+
+    /* =========================================================
+       START DATA LOADING
+       ========================================================= */
+
+    loadDatasetFiles();
+
+  </script>
+
+
+  <!-- =========================================================
+       CHATBOT / UNIVERSAL NAVIGATION JAVASCRIPT
+       ========================================================= -->
+
+  <script>
+
+    /*
+      IMPORTANT:
+      
+      For production, the API key should be kept server-side.
+    */
+
+    const GROQ_MODELS = [
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b",
+      "qwen/qwen3.6-27b"
+    ];
+
+
+    /* =========================================================
+       UNIVERSAL BHARATYATRA PAGE REGISTRY
+       ========================================================= */
+
+    const NAV_ROUTES = [
+
+      {
+        file: "index.html",
+        label: "Home Page",
+        keywords: [
+          "home",
+          "homepage",
+          "home page",
+          "main page",
+          "landing page",
+          "bharatyatra home"
+        ]
+      },
+
+      {
+        file: "chatbot.html",
+        label: "AI Itinerary Planner",
+        keywords: [
+          "itinerary",
+          "itinerary planner",
+          "ai itinerary",
+          "ai itinerary planner",
+          "trip planner",
+          "travel planner",
+          "plan a trip",
+          "plan my trip",
+          "travel plan",
+          "ai guide",
+          "bharat ai guide",
+          "bharat ai",
+          "plan a yatra"
+        ]
+      },
+
+      {
+        file: "ticket_generator.html",
+        label: "One-Ticket Pass",
+        keywords: [
+          "ticket",
+          "tickets",
+          "one ticket",
+          "one-ticket",
+          "one ticket pass",
+          "pass",
+          "travel pass",
+          "ticket generator",
+          "generate ticket",
+          "book ticket",
+          "book travel"
+        ]
+      },
+
+      {
+        file: "crafts.html",
+        label: "Crafts",
+        keywords: [
+          "craft",
+          "crafts",
+          "handicraft",
+          "handicrafts",
+          "handloom",
+          "artisan",
+          "artisans",
+          "souvenir",
+          "souvenirs"
+        ]
+      },
+
+      {
+        file: "gi_tag.html",
+        label: "GI Tag Products",
+        keywords: [
+          "gi tag",
+          "gi-tag",
+          "gi tags",
+          "geographical indication",
+          "gi products",
+          "regional products"
+        ]
+      },
+
+      {
+        file: "calendar.html",
+        label: "Calendar",
+        keywords: [
+          "calendar",
+          "festival calendar",
+          "events calendar",
+          "festival",
+          "festivals",
+          "events",
+          "upcoming events"
+        ]
+      },
+
+      {
+        file: "unesco_sites.html",
+        label: "UNESCO Sites",
+        keywords: [
+          "unesco",
+          "unesco sites",
+          "world heritage",
+          "world heritage sites",
+          "heritage site",
+          "heritage sites"
+        ]
+      },
+
+      {
+        file: "destinations.html",
+        label: "Tourist Spots",
+        keywords: [
+          "destination",
+          "destinations",
+          "tourist spot",
+          "tourist spots",
+          "tourist places",
+          "places to visit",
+          "places to see",
+          "sightseeing",
+          "tourist attractions",
+          "tourist attraction"
+        ]
+      },
+
+      {
+        file: "hotels.html",
+        label: "Hotels & Stays",
+        keywords: [
+          "hotel",
+          "hotels",
+          "stay",
+          "stays",
+          "accommodation",
+          "accommodations",
+          "hotel booking",
+          "places to stay",
+          "homestay",
+          "homestays",
+          "hostel",
+          "hostels",
+          "hotels and stays",
+          "hotels stays"
+        ]
+      },
+
+      {
+        file: "transport.html",
+        label: "Transport",
+        keywords: [
+          "transport",
+          "transportation",
+          "travel transport",
+          "flight",
+          "flights",
+          "train",
+          "trains",
+          "bus",
+          "buses",
+          "travel options",
+          "travel by train",
+          "travel by flight",
+          "travel by bus"
+        ]
+      },
+
+      {
+        file: "admin_access.html",
+        label: "Vendors",
+        keywords: [
+          "vendor",
+          "vendors",
+          "vendor portal",
+          "seller",
+          "sellers",
+          "admin",
+          "admin access"
+        ]
+      },
+
+      {
+        file: "login.html",
+        label: "Login / Profile",
+        keywords: [
+          "login",
+          "log in",
+          "sign in",
+          "signin",
+          "profile",
+          "my profile",
+          "account",
+          "my account",
+          "register",
+          "sign up",
+          "signup"
+        ]
+      }
+
+    ];
+
+
+    const NAVIGATION_FILES =
+      new Set(
+        NAV_ROUTES.map(
+          route => route.file
+        )
+      );
+
+
+    const CURRENT_PAGE =
+      (
+        window.location.pathname
+          .split("/")
+          .pop() ||
+        "index.html"
+      ).toLowerCase();
+
+
+    /* =========================================================
+       NAVIGATION PHRASES
+       ========================================================= */
+
+    const NAVIGATION_PHRASES = [
+
+      "go to",
+      "take me to",
+      "take me back to",
+      "open",
+      "navigate to",
+      "navigate",
+      "switch to",
+      "bring me to",
+      "send me to",
+      "move to",
+      "let me see",
+      "can you open",
+      "please open",
+      "please take me to",
+      "i want to see",
+      "i want to go",
+      "i want to visit",
+      "visit the",
+      "take me"
+
+    ];
+
+
+    /* =========================================================
+       INFORMATIONAL PHRASES
+       ========================================================= */
+
+    const INFORMATIONAL_PATTERNS = [
+
+      /\btell me about\b/,
+      /\bwhat (?:is|are)\b/,
+      /\bwho is\b/,
+      /\bhow (?:is|are|does|do)\b/,
+      /\bwhy\b/,
+      /\bexplain\b/,
+      /\binformation about\b/,
+      /\bdetails about\b/,
+      /\bdescribe\b/,
+      /\bgive me information\b/,
+      /\btell me more about\b/
+
+    ];
+
+
+    /* =========================================================
+       NORMALIZE USER QUERY
+       ========================================================= */
+
+    function normalizeQuery(text) {
+
+      return String(text || "")
+        .toLowerCase()
+        .replace(/[?!.,]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    }
+
+
+    /* =========================================================
+       LOCAL NAVIGATION MATCHER
+       ========================================================= */
+
+    function localNavMatch(rawQuery) {
+
+      const query =
+        normalizeQuery(rawQuery);
+
+
+      if (!query) {
+        return null;
+      }
+
+
+      let best = null;
+      let bestScore = 0;
+
+
+      for (const route of NAV_ROUTES) {
+
+        let score = 0;
+
+
+        for (const keyword of route.keywords) {
+
+          const k =
+            keyword.toLowerCase();
+
+
+          if (query === k) {
+
+            score += 100;
+
+          }
+
+          else if (
+            query.includes(k)
+          ) {
+
+            score += Math.max(
+              5,
+              k.split(" ").length * 5
+            );
+
+          }
+
+        }
+
+
+        if (score > bestScore) {
+
+          bestScore = score;
+          best = route;
+
+        }
+
+      }
+
+
+      if (!best || bestScore === 0) {
+        return null;
+      }
+
+
+      const isInformational =
+        INFORMATIONAL_PATTERNS.some(
+          pattern =>
+            pattern.test(query)
+        );
+
+
+      const explicitNavigation =
+        NAVIGATION_PHRASES.some(
+          phrase =>
+            query === phrase ||
+            query.startsWith(
+              phrase + " "
+            )
+        );
+
+
+      const showMeNavigation =
+        query.startsWith("show me ") &&
+        !isInformational;
+
+
+      const exactPageName =
+        best.keywords.some(
+          keyword =>
+            query ===
+            keyword.toLowerCase()
+        );
+
+
+      /*
+        Important:
+        "tell me about hotels"
+        must NOT navigate.
+
+        But:
+        "go to hotels"
+        SHOULD navigate.
+      */
+
+      if (
+        isInformational &&
+        !explicitNavigation
+      ) {
+
+        return null;
+
+      }
+
+
+      if (
+        explicitNavigation ||
+        showMeNavigation ||
+        exactPageName
+      ) {
+
+        return best;
+
+      }
+
+
+      return null;
+
+    }
+
+
+    /* =========================================================
+       CHATBOT OPEN / CLOSE
+       ========================================================= */
+
+    function toggleChat() {
+
+      const panel =
+        document.getElementById(
+          "chatbot"
+        );
+
+
+      const isOpen =
+        panel.classList.contains(
+          "open"
+        );
+
+
+      panel.classList.toggle(
+        "open",
+        !isOpen
+      );
+
+
+      panel.setAttribute(
+        "aria-hidden",
+        isOpen ? "true" : "false"
+      );
+
+
+      if (!isOpen) {
+
+        const input =
+          document.getElementById(
+            "chatInput"
+          );
+
+        setTimeout(() => {
+
+          input.focus();
+
+        }, 100);
+
+      }
+
+    }
+
+
+    /* =========================================================
+       ESCAPE HTML
+       ========================================================= */
+
+    function escapeHtml(value) {
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* =========================================================
+       FORMAT ASSISTANT TEXT
+       ========================================================= */
+
+    function formatAssistantText(text) {
+
+      let safe =
+        escapeHtml(text);
+
+
+      safe =
+        safe.replace(
+          /\*\*(.*?)\*\*/g,
+          "<strong>$1</strong>"
+        );
+
+
+      safe =
+        safe.replace(
+          /\*(.*?)\*/g,
+          "<em>$1</em>"
+        );
+
+
+      safe =
+        safe.replace(
+          /\n/g,
+          "<br>"
+        );
+
+
+      return safe;
+
+    }
+
+
+    /* =========================================================
+       ADD CHAT MESSAGE
+       ========================================================= */
+
+    function addChatMessage(
+      text,
+      type = "bot"
+    ) {
+
+      const messages =
+        document.getElementById(
+          "chatMessages"
+        );
+
+
+      const message =
+        document.createElement(
+          "div"
+        );
+
+
+      message.className =
+        `chat-message ${type}`;
+
+
+      if (type === "bot") {
+
+        message.innerHTML =
+          formatAssistantText(text);
+
+      } else {
+
+        message.textContent =
+          text;
+
+      }
+
+
+      messages.appendChild(
+        message
+      );
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      return message;
+
+    }
+
+
+    /* =========================================================
+       TYPING INDICATOR
+       ========================================================= */
+
+    function showTypingIndicator() {
+
+      const messages =
+        document.getElementById(
+          "chatMessages"
+        );
+
+
+      const typing =
+        document.createElement(
+          "div"
+        );
+
+
+      typing.className =
+        "chat-message bot";
+
+
+      typing.id =
+        "chatTyping";
+
+
+      typing.innerHTML = `
+
+        <div class="chatbot-typing">
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+      `;
+
+
+      messages.appendChild(
+        typing
+      );
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+    }
+
+
+    function removeTypingIndicator() {
+
+      const typing =
+        document.getElementById(
+          "chatTyping"
+        );
+
+
+      if (typing) {
+        typing.remove();
+      }
+
+    }
+
+
+    /* =========================================================
+       NAVIGATION EXECUTION
+       ========================================================= */
+
+    function executeNavigation(route) {
+
+      if (!route) {
+        return;
+      }
+
+
+      if (
+        route.file === CURRENT_PAGE
+      ) {
+
+        addChatMessage(
+          `You're already on the ${route.label} page.`
+        );
+
+        return;
+
+      }
+
+
+      addChatMessage(
+        `Taking you to ${route.label}...`
+      );
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          route.file;
+
+      }, 450);
+
+    }
+
+
+    /* =========================================================
+       SYSTEM PROMPT
+       ========================================================= */
+
+    const SYSTEM_PROMPT = `
+
+You are the BharatYatra Travel Assistant.
+
+You are currently being used on the Smart Transport Hub page.
+
+Your role is to help users with:
+- Indian travel
+- trains
+- flights
+- transport
+- routes
+- travel planning
+- BharatYatra website navigation
+
+The current page provides:
+- train schedule search using data/trains.csv
+- domestic flight search using data/flights.csv
+- train and flight route results
+- booking links that continue to the BharatYatra AI itinerary page
+
+IMPORTANT NAVIGATION RULE:
+
+If the user clearly asks to navigate to a BharatYatra page,
+output ONLY the appropriate navigation marker.
+
+Valid navigation files are:
+
+index.html
+chatbot.html
+ticket_generator.html
+crafts.html
+gi_tag.html
+calendar.html
+unesco_sites.html
+destinations.html
+hotels.html
+transport.html
+admin_access.html
+login.html
+
+Examples:
+
+"Go to hotels"
+[NAVIGATE:hotels.html]
+
+"Open the calendar"
+[NAVIGATE:calendar.html]
+
+"Take me to the AI itinerary planner"
+[NAVIGATE:chatbot.html]
+
+"Open One-Ticket Pass"
+[NAVIGATE:ticket_generator.html]
+
+"Go to tourist spots"
+[NAVIGATE:destinations.html]
+
+"Open UNESCO sites"
+[NAVIGATE:unesco_sites.html]
+
+"Take me to login"
+[NAVIGATE:login.html]
+
+Do NOT use a navigation marker for informational questions.
+
+For example:
+
+"Tell me about hotels"
+should be answered normally.
+
+"What transport options are available?"
+should be answered normally.
+
+"How do trains work?"
+should be answered normally.
+
+Only use [NAVIGATE:filename.html] when the user is actually asking to open, go to, visit, switch to, or navigate to a page.
+
+Keep responses concise, helpful and travel-focused.
+
+`;
+
+
+    /* =========================================================
+       CHAT HISTORY
+       ========================================================= */
+
+    const chatHistory = [
+
+      {
+        role: "system",
+        content: SYSTEM_PROMPT
+      }
+
+    ];
+
+
+    /* =========================================================
+       INITIAL WELCOME MESSAGE
+       ========================================================= */
+
+    let chatbotInitialized = false;
+
+
+    function initializeChatbot() {
+
+      if (chatbotInitialized) {
+        return;
+      }
+
+
+      chatbotInitialized = true;
+
+
+      addChatMessage(
+        "Namaste! I'm your BharatYatra Travel Assistant. I can help with trains, flights and travel planning, or take you directly to any BharatYatra page. Try “go to Calendar” or “open Hotels”."
+      );
+
+    }
+
+
+    initializeChatbot();
+
+
+    /* =========================================================
+       CALL GROQ
+       ========================================================= */
+
+    async function callGroq() { 
+ 
+      let lastError = 
+        "Unknown API error"; 
+ 
+ 
+      for ( 
+        const model of GROQ_MODELS 
+      ) { 
+ 
+        try { 
+ 
+          const controller = 
+            new AbortController(); 
+ 
+ 
+          const timeout = 
+            setTimeout( 
+              () => 
+                controller.abort(), 
+              30000 
+            ); 
+ 
+ 
+          const response = 
+            await fetch( 
+              "http://localhost:3001/api/groq", 
+              { 
+                method: "POST", 
+ 
+                headers: { 
+                  "Content-Type": 
+                    "application/json" 
+                }, 
+ 
+                body: JSON.stringify({ 
+ 
+                  model: model, 
+ 
+                  messages: 
+                    chatHistory, 
+ 
+                  temperature: 
+                    0.35, 
+ 
+                  max_tokens: 
+                    700 
+ 
+                }), 
+ 
+                signal: 
+                  controller.signal 
+ 
+              } 
+            ); 
+ 
+ 
+          clearTimeout(timeout); 
+ 
+ 
+          if (!response.ok) { 
+ 
+            const errorText = 
+              await response.text(); 
+ 
+            lastError = 
+              `Model ${model}: ${errorText}`; 
+ 
+            continue; 
+ 
+          } 
+ 
+ 
+          const data = 
+            await response.json(); 
+ 
+ 
+          const answer = 
+            data?.choices?.[0]?.message?.content; 
+ 
+ 
+          if (!answer) { 
+ 
+            lastError = 
+              `Model ${model} returned an empty response.`; 
+ 
+            continue; 
+ 
+          } 
+ 
+ 
+          return { 
+            success: true, 
+            answer: answer 
+          }; 
+ 
+        } 
+ 
+        catch (error) { 
+ 
+          lastError = 
+            error?.message || 
+            "Request failed."; 
+ 
+        } 
+ 
+      } 
+ 
+ 
+      return { 
+        success: false, 
+        message: 
+          `The travel assistant could not respond right now. ${lastError}` 
+      }; 
+ 
+    }
+
+    /* =========================================================
+       HANDLE CHAT SUBMISSION
+       ========================================================= */
+
+    async function handleChatSubmit(event) {
+
+      event.preventDefault();
+
+
+      const input =
+        document.getElementById(
+          "chatInput"
+        );
+
+
+      const sendButton =
+        document.getElementById(
+          "chatSend"
+        );
+
+
+      const query =
+        input.value.trim();
+
+
+      if (!query) {
+        return;
+      }
+
+
+      addChatMessage(
+        query,
+        "user"
+      );
+
+
+      input.value = "";
+
+
+      /*
+        LOCAL NAVIGATION IS CHECKED FIRST.
+        This means navigation still works
+        even without an API key.
+      */
+
+      const route =
+        localNavMatch(query);
+
+
+      if (route) {
+
+        executeNavigation(
+          route
+        );
+
+        return;
+
+      }
+
+
+      /*
+        Add normal user query
+        to AI conversation.
+      */
+
+      chatHistory.push({
+
+        role: "user",
+
+        content: query
+
+      });
+
+
+      sendButton.disabled =
+        true;
+
+
+      input.disabled =
+        true;
+
+
+      showTypingIndicator();
+
+
+      try {
+
+        const result =
+          await callGroq();
+
+
+        removeTypingIndicator();
+
+
+        if (!result.success) {
+
+          addChatMessage(
+            result.message
+          );
+
+
+          chatHistory.push({
+
+            role: "assistant",
+
+            content:
+              result.message
+
+          });
+
+
+          return;
+
+        }
+
+
+        let liveAnswer =
+          result.answer;
+
+
+        /*
+          Parse navigation markers
+          returned by the AI.
+        */
+
+        let targetFile = null;
+
+
+        const navRegex =
+          /\[NAVIGATE:([a-z0-9_-]+\.html)\]/ig;
+
+
+        const cleanAnswer =
+          liveAnswer
+            .replace(
+              navRegex,
+              (_, file) => {
+
+                const normalized =
+                  file.toLowerCase();
+
+
+                if (
+                  !targetFile &&
+                  NAVIGATION_FILES.has(
+                    normalized
+                  )
+                ) {
+
+                  targetFile =
+                    normalized;
+
+                }
+
+
+                return "";
+
+              }
+            )
+            .trim();
+
+
+        if (cleanAnswer) {
+
+          addChatMessage(
+            cleanAnswer
+          );
+
+        }
+
+
+        if (targetFile) {
+
+          const routeFromAI =
+            NAV_ROUTES.find(
+              route =>
+                route.file ===
+                targetFile
+            );
+
+
+          if (routeFromAI) {
+
+            executeNavigation(
+              routeFromAI
+            );
+
+          }
+
+        }
+
+
+        chatHistory.push({
+
+          role: "assistant",
+
+          content:
+            liveAnswer
+
+        });
+
+
+      }
+
+      catch (error) {
+
+        removeTypingIndicator();
+
+
+        addChatMessage(
+          "Something went wrong while connecting to the travel assistant. You can still use the page navigation and transport search."
+        );
+
+      }
+
+      finally {
+
+        sendButton.disabled =
+          false;
+
+        input.disabled =
+          false;
+
+        input.focus();
+
+      }
+
+    }
+
+
+    /* =========================================================
+       ENTER KEY SUPPORT
+       ========================================================= */
+
+    document
+      .getElementById("chatInput")
+      .addEventListener(
+        "keydown",
+        function(event) {
+
+          if (
+            event.key === "Enter" &&
+            !event.shiftKey
+          ) {
+
+            event.preventDefault();
+
+            document
+              .querySelector(
+                ".chatbot-input-row"
+              )
+              .requestSubmit();
+
+          }
+
+        }
+      );
+
+  </script>
+
+
+  <!-- =========================================================
+       PROFILE TRACKER
+       ========================================================= -->
+
+  <script src="profile-tracker.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,2647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Yearly Calendar of Indian Festivals | BharatYatra</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at 50% 28%, rgba(12, 74, 83, 0.38), transparent 34%),
+        radial-gradient(circle at 12% 60%, rgba(196, 75, 31, 0.14), transparent 28%),
+        #050b12;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image:
+        radial-gradient(circle at 1px 1px, #e5b75b 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      z-index: -1;
+    }
+
+    /* ==================== NAVBAR ==================== */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 74px;
+      padding: 0 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      background: rgba(4, 10, 16, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(225, 180, 85, 0.18);
+    }
+
+    .logo {
+      font-family: Cinzel, serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      color: #f4e6c3;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.75px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #eab75a;
+    }
+
+    .login-btn {
+      padding: 9px 19px;
+      border-radius: 25px;
+      border: 1px solid rgba(234, 183, 90, 0.7);
+      color: #f3d48c !important;
+      background: rgba(234, 183, 90, 0.06);
+    }
+
+    /* ==================== HERO ==================== */
+
+    .calendar-hero {
+      position: relative;
+      height: 75vh;
+      min-height: 500px;
+      margin-top: 74px;
+      overflow: hidden;
+      background: #0b1119;
+    }
+
+    .calendar-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .calendar-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(5, 11, 18, 0.3) 0%,
+          rgba(5, 11, 18, 0.6) 60%,
+          rgba(5, 11, 18, 0.95) 100%
+        );
+    }
+
+    .calendar-hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+
+    .calendar-hero-content h1 {
+      font-family: Cinzel, serif;
+      font-weight: 800;
+      font-size: clamp(34px, 5.5vw, 76px);
+      color: #fff;
+      text-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      letter-spacing: 1.5px;
+      line-height: 1.15;
+    }
+
+    .calendar-hero-content p {
+      margin-top: 14px;
+      font-family: Cinzel, serif;
+      font-size: clamp(14px, 1.8vw, 20px);
+      color: #e8b85c;
+      letter-spacing: 1.2px;
+    }
+
+    /* ==================== VIDEO SHOWCASE ==================== */
+
+    .video-showcase {
+      max-width: 1250px;
+      margin: 40px auto 20px;
+      padding: 0 4%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-title small {
+      color: #e5b75b;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .section-title h3 {
+      font-family: Cinzel, serif;
+      font-size: 26px;
+      color: #f3e7ca;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .video-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(230, 184, 88, 0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: 0.3s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+      border-color: #e5b75b;
+      box-shadow: 0 15px 35px rgba(229, 183, 91, 0.15);
+    }
+
+    .video-card video {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+
+    .video-info {
+      padding: 14px;
+      text-align: center;
+    }
+
+    .video-info h4 {
+      font-family: Cinzel, serif;
+      font-size: 15px;
+      color: #f4e4bc;
+      margin-bottom: 4px;
+    }
+
+    .video-info p {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ==================== MONTH NAVIGATION ==================== */
+
+    .month-nav-container {
+      max-width: 1250px;
+      margin: 30px auto 10px;
+      padding: 0 4%;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #e5b75b rgba(255, 255, 255, 0.05);
+      padding-bottom: 12px;
+    }
+
+    .month-nav-btn {
+      flex: 0 0 auto;
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: 1px solid rgba(230, 184, 88, 0.3);
+      background: rgba(230, 184, 88, 0.06);
+      color: #f2dfb3;
+      font-family: Cinzel, serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .month-nav-btn:hover,
+    .month-nav-btn.active {
+      background: #e5b75b;
+      color: #071015;
+      font-weight: 700;
+      box-shadow: 0 0 15px rgba(229, 183, 91, 0.4);
+    }
+
+    /* ==================== CALENDAR ==================== */
+
+    .calendar-container {
+      max-width: 1250px;
+      margin: 20px auto 80px;
+      padding: 0 4%;
+    }
+
+    .calendar-wrapper {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(12px);
+    }
+
+    .calendar-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 15px;
+    }
+
+    .calendar-header-bar h2 {
+      font-family: Cinzel, serif;
+      color: #f3e7ca;
+      font-size: 28px;
+    }
+
+    .calendar-controls button {
+      background: rgba(230, 184, 88, 0.1);
+      border: 1px solid rgba(230, 184, 88, 0.4);
+      color: #f2dfb3;
+      padding: 7px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 8px;
+      transition: 0.2s;
+    }
+
+    .calendar-controls button:hover {
+      background: #e5b75b;
+      color: #000;
+    }
+
+    .weekdays-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-weight: 700;
+      color: #e5b75b;
+      font-family: Cinzel, serif;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+
+    .day-cell {
+      min-height: 120px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 8px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.25s;
+    }
+
+    .day-cell.empty {
+      background: transparent;
+      border: none;
+    }
+
+    .day-cell.today {
+      border: 1px solid #e5b75b;
+      background: rgba(229, 183, 91, 0.08);
+      box-shadow: inset 0 0 10px rgba(229, 183, 91, 0.2);
+    }
+
+    .day-cell.has-event {
+      border-color: rgba(230, 184, 88, 0.45);
+      background: rgba(230, 184, 88, 0.04);
+      cursor: pointer;
+    }
+
+    .day-cell.has-event:hover {
+      transform: translateY(-3px);
+      border-color: #e5b75b;
+      background: rgba(230, 184, 88, 0.09);
+    }
+
+    .day-number {
+      font-weight: 700;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .day-cell.today .day-number {
+      color: #e5b75b;
+    }
+
+    .festival-tag {
+      margin-top: 5px;
+      background: rgba(11, 21, 29, 0.85);
+      border: 1px solid rgba(230, 184, 88, 0.3);
+      border-radius: 8px;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .festival-tag img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #111;
+    }
+
+    .festival-tag span {
+      font-size: 10px;
+      color: #f4e4bc;
+      font-weight: 600;
+      line-height: 1.2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ==================== MODAL ==================== */
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 12, 0.82);
+      backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: #0b151d;
+      border: 1px solid rgba(229, 181, 84, 0.45);
+      border-radius: 20px;
+      max-width: 580px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(229, 183, 91, 0.15);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-backdrop.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: #e5b75b;
+      color: #000;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      background: #141e28;
+    }
+
+    .modal-content {
+      padding: 24px;
+    }
+
+    .modal-date-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: rgba(229, 183, 91, 0.15);
+      border: 1px solid rgba(229, 183, 91, 0.4);
+      color: #e5b75b;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-family: Cinzel, serif;
+      font-size: 24px;
+      color: #f3e7ca;
+      margin-bottom: 12px;
+    }
+
+    .modal-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* ==================== CHATBOT ==================== */
+
+    .chatbot-button {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid #e8b95c;
+      background: linear-gradient(135deg, #d67b2c, #9d3f35);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(227, 154, 50, 0.15);
+      transition: 0.3s;
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.08);
+    }
+
+    .chatbot {
+      position: fixed;
+      right: 25px;
+      bottom: 102px;
+      width: 350px;
+      height: 450px;
+      background: #0b151d;
+      border: 1px solid rgba(229, 181, 84, 0.35);
+      border-radius: 20px;
+      z-index: 998;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+    }
+
+    .chatbot.active {
+      display: flex;
+    }
+
+    .chat-header {
+      padding: 17px;
+      background: linear-gradient(135deg, #153b40, #13232c);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chat-header strong {
+      font-family: Cinzel, serif;
+      color: #f0d18b;
+    }
+
+    .chat-header small {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 10px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .message.bot {
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .message.user {
+      margin-left: auto;
+      background: rgba(222, 157, 54, 0.18);
+      border: 1px solid rgba(222, 157, 54, 0.25);
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 7px;
+      padding: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 11px;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #101b22;
+      color: #fff;
+      outline: 0;
+    }
+
+    .chat-input button {
+      width: 42px;
+      border: 0;
+      border-radius: 9px;
+      background: #e5a341;
+      color: #071015;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .chat-input button:hover {
+      background: #f0bd63;
+    }
+
+    /* ==================== CHATBOT TABLES ==================== */
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 8px;
+    }
+
+    .table-wrapper table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+    }
+
+    .table-wrapper th,
+    .table-wrapper td {
+      padding: 7px;
+      border: 1px solid rgba(229, 183, 91, 0.2);
+      text-align: left;
+    }
+
+    .table-wrapper th {
+      color: #e5b75b;
+      background: rgba(229, 183, 91, 0.08);
+    }
+
+    .table-wrapper td {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* ==================== MUSIC ==================== */
+
+    .music-toggle {
+      position: fixed;
+      left: 25px;
+      bottom: 25px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid #e8b95c;
+      background: rgba(16, 24, 32, 0.85);
+      backdrop-filter: blur(10px);
+      color: #f3d48c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      transition: 0.3s;
+    }
+
+    .music-toggle:hover {
+      transform: scale(1.08);
+    }
+
+    /* ==================== FOOTER ==================== */
+
+    footer {
+      padding: 35px 6%;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.38);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .days-grid {
+        gap: 4px;
+      }
+
+      .day-cell {
+        min-height: 90px;
+        padding: 4px;
+      }
+
+      .festival-tag span {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        padding: 0 15px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .calendar-wrapper {
+        padding: 15px;
+      }
+
+      .calendar-header-bar {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+      }
+
+      .chatbot {
+        right: 10px;
+        bottom: 90px;
+        width: calc(100% - 20px);
+        height: 440px;
+      }
+
+      .chatbot-button {
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .music-toggle {
+        left: 15px;
+        bottom: 15px;
+      }
+
+      .day-cell {
+        min-height: 65px;
+      }
+
+      .weekdays-grid {
+        font-size: 9px;
+      }
+
+      .day-number {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+
+  <nav class="navbar">
+    <div class="logo">BharatYatra</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home Page</a></li>
+      <li><a href="crafts.html">Crafts</a></li>
+      <li><a href="gi_tag.html">GI Tag Products</a></li>
+      <li><a href="calendar.html" class="active">Calender</a></li>
+      <li><a href="unesco_sites.html">UNESCO Sites</a></li>
+      <li><a href="destinations.html">Tourist Spots</a></li>
+      <li><a href="hotels.html">Hotels &amp; Stays</a></li>
+      <li><a href="transport.html">Transport</a></li>
+      <li><a href="admin_access.html">Vendors</a></li>
+      <li><a href="login.html" class="login-btn">LOGIN</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ==================== HERO ==================== -->
+
+  <section class="calendar-hero">
+
+    <img
+      class="calendar-hero-img"
+      src="assets/image/calendar_hero_banner.png"
+      alt="Indian Festivals"
+      onerror="this.src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1600&q=80'"
+    >
+
+    <div class="calendar-hero-overlay"></div>
+
+    <div class="calendar-hero-content">
+      <h1>Yearly Calendar of Indian Festivals</h1>
+      <p>Celebrate the vibrant traditions, colors, and sacred moments across India</p>
+    </div>
+
+  </section>
+
+
+  <!-- ==================== VIDEO SHOWCASE ==================== -->
+
+  <section class="video-showcase">
+
+    <div class="section-title">
+      <small>CINEMATIC CELEBRATIONS</small>
+      <h3>Festivals in Motion</h3>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          src="assets/festivals/diwali.mp4"
+          poster="assets/calendar/diwali.png">
+        </video>
+
+        <div class="video-info">
+          <h4>Diwali of Lights</h4>
+          <p>The triumph of light, devotion, and joy</p>
+        </div>
+      </div>
+
+
+      <div class="video-card">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          src="assets/festivals/holi.mp4"
+          poster="assets/calendar/holi.png">
+        </video>
+
+        <div class="video-info">
+          <h4>Holi in Mathura</h4>
+          <p>Spreading vibrant natural colors and unity</p>
+        </div>
+      </div>
+
+
+      <div class="video-card">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          src="assets/festivals/durga_puja.mp4"
+          poster="assets/calendar/durga_puja.png">
+        </video>
+
+        <div class="video-info">
+          <h4>Durga Puja Dhunuchi</h4>
+          <p>Rhythm, sacred energy, and cultural heritage</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================== MONTH SELECTOR ==================== -->
+
+  <div class="month-nav-container" id="monthNav"></div>
+
+
+  <!-- ==================== CALENDAR ==================== -->
+
+  <section class="calendar-container">
+
+    <div class="calendar-wrapper">
+
+      <div class="calendar-header-bar">
+
+        <h2 id="calendarMonthYear"></h2>
+
+        <div class="calendar-controls">
+          <button onclick="prevMonth()">◄ Prev</button>
+          <button onclick="jumpToCurrentMonth()">Today</button>
+          <button onclick="nextMonth()">Next ►</button>
+        </div>
+
+      </div>
+
+      <div class="weekdays-grid">
+        <div>SUN</div>
+        <div>MON</div>
+        <div>TUE</div>
+        <div>WED</div>
+        <div>THU</div>
+        <div>FRI</div>
+        <div>SAT</div>
+      </div>
+
+      <div class="days-grid" id="daysGrid"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================== FESTIVAL MODAL ==================== -->
+
+  <div
+    class="modal-backdrop"
+    id="festivalModal"
+    onclick="closeModal(event)"
+  >
+
+    <div class="modal-card">
+
+      <button
+        class="modal-close-btn"
+        onclick="closeModal(event, true)"
+      >
+        ✕
+      </button>
+
+      <img
+        id="modalImg"
+        class="modal-img"
+        src=""
+        alt="Festival View"
+      >
+
+      <div class="modal-content">
+
+        <div
+          class="modal-date-badge"
+          id="modalDateBadge">
+        </div>
+
+        <h3
+          class="modal-title"
+          id="modalTitle">
+        </h3>
+
+        <p
+          class="modal-desc"
+          id="modalDesc">
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================== CHATBOT ==================== -->
+
+  <div
+    class="chatbot-button"
+    onclick="toggleChat()"
+    aria-label="Open travel assistant">
+    🤖
+  </div>
+
+
+  <div class="chatbot" id="chatbot">
+
+    <div class="chat-header">
+      <strong>BharatYatra Travel Assistant</strong>
+      <small>Ask about festivals, travel or any BharatYatra page</small>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+
+      <div class="message bot">
+        Namaste! 🙏
+        <br><br>
+        Ask me about upcoming Indian festivals, dates, or say
+        <strong>"Open Hotels"</strong>,
+        <strong>"Take me to Transport"</strong>,
+        or
+        <strong>"Go to AI Itinerary Planner"</strong>.
+      </div>
+
+    </div>
+
+    <div class="chat-input">
+
+      <input
+        id="chatInput"
+        type="text"
+        placeholder="Ask about a festival or page..."
+        onkeydown="handleChat(event)"
+      >
+
+      <button onclick="sendMessage()">➤</button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================== FOOTER ==================== -->
+
+  <footer>
+    BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT
+  </footer>
+
+
+  <script>
+
+    /* =========================================================
+       FESTIVAL DATA
+       ========================================================= */
+
+    const festivalEvents = {
+
+      "0-14": {
+        name: "Makar Sankranti / Pongal",
+        img: "assets/heritage/calendar/pongal.png",
+        fallback: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
+        desc: "A harvest festival marking the transition of the Sun into Makara rashi. Celebrated with kite flying in the west, Pongal delicacies in Tamil Nadu, and holy river baths across the north."
+      },
+
+      "0-23": {
+        name: "Vasant Panchami",
+        img: "assets/heritage/calendar/vasant_panchami.png",
+        fallback: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80",
+        desc: "Dedicated to Goddess Saraswati, the deity of wisdom, music, and arts. It heralds the arrival of spring with yellow garments, mustard flower blooms, and academic offerings."
+      },
+
+      "0-26": {
+        name: "Republic Day",
+        img: "assets/heritage/calendar/republic_day.png",
+        fallback: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80",
+        desc: "Honoring the date on which the Constitution of India came into effect in 1950, celebrated with grand parades at Kartavya Path in New Delhi."
+      },
+
+      "1-15": {
+        name: "Maha Shivratri",
+        img: "assets/heritage/calendar/maha_shivratri.png",
+        fallback: "https://images.unsplash.com/photo-1609358905581-e5382c46279e?auto=format&fit=crop&w=800&q=80",
+        desc: "The grand night of Lord Shiva celebrating the cosmic dance (Tandava) and sacred union with Goddess Parvati. Devotees observe day-night fasting and meditative vigils."
+      },
+
+      "2-3": {
+        name: "Holika Dahan",
+        img: "assets/heritage/calendar/holika_dahan.png",
+        fallback: "https://images.unsplash.com/photo-1576487247299-e2a22956cf55?auto=format&fit=crop&w=800&q=80",
+        desc: "The ritual bonfire lit on the eve of Holi signifying the victory of good over evil, inspired by the legend of Bhakt Prahlada and Holika."
+      },
+
+      "2-4": {
+        name: "Holi (Rangwali Holi)",
+        img: "assets/heritage/calendar/holi.png",
+        fallback: "https://images.unsplash.com/photo-1576487247299-e2a22956cf55?auto=format&fit=crop&w=800&q=80",
+        desc: "The festival of colors celebrating love, springtime, and joy with organic dry gulal, water celebrations, folk songs, and traditional Gujiya sweets."
+      },
+
+      "2-19": {
+        name: "Gudi Padwa / Ugadi",
+        img: "assets/heritage/calendar/gudi_padwa.png",
+        fallback: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+        desc: "Traditional New Year celebrations for Maharashtra, Karnataka, and Andhra Pradesh, marked by raising the sacred Gudi flag and tasting sweet-bitter neem-jaggery prasad."
+      },
+
+      "2-27": {
+        name: "Rama Navami",
+        img: "assets/heritage/calendar/rama_navami.png",
+        fallback: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80",
+        desc: "Celebrating the birth of Lord Rama, the seventh avatar of Vishnu, with bhajans, temple processions, and community feasting across Ayodhya and all of India."
+      },
+
+      "3-14": {
+        name: "Baisakhi / Puthandu",
+        img: "assets/heritage/calendar/baisakhi.png",
+        fallback: "https://images.unsplash.com/photo-1514222788835-3a1a1d5b32f8?auto=format&fit=crop&w=800&q=80",
+        desc: "The major Punjabi harvest festival and formation anniversary of the Khalsa Panth (1699), alongside regional new years across Tamil Nadu, Bengal, and Assam."
+      },
+
+      "7-15": {
+        name: "Independence Day",
+        img: "assets/heritage/calendar/independence_day.png",
+        fallback: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80",
+        desc: "Commemorating India's independence gained in 1947, observed nationwide with tricolor flag hoistings, patriotic tributes, and cultural performances."
+      },
+
+      "7-27": {
+        name: "Onam (Thiruvonam)",
+        img: "assets/heritage/calendar/onam.png",
+        fallback: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+        desc: "Kerala's grand harvest festival welcoming the mythological King Mahabali. Renowned for floral carpets (Pookalam), boat races (Vallam Kali), and Onasadya feasts."
+      },
+
+      "7-28": {
+        name: "Raksha Bandhan",
+        img: "assets/heritage/calendar/raksha_bandhan.png",
+        fallback: "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=800&q=80",
+        desc: "The festival honoring the sacred bond of love and protection between brothers and sisters through tying ornamental Rakhi threads."
+      },
+
+      "8-4": {
+        name: "Janmashtami",
+        img: "assets/heritage/calendar/janmashtami.png",
+        fallback: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80",
+        desc: "The birth of Lord Krishna celebrated with midnight prayers, decorative swings, Raas Leela performances, and high-energy Dahi Handi competitions."
+      },
+
+      "8-10": {
+        name: "Bail Pola",
+        img: "assets/heritage/calendar/bail_pola.png",
+        fallback: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=800&q=80",
+        desc: "A traditional agricultural festival in Maharashtra celebrating the vital bond between farmers and their bulls, treated as family members and honored for their labor."
+      },
+
+      "8-14": {
+        name: "Ganesh Chaturthi",
+        img: "assets/heritage/calendar/ganesh_chaturthi.png",
+        fallback: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80",
+        desc: "A 10-day extravaganza celebrating the arrival of Lord Ganesha with grand public pandals, Modak offerings, and rhythmic dhol-tasha beats across Maharashtra and beyond."
+      },
+
+      "8-23": {
+        name: "Anant Chaturdashi",
+        img: "assets/heritage/calendar/anant_chaturdashi.png",
+        fallback: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80",
+        desc: "The final day of Ganesh Utsav marked by massive immersion processions (Visarjan) bids farewell to Ganpati Bappa amid devotion and fanfare."
+      },
+
+      "9-2": {
+        name: "Gandhi Jayanti",
+        img: "assets/heritage/calendar/gandhi_jayanti.png",
+        fallback: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80",
+        desc: "National day honoring Mahatma Gandhi, champion of Ahimsa (non-violence) and leader of India's freedom struggle."
+      },
+
+      "9-11": {
+        name: "Navratri Begins",
+        img: "assets/heritage/calendar/navratri.png",
+        fallback: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80",
+        desc: "Nine sacred nights dedicated to the nine divine manifestations of Goddess Durga, celebrated with Garba and Dandiya folk dances."
+      },
+
+      "9-18": {
+        name: "Maha Ashtami / Durga Puja",
+        img: "assets/heritage/calendar/durga_puja.png",
+        fallback: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80",
+        desc: "The peak of Durga Puja featuring Pushpanjali, Kumari Puja, Dhunuchi dance, and artistic theme pandals throughout West Bengal and eastern India."
+      },
+
+      "9-20": {
+        name: "Dussehra (Vijayadashami)",
+        img: "assets/heritage/calendar/dussehra.png",
+        fallback: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80",
+        desc: "The victory of Rama over Ravana and Durga over Mahishasura. Celebrated with effigy burnings of Ravana and Mysore Palace processions."
+      },
+
+      "10-6": {
+        name: "Dhanteras",
+        img: "assets/heritage/calendar/dhanteras.png",
+        fallback: "https://images.unsplash.com/photo-1514222788835-3a1a1d5b32f8?auto=format&fit=crop&w=800&q=80",
+        desc: "The auspicious beginning of the 5-day Diwali festivities dedicated to Lord Dhanvantari and Goddess Lakshmi, traditionally marked by purchasing gold, silver, or brass."
+      },
+
+      "10-8": {
+        name: "Diwali (Deepavali)",
+        img: "assets/heritage/calendar/diwali.png",
+        fallback: "https://images.unsplash.com/photo-1514222788835-3a1a1d5b32f8?auto=format&fit=crop&w=800&q=80",
+        desc: "The Festival of Lights celebrating spiritual triumph, illuminated with oil clay lamps (diyas), intricate rangolis, Lakshmi Puja, and fireworks."
+      },
+
+      "10-9": {
+        name: "Govardhan Puja / Annakut",
+        img: "assets/heritage/calendar/govardhan_puja.png",
+        fallback: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
+        desc: "Commemorating Lord Krishna lifting Mount Govardhan to shelter the people of Vrindavan, celebrated with mountain-like offerings of traditional dishes (Annakut)."
+      },
+
+      "10-10": {
+        name: "Bhai Dooj",
+        img: "assets/heritage/calendar/bhai_dooj.png",
+        fallback: "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=800&q=80",
+        desc: "The conclusion of Diwali celebrations celebrating the lifelong affection and welfare shared between brothers and sisters."
+      },
+
+      "10-15": {
+        name: "Chhath Puja (Sandhya Arghya)",
+        img: "assets/heritage/calendar/chhath_puja.png",
+        fallback: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
+        desc: "Ancient Vedic festival dedicated to Surya Dev and Chhathi Maiya thanking the Sun for sustaining life, marked by standing in water bodies to offer prayers."
+      },
+
+      "10-24": {
+        name: "Guru Nanak Jayanti (Gurpurab)",
+        img: "assets/heritage/calendar/guru_nanak_jayanti.png",
+        fallback: "https://images.unsplash.com/photo-1514222788835-3a1a1d5b32f8?auto=format&fit=crop&w=800&q=80",
+        desc: "Celebrating the birth of the first Sikh Guru, Guru Nanak Dev Ji, with Prabhat Pheris, Akhand Path, Nagar Kirtan processions, and community Langar."
+      },
+
+      "11-25": {
+        name: "Christmas",
+        img: "assets/heritage/calendar/christmas.png",
+        fallback: "https://images.unsplash.com/photo-1543257580-7269da773bf5?auto=format&fit=crop&w=800&q=80",
+        desc: "Celebrating the birth of Jesus Christ, marked by midnight church masses, carol singing, cribs, and coastal celebrations across Goa and Kerala."
+      }
+
+    };
+
+
+    /* =========================================================
+       CALENDAR ENGINE
+       ========================================================= */
+
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+
+    const realDate = new Date();
+
+    let currentMonth = realDate.getMonth();
+    let currentYear = realDate.getFullYear();
+
+    const monthNav = document.getElementById("monthNav");
+
+    monthNames.forEach((month, idx) => {
+
+      const btn = document.createElement("button");
+
+      btn.className =
+        "month-nav-btn" +
+        (idx === currentMonth ? " active" : "");
+
+      btn.textContent = month.toUpperCase();
+
+      btn.onclick = () => {
+        currentMonth = idx;
+        renderCalendar();
+      };
+
+      monthNav.appendChild(btn);
+
+    });
+
+
+    function renderCalendar() {
+
+      const firstDay =
+        new Date(currentYear, currentMonth, 1).getDay();
+
+      const totalDays =
+        new Date(currentYear, currentMonth + 1, 0).getDate();
+
+      document.getElementById("calendarMonthYear").textContent =
+        `${monthNames[currentMonth]} ${currentYear}`;
+
+      document.querySelectorAll(".month-nav-btn")
+        .forEach((btn, idx) => {
+
+          btn.classList.toggle(
+            "active",
+            idx === currentMonth
+          );
+
+        });
+
+      const grid = document.getElementById("daysGrid");
+
+      grid.innerHTML = "";
+
+      /* Empty cells before first day */
+
+      for (let i = 0; i < firstDay; i++) {
+
+        const emptyCell =
+          document.createElement("div");
+
+        emptyCell.className =
+          "day-cell empty";
+
+        grid.appendChild(emptyCell);
+
+      }
+
+      /* Actual calendar days */
+
+      for (let day = 1; day <= totalDays; day++) {
+
+        const cell =
+          document.createElement("div");
+
+        cell.className = "day-cell";
+
+        const isToday =
+          day === realDate.getDate() &&
+          currentMonth === realDate.getMonth() &&
+          currentYear === realDate.getFullYear();
+
+        if (isToday) {
+          cell.classList.add("today");
+        }
+
+        const eventKey =
+          `${currentMonth}-${day}`;
+
+        const event =
+          festivalEvents[eventKey];
+
+        let eventHTML = "";
+
+        if (event) {
+
+          cell.classList.add("has-event");
+
+          cell.onclick = () =>
+            openFestivalModal(
+              event,
+              `${day} ${monthNames[currentMonth]} ${currentYear}`
+            );
+
+          eventHTML = `
+            <div class="festival-tag" title="${escapeHTML(event.name)}">
+
+              <img
+                src="${event.img}"
+                alt="${escapeHTML(event.name)}"
+                onerror="this.src='${event.fallback}'"
+              >
+
+              <span>
+                ${escapeHTML(event.name)}
+              </span>
+
+            </div>
+          `;
+
+        }
+
+        cell.innerHTML = `
+
+          <div class="day-number">
+            ${day}
+          </div>
+
+          ${eventHTML}
+
+        `;
+
+        grid.appendChild(cell);
+
+      }
+
+    }
+
+
+    function prevMonth() {
+
+      currentMonth--;
+
+      if (currentMonth < 0) {
+
+        currentMonth = 11;
+        currentYear--;
+
+      }
+
+      renderCalendar();
+
+    }
+
+
+    function nextMonth() {
+
+      currentMonth++;
+
+      if (currentMonth > 11) {
+
+        currentMonth = 0;
+        currentYear++;
+
+      }
+
+      renderCalendar();
+
+    }
+
+
+    function jumpToCurrentMonth() {
+
+      currentMonth = realDate.getMonth();
+      currentYear = realDate.getFullYear();
+
+      renderCalendar();
+
+    }
+
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    function openFestivalModal(event, formattedDate) {
+
+      const modal =
+        document.getElementById("festivalModal");
+
+      const img =
+        document.getElementById("modalImg");
+
+      img.src = event.img;
+
+      img.onerror = () => {
+        img.src = event.fallback;
+      };
+
+      document.getElementById("modalDateBadge")
+        .textContent = formattedDate;
+
+      document.getElementById("modalTitle")
+        .textContent = event.name;
+
+      document.getElementById("modalDesc")
+        .textContent = event.desc;
+
+      modal.classList.add("active");
+
+    }
+
+
+    function closeModal(e, force = false) {
+
+      if (
+        force ||
+        e.target.id === "festivalModal"
+      ) {
+
+        document
+          .getElementById("festivalModal")
+          .classList.remove("active");
+
+      }
+
+    }
+
+
+    function escapeHTML(value) {
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    renderCalendar();
+
+
+    /* =========================================================
+       BHARATYATRA CHATBOT
+       FULL 12-PAGE NAVIGATION REGISTRY
+       ========================================================= */
+
+    /*
+      IMPORTANT:
+      For production, the API key should be kept server-side.
+    */
+
+    const ACTIVE_MODELS = [
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b",
+      "qwen/qwen3.6-27b"
+    ];
+
+
+    /* =========================================================
+       ALL BHARATYATRA PAGES
+       ========================================================= */
+
+    const NAV_ROUTES = [
+
+      {
+        file: "index.html",
+        label: "Home Page",
+        keywords: [
+          "home",
+          "homepage",
+          "home page",
+          "main page",
+          "landing page",
+          "bharatyatra home"
+        ]
+      },
+
+      {
+        file: "chatbot.html",
+        label: "AI Itinerary Planner",
+        keywords: [
+          "itinerary",
+          "itinerary planner",
+          "ai itinerary",
+          "ai itinerary planner",
+          "trip planner",
+          "travel planner",
+          "plan a trip",
+          "plan my trip",
+          "travel plan",
+          "ai guide",
+          "bharat ai guide",
+          "bharat ai",
+          "plan a yatra"
+        ]
+      },
+
+      {
+        file: "ticket_generator.html",
+        label: "One-Ticket Pass",
+        keywords: [
+          "ticket",
+          "tickets",
+          "one ticket",
+          "one-ticket",
+          "one ticket pass",
+          "pass",
+          "travel pass",
+          "ticket generator",
+          "generate ticket",
+          "book ticket",
+          "booking",
+          "book travel"
+        ]
+      },
+
+      {
+        file: "crafts.html",
+        label: "Crafts",
+        keywords: [
+          "craft",
+          "crafts",
+          "handicraft",
+          "handicrafts",
+          "handloom",
+          "artisan",
+          "artisans",
+          "souvenir",
+          "souvenirs"
+        ]
+      },
+
+      {
+        file: "gi_tag.html",
+        label: "GI Tag Products",
+        keywords: [
+          "gi tag",
+          "gi tags",
+          "gi-tag",
+          "gi products",
+          "geographical indication",
+          "regional products"
+        ]
+      },
+
+      {
+        file: "calendar.html",
+        label: "Calendar",
+        keywords: [
+          "calendar",
+          "festival calendar",
+          "events calendar",
+          "festival",
+          "festivals",
+          "events",
+          "upcoming events"
+        ]
+      },
+
+      {
+        file: "unesco_sites.html",
+        label: "UNESCO Sites",
+        keywords: [
+          "unesco",
+          "unesco sites",
+          "world heritage",
+          "world heritage sites",
+          "heritage site",
+          "heritage sites"
+        ]
+      },
+
+      {
+        file: "destinations.html",
+        label: "Tourist Spots",
+        keywords: [
+          "destination",
+          "destinations",
+          "tourist spot",
+          "tourist spots",
+          "tourist place",
+          "tourist places",
+          "places to visit",
+          "places to see",
+          "sightseeing",
+          "tourist attraction",
+          "tourist attractions"
+        ]
+      },
+
+      {
+        file: "hotels.html",
+        label: "Hotels & Stays",
+        keywords: [
+          "hotel",
+          "hotels",
+          "stay",
+          "stays",
+          "accommodation",
+          "accommodations",
+          "hotel booking",
+          "places to stay",
+          "homestay",
+          "homestays",
+          "hostel",
+          "hostels"
+        ]
+      },
+
+      {
+        file: "transport.html",
+        label: "Transport",
+        keywords: [
+          "transport",
+          "transportation",
+          "travel transport",
+          "flight",
+          "flights",
+          "train",
+          "trains",
+          "bus",
+          "buses",
+          "travel options",
+          "travel by train",
+          "travel by flight",
+          "travel by bus"
+        ]
+      },
+
+      {
+        file: "admin_access.html",
+        label: "Vendors",
+        keywords: [
+          "vendor",
+          "vendors",
+          "vendor portal",
+          "seller",
+          "sellers",
+          "admin",
+          "admin access"
+        ]
+      },
+
+      {
+        file: "login.html",
+        label: "Login / Profile",
+        keywords: [
+          "login",
+          "log in",
+          "sign in",
+          "signin",
+          "profile",
+          "my profile",
+          "account",
+          "my account",
+          "register",
+          "sign up",
+          "signup"
+        ]
+      }
+
+    ];
+
+
+    /* =========================================================
+       NAVIGATION INTENT
+       ========================================================= */
+
+    const NAVIGATION_PHRASES = [
+
+      "go to",
+      "take me to",
+      "take me back to",
+      "show me",
+      "open",
+      "navigate to",
+      "navigate",
+      "switch to",
+      "bring me to",
+      "send me to",
+      "move to",
+      "let me see",
+      "can you open",
+      "please open",
+      "please take me to",
+      "i want to see",
+      "i want to go",
+      "i want to visit",
+      "visit the",
+      "take me"
+
+    ];
+
+
+    const INFO_PHRASES = [
+
+      "tell me about",
+      "what is",
+      "what are",
+      "who is",
+      "how is",
+      "how are",
+      "how does",
+      "how do",
+      "why",
+      "explain",
+      "information about",
+      "details about",
+      "describe",
+      "give me information",
+      "tell me more about"
+
+    ];
+
+
+    const CURRENT_PAGE =
+      (
+        window.location.pathname
+          .split("/")
+          .pop() ||
+        "index.html"
+      ).toLowerCase();
+
+
+    /* =========================================================
+       NORMALIZE USER QUERY
+       ========================================================= */
+
+    function normalizeQuery(text) {
+
+      return String(text)
+        .toLowerCase()
+        .replace(/[?!.,]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    }
+
+
+    /* =========================================================
+       LOCAL NAVIGATION MATCHER
+       ========================================================= */
+
+    function localNavMatch(rawQuery) {
+
+      const query =
+        normalizeQuery(rawQuery);
+
+      if (!query) {
+        return null;
+      }
+
+
+      let best = null;
+      let bestScore = 0;
+
+
+      /* Score every route */
+
+      for (const route of NAV_ROUTES) {
+
+        let score = 0;
+
+        for (const keyword of route.keywords) {
+
+          const k =
+            keyword.toLowerCase();
+
+          if (query === k) {
+
+            score += 100;
+
+          } else if (query.includes(k)) {
+
+            score +=
+              k.split(" ").length * 5;
+
+          }
+
+        }
+
+
+        if (score > bestScore) {
+
+          bestScore = score;
+          best = route;
+
+        }
+
+      }
+
+
+      if (!best || bestScore === 0) {
+        return null;
+      }
+
+
+      /* -----------------------------------------
+         Detect navigation command
+         ----------------------------------------- */
+
+      const startsWithNavigation =
+        NAVIGATION_PHRASES.some(
+          phrase =>
+            query === phrase ||
+            query.startsWith(phrase + " ")
+        );
+
+
+      const hasNavigationPhrase =
+        NAVIGATION_PHRASES.some(
+          phrase => query.includes(phrase)
+        );
+
+
+      /* -----------------------------------------
+         Detect informational questions
+         ----------------------------------------- */
+
+      const hasInfoPhrase =
+        INFO_PHRASES.some(
+          phrase =>
+            query === phrase ||
+            query.startsWith(phrase + " ") ||
+            query.includes(" " + phrase + " ")
+        );
+
+
+      /*
+        "Tell me about hotels"
+        -> informational question
+        -> DO NOT navigate
+
+        "Open hotels"
+        -> navigation
+        -> navigate
+
+        "Show me information about hotels"
+        -> informational
+        -> DO NOT navigate
+      */
+
+      if (
+        hasInfoPhrase &&
+        !startsWithNavigation
+      ) {
+
+        return null;
+
+      }
+
+
+      if (
+        query.includes("information about") ||
+        query.includes("details about") ||
+        query.includes("tell me about") ||
+        query.includes("tell me more about")
+      ) {
+
+        return null;
+
+      }
+
+
+      /* Explicit navigation */
+
+      if (
+        startsWithNavigation ||
+        hasNavigationPhrase
+      ) {
+
+        return best;
+
+      }
+
+
+      /* Exact page-name request */
+
+      const exactPageName =
+        best.keywords.some(
+          keyword =>
+            query === keyword.toLowerCase()
+        );
+
+
+      if (exactPageName) {
+        return best;
+      }
+
+
+      /*
+        Do not navigate on ordinary topic questions.
+      */
+
+      return null;
+
+    }
+
+
+    /* =========================================================
+       EXECUTE NAVIGATION
+       ========================================================= */
+
+    function executeNavigation(route, botDiv) {
+
+      if (!route) {
+        return;
+      }
+
+
+      console.log(
+        "[BharatAI Navigation]",
+        route.file
+      );
+
+
+      if (
+        route.file.toLowerCase() ===
+        CURRENT_PAGE
+      ) {
+
+        botDiv.innerHTML +=
+          `<br><br><em>
+            You're already on the
+            ${escapeHTML(route.label)}
+            page!
+          </em>`;
+
+        return;
+
+      }
+
+
+      botDiv.innerHTML +=
+        `<br><br><em>
+          Taking you to
+          <strong>${escapeHTML(route.label)}</strong>...
+        </em>`;
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          route.file;
+
+      }, 700);
+
+    }
+
+
+    /* =========================================================
+       SYSTEM INSTRUCTION
+       ========================================================= */
+
+    const SYSTEM_INSTRUCTION = `
+
+You are "Bharat AI", the official interactive guide for the BharatYatra website.
+
+You are currently assisting a visitor on the BharatYatra Indian Festival Calendar page.
+
+This page contains:
+- A yearly Indian festival calendar
+- Festival dates
+- Festival descriptions
+- Festival images
+- Festival videos
+- Month navigation
+- Festival detail popups
+
+You can also help visitors navigate throughout the BharatYatra website.
+
+AVAILABLE WEBSITE PAGES:
+
+1. Home Page
+File: index.html
+
+2. AI Itinerary Planner
+File: chatbot.html
+
+3. One-Ticket Pass
+File: ticket_generator.html
+
+4. Crafts
+File: crafts.html
+
+5. GI Tag Products
+File: gi_tag.html
+
+6. Calendar
+File: calendar.html
+
+7. UNESCO Sites
+File: unesco_sites.html
+
+8. Tourist Spots
+File: destinations.html
+
+9. Hotels & Stays
+File: hotels.html
+
+10. Transport
+File: transport.html
+
+11. Vendors
+File: admin_access.html
+
+12. Login / Profile
+File: login.html
+
+RULES:
+
+1. Answer questions about Indian festivals and the calendar helpfully.
+
+2. If the user asks about a festival shown on this page, explain its cultural context using the information available.
+
+3. If appropriate, provide dates and month information.
+
+4. Use clean Markdown formatting when useful.
+
+5. You can answer general BharatYatra questions as well.
+
+6. ONLY navigate when the user is clearly asking to open or go to a website page.
+
+7. Do NOT navigate when the user is merely asking for information about a topic.
+
+For example:
+
+"Tell me about Diwali"
+-> Answer the question.
+-> DO NOT navigate.
+
+"What is Holi?"
+-> Answer the question.
+-> DO NOT navigate.
+
+"Tell me about hotels"
+-> Answer about hotels.
+-> DO NOT navigate.
+
+"Open Hotels"
+-> Navigate to hotels.html.
+
+"Take me to the Transport page"
+-> Navigate to transport.html.
+
+"Go to the AI Itinerary Planner"
+-> Navigate to chatbot.html.
+
+"Open the GI Tag page"
+-> Navigate to gi_tag.html.
+
+"Show me the Calendar"
+-> Navigate to calendar.html.
+
+When the user clearly asks to navigate, end the response with EXACTLY:
+
+[NAVIGATE:filename.html]
+
+Valid filenames are:
+
+index.html
+chatbot.html
+ticket_generator.html
+crafts.html
+gi_tag.html
+calendar.html
+unesco_sites.html
+destinations.html
+hotels.html
+transport.html
+admin_access.html
+login.html
+
+Never invent another filename.
+
+Only add the navigation marker when navigation intent is clear.
+
+`;
+
+
+    let conversationHistory = [
+      {
+        role: "system",
+        content: SYSTEM_INSTRUCTION
+      }
+    ];
+
+
+    /* =========================================================
+       CHAT TOGGLE
+       ========================================================= */
+
+    function toggleChat() {
+
+      const chatbot =
+        document.getElementById("chatbot");
+
+      chatbot.classList.toggle("active");
+
+
+      if (
+        chatbot.classList.contains("active")
+      ) {
+
+        setTimeout(() => {
+
+          document
+            .getElementById("chatInput")
+            .focus();
+
+        }, 100);
+
+      }
+
+    }
+
+
+    /* =========================================================
+       ENTER KEY
+       ========================================================= */
+
+    function handleChat(e) {
+
+      if (e.key === "Enter") {
+        sendMessage();
+      }
+
+    }
+
+
+    /* =========================================================
+       SEND MESSAGE
+       ========================================================= */
+
+    async function sendMessage() {
+
+      const input =
+        document.getElementById("chatInput");
+
+      const messages =
+        document.getElementById("chatMessages");
+
+      const text =
+        input.value.trim();
+
+
+      if (!text) {
+        return;
+      }
+
+
+      /* User message */
+
+      const userDiv =
+        document.createElement("div");
+
+      userDiv.className =
+        "message user";
+
+      userDiv.textContent =
+        text;
+
+      messages.appendChild(userDiv);
+
+      input.value = "";
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      /* =====================================================
+         FAST LOCAL NAVIGATION
+         ===================================================== */
+
+      const localRoute =
+        localNavMatch(text);
+
+
+      if (localRoute) {
+
+        const botDiv =
+          document.createElement("div");
+
+        botDiv.className =
+          "message bot";
+
+        botDiv.innerHTML =
+          `Sure! Heading to
+           <strong>
+             ${escapeHTML(localRoute.label)}
+           </strong>.`;
+
+        messages.appendChild(botDiv);
+
+        messages.scrollTop =
+          messages.scrollHeight;
+
+        executeNavigation(
+          localRoute,
+          botDiv
+        );
+
+        return;
+
+      }
+
+
+      /* =====================================================
+         LLM FALLBACK
+         ===================================================== */
+
+      const botDiv =
+        document.createElement("div");
+
+      botDiv.className =
+        "message bot";
+
+      botDiv.innerHTML =
+        "Thinking...";
+
+      messages.appendChild(botDiv);
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      conversationHistory.push({
+        role: "user",
+        content: text
+      });
+
+
+      try {
+
+        const liveAnswer =
+          await callGroqAPI(
+            conversationHistory
+          );
+
+
+        conversationHistory.push({
+          role: "assistant",
+          content: liveAnswer
+        });
+
+
+        /* =================================================
+           ROBUST NAVIGATION MARKER PARSER
+           ================================================= */
+
+        const validFiles =
+          new Set(
+            NAV_ROUTES.map(
+              route => route.file
+            )
+          );
+
+
+        const navRegex =
+          /\[NAVIGATE:([a-z0-9_-]+\.html)\]/ig;
+
+
+        let targetFile = null;
+
+
+        const cleanAnswer =
+          liveAnswer
+            .replace(
+              navRegex,
+              (_, file) => {
+
+                const normalized =
+                  file.toLowerCase();
+
+                if (
+                  !targetFile &&
+                  validFiles.has(normalized)
+                ) {
+
+                  targetFile =
+                    normalized;
+
+                }
+
+                return "";
+
+              }
+            )
+            .trim();
+
+
+        botDiv.innerHTML =
+          parseMarkdownWithTables(
+            cleanAnswer
+          );
+
+
+        /* =================================================
+           NAVIGATE IF LLM REQUESTED IT
+           ================================================= */
+
+        if (targetFile) {
+
+          const route =
+            NAV_ROUTES.find(
+              r =>
+                r.file.toLowerCase() ===
+                targetFile
+            );
+
+
+          if (route) {
+
+            executeNavigation(
+              route,
+              botDiv
+            );
+
+          }
+
+        }
+
+      } catch (err) {
+
+        console.error(
+          "[BharatAI Error]",
+          err
+        );
+
+
+        botDiv.innerHTML =
+          `<span style="color:#ff7b72;">
+            ⚠️ ${escapeHTML(err.message)}
+          </span>`;
+
+      } finally {
+
+        messages.scrollTop =
+          messages.scrollHeight;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       GROQ API
+       ========================================================= */
+
+    async function callGroqAPI(messages) {
+
+    let lastError = null;
+
+    for (const model of ACTIVE_MODELS) {
+
+        try {
+
+            const response =
+                await fetch(
+                    "http://localhost:3001/api/groq",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            model: model,
+                            messages: messages,
+                            temperature: 0.65,
+                            max_tokens: 1200
+                        })
+                    }
+                );
+
+            if (!response.ok) {
+
+                const errorJSON =
+                    await response
+                        .json()
+                        .catch(() => ({}));
+
+                lastError =
+                    errorJSON.error?.message ||
+                    `HTTP ${response.status}`;
+
+                continue;
+            }
+
+            const data =
+                await response.json();
+
+            const reply =
+                data.choices?.[0]?.message?.content;
+
+            if (reply) {
+                return reply;
+            }
+
+        } catch (networkError) {
+
+            lastError =
+                networkError.message;
+
+        }
+    }
+
+    throw new Error(
+        lastError ||
+        "Could not connect to the live model."
+    );
+}
+
+    /* =========================================================
+       MARKDOWN TABLE PARSER
+       ========================================================= */
+
+    function parseMarkdownWithTables(text) {
+
+      if (!text) {
+        return "";
+      }
+
+
+      const tableRegex =
+        /((?:\|[^\n]+\|\r?\n)(?:\|[\s\-:|]+\|\r?\n)(?:\|[^\n]+\|\r?\n?)+)/g;
+
+
+      text =
+        text.replace(
+          tableRegex,
+          match => {
+
+            const rows =
+              match
+                .trim()
+                .split("\n")
+                .map(row => row.trim());
+
+
+            if (rows.length < 2) {
+              return match;
+            }
+
+
+            const headers =
+              rows[0]
+                .split("|")
+                .slice(1, -1)
+                .map(
+                  header =>
+                    `<th>${escapeHTML(
+                      header.trim()
+                    )}</th>`
+                )
+                .join("");
+
+
+            const bodyRows =
+              rows
+                .slice(2)
+                .map(row => {
+
+                  const cells =
+                    row
+                      .split("|")
+                      .slice(1, -1)
+                      .map(
+                        cell =>
+                          `<td>${escapeHTML(
+                            cell.trim()
+                          )}</td>`
+                      )
+                      .join("");
+
+
+                  return `<tr>${cells}</tr>`;
+
+                })
+                .join("");
+
+
+            return `
+              <div class="table-wrapper">
+
+                <table>
+
+                  <thead>
+                    <tr>
+                      ${headers}
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    ${bodyRows}
+                  </tbody>
+
+                </table>
+
+              </div>
+            `;
+
+          }
+        );
+
+
+      /* Bold */
+
+      text =
+        text.replace(
+          /\*\*(.*?)\*\*/g,
+          "<strong>$1</strong>"
+        );
+
+
+      /* Italic */
+
+      text =
+        text.replace(
+          /\*(.*?)\*/g,
+          "<em>$1</em>"
+        );
+
+
+      /* Bullet points */
+
+      text =
+        text.replace(
+          /^\s*[-*]\s+(.*)$/gim,
+          "• $1<br>"
+        );
+
+
+      /* Paragraph spacing */
+
+      text =
+        text.replace(
+          /\n\n/g,
+          "<br><br>"
+        );
+
+
+      /* Single line breaks */
+
+      text =
+        text.replace(
+          /\n/g,
+          "<br>"
+        );
+
+
+      return text;
+
+    }
+
+
+    /* =========================================================
+       ESC KEY CLOSES CHAT
+       ========================================================= */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          document
+            .getElementById("chatbot")
+            .classList.remove("active");
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+  <script src="profile-tracker.js"></script>
+
+</body>
+</html>

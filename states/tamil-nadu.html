@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tamil Nadu | State | BharatYatra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at 50% 28%, rgba(12, 74, 83, 0.38), transparent 34%),
+                  radial-gradient(circle at 12% 60%, rgba(196, 75, 31, 0.14), transparent 28%),
+                  #050b12;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image: radial-gradient(circle at 1px 1px, #e5b75b 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      z-index: -1;
+    }
+
+    /* ---- Navbar ---- */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      height: 74px;
+      padding: 0 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      background: rgba(4, 10, 16, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(225, 180, 85, 0.18);
+    }
+    .logo {
+      font-family: Cinzel, serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      color: #f4e6c3;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.75px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #eab75a; }
+    .login-btn {
+      padding: 9px 19px;
+      border-radius: 25px;
+      border: 1px solid rgba(234, 183, 90, 0.7);
+      color: #f3d48c !important;
+      background: rgba(234, 183, 90, 0.06);
+    }
+
+    /* ---- State Hero Banner ---- */
+    .state-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 380px;
+      margin-top: 74px;
+      overflow: hidden;
+      background: #0b1119;
+    }
+    .state-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .state-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(5,11,18,0.2) 0%, rgba(5,11,18,0.6) 60%, rgba(5,11,18,0.98) 100%);
+    }
+    .state-hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+    .state-hero-content h1 {
+      font-family: Cinzel, serif;
+      font-weight: 800;
+      font-size: clamp(32px, 5vw, 64px);
+      color: #fff;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      letter-spacing: 1.5px;
+    }
+    .state-hero-content p {
+      margin-top: 10px;
+      font-family: Cinzel, serif;
+      font-size: clamp(13px, 1.5vw, 17px);
+      color: #e8b85c;
+      letter-spacing: 1px;
+    }
+
+    /* ---- Overview & Map Split Section ---- */
+    .overview-section {
+      max-width: 1300px;
+      margin: 50px auto;
+      padding: 0 4%;
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .overview-text h2 {
+      font-family: Cinzel, serif;
+      font-size: 28px;
+      color: #f3e7ca;
+      margin-bottom: 16px;
+    }
+    .overview-text p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 14px;
+    }
+    .map-container {
+      width: 100%;
+      height: 380px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(230, 184, 88, 0.3);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: invert(90%) hue-rotate(180deg) contrast(1.2);
+    }
+
+    /* ---- Attractions Section ---- */
+    .attractions-section {
+      max-width: 1300px;
+      margin: 60px auto;
+      padding: 0 4%;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    .section-title small {
+      color: #e5b75b;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .section-title h3 {
+      font-family: Cinzel, serif;
+      font-size: 28px;
+      color: #f3e7ca;
+    }
+
+    .attractions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 24px;
+    }
+    .attraction-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(230, 184, 88, 0.22);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s ease;
+    }
+    .attraction-card:hover {
+      transform: translateY(-5px);
+      border-color: #e5b75b;
+      box-shadow: 0 15px 35px rgba(229, 183, 91, 0.15);
+    }
+    .attraction-img-wrap {
+      height: 190px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .attraction-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .attraction-card:hover .attraction-img { transform: scale(1.05); }
+
+    .attraction-body {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .attraction-title {
+      font-family: Cinzel, serif;
+      font-size: 17px;
+      color: #f3e7ca;
+      margin-bottom: 8px;
+    }
+    .attraction-desc {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 14px;
+    }
+    .map-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(229, 183, 91, 0.1);
+      border: 1px solid rgba(229, 183, 91, 0.4);
+      color: #e5b75b;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.25s;
+      align-self: flex-start;
+    }
+    .map-link-btn:hover {
+      background: #e5b75b;
+      color: #050b12;
+      box-shadow: 0 0 12px rgba(229, 183, 91, 0.4);
+    }
+
+    /* ---- Culture & Festivals Section ---- */
+    .culture-section {
+      max-width: 1300px;
+      margin: 60px auto 80px;
+      padding: 0 4%;
+    }
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .culture-card {
+      background: rgba(11, 21, 29, 0.85);
+      border: 1px solid rgba(230, 184, 88, 0.2);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .culture-card h4 {
+      font-family: Cinzel, serif;
+      font-size: 18px;
+      color: #e5b75b;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(230, 184, 88, 0.2);
+      padding-bottom: 8px;
+    }
+    .culture-card p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.75);
+    }
+
+    footer {
+      padding: 35px 6%; text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.38); font-size: 10px; letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .overview-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="logo">BharatYatra</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home Page</a></li>
+      <li><a href="../crafts.html">Crafts</a></li>
+      <li><a href="../gi_tag.html">GI Tag Products</a></li>
+      <li><a href="../calendar.html">Calendar</a></li>
+      <li><a href="../unesco_sites.html">UNESCO Sites</a></li>
+      <li><a href="../destinations.html" class="active">Tourist Spots</a></li>
+      <li><a href="../hotels.html">Hotels &amp; Stays</a></li>
+      <li><a href="../transport.html">Transport</a></li>
+      <li><a href="../admin_access.html">Vendors</a></li>
+      <li><a href="../login.html" class="login-btn">LOGIN</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="state-hero">
+    <img class="state-hero-img" src="../assets/image/states/tamil_nadu.png" alt="Tamil Nadu Banner" onerror="this.src='../assets/image/state_zone/south.jpg'">
+    <div class="state-hero-overlay"></div>
+    <div class="state-hero-content">
+      <h1>Tamil Nadu</h1>
+      <p>Land of Temples • Living Museum of Heritage & Classical Art</p>
+    </div>
+  </header>
+
+  <!-- Overview & Map Section -->
+  <section class="overview-section">
+    <div class="overview-grid">
+      <div class="overview-text">
+        <h2>About Tamil Nadu</h2>
+        <p>In the heart of South India lies Tamil Nadu, a tempting destination for travelers with its diverse blend of vibrant culture, rich history, and breathtaking landscapes. This state serves as a living museum of India's heritage, showcasing remarkable ancient Chola temples and awe-inspiring classical dance forms like Bharatanatyam.</p>
+        <p>Its lush green landscapes, sun-kissed beaches, and undulating hills provide a varied natural tapestry to explore. From majestic pilgrimage sites with over 38,000 temples to the world's second-largest mangrove forest at Pichavaram, Tamil Nadu offers an unforgettable voyage of discovery.</p>
+        <p>Whether you're exploring the cultural richness of Chennai, the monumental architecture of Thanjavur and Madurai, or the southern tip at Kanniyakumari, every moment here is a glimpse into India's timeless soul.</p>
+      </div>
+      <div class="map-container">
+        <!-- Embedded Google Map centered on Tamil Nadu -->
+        <iframe title="Tamil Nadu Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.5!2d78.6569!3d11.1271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3aada11ed22a1661%3A0x24248443343efef8!2sTamil%20Nadu!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tourist Attractions Section -->
+  <section class="attractions-section">
+    <div class="section-title">
+      <small>MUST VISIT SPOTS</small>
+      <h3>Top Attractions in Tamil Nadu</h3>
+    </div>
+
+    <div class="attractions-grid">
+      <!-- Attraction 1 -->
+      <div class="attraction-card">
+        <div class="attraction-img-wrap">
+          <img class="attraction-img" src="../assets/image/photos/brihadeeswarar_temple.jpg" alt="Brihadeeswarar Temple" onerror="this.src='https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80'">
+        </div>
+        <div class="attraction-body">
+          <div>
+            <h4 class="attraction-title">Brihadeeswarar Temple, Thanjavur</h4>
+            <p class="attraction-desc">A magnificent UNESCO World Heritage Hindu temple dedicated to Lord Shiva, representing the pinnacle of Chola temple architecture.</p>
+          </div>
+          <a class="map-link-btn" href="https://www.google.com/maps/search/?api=1&query=Brihadeeswarar+Temple+Thanjavur" target="_blank" rel="noopener">📍 Open Live Directions</a>
+        </div>
+      </div>
+
+      <!-- Attraction 2 -->
+      <div class="attraction-card">
+        <div class="attraction-img-wrap">
+          <img class="attraction-img" src="../assets/image/photos/shore_temple.jpg" alt="Shore Temple" onerror="this.src='https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80'">
+        </div>
+        <div class="attraction-body">
+          <div>
+            <h4 class="attraction-title">Shore Temple, Mamallapuram</h4>
+            <p class="attraction-desc">An iconic 8th-century structural stone temple overlooking the Bay of Bengal, known for its intricate Pallava rock-cut artistry.</p>
+          </div>
+          <a class="map-link-btn" href="https://www.google.com/maps/search/?api=1&query=Shore+Temple+Mahabalipuram" target="_blank" rel="noopener">📍 Open Live Directions</a>
+        </div>
+      </div>
+
+      <!-- Attraction 3 -->
+      <div class="attraction-card">
+        <div class="attraction-img-wrap">
+          <img class="attraction-img" src="../assets/image/photos/vivekananda_rock_memorial.jpg" alt="Vivekananda Rock Memorial" onerror="this.src='https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80'">
+        </div>
+        <div class="attraction-body">
+          <div>
+            <h4 class="attraction-title">Vivekananda Rock Memorial, Kanniyakumari</h4>
+            <p class="attraction-desc">A revered sacred monument perched on a rocky island off India's southernmost tip where the three seas converge.</p>
+          </div>
+          <a class="map-link-btn" href="https://www.google.com/maps/search/?api=1&query=Vivekananda+Rock+Memorial+Kanyakumari" target="_blank" rel="noopener">📍 Open Live Directions</a>
+        </div>
+      </div>
+
+      <!-- Attraction 4 -->
+      <div class="attraction-card">
+        <div class="attraction-img-wrap">
+          <img class="attraction-img" src="../assets/image/photos/mudumalai_tiger_reserve.jpg" alt="Mudumalai Tiger Reserve" onerror="this.src='https://images.unsplash.com/photo-1581793745862-99fde7bb73d2?auto=format&fit=crop&w=800&q=80'">
+        </div>
+        <div class="attraction-body">
+          <div>
+            <h4 class="attraction-title">Mudumalai Tiger Reserve</h4>
+            <p class="attraction-desc">A breathtaking wildlife sanctuary nestled at the foothills of the Nilgiri Hills, home to tigers, elephants, and leopards.</p>
+          </div>
+          <a class="map-link-btn" href="https://www.google.com/maps/search/?api=1&query=Mudumalai+Tiger+Reserve" target="_blank" rel="noopener">📍 Open Live Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Culture & Festivals Section -->
+  <section class="culture-section">
+    <div class="section-title">
+      <small>HERITAGE & CELEBRATIONS</small>
+      <h3>Culture, Art & Festivals</h3>
+    </div>
+
+    <div class="culture-grid">
+      <div class="culture-card">
+        <h4>🎭 Classical Heritage & Dance</h4>
+        <p>Birthplace of **Bharatanatyam** (one of India's oldest classical dance forms) and **Tamil**—recognized as one of the world's oldest surviving classical languages.</p>
+      </div>
+
+      <div class="culture-card">
+        <h4>🍛 Traditional Tamil Gastronomy</h4>
+        <p>Savour authentic South Indian cuisine featuring Chettinad delicacies, crispy dosas, idlis, filter coffee, and traditional meals served on banana leaves.</p>
+      </div>
+
+      <div class="culture-card">
+        <h4>🎉 Major Festivals</h4>
+        <p>The state celebrates grand annual events including the traditional bull-taming harvest festival **Jallikattu** in January, Pongal, and temple chariot festivals.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>BHARATYATRA • DISCOVER TAMIL NADU • EXPERIENCE BHARAT</footer>
+
+<script src="../profile-tracker.js"></script>
+</body>
+</html>

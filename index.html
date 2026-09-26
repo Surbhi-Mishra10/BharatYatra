@@ -1,0 +1,2865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="page_title">BharatYatra | Discover India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Yatra+One&family=Rozha+One&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;color:#fff;background:radial-gradient(circle at 50% 28%,rgba(12,74,83,.38),transparent 34%),radial-gradient(circle at 12% 60%,rgba(196,75,31,.14),transparent 28%),#050b12;min-height:100vh;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:radial-gradient(circle at 1px 1px,#e5b75b 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(to bottom,black,transparent);z-index:-1}
+.navbar{position:fixed;top:0;left:0;width:100%;height:74px;padding:0 4%;display:flex;align-items:center;justify-content:space-between;z-index:1000;background:rgba(4,10,16,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(225,180,85,.18)}.logo{font-family:Cinzel,serif;font-size:23px;letter-spacing:2px;color:#f4e6c3;white-space:nowrap}.nav-links{display:flex;align-items:center;gap:24px;list-style:none}.nav-links a{text-decoration:none;color:rgba(255,255,255,.72);font-size:12px;font-weight:700;letter-spacing:.75px;transition:.3s}.nav-links a:hover{color:#eab75a}.login-btn{padding:9px 19px;border-radius:25px;border:1px solid rgba(234,183,90,.7);color:#f3d48c!important;background:rgba(234,183,90,.06)}
+
+/* LANGUAGE SELECTOR STYLING */
+.lang-selector select{padding:6px 12px;border-radius:20px;border:1px solid rgba(234,183,90,.7);color:#f3d48c;background:rgba(5,18,24,.9);font-family:"DM Sans",sans-serif;font-size:11px;font-weight:700;outline:none;cursor:pointer;transition:.3s}
+.lang-selector select option{background:#0b151d;color:#fff}
+.lang-selector select:hover{border-color:#eab75a}
+
+/* HERO LAYOUT */
+.hero{min-height:100vh;padding:82px 2.5% 25px;display:grid;grid-template-columns:minmax(230px,23%) minmax(450px,54%) minmax(230px,23%);align-items:start;gap:18px;position:relative}
+.video-column{width:100%;height:auto;position:relative;z-index:5}.video-stack{display:flex;flex-direction:column;gap:18px}.video-stack .video-card{width:100%;height:min(69vh,610px);flex:none}.video-card{position:relative;width:100%;height:100%;overflow:hidden;border-radius:24px;border:1px solid rgba(230,184,88,.34);background:#101820;box-shadow:0 25px 70px rgba(0,0,0,.48)}.video-card video{width:100%;height:100%;display:block;object-fit:cover;background:#091117;transition:transform 1s ease}.video-card:hover video{transform:scale(1.035)}.video-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03) 35%,rgba(0,0,0,.84) 100%);pointer-events:none}.video-content{position:absolute;left:25px;bottom:26px;z-index:3;pointer-events:none}.video-category{color:#e7b75b;font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:6px}.video-title{font-family:Cinzel,serif;font-size:24px;color:#fff}.video-progress{position:absolute;left:25px;right:25px;bottom:18px;height:2px;background:rgba(255,255,255,.18);z-index:4;overflow:hidden}.video-progress span{display:block;width:0;height:100%;background:#e5b75b}
+
+/* CENTER HERO */
+.hero-center{text-align:center;position:relative;z-index:10;padding:6px 10px 0;display:flex;flex-direction:column;align-items:center}
+.eyebrow{font-size:10px;letter-spacing:5px;color:#e5b75b;font-weight:700;margin-bottom:6px}
+.brand{font-family:Cinzel,serif;font-size:clamp(38px,4.5vw,68px);line-height:1;letter-spacing:2px;color:#f7f0df;text-shadow:0 8px 40px rgba(0,0,0,.5)}
+.ornament{width:150px;height:1px;background:linear-gradient(90deg,transparent,#e4b454,transparent);margin:10px auto}
+.indian-tagline{font-family:Cinzel,serif;font-size:14.5px;color:#e8b85c;letter-spacing:.7px;margin-bottom:12px}
+
+/* UNIQUE FEATURES RUNNING BANNER */
+.feature-window{width:100%;max-width:590px;margin:0 auto 12px;overflow:hidden;border-radius:14px;border:1px solid rgba(230,184,88,.28);background:rgba(5,18,24,.75);backdrop-filter:blur(12px);padding:8px 0;box-shadow:0 12px 35px rgba(0,0,0,.3)}
+.feature-track{display:flex;width:max-content;animation:featureMove 28s linear infinite}
+.feature-item{display:flex;align-items:center;gap:8px;padding:0 20px;color:rgba(255,255,255,.8);font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.5px;white-space:nowrap}
+.feature-item:after{content:"✦";margin-left:18px;color:#e5b75b}
+@keyframes featureMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===================================================
+   BHARATYATRA HERITAGE BOOK — CLEAN VERSION
+=================================================== */
+
+.book-section {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto 14px;
+    perspective: 1600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-container {
+    width: 100%;
+    max-width: 500px;
+    height: 340px;
+    position: relative;
+    border-radius: 14px;
+
+    /* REMOVE ALL DARK CENTER/EDGE EFFECTS */
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.30) !important;
+
+    transition: transform .8s cubic-bezier(.2,.85,.3,1.1);
+    transform-style: preserve-3d;
+    overflow: visible;
+}
+
+
+/* =========================
+   BOOK COVER
+========================= */
+
+.book-cover {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 14px;
+
+    /* IMPORTANT — remove ridge border */
+    border: none !important;
+    outline: none !important;
+
+    /* Remove dark inset shadow */
+    box-shadow: none !important;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    transition:
+        transform .85s cubic-bezier(.4,0,.2,1),
+        opacity .6s ease;
+
+    transform-origin: left center;
+
+    background: transparent;
+}
+
+.book-cover img {
+    display: block;
+    width: 102%;
+    height: 102%;
+    max-width: none;
+    object-fit: cover;
+
+    /* Move enlarged image slightly left/up */
+    transform: translate(-1%, -1%);
+
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 14px;
+
+    /* Prevent image rendering seam */
+    backface-visibility: hidden;
+}
+
+.book-cover.opened {
+    transform: rotateY(-140deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =========================
+   COVER TITLE
+========================= */
+
+.cover-overlay-title {
+    display: none;
+}
+
+
+/* =========================
+   BOOK PAGES
+========================= */
+
+.book-page {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 12px;
+
+    background: #f5e5c3;
+
+    background-image:
+        radial-gradient(
+            #e3cb96 15%,
+            transparent 16%
+        ),
+        radial-gradient(
+            #d6bc8b 15%,
+            transparent 16%
+        );
+
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+
+    /* Remove page dark edge */
+    border: 1px solid #b5894b !important;
+
+    box-shadow:
+        inset 0 0 20px rgba(105,71,26,.18),
+        3px 5px 15px rgba(0,0,0,.20) !important;
+
+    color: #2b180a;
+
+    padding: 16px 20px;
+
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    animation: pageTurnAnim .6s ease forwards;
+}
+
+
+/* =========================
+   REMOVE ANY CENTER SEAM
+========================= */
+
+.book-container::before,
+.book-container::after,
+.book-cover::before,
+.book-cover::after,
+.book-page::before,
+.book-page::after {
+    content: none !important;
+    display: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* =========================
+   BOOK CONTROLS
+========================= */
+
+.book-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.book-btn {
+    padding: 7px 20px;
+    border-radius: 20px;
+    border: 1px solid #d4af37;
+
+    background: linear-gradient(
+        135deg,
+        #c47c23,
+        #78350b
+    );
+
+    color: #fff;
+
+    font-family: Cinzel, serif;
+    font-size: 10.5px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.35);
+
+    transition: .25s;
+}
+/* Royal Manuscript Paper Page */
+.book-page{position:absolute;inset:0;border-radius:12px;background:#f5e5c3;background-image:radial-gradient(#e3cb96 15%, transparent 16%), radial-gradient(#d6bc8b 15%, transparent 16%);background-size:24px 24px;background-position:0 0, 12px 12px;border:2px solid #b5894b;box-shadow:inset 0 0 50px rgba(105, 71, 26, 0.5), 6px 10px 30px rgba(0,0,0,.65);color:#2b180a;padding:16px 20px;display:none;flex-direction:column;justify-content:space-between;overflow:hidden;animation:pageTurnAnim .6s ease forwards}
+.book-page.active{display:flex}
+@keyframes pageTurnAnim{0%{transform:rotateY(-35deg);opacity:0}100%{transform:rotateY(0deg);opacity:1}}
+
+.page-ornament-frame{position:absolute;inset:8px;border:2px solid #6b4317;border-radius:8px;pointer-events:none}
+.page-ornament-frame:before{content:"";position:absolute;inset:3px;border:1px dashed #8b5b29}
+.page-header-small{text-align:center;font-family:Cinzel,serif;font-size:9px;color:#704419;letter-spacing:2px;font-weight:700;border-bottom:1px solid rgba(112,68,25,.3);padding-bottom:3px;margin-bottom:5px}
+.page-body{flex:1;overflow-y:auto;padding:2px 4px;font-size:11px;line-height:1.5}
+.page-footer-num{display:flex;justify-content:space-between;align-items:center;font-family:'Special Elite', cursive, serif;font-size:9.5px;color:#5a3715;border-top:1px solid rgba(112,68,25,.25);padding-top:3px;margin-top:3px}
+
+/* Page Specific Styles */
+.index-list{list-style:none;padding:2px 6px}
+.index-item{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;font-family:'Special Elite', cursive, monospace;font-size:10.5px;font-weight:600;color:#2e1808;border-bottom:1px dotted rgba(74,42,12,.4);cursor:pointer;transition:.2s}
+.index-item:hover{color:#9e321b;padding-left:4px}
+
+/* Preamble Page */
+.preamble-frame{border:3px double #5c340c;padding:8px;text-align:center;background:rgba(255,248,235,.75);border-radius:6px;height:100%;overflow-y:auto}
+.preamble-title{font-family:Cinzel,serif;font-size:12.5px;font-weight:800;color:#3d1c03;letter-spacing:1px;margin-bottom:4px}
+.preamble-text{font-family:'Cinzel', serif;font-size:9px;line-height:1.4;color:#241103;text-align:justify;text-align-last:center}
+
+/* National Anthem / Song Hindi Typography */
+.hindi-poem-box{text-align:center;font-family:'Yatra One', 'Rozha One', serif;line-height:1.35;color:#2e1505;height:100%;overflow-y:auto;padding:0 5px}
+.hindi-poem-box h3{font-size:15px;color:#85220c;margin-bottom:2px;letter-spacing:1px}
+.hindi-poem-box small{font-size:9.5px;color:#5c3513;display:block;margin-bottom:4px;font-family:Cinzel,serif}
+.hindi-poem-box p{font-size:10px;margin-bottom:5px;color:#291204;white-space:pre-line}
+
+/* Tourism Insight Pages */
+.topic-card{display:flex;flex-direction:column;gap:5px;text-align:left}
+.topic-title{font-family:Cinzel,serif;font-size:13px;color:#7a220a;font-weight:700}
+.topic-meta{font-size:9.5px;color:#613812;font-style:italic;font-weight:600}
+.topic-desc{font-size:10px;color:#261305;line-height:1.5}
+.topic-bullets{margin-left:12px;font-size:9.5px;color:#331a08}
+.topic-bullets li{margin-bottom:2px}
+
+/* ===================================================
+   LARGER TRENDING SPOTS CAROUSEL (2 AT A TIME + MANUAL SCROLL)
+=================================================== */
+.trending-container{width:100%;max-width:590px;margin:0 auto;position:relative}
+.trending-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;padding:0 4px}
+.trending-header span{font-size:9px;letter-spacing:2px;color:#e5b75b;font-weight:700;text-transform:uppercase}
+.trending-nav-btns{display:flex;gap:6px}
+.nav-arrow-btn{width:24px;height:24px;border-radius:50%;background:rgba(229,183,91,0.15);border:1px solid rgba(229,183,91,0.4);color:#f3d48c;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
+.nav-arrow-btn:hover{background:#e5b75b;color:#000}
+
+.slider-wrapper{overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);padding:8px;box-shadow:0 18px 45px rgba(0,0,0,.4)}
+.slider-track{display:flex;gap:12px;transition:transform .6s cubic-bezier(0.25, 1, 0.5, 1)}
+.spot-card{flex:0 0 calc(50% - 6px);position:relative;height:210px;border-radius:14px;overflow:hidden;border:1px solid rgba(230,184,88,.3);background:#09121a;box-shadow:0 10px 25px rgba(0,0,0,.5);transition:transform .3s ease}
+.spot-card:hover{transform:translateY(-4px);border-color:#e5b75b}
+.spot-card img{width:100%;height:100%;object-fit:cover;display:block}
+.spot-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,10,16,.95) 0%,rgba(4,10,16,.15) 55%,transparent 100%)}
+.spot-badge{position:absolute;top:8px;left:8px;padding:3px 8px;border-radius:8px;background:rgba(229,183,91,.25);border:1px solid rgba(229,183,91,.6);color:#f4e4bc;font-size:8px;font-weight:700;letter-spacing:.5px}
+.spot-info{position:absolute;bottom:10px;left:10px;right:10px;z-index:2;text-align:left}
+.spot-info h4{font-family:Cinzel,serif;font-size:14px;color:#fff;line-height:1.2;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spot-info p{font-size:10.5px;color:#e5b75b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.ai-status{margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:30px;background:rgba(36,157,141,.07);border:1px solid rgba(62,184,163,.22);font-size:8.5px;letter-spacing:1.5px;color:rgba(255,255,255,.65)}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#42c7a3;box-shadow:0 0 12px #42c7a3}
+
+/* CULTURE & REST OF PAGE */
+.culture-row{padding:0 5% 90px}.culture-heading{text-align:center;margin-bottom:30px}.culture-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.culture-grid .video-card{height:min(69vh,610px)}
+.cinematic{padding:95px 0 90px}.cinematic-heading{text-align:center;margin-bottom:35px;padding:0 5%}.cinematic-video{width:100%;height:clamp(320px,58vh,640px);margin:auto;border-radius:0;overflow:hidden;border:0;border-top:1px solid rgba(229,181,91,.3);border-bottom:1px solid rgba(229,181,91,.3);box-shadow:0 30px 90px rgba(0,0,0,.55);background:#091117}.cinematic-video video{width:100%;height:100%;object-fit:cover;display:block}
+.cinematic-heading small,.section-heading small,.culture-heading small{color:#e5b75b;letter-spacing:3px;font-size:10px;font-weight:700}.cinematic-heading h2,.section-heading h2,.culture-heading h2{font-family:Cinzel,serif;color:#f3e7ca;font-size:clamp(28px,4vw,48px);margin:10px 0}.cinematic-heading p,.culture-heading p{max-width:650px;margin:auto;color:rgba(255,255,255,.56);font-size:13px;line-height:1.7}
+.services,.experiences{padding:70px 6% 100px;background:linear-gradient(to bottom,transparent,rgba(8,23,31,.8))}.experiences{background:transparent;padding-top:20px}.section-heading{text-align:center;margin-bottom:40px}.section-heading h2{font-size:30px}.service-grid,.experience-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service-card{padding:25px;min-height:180px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.1);transition:.35s}.service-card:hover,.experience:hover{transform:translateY(-7px);border-color:rgba(230,181,86,.42);background:rgba(230,181,86,.06)}.service-icon{font-size:28px;margin-bottom:15px}.service-card h3{font-family:Cinzel,serif;font-size:17px;color:#f4e4bc;margin-bottom:8px}.service-card p{font-size:11px;line-height:1.7;color:rgba(255,255,255,.53)}.experience{min-height:130px;padding:22px;border-radius:18px;border:1px solid rgba(229,181,91,.14);background:linear-gradient(135deg,rgba(12,44,50,.65),rgba(255,255,255,.025));transition:.3s}.experience span{color:#e5b75b;font-size:9px;letter-spacing:2px;font-weight:700}.experience h3{margin-top:8px;font-family:Cinzel,serif;color:#f5e7c4;font-size:18px}
+.chatbot-button{position:fixed;right:25px;bottom:25px;width:64px;height:64px;border-radius:50%;border:1px solid #e8b95c;background:linear-gradient(135deg,#d67b2c,#9d3f35);color:#fff;display:flex;align-items:center;justify-content:center;font-size:27px;cursor:pointer;z-index:999;box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 25px rgba(227,154,50,.15);transition:.3s}.chatbot-button:hover{transform:scale(1.08)}.chatbot{position:fixed;right:25px;bottom:102px;width:350px;height:450px;background:#0b151d;border:1px solid rgba(229,181,84,.35);border-radius:20px;z-index:998;overflow:hidden;display:none;flex-direction:column;box-shadow:0 25px 80px rgba(0,0,0,.7)}.chatbot.active{display:flex}.chat-header{padding:17px;background:linear-gradient(135deg,#153b40,#13232c);border-bottom:1px solid rgba(255,255,255,.08)}.chat-header strong{font-family:Cinzel,serif;color:#f0d18b}.chat-header small{display:block;margin-top:4px;color:rgba(255,255,255,.5);font-size:10px}.chat-messages{flex:1;padding:15px;overflow-y:auto}.message{max-width:85%;padding:10px 12px;margin-bottom:10px;border-radius:12px;font-size:11px;line-height:1.55}.message.bot{background:rgba(255,255,255,.07);color:rgba(255,255,255,.78)}.message.user{margin-left:auto;background:rgba(222,157,54,.18);border:1px solid rgba(222,157,54,.25)}.chat-input{display:flex;gap:7px;padding:12px;border-top:1px solid rgba(255,255,255,.08)}.chat-input input{flex:1;padding:11px;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:#101b22;color:#fff;outline:0}.chat-input button{width:42px;border:0;border-radius:9px;background:#e5a341;color:#071015;cursor:pointer;font-weight:700}footer{padding:35px 6%;text-align:center;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.38);font-size:10px;letter-spacing:1px}
+
+@media(max-width:1250px){.hero{grid-template-columns:minmax(190px,22%) minmax(430px,56%) minmax(190px,22%);gap:10px;padding-left:1.5%;padding-right:1.5%}.video-stack .video-card{height:min(62vh,540px)}.nav-links{gap:16px}.book-container{height:320px}}
+@media(max-width:1050px){.nav-links{display:none}.hero{grid-template-columns:1fr;padding:95px 5% 60px;gap:25px}.hero-center{order:1}.video-column:first-child{order:2}.video-column:last-child{order:3}.video-column{max-width:620px;margin:auto}.video-stack .video-card{height:520px}.service-grid,.experience-grid{grid-template-columns:repeat(2,1fr)}.spot-card{flex:0 0 100%}}
+@media(max-width:650px){.navbar{height:66px}.logo{font-size:19px}.hero{padding-top:78px}.brand{font-size:34px}.indian-tagline{font-size:13px}.book-container{height:310px}.video-stack .video-card{height:400px}.video-title{font-size:20px}.culture-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}.culture-grid .video-card{height:400px}.service-grid,.experience-grid{grid-template-columns:1fr}.chatbot{width:calc(100vw - 30px);right:15px}.chatbot-button{right:18px;bottom:18px}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">BharatYatra</div>
+    <ul class="nav-links">
+        <li><a href="crafts.html" data-i18n="nav_crafts">Crafts</a></li>
+        <li><a href="gi_tag.html" data-i18n="nav_gi">GI Tag Products</a></li>
+        <li><a href="calendar.html" data-i18n="nav_calendar">Calendar</a></li>
+        <li><a href="unesco_sites.html" data-i18n="nav_unesco">UNESCO Sites</a></li>
+        <li><a href="destinations.html" data-i18n="nav_explore">Tourist Spots</a></li>
+        <li><a href="hotels.html" data-i18n="nav_hotels">Hotels &amp; Stays</a></li>
+        <li><a href="transport.html" data-i18n="nav_transport">Transport</a></li>
+        <li><a href="admin_access.html" data-i18n="nav_vendors">Vendors</a></li>
+        <li class="lang-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en">English</option><option value="hi">हिंदी (Hindi)</option><option value="mr">मराठी (Marathi)</option>
+                <option value="bn">বাংলা (Bengali)</option><option value="gu">ગુજરાતી (Gujarati)</option><option value="ta">தமிழ் (Tamil)</option>
+                <option value="te">తెలుగు (Telugu)</option><option value="kn">ಕನ್ನಡ (Kannada)</option><option value="ml">മലയാളം (Malayalam)</option>
+                <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option><option value="or">ଓଡ଼ିଆ (Odia)</option><option value="as">অসমীয়া (Assamese)</option>
+                <option value="ur">اردو (Urdu)</option><option value="mai">मैथिली (Maithili)</option><option value="bho">भोजपुरी (Bhojpuri)</option>
+            </select>
+        </li>
+        <li><a href="login.html" id="navAuthBtn" class="login-btn" data-i18n="nav_login">LOGIN / Plan with AI</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="destinations">
+    <!-- LEFT: two stacked carousels -->
+    <div class="video-column"><div class="video-stack" id="leftStack"></div></div>
+
+    <div class="hero-center">
+        <div class="eyebrow" data-i18n="hero_eyebrow">AI-POWERED TRAVEL • DISCOVER BHARAT</div>
+        <h1 class="brand" data-i18n="brand_title">BharatYatra</h1>
+        <div class="ornament"></div>
+        <div class="indian-tagline" data-i18n="hero_tagline">“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”</div>
+
+        <!-- UNIQUE IMPORTANT FEATURES STRIP -->
+        <div class="feature-window">
+            <div class="feature-track">
+                <div class="feature-item">🔐 Govt ID Verified Travelers</div>
+                <div class="feature-item">🛡️ Licensed Stay & Food Authentication</div>
+                <div class="feature-item">🆘 Low-Network Offline SOS</div>
+                <div class="feature-item">🎫 One-Pass Digital QR Ticketing</div>
+                <div class="feature-item">🔄 Smart Alternate Stay Route AI</div>
+                <div class="feature-item">🗣️ Multilingual Native AI Guide</div>
+                <div class="feature-item">🧺 Rural Craft & Hidden Gem Boost</div>
+                <div class="feature-item">🔐 Govt ID Verified Travelers</div>
+                <div class="feature-item">🛡️ Licensed Stay & Food Authentication</div>
+                <div class="feature-item">🆘 Low-Network Offline SOS</div>
+                <div class="feature-item">🎫 One-Pass Digital QR Ticketing</div>
+                <div class="feature-item">🔄 Smart Alternate Stay Route AI</div>
+                <div class="feature-item">🗣️ Multilingual Native AI Guide</div>
+                <div class="feature-item">🧺 Rural Craft & Hidden Gem Boost</div>
+            </div>
+        </div>
+
+        <!-- ===================================================
+             ANCIENT ROYAL MANUSCRIPT BOOK (WITH REAL IMAGE COVER)
+        ==================================================== -->
+        <div class="book-section">
+            <div class="book-container" id="heritageBook">
+                
+                <!-- Real Book Cover Image -->
+                <div class="book-cover" id="bookCover">
+                    <img src="assets/image/granth_cover.png" alt="BharatYatra Heritage Granth" onerror="this.src='https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80'">
+                    <div class="cover-overlay-title">
+                     
+                   
+                    </div>
+                </div>
+
+                <!-- Page 1: Vintage Table of Contents -->
+                <div class="book-page" data-page="1">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ BHARATYATRA GRANTH • ANCIENT CHRONICLES ✦</div>
+                    <div class="page-body">
+                        <div style="text-align:center; font-family:'Cinzel Decorative', serif; font-size:13px; color:#5c2408; font-weight:bold; margin-bottom:5px; letter-spacing:1px;" data-i18n="contents_title">C O N T E N T S</div>
+                        <ul class="index-list">
+                            <li class="index-item" onclick="jumpToPage(2)"><span data-i18n="ch_1">I. The Constitution of India (Preamble)</span><span>Pg. 02</span></li>
+                            <li class="index-item" onclick="jumpToPage(3)"><span data-i18n="ch_2">II. National Anthem (जन-गण-मन)</span><span>Pg. 03</span></li>
+                            <li class="index-item" onclick="jumpToPage(4)"><span data-i18n="ch_3">III. National Song (वन्दे मातरम्)</span><span>Pg. 04</span></li>
+                            <li class="index-item" onclick="jumpToPage(5)"><span data-i18n="ch_4">IV. Sacred Geography & Map of Bharat</span><span>Pg. 05</span></li>
+                            <li class="index-item" onclick="jumpToPage(6)"><span data-i18n="ch_5">V. 5000 Years of Indian History</span><span>Pg. 06</span></li>
+                            <li class="index-item" onclick="jumpToPage(7)"><span data-i18n="ch_6">VI. Living Festivals & Sacred Rhythms</span><span>Pg. 07</span></li>
+                            <li class="index-item" onclick="jumpToPage(8)"><span data-i18n="ch_7">VII. UNESCO World Heritage Marvels</span><span>Pg. 08</span></li>
+                            <li class="index-item" onclick="jumpToPage(9)"><span data-i18n="ch_8">VIII. Certified GI-Tagged Soil Treasures</span><span>Pg. 09</span></li>
+                            <li class="index-item" onclick="jumpToPage(10)"><span data-i18n="ch_9">IX. Master Crafts & Loom Heritage</span><span>Pg. 10</span></li>
+                            <li class="index-item" onclick="jumpToPage(11)"><span data-i18n="ch_10">X. Wildlife Corridors & Nature Sanctuaries</span><span>Pg. 11</span></li>
+                        </ul>
+                    </div>
+                    <div class="page-footer-num"><span data-i18n="index_label">Index</span><span>PAGE 01</span></div>
+                </div>
+
+                <!-- Page 2: Constitution of India Preamble -->
+                <div class="book-page" data-page="2">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ FOUNDATIONS OF THE REPUBLIC ✦</div>
+                    <div class="page-body">
+                        <div class="preamble-frame">
+                            <div class="preamble-title" data-i18n="preamble_heading">THE CONSTITUTION OF INDIA</div>
+                            <div class="preamble-text" data-i18n="preamble_body">
+                                <strong>WE, THE PEOPLE OF INDIA</strong>, having solemnly resolved to constitute India into a <strong>SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC</strong> and to secure to all its citizens:<br><br>
+                                <strong>JUSTICE</strong>, social, economic and political;<br>
+                                <strong>LIBERTY</strong> of thought, expression, belief, faith and worship;<br>
+                                <strong>EQUALITY</strong> of status and of opportunity; and to promote among them all<br>
+                                <strong>FRATERNITY</strong> assuring the dignity of the individual and the unity and integrity of the Nation;<br><br>
+                                <em>IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.</em>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Preamble</span><span>PAGE 02</span></div>
+                </div>
+
+                <!-- Page 3: National Anthem (Devanagari) -->
+                <div class="book-page" data-page="3">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ राष्ट्रगान • NATIONAL ANTHEM ✦</div>
+                    <div class="page-body">
+                        <div class="hindi-poem-box">
+                            <h3>जन-गण-मन</h3>
+                            <small>रवीन्द्रनाथ ठाकुर • Rabindranath Tagore</small>
+                            <p>
+जनगणमन-अधिनायक जय हे भारत-भाग्यविधाता !
+पंजाब सिंधु गुजरात मराठा द्राविड़ उत्कल बंग ।
+विन्ध्य हिमाचल यमुना गंगा उच्छल जलधितरंग ।
+तव शुभ नामे जागे, तव शुभ आशिष मागे,
+गाहे तव जय गाथा ॥
+
+जनगणमंगलदायक जय हे भारत-भाग्यविधाता !
+जय हे, जय हे, जय हे, जय जय जय जय हे ॥
+
+अहरह तव आह्वान प्रचारित सुनि तव उदार वाणी,
+हिंदु बौद्ध सिख जैन पारसिका मुसलमान ख्रिस्तानी ।
+पूरब पश्चिम आसे तव सिंहासन पासे,
+प्रेमहार हय गाथा ॥
+जनगणैक्यविधायक जय हे भारत-भाग्यविधाता !
+जय हे, जय हे, जय हे, जय जय जय जय हे ॥
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Rashtragaan</span><span>PAGE 03</span></div>
+                </div>
+
+                <!-- Page 4: National Song (Vande Mataram) -->
+                <div class="book-page" data-page="4">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ राष्ट्रीय गीत • NATIONAL SONG ✦</div>
+                    <div class="page-body">
+                        <div class="hindi-poem-box">
+                            <h3>वन्दे मातरम्</h3>
+                            <small>बंकिमचन्द्र चट्टोपाध्याय • Bankim Chandra Chatterjee</small>
+                            <p>
+वन्दे मातरम् !
+सुजलाम् सुफलाम् मलयजशीतलाम्,
+शस्यश्यामलाम् मातरम् । वन्दे मातरम् ॥
+
+शुभ्रज्योत्स्ना पुलकितयामिनीम्,
+फुल्लकुसुमित द्रुमदलशोभिनीम् ।
+सुहासिनीम् सुमधुरभाषिणीम्,
+सुखदाम् वरदाम् मातरम् । वन्दे मातरम् ॥
+
+कोटि-कोटि कण्ठ कल-कल निनाद कराइले,
+कोटि-कोटि भुजैधृत खरकरवाले,
+के बोले माँ तुमि अबले,
+बहुबलधारिणीं नमामि तारिणीं,
+रिपुदलवारिणीं मातरम् । वन्दे मातरम् ॥
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Rashtrageet</span><span>PAGE 04</span></div>
+                </div>
+
+                <!-- Page 5: Map & Sacred Geography -->
+                <div class="book-page" data-page="5">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER I • SACRED GEOGRAPHY ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">The Sacred Contours of Bharat</div>
+                            <div class="topic-meta">From the Himalayas to the Indian Ocean</div>
+                            <div class="topic-desc">Bounded by the majestic snow peaks in the north and washed by three vast ocean bodies, Bharat encompasses 28 States and 8 Union Territories connected through sacred river basins, desert dunes, and Western Ghats rainforests.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Northern Crown:</strong> Ladakh, Kashmir & Himalayan Valleys.</li>
+                                <li><strong>Sacred Rivers:</strong> Ganga, Yamuna, Godavari, Krishna, Kaveri, Narmada.</li>
+                                <li><strong>Peninsular Coastline:</strong> 7,500+ km of maritime heritage.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Geography</span><span>PAGE 05</span></div>
+                </div>
+
+                <!-- Page 6: 5000 Years of Indian History -->
+                <div class="book-page" data-page="6">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER II • CHRONICLES OF TIME ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">5,000 Years of Civilizational Glory</div>
+                            <div class="topic-meta">From Indus Valley (Sindhu-Saraswati) to Modern Era</div>
+                            <div class="topic-desc">India’s timeless heritage began with advanced urban brick engineering in Dholavira and Harappa, flourishing into the Golden Age of astronomy, calculus, medicine, and philosophy under the Mauryas, Guptas, Cholas, and Marathas.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Vedic & Classical Epoch:</strong> Upanishads, Ayurveda, Yoga.</li>
+                                <li><strong>Imperial Capitals:</strong> Pataliputra, Thanjavur, Vijayanagara, Agra.</li>
+                                <li><strong>Spiritual Awakening:</strong> Birthplace of Buddhism, Jainism, Sikhism.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>History</span><span>PAGE 06</span></div>
+                </div>
+
+                <!-- Page 7: Living Festivals -->
+                <div class="book-page" data-page="7">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER III • LIVING CELEBRATIONS ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">Festivals: The Pulse of India</div>
+                            <div class="topic-meta">Where Faith, Seasons & Folk Art Unite</div>
+                            <div class="topic-desc">Every month brings a vibrant celebration. From the sacred fire of Holika Dahan and vibrant dry gulal of Holi, to Varanasi Dev Deepawali and Mysore Dasara royal processions, India's calendar is an eternal festival.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Ganesh Utsav:</strong> 10-day devotional fanfare & dhol beats.</li>
+                                <li><strong>Durga Puja:</strong> Kolkata's UNESCO living art pandals.</li>
+                                <li><strong>Harvest Joy:</strong> Makar Sankranti, Pongal, Bihu & Onam.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Festivals</span><span>PAGE 07</span></div>
+                </div>
+
+                <!-- Page 8: UNESCO World Heritage -->
+                <div class="book-page" data-page="8">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER IV • MONUMENTAL TREASURES ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">43 UNESCO World Heritage Marvels</div>
+                            <div class="topic-meta">Architectural Milestones of Global Prominence</div>
+                            <div class="topic-desc">Home to 43 official UNESCO sites, India showcases the world's most intricate rock-cut temples, stone chariots, stepwells, and ancient universities preserved across millenniums.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Rock-Cut Temples:</strong> Kailasa at Ellora & Ajanta Frescoes.</li>
+                                <li><strong>Engineering Feats:</strong> Konark Sun Chariot & Thanjavur Brihadisvara.</li>
+                                <li><strong>Recent Additions:</strong> Sacred Hoysala Ensembles & Ahom Moidams.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>UNESCO Sites</span><span>PAGE 08</span></div>
+                </div>
+
+                <!-- Page 9: GI Tag Products -->
+                <div class="book-page" data-page="9">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER V • INDIGENOUS ROOTS ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">Geographical Indications (GI Tags)</div>
+                            <div class="topic-meta">Certified Treasures Rooted in Indian Soil</div>
+                            <div class="topic-desc">Certified under the GI Act 1999, these products legally protect regional mastercraftsmen and traditional farming communities producing items found nowhere else on earth.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Iconic Teas & Spices:</strong> Darjeeling Muscatel & Kashmir Saffron.</li>
+                                <li><strong>Silks:</strong> Banarasi Brocades, Kanchipuram & Muga Silk.</li>
+                                <li><strong>Folk Goods:</strong> Blue Pottery, Bastar Dhokra, Kolhapuri Chappals.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>GI Products</span><span>PAGE 09</span></div>
+                </div>
+
+                <!-- Page 10: Crafts of India -->
+                <div class="book-page" data-page="10">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER VI • HANDS OF THE MASTERS ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">Living Handicrafts & Looms</div>
+                            <div class="topic-meta">Generational Knowledge Preserved in Clay, Metal & Silk</div>
+                            <div class="topic-desc">Rural craft hubs empower India's cottage economy. Intricate wood carvings, bell-metal casting, terracotta horses, and natural vegetable-dye prints preserve sacred aesthetic geometry.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Metal Inlay:</strong> Bidriware silver wire carving on zinc alloys.</li>
+                                <li><strong>Textile Heritage:</strong> Bandhani, Kalamkari & Patola double-ikat.</li>
+                                <li><strong>Clay Sculptures:</strong> Molela plaques and Bankura Terracotta.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Crafts</span><span>PAGE 10</span></div>
+                </div>
+
+                <!-- Page 11: Wildlife & Sanctuaries -->
+                <div class="book-page" data-page="11">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER VII • UNTAMED WILDERNESS ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">National Parks & Natural Sanctuaries</div>
+                            <div class="topic-meta">Sheltering Rare Fauna from Himalayas to Mangroves</div>
+                            <div class="topic-desc">India sustains 75% of the world's wild tigers alongside one-horned rhinos, Asian elephants, snow leopards, and pristine biosphere wetlands.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Kaziranga:</strong> Greater One-Horned Rhinoceros floodplains.</li>
+                                <li><strong>Sundarbans:</strong> Mangrove kingdom of the swimming Royal Tiger.</li>
+                                <li><strong>Western Ghats:</strong> Top 8 Global Biodiversity Hotspots.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Nature</span><span>PAGE 11</span></div>
+                </div>
+
+            </div>
+
+            <!-- Book Interaction Controls -->
+            <div class="book-controls">
+                <button class="book-btn book-btn-secondary" id="prevPageBtn" onclick="prevBookPage()" style="display:none;" data-i18n="btn_prev">⬅ Previous</button>
+                <button class="book-btn" id="mainBookBtn" onclick="toggleBookAction()" data-i18n="btn_open">OPEN THE BOOK 📖</button>
+            </div>
+        </div>
+
+        <!-- CURRENT TRENDING TOURISM SPOTS SLIDER (LARGER CARDS, 2 VISIBLE + MANUAL SCROLL) -->
+        <div class="trending-container">
+            <div class="trending-header">
+                <span data-i18n="trending_header">✦ CURRENT TRENDING & SEASONAL SPOTS</span>
+                <div class="trending-nav-btns">
+                    <button class="nav-arrow-btn" onclick="manualSlide(-1)">❮</button>
+                    <button class="nav-arrow-btn" onclick="manualSlide(1)">❯</button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider-track" id="spotsTrack">
+                    <!-- Spot 1 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo1.jpg" alt="Sarnath" onerror="this.src='https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">UNESCO Site</div>
+                        <div class="spot-info"><h4>Ancient Sarnath Inscribed as India's 45th UNESCO World Heritage Site</h4><p>Sarnath, Uttar Pradesh</p></div>
+                    </div>
+                    <!-- Spot 2 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo2.jpg" alt="GI Ecosystem" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">GI Milestone</div>
+                        <div class="spot-info"><h4>India's GI Tags Cross 822 Milestone with Record 125 New Registrations</h4><p>Nationwide Heritage</p></div>
+                    </div>
+                    <!-- Spot 3 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo3.jpg" alt="Munnar Hills" onerror="this.src='https://images.unsplash.com/photo-1600100397608-f010f443b2f5?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">TEA TRAILS</div>
+                        <div class="spot-info"><h4>Munnar Greens & Western Ghats Eco-Tourism Surge</h4><p>Kerala</p></div>
+                    </div>
+                    <!-- Spot 4 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo4.jpg" alt="Hampi Ruins" onerror="this.src='https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">HERITAGE</div>
+                        <div class="spot-info"><h4>Vittala Temple & Hampi Circuit Upgrades</h4><p>Hampi, Karnataka</p></div>
+                    </div>
+                    <!-- Spot 5 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo5.jpg" alt="Jaisalmer Fort" onerror="this.src='https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">DESERT GOLD</div>
+                        <div class="spot-info"><h4>Sonar Qila Desert Tourism Expansion</h4><p>Jaisalmer, Rajasthan</p></div>
+                    </div>
+                    <!-- Spot 6 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo6.jpg" alt="Valley of Flowers" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">BLOOM</div>
+                        <div class="spot-info"><h4>Valley of Flowers Seasonal Eco-Trail Openings</h4><p>Uttarakhand</p></div>
+                    </div>
+                    <!-- Spot 7 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo7.jpg" alt="Dudhsagar Falls" onerror="this.src='https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">WATERFALL</div>
+                        <div class="spot-info"><h4>Dudhsagar Monsoon Tourism Trails</h4><p>Goa</p></div>
+                    </div>
+                    <!-- Spot 8 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo8.jpg" alt="Kaziranga" onerror="this.src='https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">WILDLIFE</div>
+                        <div class="spot-info"><h4>Kaziranga Wildlife Safari Season Highlights</h4><p>Assam</p></div>
+                    </div>
+                    <!-- Spot 9 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo9.jpg" alt="Tawang Monastery" onerror="this.src='https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">SACRED PEAKS</div>
+                        <div class="spot-info"><h4>Tawang Monastery Heritage Circuit Enhancement</h4><p>Arunachal Pradesh</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-status"><span class="status-dot"></span><span data-i18n="ai_status">BHARATYATRA TRAVEL ASSISTANT</span></div>
+    </div>
+
+    <!-- RIGHT: two stacked carousels -->
+    <div class="video-column"><div class="video-stack" id="rightStack"></div></div>
+</section>
+
+<section class="culture-row" id="culture">
+    <div class="culture-heading">
+        <small data-i18n="culture_small">LIVING CULTURE</small>
+        <h2 data-i18n="culture_title">Festivals, Dances, Rituals & Heritage</h2>
+        <p data-i18n="culture_desc">India's soul lives in its celebrations — from temple rituals and folk dances to royal forts and vibrant festivals across every state.</p>
+    </div>
+    <div class="culture-grid" id="cultureGrid"></div>
+</section>
+
+<section class="cinematic" id="itinerary">
+    <div class="cinematic-heading">
+        <small data-i18n="cine_small">EXPERIENCE THE JOURNEY</small>
+        <h2 data-i18n="cine_title">India, In Every Frame</h2>
+        <p data-i18n="cine_desc">From Himalayan landscapes and royal forts to sacred cities, tropical islands and coastal escapes — discover the many journeys that make Bharat unforgettable.</p>
+    </div>
+    <div class="cinematic-video"><video id="cinematicVideo" autoplay muted loop playsinline preload="metadata"><source src="assets/cinematic/video2.mp4" type="video/mp4"></video></div>
+</section>
+
+<section class="services">
+    <div class="section-heading">
+        <small data-i18n="services_small">Your Complete India Travel Companion</small>
+        <h2 data-i18n="services_title">Features & Functions of BharatYatra </h2>
+    </div>
+    <div class="service-grid">
+        <div class="service-card" id="hotels"><div class="service-icon">🏨</div><h3 data-i18n="s1_h">Hotels & Stays</h3><p data-i18n="s1_p">Discover hotels, resorts, homestays, hostels and unique stays according to budget, rating and preferences.</p></div>
+        <div class="service-card" id="food"><div class="service-icon">🍽️</div><h3 data-i18n="s2_h">Local Food & Restaurants</h3><p data-i18n="s2_p">From authentic street food and regional dishes to highly rated restaurants and fine dining near every destination.</p></div>
+        <div class="service-card" id="transport"><div class="service-icon">🚆</div><h3 data-i18n="s3_h">Smart Transport</h3><p data-i18n="s3_p">Get intelligent recommendations for flights, trains, buses, taxis, rental vehicles and local transport.</p></div>
+        <div class="service-card" id="verification"><div class="service-icon">🔐</div><h3 data-i18n="s4_h">User Verification</h3><p data-i18n="s4_p">Sign up securely using your Gmail, email and password, with one government-verified document checked to confirm every traveler's identity.</p></div>
+        <div class="service-card" id="admin-auth"><div class="service-icon">🛡️</div><h3 data-i18n="s5_h">Admin Authentication</h3><p data-i18n="s5_p">Hotel, restaurant, homestay and PG owners are verified through their license and permit before they can list on BharatYatra.</p></div>
+        <div class="service-card" id="sos"><div class="service-icon">🆘</div><h3 data-i18n="s6_h">SOS & Safety</h3><p data-i18n="s6_p">Get instant emergency assistance and safety alerts, designed to work reliably even in low-connectivity areas.</p></div>
+        <div class="service-card" id="qr-ticket"><div class="service-icon">🎫</div><h3 data-i18n="s7_h">All-in-One Digital Ticket</h3><p data-i18n="s7_p">One single QR code and a one-time payment covers attractions, transport and more — no repeated queues or payments.</p></div>
+        <div class="service-card" id="alt-suggest"><div class="service-icon">🔄</div><h3 data-i18n="s8_h">Smart Alternate Suggestions</h3><p data-i18n="s8_p">If your preferred hotel is full, get AI-suggested alternatives within 10-20 km that are still well-connected by transport.</p></div>
+        <div class="service-card" id="multilingual"><div class="service-icon">🗣️</div><h3 data-i18n="s9_h">Multilingual Guide</h3><p data-i18n="s9_p">Explore history, culture and heritage explained in your own language — no need for a physical guide.</p></div>
+        <div class="service-card" id="ai-personalization"><div class="service-icon">🎯</div><h3 data-i18n="s10_h">AI Personalization</h3><p data-i18n="s10_p">Get personalized recommendations based on your budget, source, destination and travel interests.</p></div>
+        <div class="service-card" id="boost-economy"><div class="service-icon">🧺</div><h3 data-i18n="s11_h">Boost Local Economy</h3><p data-i18n="s11_p">Discover and support low-footfall destinations, local handicrafts and small businesses through special promotions.</p></div>
+        <div class="service-card"><div class="service-icon">🗺️</div><h3 data-i18n="s12_h">Specialized Itinerary</h3><p data-i18n="s12_p">Build personalized day-by-day journeys based on time, interests, budget and destination.</p></div>
+        <div class="service-card"><div class="service-icon">🕐</div><h3 data-i18n="s13_h">Best Visiting Time</h3><p data-i18n="s13_p">Understand busy timings, estimated crowd levels and suggested visiting hours for attractions.</p></div>
+        <div class="service-card"><div class="service-icon">💰</div><h3 data-i18n="s14_h">Smart Budget Planning</h3><p data-i18n="s14_p">Organize your trip around your budget with intelligent suggestions for travel, stay, food and activities.</p></div>
+        <div class="service-card"><div class="service-icon">📅</div><h3 data-i18n="s15_h">Yearly Travel Calendar</h3><p data-i18n="s15_p">Plan your trip by month — see the best season for each destination and the ideal time of day to visit, morning to evening.</p></div>
+        <div class="service-card"><div class="service-icon">📰</div><h3 data-i18n="s16_h">News & Research Hub</h3><p data-i18n="s16_p">Stay updated with tourism department news, historical site research, GI-tagged local products and more.</p></div>
+    </div>
+</section>
+
+<section class="experiences">
+    <div class="section-heading">
+        <small data-i18n="exp_small">EXPLORE INDIA BY EXPERIENCE</small>
+        <h2 data-i18n="exp_title">One Country. Countless Journeys.</h2>
+    </div>
+    <div class="experience-grid">
+        <div class="experience"><span>01</span><h3 data-i18n="e1">Himalayan Escapes</h3></div>
+        <div class="experience"><span>02</span><h3 data-i18n="e2">Seashores & Beaches</h3></div>
+        <div class="experience"><span>03</span><h3 data-i18n="e3">Island Adventures</h3></div>
+        <div class="experience"><span>04</span><h3 data-i18n="e4">Forts & Palaces</h3></div>
+        <div class="experience"><span>05</span><h3 data-i18n="e5">Temples & Heritage</h3></div>
+        <div class="experience"><span>06</span><h3 data-i18n="e6">Culture & Festivals</h3></div>
+        <div class="experience"><span>07</span><h3 data-i18n="e7">Wildlife & Nature</h3></div>
+        <div class="experience"><span>08</span><h3 data-i18n="e8">Scared Cities & Local Life</h3></div>
+    </div>
+</section>
+
+<div class="chatbot-button" onclick="toggleChat()" aria-label="Open BharatYatra travel assistant">🙏</div>
+<div class="chatbot" id="chatbot">
+    <div class="chat-header"><strong data-i18n="chat_title">BharatYatra Travel Assistant</strong><small data-i18n="chat_sub">Your intelligent companion for exploring India</small></div>
+    <div class="chat-messages" id="chatMessages"><div class="message bot" data-i18n="chat_welcome">Namaste! 🙏<br><br>Tell me where you want to travel and I'll help you discover destinations, hotels, transport, food, hidden gems and personalized experiences.</div></div>
+    <div class="chat-input"><input id="chatInput" type="text" placeholder="Ask about your journey..." data-i18n-placeholder="chat_placeholder" onkeydown="handleChat(event)"><button onclick="sendMessage()">➤</button></div>
+</div>
+<footer>BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT</footer>
+
+<script>
+/* ---- MULTILINGUAL DICTIONARY ---- */
+const translations = {
+    en: {
+        page_title: "BharatYatra | Discover India",
+        nav_crafts: "Crafts",
+        nav_gi: "GI Tag Products",
+        nav_unesco: "UNESCO Sites",
+        nav_calendar: "Calendar",
+        nav_explore: "Tourist Spots",
+        nav_hotels: 'Hotels & Stays', nav_transport: 'Transport', nav_vendors: 'Vendors',
+        nav_login: "LOGIN",
+        hero_eyebrow: "AI-POWERED TRAVEL • DISCOVER BHARAT",
+        hero_tagline: "“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”",
+        granth_subtitle: "HERITAGE GRANTH OF INDIA",
+        contents_title: "C O N T E N T S",
+        ch_1: "I. The Constitution of India (Preamble)",
+        ch_2: "II. National Anthem (जन-गण-मन)",
+        ch_3: "III. National Song (वन्दे मातरम्)",
+        ch_4: "IV. Sacred Geography & Map of Bharat",
+        ch_5: "V. 5000 Years of Indian History",
+        ch_6: "VI. Living Festivals & Sacred Rhythms",
+        ch_7: "VII. UNESCO World Heritage Marvels",
+        ch_8: "VIII. Certified GI-Tagged Soil Treasures",
+        ch_9: "IX. Master Crafts & Loom Heritage",
+        ch_10: "X. Wildlife Corridors & Nature Sanctuaries",
+        index_label: "Index",
+        preamble_heading: "THE CONSTITUTION OF INDIA",
+        preamble_body: "WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens:<br><br>JUSTICE, social, economic and political;<br>LIBERTY of thought, expression, belief, faith and worship;<br>EQUALITY of status and of opportunity; and to promote among them all<br>FRATERNITY assuring the dignity of the individual and the unity and integrity of the Nation;<br><br><em>IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.</em>",
+        btn_prev: "⬅ Previous",
+        btn_open: "OPEN THE BOOK 📖",
+        trending_header: "✦ CURRENT TRENDING & SEASONAL SPOTS",
+        ai_status: "BHARATYATRA TRAVEL ASSISTANT",
+        culture_small: "LIVING CULTURE",
+        culture_title: "Festivals, Dances, Rituals & Heritage",
+        culture_desc: "India's soul lives in its celebrations — from temple rituals and folk dances to royal forts and vibrant festivals across every state.",
+        cine_small: "EXPERIENCE THE JOURNEY",
+        cine_title: "India, In Every Frame",
+        cine_desc: "From Himalayan landscapes and royal forts to sacred cities, tropical islands and coastal escapes — discover the many journeys that make Bharat unforgettable.",
+        services_small: "Your Complete India Travel Companion",
+        services_title: "Features of BharatYatra",
+        s1_h: "Hotels & Stays", s1_p: "Discover hotels, resorts, homestays, hostels and unique stays according to budget, rating and preferences.",
+        s2_h: "Local Food & Restaurants", s2_p: "From authentic street food and regional dishes to highly rated restaurants and fine dining near every destination.",
+        s3_h: "Smart Transport", s3_p: "Get intelligent recommendations for flights, trains, buses, taxis, rental vehicles and local transport.",
+        s4_h: "User Verification", s4_p: "Sign up securely using your Gmail, email and password, with one government-verified document checked to confirm every traveler's identity.",
+        s5_h: "Admin Authentication", s5_p: "Hotel, restaurant, homestay and PG owners are verified through their license and permit before they can list on BharatYatra.",
+        s6_h: "SOS & Safety", s6_p: "Get instant emergency assistance and safety alerts, designed to work reliably even in low-connectivity areas.",
+        s7_h: "All-in-One Digital Ticket", s7_p: "One single QR code and a one-time payment covers attractions, transport and more — no repeated queues or payments.",
+        s8_h: "Smart Alternate Suggestions", s8_p: "If your preferred hotel is full, get AI-suggested alternatives within 10-20 km that are still well-connected by transport.",
+        s9_h: "Multilingual Guide", s9_p: "Explore history, culture and heritage explained in your own language — no need for a physical guide.",
+        s10_h: "AI Personalization", s10_p: "Get personalized recommendations based on your budget, source, destination and travel interests.",
+        s11_h: "Boost Local Economy", s11_p: "Discover and support low-footfall destinations, local handicrafts and small businesses through special promotions.",
+        s12_h: "Specialized Itinerary", s12_p: "Build personalized day-by-day journeys based on time, interests, budget and destination.",
+        s13_h: "Best Visiting Time", s13_p: "Understand busy timings, estimated crowd levels and suggested visiting hours for attractions.",
+        s14_h: "Smart Budget Planning", s14_p: "Organize your trip around your budget with intelligent suggestions for travel, stay, food and activities.",
+        s15_h: "Yearly Travel Calendar", s15_p: "Plan your trip by month — see the best season for each destination and the ideal time of day to visit, morning to evening.",
+        s16_h: "News & Research Hub", s16_p: "Stay updated with tourism department news, historical site research, GI-tagged local products and more.",
+        exp_small: "EXPLORE INDIA BY EXPERIENCE",
+        exp_title: "One Country. Countless Journeys.",
+        e1: "Himalayan Escapes", e2: "Seashores & Beaches", e3: "Island Adventures", e4: "Forts & Palaces",
+        e5: "Temples & Heritage", e6: "Culture & Festivals", e7: "Wildlife & Nature", e8: "Scared Cities & Local Life",
+        chat_title: "BharatYatra Travel Assistant",
+        chat_sub: "Your intelligent companion for exploring India",
+        chat_welcome: "Namaste! 🙏<br><br>Tell me where you want to travel and I'll help you discover destinations, hotels, transport, food, hidden gems and personalized experiences.",
+        chat_placeholder: "Ask about your journey..."
+    },
+    hi: {
+        page_title: "भारतयात्रा | भारत की खोज",
+        nav_crafts: "शिल्प",
+        nav_gi: "जीआई टैग उत्पाद",
+        nav_unesco: "यूनेस्को स्थल",
+        nav_calendar: "कैलेंडर",
+        nav_explore: "पर्यटन स्थल",
+        nav_hotels: 'होटल और ठहरने की जगहें', nav_transport: 'परिवहन', nav_vendors: 'विक्रेता',
+        nav_login: "लॉगिन",
+        hero_eyebrow: "एआई-संचालित यात्रा • भारत को जानें",
+        hero_tagline: "“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”",
+        granth_subtitle: "भारत का ऐतिहासिक ग्रंथ",
+        contents_title: "विषय सूची",
+        ch_1: "I. भारत का संविधान (प्रस्तावना)",
+        ch_2: "II. राष्ट्रगान (जन-गण-मन)",
+        ch_3: "III. राष्ट्रगीत (वन्दे मातरम्)",
+        ch_4: "IV. पवित्र भूगोल और भारत का मानचित्र",
+        ch_5: "V. भारतीय इतिहास के 5000 वर्ष",
+        ch_6: "VI. जीवंत उत्सव और पवित्र लय",
+        ch_7: "VII. यूनेस्को विश्व धरोहर चमत्कार",
+        ch_8: "VIII. प्रमाणित जीआई-टैग प्राप्त खजाने",
+        ch_9: "IX. प्रमुख शिल्प एवं हथकरघा विरासत",
+        ch_10: "X. वन्यजीव गलियारे और प्रकृति अभयारण्य",
+        index_label: "अनुक्रमणिका",
+        preamble_heading: "भारत का संविधान",
+        preamble_body: "हम, भारत के लोग, भारत को एक संपूर्ण प्रभुत्व-संपन्न समाजवादी पंथनिरपेक्ष लोकतंत्रात्मक गणराज्य बनाने के लिए तथा उसके समस्त नागरिकों को:<br><br>सामाजिक, आर्थिक और राजनैतिक न्याय;<br>विचार, अभिव्यक्ति, विश्वास, धर्म और उपासना की स्वतंत्रता;<br>प्रतिष्ठा और अवसर की समता प्राप्त कराने के लिए तथा उन सबमें व्यक्ति की गरिमा और राष्ट्र की एकता और अखंडता सुनिश्चित करने वाली बंधुता बढ़ाने के लिए;<br><br>दृढसंकल्प होकर अपनी इस संविधान सभा में आज तारीख 26 नवंबर, 1949 ई० को एतद्द्वारा इस संविधान को अंगीकृत, अधिनियमित और आत्मार्पित करते हैं।",
+        btn_prev: "⬅ पिछला",
+        btn_open: "ग्रंथ खोलें 📖",
+        trending_header: "✦ वर्तमान ट्रेंडिंग और मौसमी स्थल",
+        ai_status: "भारतयात्रा यात्रा सहायक",
+        culture_small: "जीवंत संस्कृति",
+        culture_title: "त्योहार, नृत्य, अनुष्ठान और विरासत",
+        culture_desc: "भारत की आत्मा उसके उत्सवों में बसती है — मंदिर के अनुष्ठानों और लोक नृत्यों से लेकर हर राज्य के शाही किलों और जीवंत त्योहारों तक।",
+        cine_small: "यात्रा का अनुभव करें",
+        cine_title: "हर फ्रेम में भारत",
+        cine_desc: "हिमालय के दृश्यों और शाही किलों से लेकर पवित्र शहरों, उष्णकटिबंधीय द्वीपों और तटीय नजारों तक — उन अनगिनत यात्राओं की खोज करें जो भारत को अविस्मरणीय बनाती हैं।",
+        services_small: "आपका संपूर्ण भारत यात्रा साथी",
+        services_title: "भारतयात्रा की विशेषताएँ",
+        s1_h: "होटल और विश्राम", s1_p: "बजट, रेटिंग और प्राथमिकताओं के अनुसार होटल, रिसॉर्ट, होमस्टे और अनूठे निवास स्थान खोजें।",
+        s2_h: "स्थानीय भोजन और रेस्तरां", s2_p: "हर गंतव्य के पास प्रामाणिक स्ट्रीट फूड से लेकर क्षेत्रीय व्यंजनों और उच्च श्रेणी के रेस्तरां तक का आनंद लें।",
+        s3_h: "स्मार्ट परिवहन", s3_p: "उड़ानों, ट्रेनों, बसों, टैक्सियों और स्थानीय परिवहन के लिए बुद्धिमान सिफारिशें प्राप्त करें।",
+        s4_h: "उपयोगकर्ता सत्यापन", s4_p: "अपने जीमेल, ईमेल और पासवर्ड से सुरक्षित रूप से साइन अप करें, प्रत्येक यात्री की पहचान की पुष्टि के लिए एक सरकारी सत्यापित दस्तावेज जांचा जाता है।",
+        s5_h: "एडमिन प्रमाणीकरण", s5_p: "होटल, रेस्तरां, होमस्टे और पीजी मालिकों को भारतयात्रा पर सूचीबद्ध होने से पहले उनके लाइसेंस और अनुमति के माध्यम से सत्यापित किया जाता है।",
+        s6_h: "एसओएस और सुरक्षा", s6_p: "कम कनेक्टिविटी वाले क्षेत्रों में भी मज़बूती से काम करने के लिए डिज़ाइन की गई त्वरित आपातकालीन सहायता और सुरक्षा चेतावनी प्राप्त करें।",
+        s7_h: "ऑल-इन-वन डिजिटल टिकट", s7_p: "एक ही क्यूआर कोड और एक बार भुगतान आकर्षण, परिवहन और बहुत कुछ कवर करता है — कोई बार-बार कतार या भुगतान नहीं।",
+        s8_h: "स्मार्ट वैकल्पिक सुझाव", s8_p: "यदि आपका पसंदीदा होटल भरा हुआ है, तो 10-20 किमी के भीतर एआई-सुझाए गए विकल्प प्राप्त करें जो परिवहन से अच्छी तरह जुड़े हुए हैं।",
+        s9_h: "बहुभाषी गाइड", s9_p: "अपनी ही भाषा में समझाए गए इतिहास, संस्कृति और विरासत का अन्वेषण करें — किसी भौतिक गाइड की आवश्यकता नहीं है।",
+        s10_h: "एआई वैयक्तिकरण", s10_p: "अपने बजट, स्रोत, गंतव्य और यात्रा रुचियों के आधार पर व्यक्तिगत सिफारिशें प्राप्त करें।",
+        s11_h: "स्थानीय अर्थव्यवस्था को बढ़ावा", s11_p: "विशेष प्रचारों के माध्यम से कम पदचाप वाले गंतव्यों, स्थानीय हस्तशिल्प और छोटे व्यवसायों की खोज करें और उनका समर्थन करें।",
+        s12_h: "विशिष्ट यात्रा कार्यक्रम", s12_p: "समय, रुचियों, बजट और गंतव्य के आधार पर व्यक्तिगत दिन-प्रतिदिन की यात्राएं बनाएं।",
+        s13_h: "सर्वोत्तम समय", s13_p: "आकर्षण के लिए व्यस्त समय, अनुमानित भीड़ के स्तर और सुझाए गएVisiting घंटों को समझें।",
+        s14_h: "स्मार्ट बजट योजना", s14_p: "यात्रा, ठहरने, भोजन और गतिविधियों के लिए बुद्धिमान सुझावों के साथ अपनी यात्रा को अपने बजट के अनुसार व्यवस्थित करें।",
+        s15_h: "वार्षिक यात्रा कैलेंडर", s15_p: "महीने के हिसाब से अपनी यात्रा की योजना बनाएं — प्रत्येक गंतव्य के लिए सबसे अच्छा मौसम और सुबह से शाम तक देखने का आदर्श समय देखें।",
+        s16_h: "समाचार और अनुसंधान केंद्र", s16_p: "पर्यटन विभाग के समाचारों, ऐतिहासिक स्थल अनुसंधान, जीआई-टैग किए गए स्थानीय उत्पादों और बहुत कुछ से अपडेट रहें।",
+        exp_small: "अनुभव के आधार पर भारत की खोज करें",
+        exp_title: "एक देश। अनगिनत यात्राएं।",
+        e1: "हिमालयन एस्केप्स", e2: "समुद्र तट और सागर", e3: "द्वीप रोमांच", e4: "किले और महल",
+        e5: "मंदिर और विरासत", e6: "संस्कृति और उत्सव", e7: "वन्यजीव और प्रकृति", e8: "पवित्र शहर और स्थानीय जीवन",
+        chat_title: "भारतयात्रा यात्रा सहायक",
+        chat_sub: "भारत की खोज के लिए आपका बुद्धिमान साथी",
+        chat_welcome: "नमस्ते! 🙏<br><br>मुझे बताएं कि आप कहां यात्रा करना चाहते हैं और मैं आपको गंतव्य, होटल, परिवहन, भोजन, छिपे हुए रत्नों और व्यक्तिगत अनुभवों को खोजने में मदद करूंगा।",
+        chat_placeholder: "अपनी यात्रा के बारे में पूछें..."
+    },
+    mr: {
+        page_title: "भारतयात्रा | भारताचा शोध",
+        nav_crafts: "हस्तकला",
+        nav_gi: "जीआय टॅग उत्पादने",
+        nav_unesco: "युनेस्को स्थळे",
+        nav_calendar: "कॅलेंडर",
+        nav_explore: "पर्यटन स्थळे",
+        nav_login: "लॉगिन",
+        hero_eyebrow: "एआय-चालित प्रवास • भारत शोधा",
+        hero_tagline: "“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”",
+        granth_subtitle: "भारताचा ऐतिहासिक ग्रंथ",
+        contents_title: "अनुक्रमणिका",
+        ch_1: "I. भारताचे संविधान (प्रस्तावना)",
+        ch_2: "II. राष्ट्रगीत (जन-गण-मन)",
+        ch_3: "III. राष्ट्रगीत (वन्दे मातरम्)",
+        ch_4: "IV. पवित्र भूगोल आणि भारताचा नकाशा",
+        ch_5: "V. भारतीय इतिहासाची ५००० वर्षे",
+        ch_6: "VI. जिवंत उत्सव आणि पवित्र ताल",
+        ch_7: "VII. युनेस्को जागतिक वारसा चमत्कार",
+        ch_8: "VIII. प्रमाणित जीआय-टैग केलेले मातीचे ठेवे",
+        ch_9: "IX. प्रमुख हस्तकला व हथकरघा वारसा",
+        ch_10: "X. वन्यजीव कॉरिडॉर आणि निसर्ग अभयारण्ये",
+        index_label: "सूची",
+        preamble_heading: "भारताचे संविधान",
+        preamble_body: "आम्ही, भारताचे लोक, भारताचे एक सार्वभौम समाजवादी धर्मनिरपेक्ष लोकशाही प्रजासत्ताक बनवण्याचा आणि त्याच्या सर्व नागरिकांना सुरक्षित ठेवण्याचा दृढसंकल्प करून:<br><br>न्याय, सामाजिक, आर्थिक आणि राजकीय;<br>विचार, अभिव्यक्ती, विश्वास, श्रद्धा आणि उपासना यांचे स्वातंत्र्य;<br>दर्जा आणि संधीची समानता; आणि त्या सर्वांमध्ये<br>व्यक्तीची प्रतिष्ठा आणि राष्ट्राची एकता आणि अखंडता सुनिश्चित करणारी बंधुता वाढवणे;<br><br>आमच्या संविधान सभेत आज, 26 नोव्हेंबर 1949 रोजी, याद्वारे हे संविधान स्वीकारतो, अधिनियमित करतो आणि स्वतःला अर्पण करतो.",
+        btn_prev: "⬅ मागील",
+        btn_open: "ग्रंथ उघडा 📖",
+        trending_header: "✦ सध्याचे ट्रेंडिंग आणि मौसमी ठिकाणे",
+        ai_status: "भारतयात्रा प्रवास सहाय्यक",
+        culture_small: "जिवंत संस्कृती",
+        culture_title: "सण, नृत्य, विधी आणि वारसा",
+        culture_desc: "भारताचा आत्मा त्याच्या उत्सवांमध्ये राहतो — मंदिरातील विधी आणि लोकनृत्यांपासून ते राजवाड्यांचे किल्ले आणि प्रत्येक राज्यातील चैतन्यमय सणांपर्यंत.",
+        cine_small: "प्रवासाचा अनुभव घ्या",
+        cine_title: "प्रत्येक फ्रेममध्ये भारत",
+        cine_desc: "हिमालयीन लँडस्केप्स आणि शाही किल्ल्यांपासून ते पवित्र शहरे, उष्णकटिबंधीय बेटे आणि किनारपट्टीच्या ठिकाणांपर्यंत — भारताला अविस्मरणीय बनवणारे अनेक प्रवास शोधा.",
+        services_small: "तुमचा संपूर्ण भारत प्रवास सोबती",
+        services_title: "भारतयात्राची वैशिष्ट्ये",
+        s1_h: "होटल आणि मुक्काम", s1_p: "बजेट, रेटिंग आणि पसंतीनुसार हॉटेल, रिसॉर्ट, होमस्टे आणि अनोखे मुक्काम शोधा.",
+        s2_h: "स्थानिक अन्न आणि रेस्टॉरंट्स", s2_p: "प्रत्येक ठिकाणाजवळील अस्सल स्ट्रीट फूड आणि प्रादेशिक पदार्थांपासून ते उच्च दर्जाच्या रेस्टॉरंट्सपर्यंत.",
+        s3_h: "स्मार्ट वाहतूक", s3_p: "विमाने, ट्रेन्स, बसेस, टॅक्सी, भाड्याची वाहने आणि स्थानिक वाहतुकीसाठी बुद्धिमान शिफारसी मिळवा.",
+        s4_h: "वापरकर्ता पडताळणी", s4_p: "तुमचा जीमेल, ईमेल आणि পাসওয়ার্ড वापरून सुरक्षितपणे साइन अप करा, प्रत्येक प्रवाशाची ओळख पुष्टी करण्यासाठी एक सरकारी सत्यापित कागदपत्र तपासले जाते.",
+        s5_h: "प्रशासन प्रमाणीकरण", s5_p: "होटल, रेस्टॉरंट, होमस्टे आणि पीजी मालक भारतयात्रेवर सूचीबद्ध होण्यापूर्वी त्यांच्या ಪರवाना आणि परवानगीद्वारे सत्यापित केले जातात.",
+        s6_h: "एसओएस आणि सुरक्षा", s6_p: "कमी कनेक्टिव्हिटी असलेल्या भागातही विश्वासार्हपणे कार्य करण्यासाठी डिझाइन केलेली त्वरित आपत्कालीन मदत आणि सुरक्षा सतर्कता मिळवा.",
+        s7_h: "सर्व-इन-वन डिजिटल तिकीट", s7_p: "एकच QR कोड आणि एकदाच केलेले पेमेंट आकर्षणे, वाहतूक आणि बरेच काही समाविष्ट करते — कोणतीही वारंवार रांग किंवा पेमेंट नाही.",
+        s8_h: "स्मार्ट पर्यायी सुचवणी", s8_p: "तुमचे पसंतीचे हॉटेल भरलेले असल्यास, 10-20 किमीच्या आत AI-सुचवलेले पर्याय मिळवा जे वाहतुकीशी चांगले जोडलेले आहेत.",
+        s9_h: "बहुभाषिक मार्गदर्शक", s9_p: "तुमच्या स्वतःच्या भाषेत स्पष्ट केलेला इतिहास, संस्कृती आणि वारसा एक्सप्लोर करा — भौतिक मार्गदर्शकाची गरज नाही.",
+        s10_h: "एआय वैयक्तिकरण", s10_p: "तुमचे बजेट, स्त्रोत, गंतव्यस्थान आणि प्रवासाच्या आवडीनिवडींवर आधारित वैयक्तिक शिफारसी मिळवा.",
+        s11_h: "स्थानिक अर्थव्यवस्थेला चालना", s11_p: "विशेष जाहिरातींद्वारे कमी रहदारीची गंतव्यस्थाने, स्थानिक हस्तकला आणि लहान व्यवसायांचा शोध घ्या आणि त्यांना पाठिंबा द्या.",
+        s12_h: "विशेष प्रवास कार्यक्रम", s12_p: "वेळ, आवडी, बजेट आणि गंतव्यस्थानावर आधारित वैयक्तिक दिवस-दर-दिवसाचे प्रवास तयार करा.",
+        s13_h: "सर्वोत्तम भेट देण्याची वेळ", s13_p: "आकर्षणांसाठी व्यस्त वेळा, अंदाजे गर्दीची पातळी आणि सुचवलेले भेट देण्याचे तास समजून घ्या.",
+        s14_h: "स्मार्ट बजेट नियोजन", s14_p: "प्रवास, मुक्काम, अन्न आणि उपक्रमांसाठी बुद्धिमान सुचवण्यांसह तुमच्या बजेटनुसार तुमची सहल आयोजित करा.",
+        s15_h: "वार्षिक प्रवास कॅलेंडर", s15_p: "महिन्यानुसार तुमच्या सहलीचे नियोजन करा — प्रत्येक गंतव्यस्थानासाठी सर्वोत्तम ऋतू आणि सकाळी ते संध्याकाळपर्यंत भेट देण्यासाठी आदर्श वेळ पहा.",
+        s16_h: "बातम्या आणि संशोधन केंद्र", s16_p: "पर्यटन विभागाच्या बातम्या, ऐतिहासिक स्थळ संशोधन, जीआय-टॅग केलेली स्थानिक उत्पादने आणि बरेच काही सह अद्यतनित रहा.",
+        exp_small: "अनुभवानुसार भारत शोधा",
+        exp_title: "एक देश. अमर्याद प्रवास.",
+        e1: "हिमालयीन सुटका", e2: "किनारे आणि समुद्रकिनारे", e3: "बेट साहस", e4: "किल्ले आणि वाडे",
+        e5: "मंदिरे आणि वारसा", e6: "संस्कृती आणि सण", e7: "वन्यजीव आणि निसर्ग", e8: "पवित्र शहरे आणि स्थानिक जीवन",
+        chat_title: "भारतयात्रा प्रवास सहाय्यक",
+        chat_sub: "भारत शोधण्यासाठी तुमचा बुद्धिमान सोबती",
+        chat_welcome: "नमस्ते! 🙏<br><br>मला सांगा तुम्हाला कुठे प्रवास करायचा आहे आणि मी तुम्हाला गंतव्यस्थाने, हॉटेल, वाहतूक, अन्न, लपलेले रत्‍ने आणि वैयक्तिक अनुभव शोधण्यात मदत करेन.",
+        chat_placeholder: "तुमच्या प्रवासाबद्दल विचारणा करा..."
+    }
+,
+    /* 12 additional Indian languages */
+bn: {"nav_crafts": "হস্তশিল্প", "nav_gi": "GI ট্যাগ পণ্য", "nav_unesco": "ইউনেস্কো স্থান", "nav_calendar": "ক্যালেন্ডার", "nav_explore": "পর্যটন স্থান", "nav_hotels": 'হোটেল ও থাকার ব্যবস্থা', "nav_transport": 'পরিবহন', "nav_vendors": 'বিক্রেতা' ,"nav_login": "লগইন", "hero_eyebrow": "AI-চালিত ভ্রমণ • ভারত আবিষ্কার করুন", "contents_title": "বিষয়সূচি", "btn_prev": "⬅ আগের", "btn_open": "গ্রন্থ খুলুন 📖", "trending_header": "✦ বর্তমান জনপ্রিয় ও মৌসুমি স্থান", "culture_small": "জীবন্ত সংস্কৃতি", "culture_title": "উৎসব, নৃত্য, আচার ও ঐতিহ্য", "services_small": "আপনার সম্পূর্ণ ভারত ভ্রমণ সঙ্গী", "services_title": "ভারতযাত্রার বৈশিষ্ট্য", "s1_h": "হোটেল ও থাকার ব্যবস্থা", "s2_h": "স্থানীয় খাবার ও রেস্তোরাঁ", "s3_h": "স্মার্ট পরিবহন", "s9_h": "বহুভাষিক গাইড", "s10_h": "AI ব্যক্তিগতকরণ", "exp_small": "অভিজ্ঞতার মাধ্যমে ভারত আবিষ্কার করুন", "exp_title": "এক দেশ। অসংখ্য যাত্রা।", "e1": "হিমালয় অভিযান", "e2": "সমুদ্রতট ও সৈকত", "e3": "দ্বীপ অভিযান", "e4": "দুর্গ ও প্রাসাদ", "e5": "মন্দির ও ঐতিহ্য", "e6": "সংস্কৃতি ও উৎসব", "e7": "বন্যপ্রাণী ও প্রকৃতি", "e8": "পবিত্র শহর ও স্থানীয় জীবন", "chat_title": "ভারতযাত্রা ভ্রমণ সহায়ক", "chat_sub": "ভারত আবিষ্কারের আপনার বুদ্ধিমান সঙ্গী", "chat_placeholder": "আপনার যাত্রা সম্পর্কে জিজ্ঞাসা করুন..."},
+gu: {"nav_crafts": "હસ્તકલા", "nav_gi": "GI ટૅગ ઉત્પાદનો", "nav_unesco": "યુનેસ્કો સ્થળો", "nav_calendar": "કૅલેન્ડર", "nav_explore": "પ્રવાસી સ્થળો", "nav_hotels": 'હોટેલ અને રોકાણ', "nav_transport": 'પરિવહન', "nav_vendors": 'વિક્રેતાઓ' ,"nav_login": "લૉગિન", "hero_eyebrow": "AI આધારિત પ્રવાસ • ભારત શોધો", "contents_title": "અનુક્રમણિકા", "btn_prev": "⬅ અગાઉ", "btn_open": "ગ્રંથ ખોલો 📖", "trending_header": "✦ વર્તમાન ટ્રેન્ડિંગ અને મોસમી સ્થળો", "culture_small": "જીવંત સંસ્કૃતિ", "culture_title": "તહેવારો, નૃત્ય, વિધિઓ અને વારસા", "services_small": "તમારો સંપૂર્ણ ભારત પ્રવાસ સાથી", "services_title": "ભારતયાત્રાની વિશેષતાઓ", "s1_h": "હોટેલ અને રોકાણ", "s2_h": "સ્થાનિક ભોજન અને રેસ્ટોરન્ટ", "s3_h": "સ્માર્ટ પરિવહન", "s9_h": "બહુભાષી માર્ગદર્શક", "s10_h": "AI વ્યક્તિગતકરણ", "exp_small": "અનુભવ દ્વારા ભારત શોધો", "exp_title": "એક દેશ. અસંખ્ય યાત્રાઓ.", "e1": "હિમાલય પ્રવાસ", "e2": "દરિયાકિનારા", "e3": "ટાપુ સાહસ", "e4": "કિલ્લા અને મહેલો", "e5": "મંદિરો અને વારસા", "e6": "સંસ્કૃતિ અને તહેવારો", "e7": "વન્યજીવન અને પ્રકૃતિ", "e8": "પવિત્ર શહેરો અને સ્થાનિક જીવન", "chat_title": "ભારતયાત્રા પ્રવાસ સહાયક", "chat_sub": "ભારત શોધવા માટે તમારો બુદ્ધિશાળી સાથી", "chat_placeholder": "તમારી યાત્રા વિશે પૂછો..."},
+ta: {"nav_crafts": "கைவினைப்பொருட்கள்", "nav_gi": "GI குறியீட்டு பொருட்கள்", "nav_unesco": "யுனெஸ்கோ தளங்கள்", "nav_calendar": "நாட்காட்டி", "nav_explore": "சுற்றுலா தளங்கள்", "nav_hotels": 'ஹோட்டல்கள் மற்றும் தங்குமிடங்கள்', "nav_transport": 'போக்குவரத்து', "nav_vendors": 'விற்பனையாளர்கள்' ,"nav_login": "உள்நுழைவு", "hero_eyebrow": "AI பயணம் • பாரதத்தை கண்டறியுங்கள்", "contents_title": "உள்ளடக்கம்", "btn_prev": "⬅ முந்தையது", "btn_open": "கிரந்தத்தைத் திறக்கவும் 📖", "trending_header": "✦ தற்போதைய பிரபலமான மற்றும் பருவகால இடங்கள்", "culture_small": "வாழும் கலாச்சாரம்", "culture_title": "திருவிழாக்கள், நடனங்கள், சடங்குகள் மற்றும் பாரம்பரியம்", "services_small": "உங்கள் முழுமையான இந்திய பயணத் துணை", "services_title": "பாரதயாத்திரா அம்சங்கள்", "s1_h": "ஹோட்டல்கள் மற்றும் தங்குமிடங்கள்", "s2_h": "உள்ளூர் உணவு மற்றும் உணவகங்கள்", "s3_h": "ஸ்மார்ட் போக்குவரத்து", "s9_h": "பலமொழி வழிகாட்டி", "s10_h": "AI தனிப்பயனாக்கம்", "exp_small": "அனுபவத்தின் மூலம் இந்தியாவைக் கண்டறியுங்கள்", "exp_title": "ஒரு நாடு. எண்ணற்ற பயணங்கள்.", "e1": "இமயமலைப் பயணங்கள்", "e2": "கடற்கரைகள்", "e3": "தீவு சாகசங்கள்", "e4": "கோட்டைகள் மற்றும் அரண்மனைகள்", "e5": "கோவில்கள் மற்றும் பாரம்பரியம்", "e6": "கலாச்சாரம் மற்றும் திருவிழாக்கள்", "e7": "வனவிலங்கு மற்றும் இயற்கை", "e8": "புனித நகரங்கள் மற்றும் உள்ளூர் வாழ்க்கை", "chat_title": "பாரதயாத்திரா பயண உதவியாளர்", "chat_sub": "இந்தியாவை ஆராய்வதற்கான உங்கள் புத்திசாலி துணை", "chat_placeholder": "உங்கள் பயணம் பற்றி கேளுங்கள்..."},
+te: {"nav_crafts": "హస్తకళలు", "nav_gi": "GI ట్యాగ్ ఉత్పత్తులు", "nav_unesco": "యునెస్కో ప్రదేశాలు", "nav_calendar": "క్యాలెండర్", "nav_explore": "పర్యాటక ప్రదేశాలు", "nav_hotels": 'హోటళ్లు మరియు బస', "nav_transport": 'రవాణా', "nav_vendors": 'విక్రేతలు' ,"nav_login": "లాగిన్", "hero_eyebrow": "AI ఆధారిత ప్రయాణం • భారతదేశాన్ని అన్వేషించండి", "contents_title": "విషయ సూచిక", "btn_prev": "⬅ మునుపటి", "btn_open": "గ్రంథాన్ని తెరవండి 📖", "trending_header": "✦ ప్రస్తుత ట్రెండింగ్ మరియు కాలానుగుణ ప్రదేశాలు", "culture_small": "జీవంత సంస్కృతి", "culture_title": "పండుగలు, నృత్యాలు, ఆచారాలు మరియు వారసత్వం", "services_small": "మీ పూర్తి భారత ప్రయాణ సహచరి", "services_title": "భారత్‌యాత్ర ఫీచర్లు", "s1_h": "హోటళ్లు మరియు బసలు", "s2_h": "స్థానిక ఆహారం మరియు రెస్టారెంట్లు", "s3_h": "స్మార్ట్ రవాణా", "s9_h": "బహుభాషా గైడ్", "s10_h": "AI వ్యక్తిగతీకరణ", "exp_small": "అనుభవాల ద్వారా భారతదేశాన్ని అన్వేషించండి", "exp_title": "ఒక దేశం. లెక్కలేనన్ని ప్రయాణాలు.", "e1": "హిమాలయ ప్రయాణాలు", "e2": "సముద్రతీరాలు", "e3": "దీవి సాహసాలు", "e4": "కోటలు మరియు రాజభవనాలు", "e5": "దేవాలయాలు మరియు వారసత్వం", "e6": "సంస్కృతి మరియు పండుగలు", "e7": "వన్యప్రాణులు మరియు ప్రకృతి", "e8": "పవిత్ర నగరాలు మరియు స్థానిక జీవితం", "chat_title": "భారత్‌యాత్ర ప్రయాణ సహాయకుడు", "chat_sub": "భారతదేశాన్ని అన్వేషించడానికి మీ తెలివైన సహచరి", "chat_placeholder": "మీ ప్రయాణం గురించి అడగండి..."},
+kn: {"nav_crafts": "ಕರಕುಶಲ", "nav_gi": "GI ಟ್ಯಾಗ್ ಉತ್ಪನ್ನಗಳು", "nav_unesco": "ಯುನೆಸ್ಕೋ ತಾಣಗಳು", "nav_calendar": "ಕ್ಯಾಲೆಂಡರ್", "nav_explore": "ಪ್ರವಾಸಿ ತಾಣಗಳು", "nav_hotels": 'ಹೋಟೆಲ್\u200cಗಳು ಮತ್ತು ವಸತಿ', "nav_transport": 'ಸಾರಿಗೆ', "nav_vendors": 'ಮಾರಾಟಗಾರರು' ,"nav_login": "ಲಾಗಿನ್", "hero_eyebrow": "AI ಪ್ರಯಾಣ • ಭಾರತವನ್ನು ಅನ್ವೇಷಿಸಿ", "contents_title": "ವಿಷಯ ಸೂಚಿ", "btn_prev": "⬅ ಹಿಂದಿನ", "btn_open": "ಗ್ರಂಥ ತೆರೆಯಿರಿ 📖", "trending_header": "✦ ಪ್ರಸ್ತುತ ಟ್ರೆಂಡಿಂಗ್ ಮತ್ತು ಋತುಮಾನ ತಾಣಗಳು", "culture_small": "ಜೀವಂತ ಸಂಸ್ಕೃತಿ", "culture_title": "ಹಬ್ಬಗಳು, ನೃತ್ಯಗಳು, ಆಚರಣೆಗಳು ಮತ್ತು ಪರಂಪರೆ", "services_small": "ನಿಮ್ಮ ಸಂಪೂರ್ಣ ಭಾರತ ಪ್ರವಾಸ ಸಂಗಾತಿ", "services_title": "ಭಾರತಯಾತ್ರಾ ವೈಶಿಷ್ಟ್ಯಗಳು", "s1_h": "ಹೋಟೆಲ್ ಮತ್ತು ವಾಸ್ತವ್ಯ", "s2_h": "ಸ್ಥಳೀಯ ಆಹಾರ ಮತ್ತು ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು", "s3_h": "ಸ್ಮಾರ್ಟ್ ಸಾರಿಗೆ", "s9_h": "ಬಹುಭಾಷಾ ಮಾರ್ಗದರ್ಶಿ", "s10_h": "AI ವೈಯಕ್ತೀಕರಣ", "exp_small": "ಅನುಭವದ ಮೂಲಕ ಭಾರತವನ್ನು ಅನ್ವೇಷಿಸಿ", "exp_title": "ಒಂದು ದೇಶ. ಅನೇಕ ಪ್ರಯಾಣಗಳು.", "e1": "ಹಿಮಾಲಯ ಪ್ರವಾಸಗಳು", "e2": "ಸಮುದ್ರತೀರಗಳು", "e3": "ದ್ವೀಪ ಸಾಹಸಗಳು", "e4": "ಕೋಟೆಗಳು ಮತ್ತು ಅರಮನೆಗಳು", "e5": "ದೇವಾಲಯಗಳು ಮತ್ತು ಪರಂಪರೆ", "e6": "ಸಂಸ್ಕೃತಿ ಮತ್ತು ಹಬ್ಬಗಳು", "e7": "ವನ್ಯಜೀವಿ ಮತ್ತು ಪ್ರಕೃತಿ", "e8": "ಪವಿತ್ರ ನಗರಗಳು ಮತ್ತು ಸ್ಥಳೀಯ ಜೀವನ", "chat_title": "ಭಾರತಯಾತ್ರಾ ಪ್ರಯಾಣ ಸಹಾಯಕ", "chat_sub": "ಭಾರತವನ್ನು ಅನ್ವೇಷಿಸಲು ನಿಮ್ಮ ಬುದ್ಧಿವಂತ ಸಂಗಾತಿ", "chat_placeholder": "ನಿಮ್ಮ ಪ್ರಯಾಣದ ಬಗ್ಗೆ ಕೇಳಿ..."},
+ml: {"nav_crafts": "കരകൗശലങ്ങൾ", "nav_gi": "GI ടാഗ് ഉൽപ്പന്നങ്ങൾ", "nav_unesco": "യുനെസ്കോ സൈറ്റുകൾ", "nav_calendar": "കലണ്ടർ", "nav_explore": "വിനോദസഞ്ചാര കേന്ദ്രങ്ങൾ", "nav_hotels": 'ഹോട്ടലുകളും താമസസൗകര്യങ്ങളും', "nav_transport": 'ഗതാഗതം', "nav_vendors": 'വിൽപ്പനക്കാർ' ,"nav_login": "ലോഗിൻ", "hero_eyebrow": "AI യാത്ര • ഭാരതത്തെ കണ്ടെത്തൂ", "contents_title": "ഉള്ളടക്കം", "btn_prev": "⬅ മുമ്പത്തെ", "btn_open": "ഗ്രന്ഥം തുറക്കുക 📖", "trending_header": "✦ നിലവിലെ ട്രെൻഡിംഗ്, സീസണൽ കേന്ദ്രങ്ങൾ", "culture_small": "ജീവിക്കുന്ന സംസ്കാരം", "culture_title": "ഉത്സവങ്ങൾ, നൃത്തങ്ങൾ, ആചാരങ്ങൾ, പൈതൃകം", "services_small": "നിങ്ങളുടെ സമ്പൂർണ്ണ ഇന്ത്യ യാത്രാ കൂട്ടായി", "services_title": "ഭാരതയാത്ര സവിശേഷതകൾ", "s1_h": "ഹോട്ടലുകളും താമസവും", "s2_h": "പ്രാദേശിക ഭക്ഷണവും റെസ്റ്റോറന്റുകളും", "s3_h": "സ്മാർട്ട് ഗതാഗതം", "s9_h": "ബഹുഭാഷാ ഗൈഡ്", "s10_h": "AI വ്യക്തിഗതമാക്കൽ", "exp_small": "അനുഭവങ്ങളിലൂടെ ഇന്ത്യ കണ്ടെത്തൂ", "exp_title": "ഒരു രാജ്യം. എണ്ണമറ്റ യാത്രകൾ.", "e1": "ഹിമാലയ യാത്രകൾ", "e2": "കടൽത്തീരങ്ങൾ", "e3": "ദ്വീപ് സാഹസങ്ങൾ", "e4": "കോട്ടകളും കൊട്ടാരങ്ങളും", "e5": "ക്ഷേത്രങ്ങളും പൈതൃകവും", "e6": "സംസ്കാരവും ഉത്സവങ്ങളും", "e7": "വന്യജീവികളും പ്രകൃതിയും", "e8": "പുണ്യനഗരങ്ങളും പ്രാദേശിക ജീവിതവും", "chat_title": "ഭാരതയാത്ര യാത്രാ സഹായി", "chat_sub": "ഇന്ത്യയെ കണ്ടെത്താനുള്ള നിങ്ങളുടെ ബുദ്ധിമാനായ കൂട്ടായി", "chat_placeholder": "നിങ്ങളുടെ യാത്രയെക്കുറിച്ച് ചോദിക്കൂ..."},
+pa: {"nav_crafts": "ਹਸਤਕਲਾ", "nav_gi": "GI ਟੈਗ ਉਤਪਾਦ", "nav_unesco": "ਯੂਨੇਸਕੋ ਸਥਾਨ", "nav_calendar": "ਕੈਲੰਡਰ", "nav_explore": "ਸੈਲਾਨੀ ਸਥਾਨ", "nav_hotels": 'ਹੋਟਲ ਅਤੇ ਠਹਿਰਣ ਦੀਆਂ ਥਾਵਾਂ', "nav_transport": 'ਆਵਾਜਾਈ', "nav_vendors": 'ਵਿਕਰੇਤਾ' ,"nav_login": "ਲੌਗਇਨ", "hero_eyebrow": "AI ਯਾਤਰਾ • ਭਾਰਤ ਦੀ ਖੋਜ", "contents_title": "ਵਿਸ਼ਾ-ਸੂਚੀ", "btn_prev": "⬅ ਪਿਛਲਾ", "btn_open": "ਗ੍ਰੰਥ ਖੋਲ੍ਹੋ 📖", "trending_header": "✦ ਮੌਜੂਦਾ ਪ੍ਰਸਿੱਧ ਅਤੇ ਮੌਸਮੀ ਸਥਾਨ", "culture_small": "ਜੀਵੰਤ ਸਭਿਆਚਾਰ", "culture_title": "ਤਿਉਹਾਰ, ਨਾਚ, ਰਸਮਾਂ ਅਤੇ ਵਿਰਾਸਤ", "services_small": "ਤੁਹਾਡਾ ਪੂਰਾ ਭਾਰਤ ਯਾਤਰਾ ਸਾਥੀ", "services_title": "ਭਾਰਤਯਾਤਰਾ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ", "s1_h": "ਹੋਟਲ ਅਤੇ ਰਹਿਣ ਦੀਆਂ ਥਾਵਾਂ", "s2_h": "ਸਥਾਨਕ ਭੋਜਨ ਅਤੇ ਰੈਸਟੋਰੈਂਟ", "s3_h": "ਸਮਾਰਟ ਆਵਾਜਾਈ", "s9_h": "ਬਹੁਭਾਸ਼ੀ ਗਾਈਡ", "s10_h": "AI ਵਿਅਕਤੀਗਤਕਰਨ", "exp_small": "ਤਜਰਬੇ ਰਾਹੀਂ ਭਾਰਤ ਦੀ ਖੋਜ", "exp_title": "ਇੱਕ ਦੇਸ਼। ਬੇਅੰਤ ਯਾਤਰਾਵਾਂ।", "e1": "ਹਿਮਾਲਿਆਈ ਯਾਤਰਾਵਾਂ", "e2": "ਸਮੁੰਦਰੀ ਤੱਟ", "e3": "ਟਾਪੂਈ ਸਾਹਸ", "e4": "ਕਿਲ੍ਹੇ ਅਤੇ ਮਹਿਲ", "e5": "ਮੰਦਰ ਅਤੇ ਵਿਰਾਸਤ", "e6": "ਸਭਿਆਚਾਰ ਅਤੇ ਤਿਉਹਾਰ", "e7": "ਜੰਗਲੀ ਜੀਵ ਅਤੇ ਕੁਦਰਤ", "e8": "ਪਵਿੱਤਰ ਸ਼ਹਿਰ ਅਤੇ ਸਥਾਨਕ ਜੀਵਨ", "chat_title": "ਭਾਰਤਯਾਤਰਾ ਯਾਤਰਾ ਸਹਾਇਕ", "chat_sub": "ਭਾਰਤ ਦੀ ਖੋਜ ਲਈ ਤੁਹਾਡਾ ਬੁੱਧੀਮਾਨ ਸਾਥੀ", "chat_placeholder": "ਆਪਣੀ ਯਾਤਰਾ ਬਾਰੇ ਪੁੱਛੋ..."},
+or: {"nav_crafts": "ହସ୍ତଶିଳ୍ପ", "nav_gi": "GI ଟ୍ୟାଗ୍ ଉତ୍ପାଦ", "nav_unesco": "ୟୁନେସ୍କୋ ସ୍ଥାନ", "nav_calendar": "କ୍ୟାଲେଣ୍ଡର", "nav_explore": "ପର୍ଯ୍ୟଟନ ସ୍ଥାନ", "nav_hotels": 'ହୋଟେଲ ଏବଂ ରହଣି', "nav_transport": 'ପରିବହନ', "nav_vendors": 'ବିକ୍ରେତା' ,"nav_login": "ଲଗଇନ୍", "hero_eyebrow": "AI ଯାତ୍ରା • ଭାରତକୁ ଆବିଷ୍କାର କରନ୍ତୁ", "contents_title": "ବିଷୟସୂଚୀ", "btn_prev": "⬅ ପୂର୍ବବର୍ତ୍ତୀ", "btn_open": "ଗ୍ରନ୍ଥ ଖୋଲନ୍ତୁ 📖", "trending_header": "✦ ବର୍ତ୍ତମାନ ଲୋକପ୍ରିୟ ଏବଂ ଋତୁକାଳୀନ ସ୍ଥାନ", "culture_small": "ଜୀବନ୍ତ ସଂସ୍କୃତି", "culture_title": "ପର୍ବ, ନୃତ୍ୟ, ରୀତିନୀତି ଏବଂ ଐତିହ୍ୟ", "services_small": "ଆପଣଙ୍କ ସମ୍ପୂର୍ଣ୍ଣ ଭାରତ ଯାତ୍ରା ସାଥୀ", "services_title": "ଭାରତଯାତ୍ରା ବୈଶିଷ୍ଟ୍ୟ", "s1_h": "ହୋଟେଲ ଏବଂ ରହଣି", "s2_h": "ସ୍ଥାନୀୟ ଖାଦ୍ୟ ଏବଂ ରେଷ୍ଟୁରାଣ୍ଟ", "s3_h": "ସ୍ମାର୍ଟ ପରିବହନ", "s9_h": "ବହୁଭାଷୀ ଗାଇଡ୍", "s10_h": "AI ବ୍ୟକ୍ତିଗତୀକରଣ", "exp_small": "ଅନୁଭବ ମାଧ୍ୟମରେ ଭାରତ ଆବିଷ୍କାର କରନ୍ତୁ", "exp_title": "ଗୋଟିଏ ଦେଶ। ଅସଂଖ୍ୟ ଯାତ୍ରା।", "e1": "ହିମାଳୟ ଯାତ୍ରା", "e2": "ସମୁଦ୍ରତଟ", "e3": "ଦ୍ୱୀପ ଅଭିଯାନ", "e4": "ଦୁର୍ଗ ଏବଂ ପ୍ରାସାଦ", "e5": "ମନ୍ଦିର ଏବଂ ଐତିହ୍ୟ", "e6": "ସଂସ୍କୃତି ଏବଂ ପର୍ବ", "e7": "ବନ୍ୟଜୀବ ଏବଂ ପ୍ରକୃତି", "e8": "ପବିତ୍ର ସହର ଏବଂ ସ୍ଥାନୀୟ ଜୀବନ", "chat_title": "ଭାରତଯାତ୍ରା ଯାତ୍ରା ସହାୟକ", "chat_sub": "ଭାରତ ଆବିଷ୍କାର ପାଇଁ ଆପଣଙ୍କ ବୁଦ୍ଧିମାନ ସାଥୀ", "chat_placeholder": "ଆପଣଙ୍କ ଯାତ୍ରା ବିଷୟରେ ପଚାରନ୍ତୁ..."},
+as: {"nav_crafts": "হস্তশিল্প", "nav_gi": "GI টেগ সামগ্ৰী", "nav_unesco": "ইউনেস্কো স্থান", "nav_calendar": "কেলেণ্ডাৰ", "nav_explore": "পৰ্যটন স্থান", "nav_hotels": 'হোটেল আৰু থকাৰ ব্যৱস্থা', "nav_transport": 'পৰিবহণ', "nav_vendors": 'বিক্ৰেতা' ,"nav_login": "লগইন", "hero_eyebrow": "AI-চালিত ভ্ৰমণ • ভাৰত আৱিষ্কাৰ কৰক", "contents_title": "সূচীপত্ৰ", "btn_prev": "⬅ আগৰ", "btn_open": "গ্ৰন্থ খোলক 📖", "trending_header": "✦ বৰ্তমান জনপ্ৰিয় আৰু ঋতুভিত্তিক স্থান", "culture_small": "জীৱন্ত সংস্কৃতি", "culture_title": "উৎসৱ, নৃত্য, আচাৰ আৰু ঐতিহ্য", "services_small": "আপোনাৰ সম্পূৰ্ণ ভাৰত ভ্ৰমণ সংগী", "services_title": "ভাৰতযাত্ৰাৰ বৈশিষ্ট্য", "s1_h": "হোটেল আৰু থকা-ঠাই", "s2_h": "স্থানীয় খাদ্য আৰু ৰেষ্টুৰেণ্ট", "s3_h": "স্মাৰ্ট পৰিবহণ", "s9_h": "বহুভাষিক গাইড", "s10_h": "AI ব্যক্তিগতকৰণ", "exp_small": "অভিজ্ঞতাৰ জৰিয়তে ভাৰত আৱিষ্কাৰ কৰক", "exp_title": "এখন দেশ। অসংখ্য যাত্ৰা।", "e1": "হিমালয় ভ্ৰমণ", "e2": "সাগৰপাৰ আৰু সৈকত", "e3": "দ্বীপ অভিযান", "e4": "দুৰ্গ আৰু ৰাজপ্ৰাসাদ", "e5": "মন্দিৰ আৰু ঐতিহ্য", "e6": "সংস্কৃতি আৰু উৎসৱ", "e7": "বন্যপ্ৰাণী আৰু প্ৰকৃতি", "e8": "পৱিত্ৰ চহৰ আৰু স্থানীয় জীৱন", "chat_title": "ভাৰতযাত্ৰা ভ্ৰমণ সহায়ক", "chat_sub": "ভাৰত আৱিষ্কাৰৰ বাবে আপোনাৰ বুদ্ধিমান সংগী", "chat_placeholder": "আপোনাৰ যাত্ৰাৰ বিষয়ে সোধক..."},
+ur: {"nav_crafts": "دستکاری", "nav_gi": "GI ٹیگ مصنوعات", "nav_unesco": "یونیسکو مقامات", "nav_calendar": "کیلنڈر", "nav_explore": "سیاحتی مقامات", "nav_hotels": 'ہوٹل اور قیام', "nav_transport": 'نقل و حمل', "nav_vendors": 'فروخت کنندگان' ,"nav_login": "لاگ اِن", "hero_eyebrow": "AI سے چلنے والا سفر • بھارت دریافت کریں", "contents_title": "فہرست", "btn_prev": "⬅ پچھلا", "btn_open": "گرنتھ کھولیں 📖", "trending_header": "✦ موجودہ مقبول اور موسمی مقامات", "culture_small": "زندہ ثقافت", "culture_title": "تہوار، رقص، رسومات اور ورثہ", "services_small": "آپ کا مکمل ہندوستانی سفری ساتھی", "services_title": "بھارت یاترا کی خصوصیات", "s1_h": "ہوٹل اور قیام", "s2_h": "مقامی کھانا اور ریستوران", "s3_h": "اسمارٹ ٹرانسپورٹ", "s9_h": "کثیر لسانی رہنما", "s10_h": "AI شخصی تجویز", "exp_small": "تجربے کے ذریعے ہندوستان دریافت کریں", "exp_title": "ایک ملک۔ بے شمار سفر۔", "e1": "ہمالیائی سفر", "e2": "ساحل اور سمندر", "e3": "جزیرے کی مہمات", "e4": "قلعے اور محلات", "e5": "مندر اور ورثہ", "e6": "ثقافت اور تہوار", "e7": "جنگلی حیات اور فطرت", "e8": "مقدس شہر اور مقامی زندگی", "chat_title": "بھارت یاترا سفری معاون", "chat_sub": "ہندوستان دریافت کرنے کے لیے آپ کا ذہین ساتھی", "chat_placeholder": "اپنے سفر کے بارے میں پوچھیں..."},
+mai: {"nav_crafts": "हस्तशिल्प", "nav_gi": "GI टैग उत्पाद", "nav_unesco": "यूनेस्को स्थल", "nav_calendar": "कैलेंडर", "nav_explore": "पर्यटन स्थल", "nav_hotels": 'होटल आ ठहरबाक जगह', "nav_transport": 'परिवहन', "nav_vendors": 'विक्रेता' ,"nav_login": "लॉगिन", "hero_eyebrow": "AI-आधारित यात्रा • भारतक खोज करू", "contents_title": "विषय-सूची", "btn_prev": "⬅ पिछला", "btn_open": "ग्रंथ खोलू 📖", "trending_header": "✦ वर्तमान लोकप्रिय आ मौसमी स्थल", "culture_small": "जीवंत संस्कृति", "culture_title": "पर्व, नृत्य, परंपरा आ विरासत", "services_small": "अहाँक पूरा भारत यात्रा साथी", "services_title": "भारतयात्राक विशेषता", "s1_h": "होटल आ ठहराव", "s2_h": "स्थानीय भोजन आ रेस्टोरेंट", "s3_h": "स्मार्ट परिवहन", "s9_h": "बहुभाषी गाइड", "s10_h": "AI व्यक्तिगतकरण", "exp_small": "अनुभवक माध्यमसँ भारत खोजू", "exp_title": "एक देश। अनगिनत यात्रा।", "e1": "हिमालय यात्रा", "e2": "समुद्र तट", "e3": "द्वीप रोमांच", "e4": "किला आ महल", "e5": "मंदिर आ विरासत", "e6": "संस्कृति आ पर्व", "e7": "वन्यजीव आ प्रकृति", "e8": "पवित्र शहर आ स्थानीय जीवन", "chat_title": "भारतयात्रा यात्रा सहायक", "chat_sub": "भारतक खोज लेल अहाँक बुद्धिमान साथी", "chat_placeholder": "अपन यात्रा बारे पूछू..."},
+bho: {"nav_crafts": "हस्तकला", "nav_gi": "GI टैग सामान", "nav_unesco": "यूनेस्को जगह", "nav_calendar": "कैलेंडर", "nav_explore": "घूमे के जगह", "nav_hotels": 'होटल आ ठहरे के जगह', "nav_transport": 'परिवहन', "nav_vendors": 'विक्रेता' ,"nav_login": "लॉगिन", "hero_eyebrow": "AI यात्रा • भारत के खोजीं", "contents_title": "विषय सूची", "btn_prev": "⬅ पिछला", "btn_open": "ग्रंथ खोलीं 📖", "trending_header": "✦ अभी के लोकप्रिय आ मौसमी जगह", "culture_small": "जिन्दा संस्कृति", "culture_title": "त्योहार, नाच, रीति-रिवाज आ विरासत", "services_small": "रउआ के पूरा भारत यात्रा साथी", "services_title": "भारतयात्रा के खासियत", "s1_h": "होटल आ ठहरे के जगह", "s2_h": "स्थानीय खाना आ रेस्टोरेंट", "s3_h": "स्मार्ट परिवहन", "s9_h": "बहुभाषी गाइड", "s10_h": "AI निजी सुझाव", "exp_small": "अनुभव से भारत के खोजीं", "exp_title": "एक देश। अनगिनत यात्रा।", "e1": "हिमालय यात्रा", "e2": "समुंदर किनारा", "e3": "द्वीप के रोमांच", "e4": "किला आ महल", "e5": "मंदिर आ विरासत", "e6": "संस्कृति आ त्योहार", "e7": "वन्यजीव आ प्रकृति", "e8": "पवित्र शहर आ स्थानीय जीवन", "chat_title": "भारतयात्रा यात्रा सहायक", "chat_sub": "भारत खोजे खातिर रउआ के बुद्धिमान साथी", "chat_placeholder": "अपना यात्रा के बारे में पूछीं..."}
+};
+
+/* =========================================================
+   COMPLETE FEATURE CARD TRANSLATIONS
+   Fills the missing service-card translations for all
+   supported Indian languages.
+   ========================================================= */
+
+const featureTranslations = {
+
+    /* ---------------- HINDI ---------------- */
+    hi: {
+        s4_h: "उपयोगकर्ता सत्यापन",
+        s4_p: "अपने जीमेल, ईमेल और पासवर्ड से सुरक्षित रूप से साइन अप करें। प्रत्येक यात्री की पहचान की पुष्टि के लिए एक सरकारी सत्यापित दस्तावेज़ की जांच की जाती है।",
+
+        s5_h: "एडमिन प्रमाणीकरण",
+        s5_p: "होटल, रेस्तरां, होमस्टे और पीजी मालिकों को भारतयात्रा पर सूचीबद्ध होने से पहले उनके लाइसेंस और अनुमति के माध्यम से सत्यापित किया जाता है।",
+
+        s6_h: "एसओएस और सुरक्षा",
+        s6_p: "कम कनेक्टिविटी वाले क्षेत्रों में भी विश्वसनीय रूप से काम करने के लिए डिज़ाइन की गई त्वरित आपातकालीन सहायता और सुरक्षा चेतावनियां प्राप्त करें।",
+
+        s7_h: "ऑल-इन-वन डिजिटल टिकट",
+        s7_p: "एक ही क्यूआर कोड और एक बार का भुगतान आकर्षण, परिवहन और बहुत कुछ कवर करता है — बार-बार कतार या भुगतान की आवश्यकता नहीं।",
+
+        s8_h: "स्मार्ट वैकल्पिक सुझाव",
+        s8_p: "यदि आपका पसंदीदा होटल भरा हुआ है, तो 10–20 किमी के भीतर ऐसे एआई-सुझाए गए विकल्प प्राप्त करें जो परिवहन से अच्छी तरह जुड़े हों।",
+
+        s11_h: "स्थानीय अर्थव्यवस्था को बढ़ावा",
+        s11_p: "विशेष प्रचारों के माध्यम से कम भीड़ वाले गंतव्यों, स्थानीय हस्तशिल्प और छोटे व्यवसायों की खोज करें और उनका समर्थन करें।",
+
+        s12_h: "विशिष्ट यात्रा कार्यक्रम",
+        s12_p: "समय, रुचियों, बजट और गंतव्य के आधार पर व्यक्तिगत दिन-प्रतिदिन की यात्राएं बनाएं।",
+
+        s13_h: "सर्वोत्तम समय",
+        s13_p: "आकर्षणों के व्यस्त समय, अनुमानित भीड़ के स्तर और सुझाए गए भ्रमण समय को समझें।",
+
+        s14_h: "स्मार्ट बजट योजना",
+        s14_p: "यात्रा, ठहरने, भोजन और गतिविधियों के लिए बुद्धिमान सुझावों के साथ अपनी यात्रा को अपने बजट के अनुसार व्यवस्थित करें।",
+
+        s15_h: "वार्षिक यात्रा कैलेंडर",
+        s15_p: "महीने के अनुसार अपनी यात्रा की योजना बनाएं — प्रत्येक गंतव्य के लिए सर्वोत्तम मौसम और सुबह से शाम तक घूमने का आदर्श समय देखें।",
+
+        s16_h: "समाचार और अनुसंधान केंद्र",
+        s16_p: "पर्यटन विभाग के समाचारों, ऐतिहासिक स्थल अनुसंधान, जीआई-टैग वाले स्थानीय उत्पादों और अन्य जानकारी से अपडेट रहें।"
+    },
+
+    /* ---------------- MARATHI ---------------- */
+    mr: {
+        s4_h: "वापरकर्ता पडताळणी",
+        s4_p: "तुमच्या जीमेल, ईमेल आणि पासवर्डचा वापर करून सुरक्षितपणे साइन अप करा. प्रत्येक प्रवाशाची ओळख निश्चित करण्यासाठी सरकारी मान्यताप्राप्त कागदपत्राची तपासणी केली जाते.",
+
+        s5_h: "प्रशासकीय प्रमाणीकरण",
+        s5_p: "हॉटेल, रेस्टॉरंट, होमस्टे आणि पीजी मालकांना भारतयात्रावर सूचीबद्ध होण्यापूर्वी त्यांच्या परवान्याद्वारे आणि परवानगीद्वारे सत्यापित केले जाते.",
+
+        s6_h: "SOS आणि सुरक्षा",
+        s6_p: "कमी कनेक्टिव्हिटी असलेल्या भागातही विश्वासार्हपणे कार्य करण्यासाठी त्वरित आपत्कालीन मदत आणि सुरक्षा सूचना मिळवा.",
+
+        s7_h: "ऑल-इन-वन डिजिटल तिकीट",
+        s7_p: "एकच QR कोड आणि एकदाच केलेले पेमेंट आकर्षणे, वाहतूक आणि इतर सेवांसाठी वापरता येते — पुन्हा पुन्हा रांगेत उभे राहण्याची किंवा पेमेंट करण्याची गरज नाही.",
+
+        s8_h: "स्मार्ट पर्यायी सूचना",
+        s8_p: "तुमचे पसंतीचे हॉटेल भरलेले असल्यास, 10–20 किमीच्या आत वाहतुकीशी चांगले जोडलेले AI-सुचवलेले पर्याय मिळवा.",
+
+        s11_h: "स्थानिक अर्थव्यवस्थेला चालना",
+        s11_p: "विशेष प्रचारांद्वारे कमी गर्दीची पर्यटनस्थळे, स्थानिक हस्तकला आणि छोट्या व्यवसायांचा शोध घ्या आणि त्यांना पाठिंबा द्या.",
+
+        s12_h: "विशेष प्रवास कार्यक्रम",
+        s12_p: "वेळ, आवडी, बजेट आणि गंतव्यस्थानाच्या आधारे वैयक्तिक दिवसानुसार प्रवास कार्यक्रम तयार करा.",
+
+        s13_h: "भेट देण्याची सर्वोत्तम वेळ",
+        s13_p: "आकर्षणांची गर्दीची वेळ, अंदाजे गर्दीची पातळी आणि सुचवलेले भेटीचे तास समजून घ्या.",
+
+        s14_h: "स्मार्ट बजेट नियोजन",
+        s14_p: "प्रवास, मुक्काम, भोजन आणि उपक्रमांसाठी बुद्धिमान सूचनांसह तुमची सहल तुमच्या बजेटनुसार आयोजित करा.",
+
+        s15_h: "वार्षिक प्रवास कॅलेंडर",
+        s15_p: "महिन्यानुसार सहलीचे नियोजन करा — प्रत्येक गंतव्यस्थानासाठी सर्वोत्तम ऋतू आणि सकाळपासून संध्याकाळपर्यंत भेट देण्याची योग्य वेळ पहा.",
+
+        s16_h: "बातम्या आणि संशोधन केंद्र",
+        s16_p: "पर्यटन विभागाच्या बातम्या, ऐतिहासिक स्थळांचे संशोधन, GI-टॅग केलेली स्थानिक उत्पादने आणि इतर माहितीशी अपडेट रहा."
+    },
+
+    /* ---------------- BENGALI ---------------- */
+    bn: {
+        s4_h: "ব্যবহারকারী যাচাইকরণ",
+        s4_p: "আপনার Gmail, ইমেল এবং পাসওয়ার্ড ব্যবহার করে নিরাপদে সাইন আপ করুন। প্রতিটি ভ্রমণকারীর পরিচয় নিশ্চিত করতে একটি সরকারি যাচাইকৃত নথি পরীক্ষা করা হয়।",
+
+        s5_h: "অ্যাডমিন প্রমাণীকরণ",
+        s5_p: "হোটেল, রেস্তোরাঁ, হোমস্টে এবং PG মালিকদের BharatYatra-তে তালিকাভুক্ত করার আগে তাদের লাইসেন্স ও অনুমতির মাধ্যমে যাচাই করা হয়।",
+
+        s6_h: "SOS ও নিরাপত্তা",
+        s6_p: "কম সংযোগযুক্ত এলাকাতেও নির্ভরযোগ্যভাবে কাজ করার জন্য জরুরি সহায়তা ও নিরাপত্তা সতর্কতা পান।",
+
+        s7_h: "অল-ইন-ওয়ান ডিজিটাল টিকিট",
+        s7_p: "একটি QR কোড এবং একবারের পেমেন্ট আকর্ষণ, পরিবহন এবং আরও অনেক কিছু কভার করে — বারবার লাইনে দাঁড়ানো বা পেমেন্টের প্রয়োজন নেই।",
+
+        s8_h: "স্মার্ট বিকল্প পরামর্শ",
+        s8_p: "আপনার পছন্দের হোটেল পূর্ণ থাকলে ১০–২০ কিলোমিটারের মধ্যে পরিবহনের সঙ্গে ভালোভাবে সংযুক্ত AI-প্রস্তাবিত বিকল্প পান।",
+
+        s11_h: "স্থানীয় অর্থনীতিকে উৎসাহ",
+        s11_p: "বিশেষ প্রচারের মাধ্যমে কম ভিড়ের গন্তব্য, স্থানীয় হস্তশিল্প এবং ছোট ব্যবসা আবিষ্কার করুন ও তাদের সমর্থন করুন।",
+
+        s12_h: "বিশেষ ভ্রমণসূচি",
+        s12_p: "সময়, আগ্রহ, বাজেট এবং গন্তব্যের ভিত্তিতে ব্যক্তিগতকৃত দিনভিত্তিক ভ্রমণসূচি তৈরি করুন।",
+
+        s13_h: "ভ্রমণের সেরা সময়",
+        s13_p: "আকর্ষণগুলির ব্যস্ত সময়, আনুমানিক ভিড়ের মাত্রা এবং প্রস্তাবিত ভ্রমণের সময় বুঝুন।",
+
+        s14_h: "স্মার্ট বাজেট পরিকল্পনা",
+        s14_p: "ভ্রমণ, থাকা, খাবার এবং কার্যক্রমের জন্য বুদ্ধিমান পরামর্শ নিয়ে আপনার বাজেট অনুযায়ী ভ্রমণ পরিকল্পনা করুন।",
+
+        s15_h: "বার্ষিক ভ্রমণ ক্যালেন্ডার",
+        s15_p: "মাস অনুযায়ী ভ্রমণের পরিকল্পনা করুন — প্রতিটি গন্তব্যের সেরা ঋতু এবং সকাল থেকে সন্ধ্যা পর্যন্ত ভ্রমণের আদর্শ সময় দেখুন।",
+
+        s16_h: "সংবাদ ও গবেষণা কেন্দ্র",
+        s16_p: "পর্যটন বিভাগের খবর, ঐতিহাসিক স্থান গবেষণা, GI-ট্যাগযুক্ত স্থানীয় পণ্য এবং আরও অনেক কিছু সম্পর্কে আপডেট থাকুন।"
+    },
+
+    /* ---------------- GUJARATI ---------------- */
+    gu: {
+        s4_h: "વપરાશકર્તા ચકાસણી",
+        s4_p: "તમારા Gmail, ઇમેઇલ અને પાસવર્ડનો ઉપયોગ કરીને સુરક્ષિત રીતે સાઇન અપ કરો. દરેક પ્રવાસીની ઓળખની પુષ્ટિ કરવા માટે સરકારી ચકાસાયેલ દસ્તાવેજની તપાસ કરવામાં આવે છે.",
+
+        s5_h: "એડમિન પ્રમાણીકરણ",
+        s5_p: "હોટેલ, રેસ્ટોરન્ટ, હોમસ્ટે અને PG માલિકોને BharatYatra પર સૂચિબદ્ધ કરતા પહેલાં તેમના લાઇસન્સ અને પરવાનગી દ્વારા ચકાસવામાં આવે છે.",
+
+        s6_h: "SOS અને સુરક્ષા",
+        s6_p: "ઓછી કનેક્ટિવિટી ધરાવતા વિસ્તારોમાં પણ વિશ્વસનીય રીતે કામ કરવા માટે તાત્કાલિક કટોકટી સહાય અને સુરક્ષા ચેતવણીઓ મેળવો.",
+
+        s7_h: "ઓલ-ઇન-વન ડિજિટલ ટિકિટ",
+        s7_p: "એક QR કોડ અને એક વખતની ચુકવણી આકર્ષણો, પરિવહન અને વધુને આવરી લે છે — વારંવાર લાઇનમાં ઊભા રહેવાની અથવા ચુકવણી કરવાની જરૂર નથી.",
+
+        s8_h: "સ્માર્ટ વૈકલ્પિક સૂચનો",
+        s8_p: "તમારી પસંદગીની હોટેલ ભરેલી હોય તો 10–20 કિમીની અંદર પરિવહન સાથે સારી રીતે જોડાયેલા AI દ્વારા સૂચવાયેલા વિકલ્પો મેળવો.",
+
+        s11_h: "સ્થાનિક અર્થતંત્રને પ્રોત્સાહન",
+        s11_p: "વિશેષ પ્રમોશન દ્વારા ઓછા ભીડવાળા સ્થળો, સ્થાનિક હસ્તકલા અને નાના વ્યવસાયો શોધો અને તેમને ટેકો આપો.",
+
+        s12_h: "વિશિષ્ટ પ્રવાસ આયોજન",
+        s12_p: "સમય, રસ, બજેટ અને ગંતવ્યના આધારે વ્યક્તિગત દિવસવાર પ્રવાસ બનાવો.",
+
+        s13_h: "મુલાકાત માટેનો શ્રેષ્ઠ સમય",
+        s13_p: "આકર્ષણોના વ્યસ્ત સમય, અંદાજિત ભીડનું સ્તર અને સૂચિત મુલાકાતના કલાકોને સમજો.",
+
+        s14_h: "સ્માર્ટ બજેટ આયોજન",
+        s14_p: "પ્રવાસ, રહેવા, ભોજન અને પ્રવૃત્તિઓ માટે બુદ્ધિશાળી સૂચનો સાથે તમારા બજેટ અનુસાર પ્રવાસ ગોઠવો.",
+
+        s15_h: "વાર્ષિક પ્રવાસ કેલેન્ડર",
+        s15_p: "મહિના પ્રમાણે પ્રવાસનું આયોજન કરો — દરેક સ્થળ માટે શ્રેષ્ઠ ઋતુ અને સવારથી સાંજ સુધી મુલાકાત લેવાનો આદર્શ સમય જુઓ.",
+
+        s16_h: "સમાચાર અને સંશોધન કેન્દ્ર",
+        s16_p: "પર્યટન વિભાગના સમાચાર, ઐતિહાસિક સ્થળોના સંશોધન, GI-ટેગવાળા સ્થાનિક ઉત્પાદનો અને અન્ય માહિતીથી અપડેટ રહો."
+    },
+
+    /* ---------------- TAMIL ---------------- */
+    ta: {
+        s4_h: "பயனர் சரிபார்ப்பு",
+        s4_p: "உங்கள் Gmail, மின்னஞ்சல் மற்றும் கடவுச்சொல்லைப் பயன்படுத்தி பாதுகாப்பாக பதிவு செய்யுங்கள். ஒவ்வொரு பயணியின் அடையாளத்தை உறுதிப்படுத்த அரசு சரிபார்த்த ஆவணம் பரிசோதிக்கப்படுகிறது.",
+
+        s5_h: "நிர்வாகி அங்கீகாரம்",
+        s5_p: "ஹோட்டல், உணவகம், ஹோம்ஸ்டே மற்றும் PG உரிமையாளர்கள் BharatYatra-வில் பட்டியலிடப்படுவதற்கு முன் உரிமம் மற்றும் அனுமதியின் மூலம் சரிபார்க்கப்படுகிறார்கள்.",
+
+        s6_h: "SOS மற்றும் பாதுகாப்பு",
+        s6_p: "குறைந்த இணைப்பு உள்ள பகுதிகளிலும் நம்பகமாக செயல்படும் வகையில் வடிவமைக்கப்பட்ட அவசர உதவி மற்றும் பாதுகாப்பு எச்சரிக்கைகளைப் பெறுங்கள்.",
+
+        s7_h: "ஆல்-இன்-ஒன் டிஜிட்டல் டிக்கெட்",
+        s7_p: "ஒரே QR குறியீடும் ஒருமுறை செலுத்தும் கட்டணமும் சுற்றுலா இடங்கள், போக்குவரத்து மற்றும் பலவற்றை உள்ளடக்கும் — மீண்டும் மீண்டும் வரிசையில் நிற்கவோ பணம் செலுத்தவோ தேவையில்லை.",
+
+        s8_h: "ஸ்மார்ட் மாற்று பரிந்துரைகள்",
+        s8_p: "நீங்கள் விரும்பிய ஹோட்டல் நிரம்பியிருந்தால், 10–20 கி.மீ. தொலைவில் போக்குவரத்துடன் நன்றாக இணைக்கப்பட்ட AI பரிந்துரைக்கும் மாற்றுகளைப் பெறுங்கள்.",
+
+        s11_h: "உள்ளூர் பொருளாதாரத்தை மேம்படுத்துதல்",
+        s11_p: "சிறப்பு விளம்பரங்கள் மூலம் குறைந்த கூட்டம் உள்ள இடங்கள், உள்ளூர் கைவினைப்பொருட்கள் மற்றும் சிறு வணிகங்களைக் கண்டறிந்து ஆதரிக்கவும்.",
+
+        s12_h: "சிறப்பு பயணத் திட்டம்",
+        s12_p: "நேரம், ஆர்வங்கள், பட்ஜெட் மற்றும் இலக்கை அடிப்படையாகக் கொண்டு தனிப்பயனாக்கப்பட்ட தினசரி பயணங்களை உருவாக்குங்கள்.",
+
+        s13_h: "செல்ல சிறந்த நேரம்",
+        s13_p: "சுற்றுலா இடங்களின் பரபரப்பான நேரங்கள், மதிப்பிடப்பட்ட கூட்ட அளவு மற்றும் பரிந்துரைக்கப்பட்ட பார்வை நேரங்களை அறிந்து கொள்ளுங்கள்.",
+
+        s14_h: "ஸ்மார்ட் பட்ஜெட் திட்டமிடல்",
+        s14_p: "பயணம், தங்குமிடம், உணவு மற்றும் செயல்பாடுகளுக்கான புத்திசாலித்தனமான பரிந்துரைகளுடன் உங்கள் பட்ஜெட்டிற்கு ஏற்ப பயணத்தை திட்டமிடுங்கள்.",
+
+        s15_h: "ஆண்டு பயண காலண்டர்",
+        s15_p: "மாத வாரியாக உங்கள் பயணத்தை திட்டமிடுங்கள் — ஒவ்வொரு இடத்திற்கும் சிறந்த பருவத்தையும் காலை முதல் மாலை வரை செல்ல ஏற்ற நேரத்தையும் பாருங்கள்.",
+
+        s16_h: "செய்திகள் மற்றும் ஆராய்ச்சி மையம்",
+        s16_p: "சுற்றுலாத்துறை செய்திகள், வரலாற்று தள ஆராய்ச்சி, GI-குறியிடப்பட்ட உள்ளூர் தயாரிப்புகள் மற்றும் பலவற்றைப் பற்றி புதுப்பித்த நிலையில் இருங்கள்."
+    },
+
+    /* ---------------- TELUGU ---------------- */
+    te: {
+        s4_h: "వినియోగదారు ధృవీకరణ",
+        s4_p: "మీ Gmail, ఇమెయిల్ మరియు పాస్‌వర్డ్‌తో సురక్షితంగా సైన్ అప్ చేయండి. ప్రతి ప్రయాణికుడి గుర్తింపును నిర్ధారించడానికి ప్రభుత్వ ధృవీకరించిన పత్రాన్ని తనిఖీ చేస్తారు.",
+
+        s5_h: "అడ్మిన్ ప్రామాణీకరణ",
+        s5_p: "హోటల్, రెస్టారెంట్, హోమ్‌స్టే మరియు PG యజమానులు BharatYatraలో జాబితా చేయబడే ముందు వారి లైసెన్స్ మరియు అనుమతి ద్వారా ధృవీకరించబడతారు.",
+
+        s6_h: "SOS మరియు భద్రత",
+        s6_p: "తక్కువ కనెక్టివిటీ ఉన్న ప్రాంతాల్లో కూడా విశ్వసనీయంగా పనిచేసే అత్యవసర సహాయం మరియు భద్రతా హెచ్చరికలను పొందండి.",
+
+        s7_h: "ఆల్-ఇన్-వన్ డిజిటల్ టికెట్",
+        s7_p: "ఒకే QR కోడ్ మరియు ఒకసారి చెల్లింపు ఆకర్షణలు, రవాణా మరియు మరిన్ని సేవలను కవర్ చేస్తుంది — మళ్లీ మళ్లీ క్యూలో నిలబడాల్సిన అవసరం లేదు.",
+
+        s8_h: "స్మార్ట్ ప్రత్యామ్నాయ సూచనలు",
+        s8_p: "మీకు ఇష్టమైన హోటల్ పూర్తిగా బుక్ అయి ఉంటే, 10–20 కి.మీ. పరిధిలో రవాణాతో బాగా అనుసంధానమైన AI సూచించిన ప్రత్యామ్నాయాలను పొందండి.",
+
+        s11_h: "స్థానిక ఆర్థిక వ్యవస్థకు ప్రోత్సాహం",
+        s11_p: "ప్రత్యేక ప్రమోషన్ల ద్వారా తక్కువ రద్దీ ఉన్న గమ్యస్థానాలు, స్థానిక హస్తకళలు మరియు చిన్న వ్యాపారాలను కనుగొని మద్దతు ఇవ్వండి.",
+
+        s12_h: "ప్రత్యేక ప్రయాణ ప్రణాళిక",
+        s12_p: "సమయం, ఆసక్తులు, బడ్జెట్ మరియు గమ్యస్థానం ఆధారంగా వ్యక్తిగతీకరించిన రోజువారీ ప్రయాణాలను రూపొందించండి.",
+
+        s13_h: "సందర్శించడానికి ఉత్తమ సమయం",
+        s13_p: "ఆకర్షణల రద్దీ సమయాలు, అంచనా వేసిన జనసందోహ స్థాయి మరియు సూచించిన సందర్శన సమయాలను తెలుసుకోండి.",
+
+        s14_h: "స్మార్ట్ బడ్జెట్ ప్రణాళిక",
+        s14_p: "ప్రయాణం, వసతి, ఆహారం మరియు కార్యకలాపాల కోసం తెలివైన సూచనలతో మీ బడ్జెట్‌కు అనుగుణంగా ప్రయాణాన్ని నిర్వహించండి.",
+
+        s15_h: "వార్షిక ప్రయాణ క్యాలెండర్",
+        s15_p: "నెలవారీగా మీ ప్రయాణాన్ని ప్లాన్ చేయండి — ప్రతి గమ్యస్థానానికి ఉత్తమ సీజన్ మరియు ఉదయం నుండి సాయంత్రం వరకు సందర్శించడానికి అనువైన సమయాన్ని చూడండి.",
+
+        s16_h: "వార్తలు మరియు పరిశోధన కేంద్రం",
+        s16_p: "పర్యాటక శాఖ వార్తలు, చారిత్రక ప్రదేశాల పరిశోధన, GI-ట్యాగ్ చేయబడిన స్థానిక ఉత్పత్తులు మరియు మరిన్నింటితో అప్‌డేట్‌గా ఉండండి."
+    },
+
+    /* ---------------- KANNADA ---------------- */
+    kn: {
+        s4_h: "ಬಳಕೆದಾರ ಪರಿಶೀಲನೆ",
+        s4_p: "ನಿಮ್ಮ Gmail, ಇಮೇಲ್ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್ ಬಳಸಿ ಸುರಕ್ಷಿತವಾಗಿ ಸೈನ್ ಅಪ್ ಮಾಡಿ. ಪ್ರತಿಯೊಬ್ಬ ಪ್ರಯಾಣಿಕರ ಗುರುತನ್ನು ದೃಢೀಕರಿಸಲು ಸರ್ಕಾರಿ ಪರಿಶೀಲಿತ ದಾಖಲೆ ಪರಿಶೀಲಿಸಲಾಗುತ್ತದೆ.",
+
+        s5_h: "ನಿರ್ವಾಹಕ ದೃಢೀಕರಣ",
+        s5_p: "ಹೋಟೆಲ್, ರೆಸ್ಟೋರೆಂಟ್, ಹೋಮ್‌ಸ್ಟೇ ಮತ್ತು PG ಮಾಲೀಕರನ್ನು BharatYatraಯಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡುವ ಮೊದಲು ಅವರ ಪರವಾನಗಿ ಮತ್ತು ಅನುಮತಿಯ ಮೂಲಕ ಪರಿಶೀಲಿಸಲಾಗುತ್ತದೆ.",
+
+        s6_h: "SOS ಮತ್ತು ಸುರಕ್ಷತೆ",
+        s6_p: "ಕಡಿಮೆ ಸಂಪರ್ಕವಿರುವ ಪ್ರದೇಶಗಳಲ್ಲಿಯೂ ವಿಶ್ವಾಸಾರ್ಹವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ತುರ್ತು ಸಹಾಯ ಮತ್ತು ಸುರಕ್ಷತಾ ಎಚ್ಚರಿಕೆಗಳನ್ನು ಪಡೆಯಿರಿ.",
+
+        s7_h: "ಆಲ್-ಇನ್-ಒನ್ ಡಿಜಿಟಲ್ ಟಿಕೆಟ್",
+        s7_p: "ಒಂದು QR ಕೋಡ್ ಮತ್ತು ಒಮ್ಮೆ ಪಾವತಿ ಆಕರ್ಷಣೆಗಳು, ಸಾರಿಗೆ ಮತ್ತು ಹೆಚ್ಚಿನ ಸೇವೆಗಳನ್ನು ಒಳಗೊಂಡಿರುತ್ತದೆ — ಪುನಃ ಪುನಃ ಸಾಲಿನಲ್ಲಿ ನಿಲ್ಲುವ ಅಗತ್ಯವಿಲ್ಲ.",
+
+        s8_h: "ಸ್ಮಾರ್ಟ್ ಪರ್ಯಾಯ ಸಲಹೆಗಳು",
+        s8_p: "ನಿಮ್ಮ ಆಯ್ಕೆಯ ಹೋಟೆಲ್ ಪೂರ್ಣವಾಗಿದ್ದರೆ, 10–20 ಕಿ.ಮೀ. ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಸಾರಿಗೆಯೊಂದಿಗೆ ಉತ್ತಮವಾಗಿ ಸಂಪರ್ಕ ಹೊಂದಿರುವ AI ಸೂಚಿಸಿದ ಪರ್ಯಾಯಗಳನ್ನು ಪಡೆಯಿರಿ.",
+
+        s11_h: "ಸ್ಥಳೀಯ ಆರ್ಥಿಕತೆಯನ್ನು ಉತ್ತೇಜಿಸುವುದು",
+        s11_p: "ವಿಶೇಷ ಪ್ರಚಾರಗಳ ಮೂಲಕ ಕಡಿಮೆ ಜನಸಂದಣಿ ಇರುವ ಸ್ಥಳಗಳು, ಸ್ಥಳೀಯ ಕರಕುಶಲ ವಸ್ತುಗಳು ಮತ್ತು ಸಣ್ಣ ವ್ಯಾಪಾರಗಳನ್ನು ಕಂಡುಹಿಡಿದು ಬೆಂಬಲಿಸಿ.",
+
+        s12_h: "ವಿಶೇಷ ಪ್ರಯಾಣ ಯೋಜನೆ",
+        s12_p: "ಸಮಯ, ಆಸಕ್ತಿ, ಬಜೆಟ್ ಮತ್ತು ಗಮ್ಯಸ್ಥಾನದ ಆಧಾರದ ಮೇಲೆ ವೈಯಕ್ತಿಕ ದಿನನಿತ್ಯದ ಪ್ರವಾಸಗಳನ್ನು ರಚಿಸಿ.",
+
+        s13_h: "ಭೇಟಿಗೆ ಉತ್ತಮ ಸಮಯ",
+        s13_p: "ಆಕರ್ಷಣೆಗಳ ಗರಿಷ್ಠ ಸಮಯ, ಅಂದಾಜು ಜನಸಂದಣಿ ಮತ್ತು ಶಿಫಾರಸು ಮಾಡಲಾದ ಭೇಟಿ ಸಮಯವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
+
+        s14_h: "ಸ್ಮಾರ್ಟ್ ಬಜೆಟ್ ಯೋಜನೆ",
+        s14_p: "ಪ್ರಯಾಣ, ವಾಸ್ತವ್ಯ, ಆಹಾರ ಮತ್ತು ಚಟುವಟಿಕೆಗಳಿಗೆ ಬುದ್ಧಿವಂತ ಸಲಹೆಗಳೊಂದಿಗೆ ನಿಮ್ಮ ಬಜೆಟ್‌ಗೆ ಅನುಗುಣವಾಗಿ ಪ್ರವಾಸವನ್ನು ಆಯೋಜಿಸಿ.",
+
+        s15_h: "ವಾರ್ಷಿಕ ಪ್ರಯಾಣ ಕ್ಯಾಲೆಂಡರ್",
+        s15_p: "ತಿಂಗಳ ಪ್ರಕಾರ ನಿಮ್ಮ ಪ್ರವಾಸವನ್ನು ಯೋಜಿಸಿ — ಪ್ರತಿ ಗಮ್ಯಸ್ಥಾನದ ಅತ್ಯುತ್ತಮ ಋತು ಮತ್ತು ಬೆಳಿಗ್ಗೆಯಿಂದ ಸಂಜೆವರೆಗೆ ಭೇಟಿ ನೀಡಲು ಸೂಕ್ತ ಸಮಯವನ್ನು ನೋಡಿ.",
+
+        s16_h: "ಸುದ್ದಿ ಮತ್ತು ಸಂಶೋಧನಾ ಕೇಂದ್ರ",
+        s16_p: "ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯ ಸುದ್ದಿ, ಐತಿಹಾಸಿಕ ಸ್ಥಳಗಳ ಸಂಶೋಧನೆ, GI-ಟ್ಯಾಗ್ ಮಾಡಲಾದ ಸ್ಥಳೀಯ ಉತ್ಪನ್ನಗಳು ಮತ್ತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿಯೊಂದಿಗೆ ನವೀಕೃತವಾಗಿರಿ."
+    },
+
+    /* ---------------- MALAYALAM ---------------- */
+    ml: {
+        s4_h: "ഉപയോക്തൃ പരിശോധന",
+        s4_p: "നിങ്ങളുടെ Gmail, ഇമെയിൽ, പാസ്‌വേഡ് എന്നിവ ഉപയോഗിച്ച് സുരക്ഷിതമായി സൈൻ അപ്പ് ചെയ്യുക. ഓരോ യാത്രക്കാരന്റെയും തിരിച്ചറിയൽ സ്ഥിരീകരിക്കാൻ സർക്കാർ പരിശോധിച്ച രേഖ പരിശോധിക്കുന്നു.",
+
+        s5_h: "അഡ്മിൻ പ്രാമാണീകരണം",
+        s5_p: "ഹോട്ടൽ, റെസ്റ്റോറന്റ്, ഹോംസ്റ്റേ, PG ഉടമകളെ BharatYatra-യിൽ ലിസ്റ്റ് ചെയ്യുന്നതിന് മുമ്പ് ലൈസൻസും അനുമതിയും പരിശോധിച്ച് സ്ഥിരീകരിക്കുന്നു.",
+
+        s6_h: "SOS & സുരക്ഷ",
+        s6_p: "കുറഞ്ഞ കണക്റ്റിവിറ്റിയുള്ള പ്രദേശങ്ങളിലും വിശ്വസനീയമായി പ്രവർത്തിക്കുന്ന അടിയന്തര സഹായവും സുരക്ഷാ മുന്നറിയിപ്പുകളും നേടുക.",
+
+        s7_h: "ഓൾ-ഇൻ-വൺ ഡിജിറ്റൽ ടിക്കറ്റ്",
+        s7_p: "ഒരൊറ്റ QR കോഡും ഒരുതവണയുള്ള പേയ്‌മെന്റും ആകർഷണങ്ങൾ, ഗതാഗതം എന്നിവയും മറ്റും ഉൾക്കൊള്ളുന്നു — ആവർത്തിച്ച് ക്യൂവിൽ നിൽക്കേണ്ടതില്ല.",
+
+        s8_h: "സ്മാർട്ട് ബദൽ നിർദ്ദേശങ്ങൾ",
+        s8_p: "നിങ്ങൾ തിരഞ്ഞെടുത്ത ഹോട്ടൽ നിറഞ്ഞിട്ടുണ്ടെങ്കിൽ, 10–20 കിലോമീറ്ററിനുള്ളിൽ ഗതാഗത സൗകര്യവുമായി മികച്ച രീതിയിൽ ബന്ധിപ്പിച്ച AI നിർദ്ദേശിക്കുന്ന ബദലുകൾ നേടുക.",
+
+        s11_h: "പ്രാദേശിക സമ്പദ്‌വ്യവസ്ഥയെ ശക്തിപ്പെടുത്തുക",
+        s11_p: "പ്രത്യേക പ്രമോഷനുകളിലൂടെ കുറഞ്ഞ തിരക്കുള്ള സ്ഥലങ്ങൾ, പ്രാദേശിക കരകൗശലങ്ങൾ, ചെറുകിട ബിസിനസുകൾ എന്നിവ കണ്ടെത്തി പിന്തുണയ്ക്കുക.",
+
+        s12_h: "പ്രത്യേക യാത്രാ പദ്ധതി",
+        s12_p: "സമയം, താൽപ്പര്യങ്ങൾ, ബജറ്റ്, ലക്ഷ്യസ്ഥാനം എന്നിവ അടിസ്ഥാനമാക്കി വ്യക്തിഗത ദിനംപ്രതി യാത്രകൾ സൃഷ്ടിക്കുക.",
+
+        s13_h: "സന്ദർശിക്കാൻ ഏറ്റവും നല്ല സമയം",
+        s13_p: "ആകർഷണങ്ങളുടെ തിരക്കേറിയ സമയങ്ങൾ, കണക്കാക്കിയ തിരക്ക്, നിർദ്ദേശിച്ച സന്ദർശന സമയങ്ങൾ എന്നിവ മനസ്സിലാക്കുക.",
+
+        s14_h: "സ്മാർട്ട് ബജറ്റ് പ്ലാനിംഗ്",
+        s14_p: "യാത്ര, താമസം, ഭക്ഷണം, പ്രവർത്തനങ്ങൾ എന്നിവയ്ക്കുള്ള ബുദ്ധിപരമായ നിർദ്ദേശങ്ങളോടെ നിങ്ങളുടെ ബജറ്റിന് അനുസരിച്ച് യാത്ര ക്രമീകരിക്കുക.",
+
+        s15_h: "വാർഷിക യാത്രാ കലണ്ടർ",
+        s15_p: "മാസം അനുസരിച്ച് യാത്ര ആസൂത്രണം ചെയ്യുക — ഓരോ ലക്ഷ്യസ്ഥാനത്തിന്റെയും മികച്ച സീസണും രാവിലെയിൽ നിന്ന് വൈകുന്നേരം വരെ സന്ദർശിക്കാൻ അനുയോജ്യമായ സമയവും കാണുക.",
+
+        s16_h: "വാർത്ത & ഗവേഷണ കേന്ദ്രം",
+        s16_p: "ടൂറിസം വകുപ്പ് വാർത്തകൾ, ചരിത്ര സൈറ്റുകളിലെ ഗവേഷണം, GI-ടാഗ് ചെയ്ത പ്രാദേശിക ഉൽപ്പന്നങ്ങൾ എന്നിവയെക്കുറിച്ച് പുതുമയോടെ തുടരുക."
+    },
+
+    /* ---------------- PUNJABI ---------------- */
+    pa: {
+        s4_h: "ਯੂਜ਼ਰ ਵੈਰੀਫਿਕੇਸ਼ਨ",
+        s4_p: "ਆਪਣੇ Gmail, ਈਮੇਲ ਅਤੇ ਪਾਸਵਰਡ ਨਾਲ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਸਾਈਨ ਅੱਪ ਕਰੋ। ਹਰ ਯਾਤਰੀ ਦੀ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਲਈ ਸਰਕਾਰੀ ਤੌਰ 'ਤੇ ਪ੍ਰਮਾਣਿਤ ਦਸਤਾਵੇਜ਼ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।",
+
+        s5_h: "ਐਡਮਿਨ ਪ੍ਰਮਾਣੀਕਰਨ",
+        s5_p: "ਹੋਟਲ, ਰੈਸਟੋਰੈਂਟ, ਹੋਮਸਟੇ ਅਤੇ PG ਮਾਲਕਾਂ ਨੂੰ BharatYatra 'ਤੇ ਸੂਚੀਬੱਧ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਉਨ੍ਹਾਂ ਦੇ ਲਾਇਸੈਂਸ ਅਤੇ ਇਜਾਜ਼ਤ ਰਾਹੀਂ ਤਸਦੀਕ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।",
+
+        s6_h: "SOS ਅਤੇ ਸੁਰੱਖਿਆ",
+        s6_p: "ਘੱਟ ਕਨੈਕਟੀਵਿਟੀ ਵਾਲੇ ਖੇਤਰਾਂ ਵਿੱਚ ਵੀ ਭਰੋਸੇਯੋਗ ਤਰੀਕੇ ਨਾਲ ਕੰਮ ਕਰਨ ਵਾਲੀ ਤੁਰੰਤ ਐਮਰਜੈਂਸੀ ਸਹਾਇਤਾ ਅਤੇ ਸੁਰੱਖਿਆ ਚੇਤਾਵਨੀਆਂ ਪ੍ਰਾਪਤ ਕਰੋ।",
+
+        s7_h: "ਆਲ-ਇਨ-ਵਨ ਡਿਜੀਟਲ ਟਿਕਟ",
+        s7_p: "ਇੱਕ QR ਕੋਡ ਅਤੇ ਇੱਕ ਵਾਰ ਦੀ ਭੁਗਤਾਨ ਪ੍ਰਣਾਲੀ ਆਕਰਸ਼ਣਾਂ, ਆਵਾਜਾਈ ਅਤੇ ਹੋਰ ਸੇਵਾਵਾਂ ਨੂੰ ਕਵਰ ਕਰਦੀ ਹੈ — ਵਾਰ-ਵਾਰ ਕਤਾਰ ਵਿੱਚ ਖੜ੍ਹਨ ਦੀ ਲੋੜ ਨਹੀਂ।",
+
+        s8_h: "ਸਮਾਰਟ ਵਿਕਲਪਕ ਸੁਝਾਅ",
+        s8_p: "ਜੇ ਤੁਹਾਡਾ ਪਸੰਦੀਦਾ ਹੋਟਲ ਭਰਿਆ ਹੋਇਆ ਹੈ ਤਾਂ 10–20 ਕਿਲੋਮੀਟਰ ਦੇ ਅੰਦਰ ਆਵਾਜਾਈ ਨਾਲ ਚੰਗੀ ਤਰ੍ਹਾਂ ਜੁੜੇ AI ਦੁਆਰਾ ਸੁਝਾਏ ਵਿਕਲਪ ਪ੍ਰਾਪਤ ਕਰੋ।",
+
+        s11_h: "ਸਥਾਨਕ ਅਰਥਵਿਵਸਥਾ ਨੂੰ ਉਤਸ਼ਾਹਿਤ ਕਰੋ",
+        s11_p: "ਖਾਸ ਪ੍ਰਚਾਰਾਂ ਰਾਹੀਂ ਘੱਟ ਭੀੜ ਵਾਲੀਆਂ ਥਾਵਾਂ, ਸਥਾਨਕ ਹਸਤਕਲਾ ਅਤੇ ਛੋਟੇ ਕਾਰੋਬਾਰਾਂ ਨੂੰ ਲੱਭੋ ਅਤੇ ਸਹਾਇਤਾ ਕਰੋ।",
+
+        s12_h: "ਵਿਸ਼ੇਸ਼ ਯਾਤਰਾ ਯੋਜਨਾ",
+        s12_p: "ਸਮੇਂ, ਦਿਲਚਸਪੀਆਂ, ਬਜਟ ਅਤੇ ਮੰਜ਼ਿਲ ਦੇ ਆਧਾਰ 'ਤੇ ਵਿਅਕਤੀਗਤ ਦਿਨ-ਪ੍ਰਤੀ-ਦਿਨ ਯਾਤਰਾਵਾਂ ਬਣਾਓ।",
+
+        s13_h: "ਘੁੰਮਣ ਦਾ ਸਭ ਤੋਂ ਵਧੀਆ ਸਮਾਂ",
+        s13_p: "ਆਕਰਸ਼ਣਾਂ ਦੇ ਵਿਅਸਤ ਸਮੇਂ, ਅਨੁਮਾਨਿਤ ਭੀੜ ਅਤੇ ਸੁਝਾਏ ਗਏ ਯਾਤਰਾ ਸਮੇਂ ਨੂੰ ਸਮਝੋ।",
+
+        s14_h: "ਸਮਾਰਟ ਬਜਟ ਯੋਜਨਾ",
+        s14_p: "ਯਾਤਰਾ, ਰਹਿਣ, ਭੋਜਨ ਅਤੇ ਗਤੀਵਿਧੀਆਂ ਲਈ ਬੁੱਧੀਮਾਨ ਸੁਝਾਵਾਂ ਨਾਲ ਆਪਣੇ ਬਜਟ ਅਨੁਸਾਰ ਯਾਤਰਾ ਦਾ ਪ੍ਰਬੰਧ ਕਰੋ।",
+
+        s15_h: "ਸਾਲਾਨਾ ਯਾਤਰਾ ਕੈਲੰਡਰ",
+        s15_p: "ਮਹੀਨੇ ਅਨੁਸਾਰ ਆਪਣੀ ਯਾਤਰਾ ਦੀ ਯੋਜਨਾ ਬਣਾਓ — ਹਰ ਮੰਜ਼ਿਲ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਮੌਸਮ ਅਤੇ ਸਵੇਰ ਤੋਂ ਸ਼ਾਮ ਤੱਕ ਘੁੰਮਣ ਦਾ ਆਦਰਸ਼ ਸਮਾਂ ਵੇਖੋ।",
+
+        s16_h: "ਖ਼ਬਰਾਂ ਅਤੇ ਖੋਜ ਕੇਂਦਰ",
+        s16_p: "ਸੈਰ-ਸਪਾਟਾ ਵਿਭਾਗ ਦੀਆਂ ਖ਼ਬਰਾਂ, ਇਤਿਹਾਸਕ ਸਥਾਨਾਂ ਦੀ ਖੋਜ, GI-ਟੈਗ ਕੀਤੇ ਸਥਾਨਕ ਉਤਪਾਦਾਂ ਅਤੇ ਹੋਰ ਜਾਣਕਾਰੀ ਨਾਲ ਅਪਡੇਟ ਰਹੋ।"
+    },
+
+    /* ---------------- ODIA ---------------- */
+    or: {
+        s4_h: "ବ୍ୟବହାରକାରୀ ଯାଞ୍ଚ",
+        s4_p: "ଆପଣଙ୍କ Gmail, ଇମେଲ୍ ଏବଂ ପାସୱାର୍ଡ ବ୍ୟବହାର କରି ସୁରକ୍ଷିତ ଭାବରେ ସାଇନ୍ ଅପ୍ କରନ୍ତୁ। ପ୍ରତ୍ୟେକ ଯାତ୍ରୀଙ୍କ ପରିଚୟ ନିଶ୍ଚିତ କରିବାକୁ ସରକାରୀ ଯାଞ୍ଚିତ ଦଲିଲ ଯାଞ୍ଚ କରାଯାଏ।",
+
+        s5_h: "ଆଡମିନ୍ ପ୍ରମାଣୀକରଣ",
+        s5_p: "ହୋଟେଲ୍, ରେଷ୍ଟୁରାଣ୍ଟ, ହୋମଷ୍ଟେ ଏବଂ PG ମାଲିକମାନଙ୍କୁ BharatYatraରେ ତାଲିକାଭୁକ୍ତ କରିବା ପୂର୍ବରୁ ସେମାନଙ୍କ ଲାଇସେନ୍ସ ଓ ଅନୁମତି ମାଧ୍ୟମରେ ଯାଞ୍ଚ କରାଯାଏ।",
+
+        s6_h: "SOS ଏବଂ ସୁରକ୍ଷା",
+        s6_p: "କମ୍ କନେକ୍ଟିଭିଟି ଥିବା ଅଞ୍ଚଳରେ ମଧ୍ୟ ତୁରନ୍ତ ଜରୁରୀ ସହାୟତା ଏବଂ ସୁରକ୍ଷା ସତର୍କତା ପାଆନ୍ତୁ।",
+
+        s7_h: "ଅଲ୍-ଇନ୍-ୱାନ୍ ଡିଜିଟାଲ୍ ଟିକେଟ୍",
+        s7_p: "ଗୋଟିଏ QR କୋଡ୍ ଏବଂ ଏକଥର ପେମେଣ୍ଟ ଆକର୍ଷଣ, ପରିବହନ ଏବଂ ଅନ୍ୟାନ୍ୟ ସେବାକୁ କଭର୍ କରେ।",
+
+        s8_h: "ସ୍ମାର୍ଟ ବିକଳ୍ପ ପରାମର୍ଶ",
+        s8_p: "ଆପଣଙ୍କ ପସନ୍ଦର ହୋଟେଲ୍ ପୂର୍ଣ୍ଣ ହୋଇଥିଲେ 10–20 କି.ମି. ମଧ୍ୟରେ ପରିବହନ ସହ ଭଲ ଭାବରେ ଯୋଡିତ AI ପରାମର୍ଶିତ ବିକଳ୍ପ ପାଆନ୍ତୁ।",
+
+        s11_h: "ସ୍ଥାନୀୟ ଅର୍ଥନୀତିକୁ ପ୍ରୋତ୍ସାହନ",
+        s11_p: "ବିଶେଷ ପ୍ରଚାର ମାଧ୍ୟମରେ କମ୍ ଭିଡ଼ ଥିବା ସ୍ଥାନ, ସ୍ଥାନୀୟ ହସ୍ତଶିଳ୍ପ ଏବଂ ଛୋଟ ବ୍ୟବସାୟ ଆବିଷ୍କାର କରନ୍ତୁ ଓ ସମର୍ଥନ କରନ୍ତୁ।",
+
+        s12_h: "ବିଶେଷ ଯାତ୍ରା ଯୋଜନା",
+        s12_p: "ସମୟ, ଆଗ୍ରହ, ବଜେଟ୍ ଏବଂ ଗନ୍ତବ୍ୟସ୍ଥଳ ଆଧାରରେ ବ୍ୟକ୍ତିଗତ ଦିନ-ପ୍ରତିଦିନ ଯାତ୍ରା ତିଆରି କରନ୍ତୁ।",
+
+        s13_h: "ଭ୍ରମଣ ପାଇଁ ସର୍ବୋତ୍ତମ ସମୟ",
+        s13_p: "ଆକର୍ଷଣଗୁଡ଼ିକର ବ୍ୟସ୍ତ ସମୟ, ଆନୁମାନିକ ଭିଡ଼ ଏବଂ ପରାମର୍ଶିତ ଭ୍ରମଣ ସମୟ ବୁଝନ୍ତୁ।",
+
+        s14_h: "ସ୍ମାର୍ଟ ବଜେଟ୍ ଯୋଜନା",
+        s14_p: "ଯାତ୍ରା, ରହଣି, ଖାଦ୍ୟ ଏବଂ କାର୍ଯ୍ୟକଳାପ ପାଇଁ ବୁଦ୍ଧିମାନ ପରାମର୍ଶ ସହିତ ଆପଣଙ୍କ ବଜେଟ୍ ଅନୁଯାୟୀ ଯାତ୍ରା ଯୋଜନା କରନ୍ତୁ।",
+
+        s15_h: "ବାର୍ଷିକ ଯାତ୍ରା କ୍ୟାଲେଣ୍ଡର",
+        s15_p: "ମାସ ଅନୁଯାୟୀ ଯାତ୍ରା ଯୋଜନା କରନ୍ତୁ — ପ୍ରତ୍ୟେକ ଗନ୍ତବ୍ୟସ୍ଥଳ ପାଇଁ ସର୍ବୋତ୍ତମ ଋତୁ ଏବଂ ସକାଳରୁ ସନ୍ଧ୍ୟା ପର୍ଯ୍ୟନ୍ତ ଭ୍ରମଣର ଆଦର୍ଶ ସମୟ ଦେଖନ୍ତୁ।",
+
+        s16_h: "ସମ୍ବାଦ ଏବଂ ଗବେଷଣା କେନ୍ଦ୍ର",
+        s16_p: "ପର୍ଯ୍ୟଟନ ବିଭାଗର ଖବର, ଐତିହାସିକ ସ୍ଥାନ ଗବେଷଣା, GI-ଟ୍ୟାଗ୍ ହୋଇଥିବା ସ୍ଥାନୀୟ ଉତ୍ପାଦ ଏବଂ ଅନ୍ୟାନ୍ୟ ତଥ୍ୟ ସହିତ ଅପଡେଟ୍ ରୁହନ୍ତୁ।"
+    },
+
+    /* ---------------- ASSAMESE ---------------- */
+    as: {
+        s4_h: "ব্যৱহাৰকাৰী যাচাইকৰণ",
+        s4_p: "আপোনাৰ Gmail, ইমেইল আৰু পাছৱৰ্ড ব্যৱহাৰ কৰি সুৰক্ষিতভাৱে ছাইন আপ কৰক। প্ৰতিজন ভ্ৰমণকাৰীৰ পৰিচয় নিশ্চিত কৰিবলৈ চৰকাৰীভাৱে যাচাইকৃত নথি পৰীক্ষা কৰা হয়।",
+
+        s5_h: "এডমিন প্ৰমাণীকৰণ",
+        s5_p: "হোটেল, ৰেষ্টুৰেণ্ট, হোমষ্টে আৰু PG মালিকসকলক BharatYatra-ত তালিকাভুক্ত কৰাৰ আগতে তেওঁলোকৰ লাইচেন্স আৰু অনুমতিৰ জৰিয়তে যাচাই কৰা হয়।",
+
+        s6_h: "SOS আৰু সুৰক্ষা",
+        s6_p: "কম সংযোগ থকা অঞ্চলতো নিৰ্ভৰযোগ্যভাৱে কাম কৰিব পৰা জৰুৰীকালীন সহায় আৰু সুৰক্ষা সতৰ্কতা লাভ কৰক।",
+
+        s7_h: "অল-ইন-ৱান ডিজিটেল টিকট",
+        s7_p: "এটা QR ক'ড আৰু এবাৰৰ পেমেণ্টে আকৰ্ষণ, পৰিবহণ আৰু অধিক সেৱা সামৰি লয় — পুনৰ পুনৰ শাৰী পাতিব নালাগে।",
+
+        s8_h: "স্মাৰ্ট বিকল্প পৰামৰ্শ",
+        s8_p: "আপোনাৰ পছন্দৰ হোটেল পূৰ্ণ হৈ থাকিলে ১০–২০ কিলোমিটাৰৰ ভিতৰত পৰিবহণৰ সৈতে ভালদৰে সংযুক্ত AI-পৰামৰ্শিত বিকল্প লাভ কৰক।",
+
+        s11_h: "স্থানীয় অৰ্থনীতি উন্নত কৰা",
+        s11_p: "বিশেষ প্ৰচাৰৰ জৰিয়তে কম ভিৰ থকা গন্তব্যস্থান, স্থানীয় হস্তশিল্প আৰু সৰু ব্যৱসায় আৱিষ্কাৰ কৰি সমৰ্থন কৰক।",
+
+        s12_h: "বিশেষ ভ্ৰমণ পৰিকল্পনা",
+        s12_p: "সময়, আগ্ৰহ, বাজেট আৰু গন্তব্যস্থানৰ ওপৰত ভিত্তি কৰি ব্যক্তিগতকৃত দৈনিক ভ্ৰমণ সৃষ্টি কৰক।",
+
+        s13_h: "ভ্ৰমণৰ বাবে সৰ্বোত্তম সময়",
+        s13_p: "আকৰ্ষণসমূহৰ ব্যস্ত সময়, আনুমানিক ভিৰৰ স্তৰ আৰু পৰামৰ্শ দিয়া ভ্ৰমণৰ সময় বুজি লওক।",
+
+        s14_h: "স্মাৰ্ট বাজেট পৰিকল্পনা",
+        s14_p: "ভ্ৰমণ, থকা, খাদ্য আৰু কাৰ্যকলাপৰ বাবে বুদ্ধিমান পৰামৰ্শৰ সৈতে আপোনাৰ বাজেট অনুসৰি ভ্ৰমণ পৰিকল্পনা কৰক।",
+
+        s15_h: "বাৰ্ষিক ভ্ৰমণ কেলেণ্ডাৰ",
+        s15_p: "মাহ অনুসৰি ভ্ৰমণ পৰিকল্পনা কৰক — প্ৰতিটো গন্তব্যস্থানৰ বাবে সৰ্বোত্তম ঋতু আৰু পুৱাৰ পৰা সন্ধিয়ালৈ ভ্ৰমণৰ আদৰ্শ সময় চাওক।",
+
+        s16_h: "বাতৰি আৰু গৱেষণা কেন্দ্ৰ",
+        s16_p: "পৰ্যটন বিভাগৰ বাতৰি, ঐতিহাসিক স্থানৰ গৱেষণা, GI-টেগযুক্ত স্থানীয় সামগ্ৰী আৰু অধিক তথ্যৰ সৈতে আপডেট হৈ থাকক।"
+    },
+
+    /* ---------------- URDU ---------------- */
+    ur: {
+        s4_h: "صارف کی تصدیق",
+        s4_p: "اپنے Gmail، ای میل اور پاس ورڈ کے ذریعے محفوظ طریقے سے سائن اپ کریں۔ ہر مسافر کی شناخت کی تصدیق کے لیے سرکاری طور پر تصدیق شدہ دستاویز کی جانچ کی جاتی ہے۔",
+
+        s5_h: "ایڈمن تصدیق",
+        s5_p: "ہوٹل، ریستوران، ہوم اسٹے اور PG مالکان کو BharatYatra پر درج کرنے سے پہلے ان کے لائسنس اور اجازت کے ذریعے تصدیق کیا جاتا ہے۔",
+
+        s6_h: "SOS اور حفاظت",
+        s6_p: "کم کنیکٹیویٹی والے علاقوں میں بھی قابل اعتماد طریقے سے کام کرنے والی فوری ہنگامی مدد اور حفاظتی انتباہات حاصل کریں۔",
+
+        s7_h: "آل اِن ون ڈیجیٹل ٹکٹ",
+        s7_p: "ایک QR کوڈ اور ایک بار کی ادائیگی پرکشش مقامات، ٹرانسپورٹ اور دیگر سہولیات کو شامل کرتی ہے — بار بار قطار یا ادائیگی کی ضرورت نہیں۔",
+
+        s8_h: "اسمارٹ متبادل تجاویز",
+        s8_p: "اگر آپ کا پسندیدہ ہوٹل بھر چکا ہے تو 10–20 کلومیٹر کے اندر ٹرانسپورٹ سے اچھی طرح منسلک AI تجویز کردہ متبادل حاصل کریں۔",
+
+        s11_h: "مقامی معیشت کو فروغ دیں",
+        s11_p: "خصوصی پروموشنز کے ذریعے کم رش والی منزلوں، مقامی دستکاری اور چھوٹے کاروباروں کو دریافت کریں اور ان کی حمایت کریں۔",
+
+        s12_h: "خصوصی سفری منصوبہ",
+        s12_p: "وقت، دلچسپیوں، بجٹ اور منزل کی بنیاد پر ذاتی نوعیت کے روزانہ سفر بنائیں۔",
+
+        s13_h: "دورے کا بہترین وقت",
+        s13_p: "مقامات کے مصروف اوقات، اندازاً رش کی سطح اور تجویز کردہ دورے کے اوقات کو سمجھیں۔",
+
+        s14_h: "اسمارٹ بجٹ پلاننگ",
+        s14_p: "سفر، قیام، کھانے اور سرگرمیوں کے لیے ذہین تجاویز کے ساتھ اپنے بجٹ کے مطابق سفر منظم کریں۔",
+
+        s15_h: "سالانہ سفری کیلنڈر",
+        s15_p: "مہینے کے لحاظ سے اپنے سفر کی منصوبہ بندی کریں — ہر منزل کے لیے بہترین موسم اور صبح سے شام تک جانے کا مثالی وقت دیکھیں۔",
+
+        s16_h: "خبریں اور تحقیقی مرکز",
+        s16_p: "سیاحت کے محکمے کی خبریں، تاریخی مقامات کی تحقیق، GI ٹیگ شدہ مقامی مصنوعات اور دیگر معلومات سے باخبر رہیں۔"
+    },
+
+    /* ---------------- MAITHILI ---------------- */
+    mai: {
+        s4_h: "उपयोगकर्ता सत्यापन",
+        s4_p: "अपन Gmail, ईमेल आ पासवर्ड सँ सुरक्षित रूप सँ साइन अप करू। प्रत्येक यात्रीक पहचानक पुष्टि लेल सरकारी सत्यापित दस्तावेजक जाँच कएल जाइत अछि।",
+
+        s5_h: "एडमिन प्रमाणीकरण",
+        s5_p: "होटल, रेस्टोरेंट, होमस्टे आ PG मालिकक BharatYatra पर सूचीबद्ध करय सँ पहिने हुनकर लाइसेंस आ अनुमति द्वारा सत्यापन कएल जाइत अछि।",
+
+        s6_h: "SOS आ सुरक्षा",
+        s6_p: "कम कनेक्टिविटी वाला क्षेत्रमे सेहो भरोसेमंद रूप सँ काज करय वाला तत्काल आपातकालीन सहायता आ सुरक्षा चेतावनी पाउ।",
+
+        s7_h: "ऑल-इन-वन डिजिटल टिकट",
+        s7_p: "एकटा QR कोड आ एक बेरक भुगतान आकर्षण, परिवहन आ अन्य सेवाकेँ कवर करैत अछि — बार-बार लाइनमे ठाढ़ होबाक आवश्यकता नहि।",
+
+        s8_h: "स्मार्ट वैकल्पिक सुझाव",
+        s8_p: "जँ अहाँक पसंदीदा होटल भरल अछि तऽ 10–20 किमी के भीतर परिवहन सँ नीक सँ जुड़ल AI-सुझाओल विकल्प पाउ।",
+
+        s11_h: "स्थानीय अर्थव्यवस्थाकेँ बढ़ावा",
+        s11_p: "विशेष प्रचारक माध्यम सँ कम भीड़ वाला गंतव्य, स्थानीय हस्तशिल्प आ छोट व्यवसाय खोजू आ हुनकर समर्थन करू।",
+
+        s12_h: "विशेष यात्रा कार्यक्रम",
+        s12_p: "समय, रुचि, बजट आ गंतव्यक आधार पर व्यक्तिगत दिन-प्रतिदिनक यात्रा बनाउ।",
+
+        s13_h: "घूमबाक सर्वोत्तम समय",
+        s13_p: "आकर्षणक व्यस्त समय, अनुमानित भीड़क स्तर आ सुझाओल भ्रमण समय बुझू।",
+
+        s14_h: "स्मार्ट बजट योजना",
+        s14_p: "यात्रा, ठहराव, भोजन आ गतिविधिक लेल बुद्धिमान सुझावक संग अपन बजटक अनुसार यात्रा व्यवस्थित करू।",
+
+        s15_h: "वार्षिक यात्रा कैलेंडर",
+        s15_p: "महीनाक अनुसार यात्रा योजना बनाउ — प्रत्येक गंतव्यक लेल सर्वोत्तम मौसम आ भोरे सँ साँझ धरि घूमबाक आदर्श समय देखू।",
+
+        s16_h: "समाचार आ अनुसंधान केंद्र",
+        s16_p: "पर्यटन विभागक समाचार, ऐतिहासिक स्थल अनुसंधान, GI-टैग वाला स्थानीय उत्पाद आ अन्य जानकारी सँ अपडेट रहू।"
+    },
+
+    /* ---------------- BHOJPURI ---------------- */
+    bho: {
+        s4_h: "यूजर सत्यापन",
+        s4_p: "अपना Gmail, ईमेल आ पासवर्ड से सुरक्षित रूप से साइन अप करीं। हर यात्री के पहचान के पुष्टि खातिर सरकारी रूप से सत्यापित दस्तावेज के जांच कइल जाला।",
+
+        s5_h: "एडमिन प्रमाणीकरण",
+        s5_p: "होटल, रेस्टोरेंट, होमस्टे आ PG मालिकन के BharatYatra पर सूचीबद्ध करे से पहिले लाइसेंस आ अनुमति के माध्यम से सत्यापित कइल जाला।",
+
+        s6_h: "SOS आ सुरक्षा",
+        s6_p: "कम कनेक्टिविटी वाला इलाका में भी भरोसेमंद तरीका से काम करे वाला तुरंत आपातकालीन सहायता आ सुरक्षा चेतावनी पाईं।",
+
+        s7_h: "ऑल-इन-वन डिजिटल टिकट",
+        s7_p: "एक QR कोड आ एक बेर के भुगतान से आकर्षण, परिवहन आ अउरी सेवा कवर हो जाला — बार-बार लाइन में खड़ा होखे के जरूरत नइखे।",
+
+        s8_h: "स्मार्ट वैकल्पिक सुझाव",
+        s8_p: "अगर रउआ के पसंदीदा होटल भर गइल बा त 10–20 किमी के भीतर परिवहन से बढ़िया जुड़ल AI-सुझावल विकल्प पाईं।",
+
+        s11_h: "स्थानीय अर्थव्यवस्था के बढ़ावा",
+        s11_p: "खास प्रचार के माध्यम से कम भीड़ वाला जगह, स्थानीय हस्तशिल्प आ छोट व्यवसाय खोजीं आ ओकर समर्थन करीं।",
+
+        s12_h: "विशेष यात्रा कार्यक्रम",
+        s12_p: "समय, रुचि, बजट आ गंतव्य के आधार पर व्यक्तिगत दिन-दर-दिन यात्रा बनाईं।",
+
+        s13_h: "घूमे के सबसे बढ़िया समय",
+        s13_p: "आकर्षण के भीड़ वाला समय, अनुमानित भीड़ के स्तर आ सुझावल घूमे के समय समझीं।",
+
+        s14_h: "स्मार्ट बजट योजना",
+        s14_p: "यात्रा, ठहराव, खाना आ गतिविधि खातिर बुद्धिमान सुझाव के साथ अपना बजट के हिसाब से यात्रा व्यवस्थित करीं।",
+
+        s15_h: "वार्षिक यात्रा कैलेंडर",
+        s15_p: "महीना के हिसाब से यात्रा के योजना बनाईं — हर जगह के सबसे बढ़िया मौसम आ बिहान से साँझ ले घूमे के सही समय देखीं।",
+
+        s16_h: "समाचार आ रिसर्च हब",
+        s16_p: "पर्यटन विभाग के खबर, ऐतिहासिक स्थल के रिसर्च, GI-टैग वाला स्थानीय उत्पाद आ अउरी जानकारी से अपडेट रहीं।"
+    }
+};
+
+
+/* Add the missing feature translations to the existing dictionary */
+Object.keys(featureTranslations).forEach(lang => {
+    if (!translations[lang]) {
+        translations[lang] = {};
+    }
+
+    Object.assign(translations[lang], featureTranslations[lang]);
+});
+
+/* =========================================================
+   FIX: COMPLETE THE FIRST / MULTILINGUAL FEATURE DESCRIPTIONS
+   ========================================================= */
+
+Object.assign(translations.hi, {
+    s1_p: "बजट, रेटिंग और प्राथमिकताओं के अनुसार होटल, रिसॉर्ट, होमस्टे और अनूठे निवास स्थान खोजें।",
+    s2_p: "हर गंतव्य के पास प्रामाणिक स्ट्रीट फूड से लेकर क्षेत्रीय व्यंजनों और उच्च श्रेणी के रेस्तरां तक का आनंद लें।",
+    s3_p: "उड़ानों, ट्रेनों, बसों, टैक्सियों और स्थानीय परिवहन के लिए बुद्धिमान सिफारिशें प्राप्त करें।",
+    s9_p: "अपनी ही भाषा में समझाए गए इतिहास, संस्कृति और विरासत का अन्वेषण करें — किसी भौतिक गाइड की आवश्यकता नहीं है।",
+    s10_p: "अपने बजट, स्रोत, गंतव्य और यात्रा रुचियों के आधार पर व्यक्तिगत सिफारिशें प्राप्त करें।"
+});
+
+/* =========================================================
+   COMPLETE THE REMAINING FEATURE CARD DESCRIPTIONS
+   s1_p, s2_p, s3_p, s9_p, s10_p
+   ========================================================= */
+
+
+/* ---------------- HINDI ---------------- */
+Object.assign(translations.hi, {
+    s1_p: "बजट, रेटिंग और प्राथमिकताओं के अनुसार होटल, रिसॉर्ट, होमस्टे, हॉस्टल और अनूठे ठहरने के स्थान खोजें।",
+    s2_p: "हर गंतव्य के पास प्रामाणिक स्ट्रीट फूड और क्षेत्रीय व्यंजनों से लेकर बेहतरीन रेस्तरां और बढ़िया भोजन तक का आनंद लें।",
+    s3_p: "उड़ानों, ट्रेनों, बसों, टैक्सियों, किराये के वाहनों और स्थानीय परिवहन के लिए बुद्धिमान सुझाव प्राप्त करें।",
+    s9_p: "अपने ही भाषा में समझाए गए इतिहास, संस्कृति और विरासत का अन्वेषण करें — किसी भौतिक गाइड की आवश्यकता नहीं है।",
+    s10_p: "अपने बजट, स्रोत, गंतव्य और यात्रा रुचियों के आधार पर व्यक्तिगत सिफारिशें प्राप्त करें।"
+});
+
+
+/* ---------------- MARATHI ---------------- */
+Object.assign(translations.mr, {
+    s1_p: "बजेट, रेटिंग आणि आवडीनुसार हॉटेल, रिसॉर्ट, होमस्टे, हॉस्टेल आणि अनोखी निवासस्थाने शोधा.",
+    s2_p: "प्रत्येक गंतव्याजवळील अस्सल स्ट्रीट फूड आणि प्रादेशिक पदार्थांपासून उत्तम रेस्टॉरंट्स आणि फाइन डायनिंगपर्यंतचा आनंद घ्या.",
+    s3_p: "फ्लाइट्स, ट्रेन, बस, टॅक्सी, भाड्याची वाहने आणि स्थानिक वाहतुकीसाठी स्मार्ट शिफारसी मिळवा.",
+    s9_p: "आपल्या स्वतःच्या भाषेत समजावून सांगितलेला इतिहास, संस्कृती आणि वारसा जाणून घ्या — प्रत्यक्ष मार्गदर्शकाची गरज नाही.",
+    s10_p: "तुमचे बजेट, स्रोत, गंतव्यस्थान आणि प्रवासातील आवडी यावर आधारित वैयक्तिक शिफारसी मिळवा."
+});
+
+
+/* ---------------- BENGALI ---------------- */
+Object.assign(translations.bn, {
+    s1_p: "বাজেট, রেটিং এবং পছন্দ অনুযায়ী হোটেল, রিসর্ট, হোমস্টে, হোস্টেল এবং অনন্য থাকার জায়গা খুঁজে নিন।",
+    s2_p: "প্রতিটি গন্তব্যের কাছে খাঁটি স্ট্রিট ফুড ও আঞ্চলিক খাবার থেকে শুরু করে জনপ্রিয় রেস্তোরাঁ এবং ফাইন ডাইনিং উপভোগ করুন।",
+    s3_p: "ফ্লাইট, ট্রেন, বাস, ট্যাক্সি, ভাড়া করা যানবাহন এবং স্থানীয় পরিবহনের জন্য স্মার্ট সুপারিশ পান।",
+    s9_p: "নিজের ভাষায় ব্যাখ্যা করা ইতিহাস, সংস্কৃতি এবং ঐতিহ্য অন্বেষণ করুন — কোনো শারীরিক গাইডের প্রয়োজন নেই।",
+    s10_p: "আপনার বাজেট, উৎস, গন্তব্য এবং ভ্রমণের আগ্রহের ভিত্তিতে ব্যক্তিগত সুপারিশ পান।"
+});
+
+
+/* ---------------- GUJARATI ---------------- */
+Object.assign(translations.gu, {
+    s1_p: "બજેટ, રેટિંગ અને પસંદગીઓ અનુસાર હોટેલ, રિસોર્ટ, હોમસ્ટે, હોસ્ટેલ અને અનોખા રહેવાના સ્થળો શોધો.",
+    s2_p: "દરેક સ્થળની નજીક અસલ સ્ટ્રીટ ફૂડ અને પ્રાદેશિક વાનગીઓથી લઈને લોકપ્રિય રેસ્ટોરન્ટ અને ફાઇન ડાઇનિંગનો આનંદ માણો.",
+    s3_p: "ફ્લાઇટ, ટ્રેન, બસ, ટેક્સી, ભાડાના વાહનો અને સ્થાનિક પરિવહન માટે સ્માર્ટ ભલામણો મેળવો.",
+    s9_p: "તમારી પોતાની ભાષામાં સમજાવવામાં આવેલ ઇતિહાસ, સંસ્કૃતિ અને વારસાનું અન્વેષણ કરો — ભૌતિક માર્ગદર્શકની જરૂર નથી.",
+    s10_p: "તમારા બજેટ, સ્ત્રોત, ગંતવ્ય અને મુસાફરીની રુચિઓના આધારે વ્યક્તિગત ભલામણો મેળવો."
+});
+
+
+/* ---------------- TAMIL ---------------- */
+Object.assign(translations.ta, {
+    s1_p: "பட்ஜெட், மதிப்பீடு மற்றும் விருப்பங்களுக்கு ஏற்ப ஹோட்டல்கள், ரிசார்ட்கள், ஹோம்ஸ்டேகள், விடுதிகள் மற்றும் தனித்துவமான தங்குமிடங்களைத் தேடுங்கள்.",
+    s2_p: "ஒவ்வொரு இலக்கிற்கும் அருகில் உண்மையான தெரு உணவு மற்றும் பிராந்திய உணவுகள் முதல் சிறந்த உணவகங்கள் மற்றும் ஃபைன் டைனிங் வரை அனுபவிக்கவும்.",
+    s3_p: "விமானங்கள், ரயில்கள், பேருந்துகள், டாக்ஸிகள், வாடகை வாகனங்கள் மற்றும் உள்ளூர் போக்குவரத்திற்கான ஸ்மார்ட் பரிந்துரைகளைப் பெறுங்கள்.",
+    s9_p: "உங்கள் சொந்த மொழியில் விளக்கப்படும் வரலாறு, கலாச்சாரம் மற்றும் பாரம்பரியத்தை ஆராயுங்கள் — நேரடி வழிகாட்டி தேவையில்லை.",
+    s10_p: "உங்கள் பட்ஜெட், ஆதாரம், இலக்கு மற்றும் பயண விருப்பங்களின் அடிப்படையில் தனிப்பயனாக்கப்பட்ட பரிந்துரைகளைப் பெறுங்கள்."
+});
+
+
+/* ---------------- TELUGU ---------------- */
+Object.assign(translations.te, {
+    s1_p: "బడ్జెట్, రేటింగ్ మరియు మీ ప్రాధాన్యతలకు అనుగుణంగా హోటళ్లు, రిసార్ట్లు, హోమ్‌స్టేలు, హాస్టళ్లు మరియు ప్రత్యేకమైన వసతి ప్రదేశాలను కనుగొనండి.",
+    s2_p: "ప్రతి గమ్యస్థానానికి సమీపంలో అసలైన స్ట్రీట్ ఫుడ్ మరియు ప్రాంతీయ వంటకాల నుండి ప్రసిద్ధ రెస్టారెంట్లు మరియు ఫైన్ డైనింగ్ వరకు ఆస్వాదించండి.",
+    s3_p: "విమానాలు, రైళ్లు, బస్సులు, ట్యాక్సీలు, అద్దె వాహనాలు మరియు స్థానిక రవాణా కోసం స్మార్ట్ సిఫార్సులను పొందండి.",
+    s9_p: "మీ స్వంత భాషలో వివరించబడిన చరిత్ర, సంస్కృతి మరియు వారసత్వాన్ని అన్వేషించండి — భౌతిక గైడ్ అవసరం లేదు.",
+    s10_p: "మీ బడ్జెట్, మూలం, గమ్యస్థానం మరియు ప్రయాణ ఆసక్తుల ఆధారంగా వ్యక్తిగతీకరించిన సిఫార్సులను పొందండి."
+});
+
+
+/* ---------------- KANNADA ---------------- */
+Object.assign(translations.kn, {
+    s1_p: "ಬಜೆಟ್, ರೇಟಿಂಗ್ ಮತ್ತು ಆದ್ಯತೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಹೋಟೆಲ್‌ಗಳು, ರಿಸಾರ್ಟ್‌ಗಳು, ಹೋಮ್‌ಸ್ಟೇಗಳು, ಹಾಸ್ಟೆಲ್‌ಗಳು ಮತ್ತು ವಿಶಿಷ್ಟ ವಸತಿ ಸ್ಥಳಗಳನ್ನು ಹುಡುಕಿ.",
+    s2_p: "ಪ್ರತಿ ಗಮ್ಯಸ್ಥಾನದ ಸಮೀಪದ ನೈಜ ಸ್ಟ್ರೀಟ್ ಫುಡ್ ಮತ್ತು ಪ್ರಾದೇಶಿಕ ಆಹಾರಗಳಿಂದ ಹಿಡಿದು ಉತ್ತಮ ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು ಮತ್ತು ಫೈನ್ ಡೈನಿಂಗ್‌ವರೆಗೆ ಆನಂದಿಸಿ.",
+    s3_p: "ವಿಮಾನಗಳು, ರೈಲುಗಳು, ಬಸ್‌ಗಳು, ಟ್ಯಾಕ್ಸಿಗಳು, ಬಾಡಿಗೆ ವಾಹನಗಳು ಮತ್ತು ಸ್ಥಳೀಯ ಸಾರಿಗೆಗಾಗಿ ಸ್ಮಾರ್ಟ್ ಶಿಫಾರಸುಗಳನ್ನು ಪಡೆಯಿರಿ.",
+    s9_p: "ನಿಮ್ಮ ಸ್ವಂತ ಭಾಷೆಯಲ್ಲಿ ವಿವರಿಸಲಾದ ಇತಿಹಾಸ, ಸಂಸ್ಕೃತಿ ಮತ್ತು ಪರಂಪರೆಯನ್ನು ಅನ್ವೇಷಿಸಿ — ಭೌತಿಕ ಮಾರ್ಗದರ್ಶಿಯ ಅಗತ್ಯವಿಲ್ಲ.",
+    s10_p: "ನಿಮ್ಮ ಬಜೆಟ್, ಮೂಲ, ಗಮ್ಯಸ್ಥಾನ ಮತ್ತು ಪ್ರಯಾಣದ ಆಸಕ್ತಿಗಳ ಆಧಾರದ ಮೇಲೆ ವೈಯಕ್ತಿಕ ಶಿಫಾರಸುಗಳನ್ನು ಪಡೆಯಿರಿ."
+});
+
+
+/* ---------------- MALAYALAM ---------------- */
+Object.assign(translations.ml, {
+    s1_p: "ബജറ്റ്, റേറ്റിംഗ്, മുൻഗണനകൾ എന്നിവയ്ക്ക് അനുസരിച്ച് ഹോട്ടലുകൾ, റിസോർട്ടുകൾ, ഹോംസ്റ്റേകൾ, ഹോസ്റ്റലുകൾ, വ്യത്യസ്ത താമസസ്ഥലങ്ങൾ എന്നിവ കണ്ടെത്തുക.",
+    s2_p: "ഓരോ ലക്ഷ്യസ്ഥാനത്തിനും സമീപമുള്ള യഥാർത്ഥ സ്ട്രീറ്റ് ഫുഡ്, പ്രാദേശിക വിഭവങ്ങൾ മുതൽ മികച്ച റെസ്റ്റോറന്റുകളും ഫൈൻ ഡൈനിംഗും വരെ ആസ്വദിക്കുക.",
+    s3_p: "വിമാനങ്ങൾ, ട്രെയിനുകൾ, ബസുകൾ, ടാക്സികൾ, വാടക വാഹനങ്ങൾ, പ്രാദേശിക ഗതാഗതം എന്നിവയ്ക്കായി സ്മാർട്ട് നിർദ്ദേശങ്ങൾ നേടുക.",
+    s9_p: "നിങ്ങളുടെ സ്വന്തം ഭാഷയിൽ വിശദീകരിക്കുന്ന ചരിത്രം, സംസ്കാരം, പൈതൃകം എന്നിവ പര്യവേക്ഷണം ചെയ്യുക — ഭൗതിക ഗൈഡിന്റെ ആവശ്യമില്ല.",
+    s10_p: "നിങ്ങളുടെ ബജറ്റ്, ഉറവിടം, ലക്ഷ്യസ്ഥാനം, യാത്രാ താൽപ്പര്യങ്ങൾ എന്നിവയുടെ അടിസ്ഥാനത്തിൽ വ്യക്തിഗത നിർദ്ദേശങ്ങൾ നേടുക."
+});
+
+
+/* ---------------- PUNJABI ---------------- */
+Object.assign(translations.pa, {
+    s1_p: "ਬਜਟ, ਰੇਟਿੰਗ ਅਤੇ ਪਸੰਦਾਂ ਦੇ ਅਨੁਸਾਰ ਹੋਟਲ, ਰਿਜ਼ੋਰਟ, ਹੋਮਸਟੇ, ਹੋਸਟਲ ਅਤੇ ਵਿਲੱਖਣ ਰਹਿਣ ਵਾਲੀਆਂ ਥਾਵਾਂ ਲੱਭੋ।",
+    s2_p: "ਹਰ ਮੰਜ਼ਿਲ ਦੇ ਨੇੜੇ ਅਸਲ ਸਟ੍ਰੀਟ ਫੂਡ ਅਤੇ ਖੇਤਰੀ ਪਕਵਾਨਾਂ ਤੋਂ ਲੈ ਕੇ ਪ੍ਰਸਿੱਧ ਰੈਸਟੋਰੈਂਟ ਅਤੇ ਫਾਈਨ ਡਾਈਨਿੰਗ ਦਾ ਆਨੰਦ ਲਓ।",
+    s3_p: "ਫਲਾਈਟਾਂ, ਟ੍ਰੇਨਾਂ, ਬੱਸਾਂ, ਟੈਕਸੀਆਂ, ਕਿਰਾਏ ਦੇ ਵਾਹਨਾਂ ਅਤੇ ਸਥਾਨਕ ਆਵਾਜਾਈ ਲਈ ਸਮਾਰਟ ਸੁਝਾਅ ਪ੍ਰਾਪਤ ਕਰੋ।",
+    s9_p: "ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਸਮਝਾਏ ਗਏ ਇਤਿਹਾਸ, ਸੱਭਿਆਚਾਰ ਅਤੇ ਵਿਰਾਸਤ ਦੀ ਪੜਚੋਲ ਕਰੋ — ਕਿਸੇ ਭੌਤਿਕ ਗਾਈਡ ਦੀ ਲੋੜ ਨਹੀਂ।",
+    s10_p: "ਆਪਣੇ ਬਜਟ, ਸਰੋਤ, ਮੰਜ਼ਿਲ ਅਤੇ ਯਾਤਰਾ ਦੀਆਂ ਰੁਚੀਆਂ ਦੇ ਆਧਾਰ 'ਤੇ ਵਿਅਕਤੀਗਤ ਸੁਝਾਅ ਪ੍ਰਾਪਤ ਕਰੋ।"
+});
+
+
+/* ---------------- ODIA ---------------- */
+Object.assign(translations.or, {
+    s1_p: "ବଜେଟ୍, ରେଟିଂ ଏବଂ ପସନ୍ଦ ଅନୁଯାୟୀ ହୋଟେଲ୍, ରିସର୍ଟ, ହୋମଷ୍ଟେ, ହଷ୍ଟେଲ୍ ଏବଂ ଅନନ୍ୟ ରହଣି ସ୍ଥାନ ଖୋଜନ୍ତୁ।",
+    s2_p: "ପ୍ରତ୍ୟେକ ଗନ୍ତବ୍ୟସ୍ଥଳ ନିକଟରେ ଅସଲି ଷ୍ଟ୍ରିଟ୍ ଫୁଡ୍ ଏବଂ ଆଞ୍ଚଳିକ ଖାଦ୍ୟଠାରୁ ଆରମ୍ଭ କରି ଲୋକପ୍ରିୟ ରେଷ୍ଟୁରାଣ୍ଟ ଏବଂ ଫାଇନ୍ ଡାଇନିଂ ପର୍ଯ୍ୟନ୍ତ ଉପଭୋଗ କରନ୍ତୁ।",
+    s3_p: "ବିମାନ, ଟ୍ରେନ୍, ବସ୍, ଟ୍ୟାକ୍ସି, ଭଡ଼ା ଯାନ ଏବଂ ସ୍ଥାନୀୟ ପରିବହନ ପାଇଁ ସ୍ମାର୍ଟ ପରାମର୍ଶ ପାଆନ୍ତୁ।",
+    s9_p: "ନିଜ ଭାଷାରେ ବ୍ୟାଖ୍ୟା କରାଯାଇଥିବା ଇତିହାସ, ସଂସ୍କୃତି ଏବଂ ଐତିହ୍ୟ ଅନ୍ୱେଷଣ କରନ୍ତୁ — କୌଣସି ଭୌତିକ ଗାଇଡ୍ ଆବଶ୍ୟକ ନାହିଁ।",
+    s10_p: "ଆପଣଙ୍କ ବଜେଟ୍, ଉତ୍ସ, ଗନ୍ତବ୍ୟସ୍ଥଳ ଏବଂ ଯାତ୍ରା ଆଗ୍ରହ ଆଧାରରେ ବ୍ୟକ୍ତିଗତ ପରାମର୍ଶ ପାଆନ୍ତୁ।"
+});
+
+
+/* ---------------- ASSAMESE ---------------- */
+Object.assign(translations.as, {
+    s1_p: "বাজেট, ৰেটিং আৰু পছন্দ অনুসৰি হোটেল, ৰিজৰ্ট, হোমষ্টে, হোষ্টেল আৰু অনন্য থকাৰ ঠাই বিচাৰি উলিয়াওক।",
+    s2_p: "প্ৰতিটো গন্তব্যস্থানৰ ওচৰত প্ৰামাণিক ষ্ট্ৰীট ফুড আৰু আঞ্চলিক খাদ্যৰ পৰা জনপ্ৰিয় ৰেষ্টুৰেণ্ট আৰু ফাইন ডাইনিংলৈকে উপভোগ কৰক।",
+    s3_p: "বিমান, ৰে'ল, বাছ, টেক্সি, ভাড়াৰ বাহন আৰু স্থানীয় পৰিবহণৰ বাবে স্মাৰ্ট পৰামৰ্শ লাভ কৰক।",
+    s9_p: "নিজৰ ভাষাত ব্যাখ্যা কৰা ইতিহাস, সংস্কৃতি আৰু ঐতিহ্য অন্বেষণ কৰক — কোনো ভৌতিক গাইডৰ প্ৰয়োজন নাই।",
+    s10_p: "আপোনাৰ বাজেট, উৎস, গন্তব্যস্থান আৰু ভ্ৰমণৰ আগ্ৰহৰ ওপৰত ভিত্তি কৰি ব্যক্তিগত পৰামৰ্শ লাভ কৰক।"
+});
+
+
+/* ---------------- URDU ---------------- */
+Object.assign(translations.ur, {
+    s1_p: "بجٹ، ریٹنگ اور ترجیحات کے مطابق ہوٹل، ریزورٹس، ہوم اسٹے، ہاسٹل اور منفرد رہائش گاہیں تلاش کریں۔",
+    s2_p: "ہر منزل کے قریب مستند اسٹریٹ فوڈ اور علاقائی پکوانوں سے لے کر مشہور ریستوران اور فائن ڈائننگ تک کا لطف اٹھائیں۔",
+    s3_p: "پروازوں، ٹرینوں، بسوں، ٹیکسیوں، کرائے کی گاڑیوں اور مقامی ٹرانسپورٹ کے لیے اسمارٹ تجاویز حاصل کریں۔",
+    s9_p: "اپنی زبان میں بیان کردہ تاریخ، ثقافت اور ورثے کو دریافت کریں — کسی جسمانی گائیڈ کی ضرورت نہیں۔",
+    s10_p: "اپنے بجٹ، ذریعہ، منزل اور سفری دلچسپیوں کی بنیاد پر ذاتی نوعیت کی تجاویز حاصل کریں۔"
+});
+
+
+/* ---------------- MAITHILI ---------------- */
+Object.assign(translations.mai, {
+    s1_p: "बजट, रेटिंग आ पसंदक अनुसार होटल, रिसॉर्ट, होमस्टे, हॉस्टल आ अनोखा ठहरबाक स्थान खोजू।",
+    s2_p: "हर गंतव्यक नजदीक असली स्ट्रीट फूड आ क्षेत्रीय व्यंजन सँ लऽ कऽ लोकप्रिय रेस्टोरेंट आ फाइन डाइनिंग धरि आनंद लिअ।",
+    s3_p: "फ्लाइट, ट्रेन, बस, टैक्सी, किरायाक वाहन आ स्थानीय परिवहन लेल स्मार्ट सुझाव पाउ।",
+    s9_p: "अपनहि भाषामे बुझाओल इतिहास, संस्कृति आ विरासतकेँ खोजू — कोनो भौतिक गाइडक आवश्यकता नहि।",
+    s10_p: "अपन बजट, स्रोत, गंतव्य आ यात्रा रुचिक आधार पर व्यक्तिगत सुझाव पाउ।"
+});
+
+
+/* ---------------- BHOJPURI ---------------- */
+Object.assign(translations.bho, {
+    s1_p: "बजट, रेटिंग आ पसंद के हिसाब से होटल, रिजॉर्ट, होमस्टे, हॉस्टल आ अनोखा ठहरे के जगह खोजीं।",
+    s2_p: "हर गंतव्य के लगे असली स्ट्रीट फूड आ क्षेत्रीय व्यंजन से लेके बढ़िया रेस्टोरेंट आ फाइन डाइनिंग तक के आनंद लीं।",
+    s3_p: "फ्लाइट, ट्रेन, बस, टैक्सी, किराया के गाड़ी आ स्थानीय परिवहन खातिर स्मार्ट सुझाव पाईं।",
+    s9_p: "अपना भाषा में समझावल इतिहास, संस्कृति आ विरासत के खोजीं — कवनो भौतिक गाइड के जरूरत नइखे।",
+    s10_p: "अपना बजट, स्रोत, गंतव्य आ यात्रा के रुचि के आधार पर व्यक्तिगत सुझाव पाईं।"
+});
+
+/* =========================================================
+   CULTURE + CINEMATIC SECTION TRANSLATIONS
+   ========================================================= */
+
+
+/* ---------------- HINDI ---------------- */
+Object.assign(translations.hi, {
+    culture_small: "जीवंत संस्कृति",
+    culture_title: "त्योहार, नृत्य, अनुष्ठान और विरासत",
+    culture_desc: "भारत की आत्मा उसके उत्सवों में बसती है — मंदिर के अनुष्ठानों और लोक नृत्यों से लेकर हर राज्य के शाही किलों और जीवंत त्योहारों तक।",
+
+    cine_small: "यात्रा का अनुभव करें",
+    cine_title: "हर फ्रेम में भारत",
+    cine_desc: "हिमालय के दृश्यों और शाही किलों से लेकर पवित्र शहरों, उष्णकटिबंधीय द्वीपों और तटीय नजारों तक — उन अनगिनत यात्राओं की खोज करें जो भारत को अविस्मरणीय बनाती हैं।"
+});
+
+
+/* ---------------- MARATHI ---------------- */
+Object.assign(translations.mr, {
+    culture_small: "जिवंत संस्कृती",
+    culture_title: "सण, नृत्य, विधी आणि वारसा",
+    culture_desc: "भारताचा आत्मा त्याच्या उत्सवांमध्ये राहतो — मंदिरातील विधी आणि लोकनृत्यांपासून ते राजवाड्यांचे किल्ले आणि प्रत्येक राज्यातील चैतन्यमय सणांपर्यंत.",
+
+    cine_small: "प्रवासाचा अनुभव घ्या",
+    cine_title: "प्रत्येक फ्रेममध्ये भारत",
+    cine_desc: "हिमालयीन लँडस्केप्स आणि शाही किल्ल्यांपासून ते पवित्र शहरे, उष्णकटिबंधीय बेटे आणि किनारपट्टीच्या ठिकाणांपर्यंत — भारताला अविस्मरणीय बनवणारे अनेक प्रवास शोधा."
+});
+
+
+/* ---------------- BENGALI ---------------- */
+Object.assign(translations.bn, {
+    culture_small: "জীবন্ত সংস্কৃতি",
+    culture_title: "উৎসব, নৃত্য, আচার ও ঐতিহ্য",
+    culture_desc: "ভারতের আত্মা তার উৎসবের মধ্যে বাস করে — মন্দিরের আচার ও লোকনৃত্য থেকে শুরু করে প্রতিটি রাজ্যের রাজকীয় দুর্গ এবং প্রাণবন্ত উৎসব পর্যন্ত।",
+
+    cine_small: "ভ্রমণের অভিজ্ঞতা নিন",
+    cine_title: "প্রতিটি ফ্রেমে ভারত",
+    cine_desc: "হিমালয়ের প্রাকৃতিক দৃশ্য ও রাজকীয় দুর্গ থেকে পবিত্র শহর, ক্রান্তীয় দ্বীপ এবং উপকূলীয় ভ্রমণ পর্যন্ত — ভারতকে অবিস্মরণীয় করে তোলা অসংখ্য যাত্রা আবিষ্কার করুন।"
+});
+
+
+/* ---------------- GUJARATI ---------------- */
+Object.assign(translations.gu, {
+    culture_small: "જીવંત સંસ્કૃતિ",
+    culture_title: "તહેવારો, નૃત્યો, વિધિઓ અને વારસો",
+    culture_desc: "ભારતની આત્મા તેના ઉત્સવોમાં વસે છે — મંદિરની વિધિઓ અને લોકનૃત્યોથી લઈને દરેક રાજ્યના શાહી કિલ્લાઓ અને જીવંત તહેવારો સુધી.",
+
+    cine_small: "મુસાફરીનો અનુભવ કરો",
+    cine_title: "દરેક ફ્રેમમાં ભારત",
+    cine_desc: "હિમાલયના દૃશ્યો અને શાહી કિલ્લાઓથી લઈને પવિત્ર શહેરો, ઉષ્ણકટિબંધીય ટાપુઓ અને દરિયાકાંઠાના સ્થળો સુધી — ભારતને અવિસ્મરણીય બનાવતી અનેક મુસાફરીઓ શોધો."
+});
+
+
+/* ---------------- TAMIL ---------------- */
+Object.assign(translations.ta, {
+    culture_small: "உயிரோட்டமான கலாச்சாரம்",
+    culture_title: "திருவிழாக்கள், நடனங்கள், சடங்குகள் மற்றும் பாரம்பரியம்",
+    culture_desc: "இந்தியாவின் ஆன்மா அதன் கொண்டாட்டங்களில் வாழ்கிறது — கோவில் சடங்குகள் மற்றும் நாட்டுப்புற நடனங்களிலிருந்து ஒவ்வொரு மாநிலத்தின் அரச கோட்டைகள் மற்றும் வண்ணமயமான திருவிழாக்கள் வரை.",
+
+    cine_small: "பயணத்தை அனுபவியுங்கள்",
+    cine_title: "ஒவ்வொரு காட்சியிலும் இந்தியா",
+    cine_desc: "இமயமலைக் காட்சிகள் மற்றும் அரச கோட்டைகளிலிருந்து புனித நகரங்கள், வெப்பமண்டல தீவுகள் மற்றும் கடற்கரை இடங்கள் வரை — இந்தியாவை மறக்க முடியாததாக மாற்றும் பல்வேறு பயணங்களைக் கண்டறியுங்கள்."
+});
+
+
+/* ---------------- TELUGU ---------------- */
+Object.assign(translations.te, {
+    culture_small: "జీవంతమైన సంస్కృతి",
+    culture_title: "పండుగలు, నృత్యాలు, ఆచారాలు మరియు వారసత్వం",
+    culture_desc: "భారతదేశ ఆత్మ దాని వేడుకల్లో జీవిస్తుంది — ఆలయ ఆచారాలు మరియు జానపద నృత్యాల నుండి ప్రతి రాష్ట్రంలోని రాజకోటలు మరియు ఉత్సాహభరితమైన పండుగల వరకు.",
+
+    cine_small: "ప్రయాణాన్ని అనుభవించండి",
+    cine_title: "ప్రతి ఫ్రేమ్‌లో భారత్",
+    cine_desc: "హిమాలయ దృశ్యాలు మరియు రాజకోటల నుండి పవిత్ర నగరాలు, ఉష్ణమండల ద్వీపాలు మరియు తీర ప్రాంతాల వరకు — భారతదేశాన్ని మరపురానిదిగా చేసే అనేక ప్రయాణాలను కనుగొనండి."
+});
+
+
+/* ---------------- KANNADA ---------------- */
+Object.assign(translations.kn, {
+    culture_small: "ಜೀವಂತ ಸಂಸ್ಕೃತಿ",
+    culture_title: "ಹಬ್ಬಗಳು, ನೃತ್ಯಗಳು, ಆಚರಣೆಗಳು ಮತ್ತು ಪರಂಪರೆ",
+    culture_desc: "ಭಾರತದ ಆತ್ಮವು ಅದರ ಆಚರಣೆಗಳಲ್ಲಿ ಜೀವಿಸುತ್ತದೆ — ದೇವಾಲಯದ ಆಚರಣೆಗಳು ಮತ್ತು ಜನಪದ ನೃತ್ಯಗಳಿಂದ ಹಿಡಿದು ಪ್ರತಿಯೊಂದು ರಾಜ್ಯದ ರಾಜಮನೆತನದ ಕೋಟೆಗಳು ಮತ್ತು ವೈಭವಯುತ ಹಬ್ಬಗಳವರೆಗೆ.",
+
+    cine_small: "ಪ್ರಯಾಣವನ್ನು ಅನುಭವಿಸಿ",
+    cine_title: "ಪ್ರತಿ ಫ್ರೇಮ್‌ನಲ್ಲಿ ಭಾರತ",
+    cine_desc: "ಹಿಮಾಲಯದ ದೃಶ್ಯಗಳು ಮತ್ತು ರಾಜಮನೆತನದ ಕೋಟೆಗಳಿಂದ ಪವಿತ್ರ ನಗರಗಳು, ಉಷ್ಣವಲಯದ ದ್ವೀಪಗಳು ಮತ್ತು ಕರಾವಳಿ ತಾಣಗಳವರೆಗೆ — ಭಾರತವನ್ನು ಮರೆಯಲಾಗದಂತೆ ಮಾಡುವ ಅನೇಕ ಪ್ರಯಾಣಗಳನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ."
+});
+
+
+/* ---------------- MALAYALAM ---------------- */
+Object.assign(translations.ml, {
+    culture_small: "ജീവന്തമായ സംസ്കാരം",
+    culture_title: "ഉത്സവങ്ങൾ, നൃത്തങ്ങൾ, ആചാരങ്ങൾ, പൈതൃകം",
+    culture_desc: "ഇന്ത്യയുടെ ആത്മാവ് അതിന്റെ ആഘോഷങ്ങളിൽ ജീവിക്കുന്നു — ക്ഷേത്ര ആചാരങ്ങളും നാടോടി നൃത്തങ്ങളും മുതൽ ഓരോ സംസ്ഥാനത്തെയും രാജകീയ കോട്ടകളും വർണാഭമായ ഉത്സവങ്ങളും വരെ.",
+
+    cine_small: "യാത്ര അനുഭവിക്കൂ",
+    cine_title: "ഓരോ ഫ്രെയിമിലും ഇന്ത്യ",
+    cine_desc: "ഹിമാലയൻ കാഴ്ചകളും രാജകീയ കോട്ടകളും മുതൽ പുണ്യനഗരങ്ങൾ, ഉഷ്ണമേഖലാ ദ്വീപുകൾ, തീരദേശ കേന്ദ്രങ്ങൾ വരെ — ഇന്ത്യയെ അവിസ്മരണീയമാക്കുന്ന നിരവധി യാത്രകൾ കണ്ടെത്തൂ."
+});
+
+
+/* ---------------- PUNJABI ---------------- */
+Object.assign(translations.pa, {
+    culture_small: "ਜੀਵੰਤ ਸੱਭਿਆਚਾਰ",
+    culture_title: "ਤਿਉਹਾਰ, ਨਾਚ, ਰਸਮਾਂ ਅਤੇ ਵਿਰਾਸਤ",
+    culture_desc: "ਭਾਰਤ ਦੀ ਰੂਹ ਇਸਦੇ ਜਸ਼ਨਾਂ ਵਿੱਚ ਵੱਸਦੀ ਹੈ — ਮੰਦਰ ਦੀਆਂ ਰਸਮਾਂ ਅਤੇ ਲੋਕ ਨਾਚਾਂ ਤੋਂ ਲੈ ਕੇ ਹਰ ਰਾਜ ਦੇ ਸ਼ਾਹੀ ਕਿਲਿਆਂ ਅਤੇ ਰੌਣਕ ਭਰੇ ਤਿਉਹਾਰਾਂ ਤੱਕ।",
+
+    cine_small: "ਯਾਤਰਾ ਦਾ ਅਨੁਭਵ ਕਰੋ",
+    cine_title: "ਹਰ ਫਰੇਮ ਵਿੱਚ ਭਾਰਤ",
+    cine_desc: "ਹਿਮਾਲਿਆਈ ਨਜ਼ਾਰਿਆਂ ਅਤੇ ਸ਼ਾਹੀ ਕਿਲਿਆਂ ਤੋਂ ਲੈ ਕੇ ਪਵਿੱਤਰ ਸ਼ਹਿਰਾਂ, ਗਰਮ ਖੰਡੀ ਟਾਪੂਆਂ ਅਤੇ ਸਮੁੰਦਰੀ ਤੱਟਾਂ ਤੱਕ — ਭਾਰਤ ਨੂੰ ਅਭੁੱਲ ਬਣਾਉਣ ਵਾਲੀਆਂ ਅਨੇਕ ਯਾਤਰਾਵਾਂ ਦੀ ਖੋਜ ਕਰੋ।"
+});
+
+
+/* ---------------- ODIA ---------------- */
+Object.assign(translations.or, {
+    culture_small: "ଜୀବନ୍ତ ସଂସ୍କୃତି",
+    culture_title: "ପର୍ବପର୍ବାଣୀ, ନୃତ୍ୟ, ପରମ୍ପରା ଏବଂ ଐତିହ୍ୟ",
+    culture_desc: "ଭାରତର ଆତ୍ମା ଏହାର ଉତ୍ସବରେ ବାସ କରେ — ମନ୍ଦିର ପରମ୍ପରା ଏବଂ ଲୋକନୃତ୍ୟରୁ ଆରମ୍ଭ କରି ପ୍ରତ୍ୟେକ ରାଜ୍ୟର ରାଜକୀୟ ଦୁର୍ଗ ଏବଂ ଜୀବନ୍ତ ପର୍ବପର୍ବାଣୀ ପର୍ଯ୍ୟନ୍ତ।",
+
+    cine_small: "ଯାତ୍ରାର ଅନୁଭବ ନିଅନ୍ତୁ",
+    cine_title: "ପ୍ରତ୍ୟେକ ଫ୍ରେମରେ ଭାରତ",
+    cine_desc: "ହିମାଳୟର ଦୃଶ୍ୟ ଏବଂ ରାଜକୀୟ ଦୁର୍ଗଠାରୁ ପବିତ୍ର ସହର, ଉଷ୍ଣମଣ୍ଡଳୀୟ ଦ୍ୱୀପ ଏବଂ ଉପକୂଳ ସ୍ଥାନ ପର୍ଯ୍ୟନ୍ତ — ଭାରତକୁ ଅବିସ୍ମରଣୀୟ କରୁଥିବା ଅନେକ ଯାତ୍ରା ଆବିଷ୍କାର କରନ୍ତୁ।"
+});
+
+
+/* ---------------- ASSAMESE ---------------- */
+Object.assign(translations.as, {
+    culture_small: "জীৱন্ত সংস্কৃতি",
+    culture_title: "উৎসৱ, নৃত্য, আচাৰ-অনুষ্ঠান আৰু ঐতিহ্য",
+    culture_desc: "ভাৰতৰ আত্মা ইয়াৰ উৎসৱসমূহত বাস কৰে — মন্দিৰৰ আচাৰ-অনুষ্ঠান আৰু লোকনৃত্যৰ পৰা প্ৰতিটো ৰাজ্যৰ ৰাজকীয় দুৰ্গ আৰু প্ৰাণৱন্ত উৎসৱলৈকে।",
+
+    cine_small: "যাত্ৰাৰ অভিজ্ঞতা লওক",
+    cine_title: "প্ৰতিটো ফ্ৰেমত ভাৰত",
+    cine_desc: "হিমালয়ৰ দৃশ্য আৰু ৰাজকীয় দুৰ্গৰ পৰা পবিত্ৰ চহৰ, ক্ৰান্তীয় দ্বীপ আৰু উপকূলীয় স্থানলৈকে — ভাৰতক অবিস্মৰণীয় কৰি তোলা বহুতো যাত্ৰা আৱিষ্কাৰ কৰক।"
+});
+
+
+/* ---------------- URDU ---------------- */
+Object.assign(translations.ur, {
+    culture_small: "زندہ ثقافت",
+    culture_title: "تہوار، رقص، رسومات اور ورثہ",
+    culture_desc: "ہندوستان کی روح اس کی تقریبات میں بستی ہے — مندروں کی رسومات اور لوک رقص سے لے کر ہر ریاست کے شاہی قلعوں اور رنگا رنگ تہواروں تک۔",
+
+    cine_small: "سفر کا تجربہ کریں",
+    cine_title: "ہر فریم میں ہندوستان",
+    cine_desc: "ہمالیہ کے مناظر اور شاہی قلعوں سے لے کر مقدس شہروں، گرم خطے کے جزیروں اور ساحلی مقامات تک — ہندوستان کو ناقابل فراموش بنانے والے بے شمار سفروں کو دریافت کریں۔"
+});
+
+
+/* ---------------- MAITHILI ---------------- */
+Object.assign(translations.mai, {
+    culture_small: "जीवंत संस्कृति",
+    culture_title: "पर्व, नृत्य, अनुष्ठान आ विरासत",
+    culture_desc: "भारतक आत्मा ओकर उत्सवमे बसैत अछि — मंदिरक अनुष्ठान आ लोकनृत्य सँ लऽ कऽ प्रत्येक राज्यक राजसी किला आ जीवंत पर्व धरि।",
+
+    cine_small: "यात्राक अनुभव करू",
+    cine_title: "हर फ्रेममे भारत",
+    cine_desc: "हिमालयक मनोरम दृश्य आ राजसी किलासँ लऽ कऽ पवित्र शहर, उष्णकटिबंधीय द्वीप आ समुद्रक किनाराक स्थल धरि — भारतकेँ अविस्मरणीय बनेनिहार अनेक यात्राक खोज करू।"
+});
+
+
+/* ---------------- BHOJPURI ---------------- */
+Object.assign(translations.bho, {
+    culture_small: "जिंदा संस्कृति",
+    culture_title: "त्योहार, नाच, रीति-रिवाज आ विरासत",
+    culture_desc: "भारत के आत्मा ओकर उत्सव में बसल बा — मंदिर के रीति-रिवाज आ लोकनृत्य से लेके हर राज्य के शाही किला आ रंग-बिरंगा त्योहार तक।",
+
+    cine_small: "यात्रा के अनुभव करीं",
+    cine_title: "हर फ्रेम में भारत",
+    cine_desc: "हिमालय के नजारा आ शाही किला से लेके पवित्र शहर, उष्णकटिबंधीय द्वीप आ समुद्री किनारा तक — भारत के यादगार बनावे वाली अनेक यात्रन के खोजीं।"
+});
+
+/* =========================================================
+   BHARATYATRA MAIN BRAND TITLE
+   ========================================================= */
+
+Object.assign(translations.en, {
+    brand_title: "BharatYatra"
+});
+
+Object.assign(translations.hi, {
+    brand_title: "भारतयात्रा"
+});
+
+Object.assign(translations.mr, {
+    brand_title: "भारतयात्रा"
+});
+
+Object.assign(translations.bn, {
+    brand_title: "ভারতযাত্রা"
+});
+
+Object.assign(translations.gu, {
+    brand_title: "ભારતયાત્રા"
+});
+
+Object.assign(translations.ta, {
+    brand_title: "பாரதயாத்திரை"
+});
+
+Object.assign(translations.te, {
+    brand_title: "భారతయాత్ర"
+});
+
+Object.assign(translations.kn, {
+    brand_title: "ಭಾರತಯಾತ್ರೆ"
+});
+
+Object.assign(translations.ml, {
+    brand_title: "ഭാരതയാത്ര"
+});
+
+Object.assign(translations.pa, {
+    brand_title: "ਭਾਰਤਯਾਤਰਾ"
+});
+
+Object.assign(translations.or, {
+    brand_title: "ଭାରତଯାତ୍ରା"
+});
+
+Object.assign(translations.as, {
+    brand_title: "ভাৰতযাত্ৰা"
+});
+
+Object.assign(translations.ur, {
+    brand_title: "بھارت یاترا"
+});
+
+Object.assign(translations.mai, {
+    brand_title: "भारतयात्रा"
+});
+
+Object.assign(translations.bho, {
+    brand_title: "भारतयात्रा"
+});
+
+let currentLanguage = localStorage.getItem('preferred_language') || 'en';
+
+function changeLanguage(lang) {
+    currentLanguage = translations[lang] ? lang : 'en';
+    lang = currentLanguage;
+    document.documentElement.lang = lang;
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        } else if (translations.en && translations.en[key]) {
+            element.innerHTML = translations.en[key];
+        }
+    });
+
+    // Handle placeholders
+    const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholders.forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+        } else if (translations.en && translations.en[key]) {
+            element.placeholder = translations.en[key];
+        }
+    });
+
+    localStorage.setItem('preferred_language', lang);
+    try {
+        const activeUser = JSON.parse(localStorage.getItem('bharatUser') || 'null');
+        const navAuthBtn = document.getElementById('navAuthBtn');
+        if (navAuthBtn && activeUser?.name) {
+            navAuthBtn.textContent = activeUser.name.toUpperCase();
+            navAuthBtn.href = 'profile.html';
+        }
+    } catch (error) {}
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferred_language') || 'en';
+    const langSelect = document.getElementById('languageSelect');
+    if(langSelect) {
+        langSelect.value = savedLang;
+        changeLanguage(savedLang);
+    }
+});
+
+/* ---- STATES & UNION TERRITORIES ---- */
+const leftTop=[
+ {src:"assets/states/maharashtra.mp4",category:"STATE",title:"Maharashtra"},
+ {src:"assets/states/delhi.mp4",category:"UNION TERRITORY",title:"Delhi"},
+ {src:"assets/states/uttar_pradesh.mp4",category:"STATE",title:"Uttar Pradesh"},
+ {src:"assets/states/kerala.mp4",category:"STATE",title:"Kerala"},
+ {src:"assets/states/goa.mp4",category:"STATE",title:"Goa"},
+ {src:"assets/states/punjab.mp4",category:"STATE",title:"Punjab"}
+];
+const leftBottom=[
+ {src:"assets/states/gujarat.mp4",category:"STATE",title:"Gujarat"},
+ {src:"assets/states/rajasthan.mp4",category:"STATE",title:"Rajasthan"},
+ {src:"assets/states/karnataka.mp4",category:"STATE",title:"Karnataka"},
+ {src:"assets/states/tamil_nadu.mp4",category:"STATE",title:"Tamil Nadu"},
+ {src:"assets/states/west_bengal.mp4",category:"STATE",title:"West Bengal"},
+ {src:"assets/states/odisha.mp4",category:"STATE",title:"Odisha"}
+];
+const rightTop=[
+ {src:"assets/states/uttarakhand.mp4",category:"STATE",title:"Uttarakhand"},
+ {src:"assets/states/jammu_kashmir.mp4",category:"UNION TERRITORY",title:"Jammu & Kashmir"},
+ {src:"assets/states/ladakh.mp4",category:"UNION TERRITORY",title:"Ladakh"},
+ {src:"assets/states/himachal_pradesh.mp4",category:"STATE",title:"Himachal Pradesh"},
+ {src:"assets/states/sikkim.mp4",category:"STATE",title:"Sikkim"},
+ {src:"assets/states/assam.mp4",category:"STATE",title:"Assam"},
+ {src:"assets/states/arunachal.mp4",category:"STATE",title:"Arunachal Pradesh"}
+];
+const rightBottom=[
+ {src:"assets/states/madhya_pradesh.mp4",category:"STATE",title:"Madhya Pradesh"},
+ {src:"assets/states/andhra_pradesh.mp4",category:"STATE",title:"Andhra Pradesh"},
+ {src:"assets/states/telangana.mp4",category:"STATE",title:"Telangana"},
+ {src:"assets/states/bihar.mp4",category:"STATE",title:"Bihar"},
+ {src:"assets/states/meghalaya.mp4",category:"STATE",title:"Meghalaya"},
+ {src:"assets/states/daman.mp4",category:"UNION TERRITORY",title:"Daman & Diu"}
+];
+
+/* ---- CULTURE ROW ---- */
+const festivals=[
+ {src:"assets/festivals/ganpati.mp4",category:"FESTIVAL",title:"Ganpati Festival"},
+ {src:"assets/festivals/diwali.mp4",category:"FESTIVAL",title:"Diwali"},
+ {src:"assets/festivals/holi.mp4",category:"FESTIVAL",title:"Holi"},
+ {src:"assets/festivals/durga_puja.mp4",category:"FESTIVAL",title:"Durga Puja"},
+ {src:"assets/festivals/dussehra.mp4",category:"FESTIVAL",title:"Dussehra"},
+ {src:"assets/festivals/pongal.mp4",category:"FESTIVAL",title:"Pongal"}
+];
+const dances=[
+ {src:"assets/dances/bharatanatyam.mp4",category:"DANCE",title:"Bharatanatyam"},
+ {src:"assets/dances/koli_dance.mp4",category:"DANCE",title:"Koli Dance"},
+ {src:"assets/dances/lavani.mp4",category:"DANCE",title:"Lavani"},
+ {src:"assets/dances/ghoomar.mp4",category:"DANCE",title:"Ghoomar Dance"},
+ {src:"assets/dances/pahadi.mp4",category:"DANCE",title:"Pahadi Dance"},
+ {src:"assets/dances/bhnaghra.mp4",category:"DANCE",title:"Bhanghara"},
+ {src:"assets/dances/kathakali.mp4",category:"DANCE",title:"Kathakali"}
+];
+const rituals=[
+ {src:"assets/rituals/ganga_aarti.mp4",category:"RITUAL",title:"Ganga Aarti"},
+ {src:"assets/rituals/sindur_khela.mp4",category:"RITUAL",title:"Sindur Khela"},
+ {src:"assets/rituals/kumbh_mela.mp4",category:"RITUAL",title:"Kumbh Mela"},
+ {src:"assets/rituals/rath_yatra.mp4",category:"RITUAL",title:"Rath Yatra"},
+ {src:"assets/rituals/chhath_puja.mp4",category:"RITUAL",title:"Chhath Puja"},
+ {src:"assets/rituals/pushkar_fair.mp4",category:"RITUAL",title:"Pushkar Fair"}
+];
+const Traditions=[
+ {src:"assets/tradition/navratri.mp4",category:"DANCE",title:"Garba Rass-Navratri"},
+ {src:"assets/tradition/raulane.mp4",category:"Tradition",title:"Raulane Festival"},
+ {src:"assets/tradition/Kite.mp4",category:"Tradition",title:"Kite Festival"},
+ {src:"assets/tradition/gangur.mp4",category:"Tradition",title:"Gangaur Festival"},
+ {src:"assets/tradition/vallam.mp4",category:"Tradition",title:"Vallam Kali"},
+ {src:"assets/tradition/bihu.mp4",category:"Tradition",title:"Bihu Festival"}
+];
+const heritage=[
+ {src:"assets/heritage/thanjavur.mp4",category:"HERITAGE",title:"Thanjavur Temple"},
+ {src:"assets/heritage/konark_sun_temple.mp4",category:"HERITAGE",title:"Konark Sun Temple"},
+ {src:"assets/heritage/hampi.mp4",category:"HERITAGE",title:"Hampi Ruins"},
+ {src:"assets/heritage/ajanta_caves.mp4",category:"HERITAGE",title:"Kailash Temple"},
+ {src:"assets/heritage/rameshwaram.mp4",category:"HERITAGE",title:"Rameshwaram Temple"},
+ {src:"assets/heritage/unakoti.mp4",category:"HERITAGE",title:"Unakoti,Tripura"}
+];
+
+/* Builds one carousel frame */
+function buildVideoCard(container,videos){
+ const card=document.createElement("div");
+ card.className="video-card";
+ card.innerHTML='<video autoplay muted playsinline preload="auto"></video><div class="video-shade"></div><div class="video-content"><div class="video-category"></div><div class="video-title"></div></div><div class="video-progress"><span></span></div>';
+ container.appendChild(card);
+ const video=card.querySelector("video"),category=card.querySelector(".video-category"),title=card.querySelector(".video-title"),progress=card.querySelector(".video-progress span");
+ let index=0;
+ function load(i){const item=videos[i];video.pause();video.src=item.src;video.load();category.textContent=item.category;title.textContent=item.title;progress.style.width="0%";video.play().catch(err=>console.warn("[BharatYatra] play() blocked for",item.src,"-",err.message));}
+ video.addEventListener("error",()=>{const err=video.error;console.error("[BharatYatra] FAILED TO LOAD:",video.src,"| code:",err&&err.code);});
+ video.addEventListener("ended",()=>{index=(index+1)%videos.length;load(index)});
+ video.addEventListener("timeupdate",()=>{if(video.duration&&isFinite(video.duration))progress.style.width=(video.currentTime/video.duration*100)+"%"});
+ video.addEventListener("loadedmetadata",()=>video.play().catch(()=>{}));
+ load(0);
+}
+
+const leftStack=document.getElementById("leftStack"),rightStack=document.getElementById("rightStack"),cultureGrid=document.getElementById("cultureGrid");
+[leftTop,leftBottom].forEach(v=>buildVideoCard(leftStack,v));
+[rightTop,rightBottom].forEach(v=>buildVideoCard(rightStack,v));
+[festivals,dances,rituals,Traditions,heritage].forEach(v=>buildVideoCard(cultureGrid,v));
+
+/* Play cinematic video when visible */
+const cinematicVideo=document.getElementById("cinematicVideo");
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting?cinematicVideo.play().catch(()=>{}):cinematicVideo.pause()),{threshold:.35});
+observer.observe(cinematicVideo);
+
+/* Continuous background music */
+const bgMusic=document.getElementById("bgMusic");
+function startBgMusic(){if(bgMusic) bgMusic.play().catch(()=>{});}
+if(bgMusic){
+    startBgMusic();
+    ["click","scroll","keydown","touchstart"].forEach(evt=>document.addEventListener(evt,startBgMusic,{once:true}));
+}
+
+/* ===================================================
+   ANCIENT DIGITAL BOOK SCRIPT ENGINE
+=================================================== */
+let isBookOpen = false;
+let currentBookPage = 0; // 0 is cover, 1..11 are pages
+const totalBookPages = 11;
+const bookCover = document.getElementById("bookCover");
+const mainBookBtn = document.getElementById("mainBookBtn");
+const prevPageBtn = document.getElementById("prevPageBtn");
+const pages = document.querySelectorAll(".book-page");
+
+function showBookPage(pageNum) {
+    pages.forEach(p => p.classList.remove("active"));
+    if(pageNum > 0 && pageNum <= totalBookPages) {
+        const targetPage = document.querySelector(`.book-page[data-page="${pageNum}"]`);
+        if(targetPage) targetPage.classList.add("active");
+    }
+    prevPageBtn.style.display = isBookOpen && pageNum > 1 ? "inline-block" : "none";
+}
+
+function toggleBookAction() {
+    if(!isBookOpen) {
+        // Open Book to Page 1 (Index)
+        isBookOpen = true;
+        currentBookPage = 1;
+        bookCover.classList.add("opened");
+        showBookPage(1);
+        mainBookBtn.setAttribute("data-i18n", "btn_next");
+        mainBookBtn.textContent = localStorage.getItem('preferred_language') === 'hi' ? "अगला ➔" : (localStorage.getItem('preferred_language') === 'mr' ? "पुढील ➔" : "Turn Page ➔");
+        prevPageBtn.style.display = "none";
+    } else {
+        // Turn to Next Page
+        currentBookPage++;
+        if(currentBookPage > totalBookPages) {
+            // Close Book and Return to Cover
+            closeGranth();
+        } else {
+            showBookPage(currentBookPage);
+            if(currentBookPage === totalBookPages) {
+                mainBookBtn.setAttribute("data-i18n", "btn_close");
+                mainBookBtn.textContent = localStorage.getItem('preferred_language') === 'hi' ? "ग्रंथ बंद करें 📕" : (localStorage.getItem('preferred_language') === 'mr' ? "ग्रंथ बंद करा 📕" : "Close Book 📕");
+            } else {
+                mainBookBtn.setAttribute("data-i18n", "btn_next");
+                mainBookBtn.textContent = localStorage.getItem('preferred_language') === 'hi' ? "अगला ➔" : (localStorage.getItem('preferred_language') === 'mr' ? "पुढील ➔" : "Turn Page ➔");
+            }
+        }
+    }
+}
+
+function prevBookPage() {
+    if(!isBookOpen) return;
+    currentBookPage--;
+    if(currentBookPage < 1) {
+        closeGranth();
+    } else {
+        showBookPage(currentBookPage);
+        mainBookBtn.setAttribute("data-i18n", "btn_next");
+        mainBookBtn.textContent = localStorage.getItem('preferred_language') === 'hi' ? "अगला ➔" : (localStorage.getItem('preferred_language') === 'mr' ? "पुढील ➔" : "Turn Page ➔");
+        prevPageBtn.style.display = currentBookPage > 1 ? "inline-block" : "none";
+    }
+}
+
+function jumpToPage(targetPageNum) {
+    if(targetPageNum < 1 || targetPageNum > totalBookPages) return;
+    if(!isBookOpen) {
+        isBookOpen = true;
+        bookCover.classList.add("opened");
+    }
+    currentBookPage = targetPageNum;
+    showBookPage(targetPageNum);
+    const lang = localStorage.getItem('preferred_language') || 'en';
+    if (currentBookPage === totalBookPages) {
+        mainBookBtn.textContent = lang === 'hi' ? "ग्रंथ बंद करें 📕" : (lang === 'mr' ? "ग्रंथ बंद करा 📕" : "Close Book 📕");
+    } else {
+        mainBookBtn.textContent = lang === 'hi' ? "अगला ➔" : (lang === 'mr' ? "पुढील ➔" : "Turn Page ➔");
+    }
+    mainBookBtn.setAttribute("data-i18n", currentBookPage === totalBookPages ? "btn_close" : "btn_next");
+    prevPageBtn.style.display = currentBookPage > 1 ? "inline-block" : "none";
+}
+
+function closeGranth() {
+    isBookOpen = false;
+    currentBookPage = 0;
+    bookCover.classList.remove("opened");
+    pages.forEach(p => p.classList.remove("active"));
+    mainBookBtn.setAttribute("data-i18n", "btn_open");
+    const lang = localStorage.getItem('preferred_language') || 'en';
+    mainBookBtn.textContent = lang === 'hi' ? "ग्रंथ खोलें 📖" : (lang === 'mr' ? "ग्रंथ उघडा 📖" : "OPEN THE BOOK 📖");
+    prevPageBtn.style.display = "none";
+}
+
+showBookPage(0);
+
+/* ---- MANUAL & AUTO TOURISM SLIDER ENGINE (2 CARDS VISIBLE) ---- */
+const spotsTrack=document.getElementById("spotsTrack");
+const totalCards=document.querySelectorAll(".spot-card").length;
+let currentSlide=0;
+const maxSlideSteps=Math.max(1, totalCards - 1);
+
+function manualSlide(direction) {
+    currentSlide += direction;
+    if(currentSlide < 0) currentSlide = maxSlideSteps - 1;
+    if(currentSlide >= maxSlideSteps) currentSlide = 0;
+    updateSliderTransform();
+}
+
+function updateSliderTransform() {
+    const cardWidth = spotsTrack.querySelector(".spot-card").offsetWidth;
+    const gap = 12;
+    spotsTrack.style.transform = `translateX(-${currentSlide * (cardWidth + gap)}px)`;
+}
+
+// Auto slide every 6 seconds unless user interacts
+let autoSlideTimer = setInterval(() => {
+    currentSlide++;
+    if(currentSlide >= maxSlideSteps) currentSlide = 0;
+    updateSliderTransform();
+}, 6000);
+
+/* ---- CHATBOT ---- */
+/* ---- LIVE GROQ CHATBOT ENGINE FOR INDEX.HTML ---- */
+
+const ACTIVE_MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.6-27b"];
+
+/* ---- NAVIGATION REGISTRY ---- */
+const NAV_ROUTES = [
+  { file: "index.html", label: "Home Page", keywords: ["home", "homepage", "main page", "landing page"] },
+  { file: "chatbot.html", label: "AI Itinerary Planner", keywords: ["itinerary", "trip planner", "plan a trip", "plan my trip", "travel plan", "ai guide", "bharat ai guide", "plan a yatra"] },
+  { file: "hotels.html", label: "Hotels & Stays", keywords: ["hotels", "hotel", "stays", "stay", "accommodation", "lodging", "hotels and stays", "hotel and stays"] },
+  { file: "transport.html", label: "Transport", keywords: ["transport", "transportation", "flights", "flight", "trains", "train", "buses", "bus"] },
+  { file: "ticket_generator.html", label: "One-Ticket Pass", keywords: ["ticket", "one ticket", "one-ticket", "pass", "book ticket", "generate ticket", "travel pass"] },
+  { file: "crafts.html", label: "Crafts", keywords: ["crafts", "handicraft", "handicrafts", "handloom", "artisan", "souvenirs"] },
+  { file: "gi_tag.html", label: "GI Tag Products", keywords: ["gi tag", "gi-tag", "geographical indication", "gi products", "regional products"] },
+  { file: "calendar.html", label: "Calendar", keywords: ["calendar", "festival", "festivals", "events", "festival calendar", "upcoming events"] },
+  { file: "unesco_sites.html", label: "UNESCO Sites", keywords: ["unesco", "world heritage", "heritage site", "heritage sites"] },
+  { file: "destinations.html", label: "Tourist Spots", keywords: ["destinations", "tourist spot", "tourist spots", "places to visit", "sightseeing"] },
+  { 
+  file: "admin_access.html", 
+  label: "Vendor / Admin Login", 
+  keywords: [
+    "vendor login",
+    "vendor log in",
+    "vendor signin",
+    "vendor sign in",
+    "vendor portal",
+    "vendor section",
+    "vendor account",
+    "vendor registration",
+    "vendor register",
+    "admin login",
+    "admin log in",
+    "admin signin",
+    "admin sign in",
+    "admin portal",
+    "admin section",
+    "admin access",
+    "admin account",
+    "admin registration",
+    "admin register"
+  ] 
+},
+{ 
+  file: "login.html", 
+  label: "User Login / Profile", 
+  keywords: [
+    "login",
+    "log in",
+    "sign in",
+    "signin",
+    "profile",
+    "account",
+    "register",
+    "registration",
+    "sign up",
+    "signup",
+    "user login",
+    "user log in",
+    "user signin",
+    "user sign in",
+    "user registration",
+    "user register",
+    "user account",
+    "my profile",
+    "my account"
+  ] 
+}  
+];
+
+const NAV_LOCALIZED_KEYWORDS = {
+  "crafts.html":["शिल्प","हस्तकला","হস্তশিল্প","કારુશિલ્પ","கைவினை","హస్తకళ","ಕರಕುಶಲ","കരകൗശലം","ਹਸਤਕਲਾ","ହସ୍ତଶିଳ୍ପ","হস্তশিল্প","دستکاری"],
+  "gi_tag.html":["जीआई","जीआय","জিআই","GI ટૅગ","GI குறியீடு","GI ట్యাগ్","GI ಟ್ಯಾಗ್","GI ടാഗ്","GI ਟੈਗ","GI ଟ୍ୟାଗ୍","GI টেগ","GI ٹیگ"],
+  "unesco_sites.html":["यूनेस्को","युनेस्को","ইউনেস্কো","યુનેસ્કો","யுனெஸ்கோ","యునెస్కో","ಯುನೆಸ್ಕೋ","യുനെസ്കോ","ਯੂਨੇਸਕੋ","ୟୁନେସ୍କୋ","یونیسکو"],
+  "calendar.html":["कैलेंडर","कॅलेंडर","ক্যালেন্ডার","કૅલેન્ડર","நாட்காட்டி","క్యాలెండర్","ಕ್ಯಾಲೆಂಡರ್","കലണ്ടർ","ਕੈਲੰਡਰ","କ୍ୟାଲେଣ୍ଡର","কেলেণ্ডাৰ","کیلنڈر"],
+  "destinations.html":["पर्यटन स्थल","पर्यटक स्थळ","পর্যটন স্থান","પ્રવાસી સ્થળ","சுற்றுலா இடங்கள்","పర్యాటక ప్రదేశాలు","ಪ್ರವಾಸಿ ತಾಣಗಳು","വിനോദസഞ്ചാര കേന്ദ്രങ്ങൾ","ਸੈਲਾਨੀ ਸਥਾਨ","ପର୍ଯ୍ୟଟନ ସ୍ଥାନ","পৰ্যটন স্থান","سیاحتی مقامات"],
+  "chatbot.html":["यात्रा योजना","यात्रा प्लान","ভ্রমণ পরিকল্পনা","પ્રવાસ યોજના","பயண திட்டம்","ప్రయాణ ప్రణాళిక","ಪ್ರಯಾಣ ಯೋಜನೆ","യാത്രാ പദ്ധതി","ਯਾਤਰਾ ਯੋਜਨਾ","ଯାତ୍ରା ଯୋଜନା","ভ্ৰমণ পৰিকল্পনা","سفر کا منصوبہ"],
+  "ticket_generator.html":["टिकट","तिकीट","টিকিট","ટિકિટ","டிக்கெட்","టికెట్","ಟಿಕೆಟ್","ടിക്കറ്റ്","ਟਿਕਟ","ଟିକେଟ୍","টিকট","ٹکٹ"],
+  "login.html":["लॉगिन","प्रोफाइल","खाता","লগইন","প্রোফাইল","લૉગિન","પ્રોફાઇલ","உள்நுழைவு","கணக்கு","లాగిన్","ప్రొఫైల్","ಲಾಗಿನ್","ಪ್ರೊಫೈಲ್","ലോഗിൻ","പ്രൊഫൈൽ","ਲੌਗਇਨ","ਪ੍ਰੋਫਾਈਲ","ଲଗଇନ୍","ପ୍ରୋଫାଇଲ୍","لاگ اِن","پروفائل"]
+};
+const LANGUAGE_NAMES = {en:"English",hi:"Hindi",mr:"Marathi",bn:"Bengali",gu:"Gujarati",ta:"Tamil",te:"Telugu",kn:"Kannada",ml:"Malayalam",pa:"Punjabi",or:"Odia",as:"Assamese",ur:"Urdu",mai:"Maithili",bho:"Bhojpuri"};
+
+const NAV_VERBS = [
+  "go to", "take me to", "show me", "open", "navigate to",
+  "i want to see", "i want to go", "where is", "find", "switch to"
+];
+
+const CURRENT_PAGE = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+function localNavMatch(rawQuery) {
+  const query = rawQuery.toLowerCase().trim();
+
+  // -----------------------------------------
+  // VENDOR / ADMIN LOGIN
+  // -----------------------------------------
+  const vendorAdminPatterns = [
+    "vendor login",
+    "vendor log in",
+    "vendor signin",
+    "vendor sign in",
+    "vendor portal",
+    "vendor section",
+    "vendor account",
+    "vendor registration",
+    "vendor register",
+    "admin login",
+    "admin log in",
+    "admin signin",
+    "admin sign in",
+    "admin portal",
+    "admin section",
+    "admin access",
+    "admin account",
+    "admin registration",
+    "admin register"
+  ];
+
+  const vendorAdminRequest = vendorAdminPatterns.some(pattern =>
+    query.includes(pattern)
+  );
+
+  if (vendorAdminRequest) {
+    return NAV_ROUTES.find(route => route.file === "admin_access.html");
+  }
+
+  // -----------------------------------------
+  // NORMAL USER LOGIN / REGISTRATION
+  // -----------------------------------------
+  const userLoginPatterns = [
+    "user login",
+    "user log in",
+    "user signin",
+    "user sign in",
+    "user registration",
+    "user register",
+    "user account",
+    "my profile",
+    "my account",
+    "login",
+    "log in",
+    "sign in",
+    "signin",
+    "register",
+    "registration",
+    "sign up",
+    "signup",
+    "profile",
+    "account"
+  ];
+
+  const userLoginRequest = userLoginPatterns.some(pattern =>
+    query.includes(pattern)
+  );
+
+  if (userLoginRequest) {
+    return NAV_ROUTES.find(route => route.file === "login.html");
+  }
+
+  // -----------------------------------------
+// HOTELS & STAYS / TRANSPORT
+// -----------------------------------------
+
+const hotelPatterns = [
+  "hotel",
+  "hotels",
+  "hotel and stays",
+  "hotels and stays",
+  "hotel & stays",
+  "hotels & stays",
+  "stay",
+  "stays",
+  "accommodation",
+  "hotel options",
+  "hotel page",
+  "hotels page"
+];
+
+const transportPatterns = [
+  "transport",
+  "transportation",
+  "smart transport",
+  "transport options",
+  "transport page",
+  "transportation page",
+  "flight options",
+  "train options",
+  "bus options"
+];
+
+const wantsHotels = hotelPatterns.some(pattern =>
+  query.includes(pattern)
+);
+
+const wantsTransport = transportPatterns.some(pattern =>
+  query.includes(pattern)
+);
+
+if (wantsHotels) {
+  return NAV_ROUTES.find(
+    route => route.file === "hotels.html"
+  );
+}
+
+if (wantsTransport) {
+  return NAV_ROUTES.find(
+    route => route.file === "transport.html"
+  );
+}
+
+// -----------------------------------------
+// EXPLICIT HOTELS & STAYS / TRANSPORT
+// These must be resolved BEFORE the generic
+// ticket / booking matching.
+// -----------------------------------------
+
+const hotelNavigationPatterns = [
+  "take me to hotel",
+  "take me to hotels",
+  "take me to hotel and stays",
+  "take me to hotels and stays",
+  "take me to hotel & stays",
+  "take me to hotels & stays",
+  "go to hotel",
+  "go to hotels",
+  "go to hotels and stays",
+  "open hotel",
+  "open hotels",
+  "open hotels and stays",
+  "show me hotels",
+  "show me hotel options",
+  "show hotels",
+  "hotels and stays",
+  "hotels & stays",
+  "hotel page",
+  "hotels page"
+];
+
+const transportNavigationPatterns = [
+  "take me to transport",
+  "take me to transportation",
+  "go to transport",
+  "go to transportation",
+  "open transport",
+  "open transportation",
+  "show me transport",
+  "show me transportation",
+  "transport page",
+  "transportation page",
+  "transport options",
+  "transportation options"
+];
+
+
+// -----------------------------------------
+// HOTELS HAS PRIORITY
+// -----------------------------------------
+
+if (
+  hotelNavigationPatterns.some(
+    pattern => query.includes(pattern)
+  )
+) {
+
+  const hotelRoute =
+    NAV_ROUTES.find(
+      route =>
+        route.file === "hotels.html"
+    );
+
+  if (hotelRoute) {
+    return hotelRoute;
+  }
+
+}
+
+
+// -----------------------------------------
+// TRANSPORT HAS PRIORITY
+// -----------------------------------------
+
+if (
+  transportNavigationPatterns.some(
+    pattern => query.includes(pattern)
+  )
+) {
+
+  const transportRoute =
+    NAV_ROUTES.find(
+      route =>
+        route.file === "transport.html"
+    );
+
+  if (transportRoute) {
+    return transportRoute;
+  }
+
+}
+  // -----------------------------------------
+  // EXISTING PAGE NAVIGATION
+  // -----------------------------------------
+  let best = null;
+  let bestScore = 0;
+  let second = 0;
+
+  for (const route of NAV_ROUTES) {
+    // Don't let login routes participate in the
+    // generic matching again.
+    if (
+      route.file === "login.html" ||
+      route.file === "admin_access.html"
+    ) {
+      continue;
+    }
+
+    let score = 0;
+    const localized = NAV_LOCALIZED_KEYWORDS[route.file] || [];
+
+    for (const kw of [...route.keywords, ...localized]) {
+      if (query.includes(kw.toLowerCase())) {
+        score += kw.split(" ").length;
+      }
+    }
+
+    if (score > bestScore) {
+      second = bestScore;
+      bestScore = score;
+      best = route;
+    } else if (score > second) {
+      second = score;
+    }
+  }
+
+  if (!best || bestScore === 0) return null;
+
+  const hasVerb = NAV_VERBS.some(v => query.includes(v));
+
+  const confident =
+    hasVerb ||
+    (bestScore - second >= 2) ||
+    query.split(" ").length <= 4;
+
+  return confident ? best : null;
+}
+
+function executeNavigation(route, botDiv) {
+  console.log("[NavAssistant] navigating to:", route.file);
+  if (route.file.toLowerCase() === CURRENT_PAGE) {
+    botDiv.innerHTML += `<br><br><em>You're already on the ${route.label} page!</em>`;
+    return;
+  }
+  botDiv.innerHTML += `<br><br><em>Taking you to ${route.label}...</em>`;
+  setTimeout(() => { window.location.href = route.file; }, 900);
+}
+
+/* ---- SYSTEM PROMPT ---- */
+const SYSTEM_INSTRUCTION = `You are 'Bharat AI', the official interactive guide for the BharatYatra website. 
+Your primary goal is to guide users smoothly across the website modules and provide rich cultural information about India.
+
+Website Navigation Guide:
+- **Home / Destinations:** Hero carousel, active booking indicators, and the ancient digital Grantha book.
+- **Crafts:** Click 'Crafts' in the navbar to explore traditional handicrafts, looms, and rural cottage industries state-wise.
+- **GI Tag Products:** Click 'GI Tag Products' in the navbar to view government-certified regional products and artifacts with their registration years.
+- **UNESCO Sites:** Click 'UNESCO Sites' in the navbar to discover India's 43 official world heritage architectural marvels.
+- **Yearly Calendar:** Click 'Calendar' in the navbar to see festival dates, seasonal highlights, and best visiting hours.
+- **Tourist Spots:** Click 'Tourist Spots' to look up specific states, Union Territories, and hidden gems.
+- **One-Ticket Pass / AI Itinerary:** Use the AI Itinerary page or the One-Ticket Pass generator to bundle transport, stays, and entry QR codes.
+
+Rules:
+1. Whenever a user asks about a feature, page, or topic (e.g., "Where are UNESCO sites?", "Show me crafts"), tell them clearly which navbar button to click, and then provide helpful information or a summary right inside the chat!
+2. Format comparisons, itineraries, and lists as clean Markdown tables when appropriate.
+3. If the user is CLEARLY asking to be taken to a specific page (not just asking a question about its topic), end your reply with a marker on its own new line in this exact format: [NAVIGATE:filename.html]
+   Valid filenames: index.html, chatbot.html, ticket_generator.html, crafts.html, gi_tag.html, calendar.html, unesco_sites.html, destinations.html, login.html
+   Only include this marker when navigation intent is clear (e.g. "take me to crafts", "open the calendar"). Do NOT include it for general questions about a topic (e.g. "tell me about GI tags" should NOT trigger it).`;
+
+let conversationHistory = [
+    { role: "system", content: SYSTEM_INSTRUCTION }
+];
+
+function toggleChat() {
+    const c = document.getElementById("chatbot");
+    c.classList.toggle("active");
+    if(c.classList.contains("active")) setTimeout(() => document.getElementById("chatInput").focus(), 100);
+}
+
+function handleChat(e) { if(e.key === "Enter") sendMessage(); }
+
+async function sendMessage() {
+    const input = document.getElementById("chatInput");
+    const messages = document.getElementById("chatMessages");
+    const text = input.value.trim();
+    if(!text) return;
+
+    // Append User Message
+    const userDiv = document.createElement("div");
+    userDiv.className = "message user";
+    userDiv.textContent = text;
+    messages.appendChild(userDiv);
+    input.value = "";
+    messages.scrollTop = messages.scrollHeight;
+
+/* =========================================================
+   CHATBOT LANGUAGE CHANGE
+   Allows the user to change language directly by chatting.
+   ========================================================= */
+
+const CHAT_LANGUAGE_COMMANDS = {
+    english: "en",
+    "in english": "en",
+
+    hindi: "hi",
+    "in hindi": "hi",
+    हिंदी: "hi",
+    हिन्दी: "hi",
+
+    marathi: "mr",
+    "in marathi": "mr",
+    मराठी: "mr",
+
+    bengali: "bn",
+    "in bengali": "bn",
+    বাংলা: "bn",
+
+    gujarati: "gu",
+    "in gujarati": "gu",
+    ગુજરાતી: "gu",
+
+    tamil: "ta",
+    "in tamil": "ta",
+    தமிழ்: "ta",
+
+    telugu: "te",
+    "in telugu": "te",
+    తెలుగు: "te",
+
+    kannada: "kn",
+    "in kannada": "kn",
+    ಕನ್ನಡ: "kn",
+
+    malayalam: "ml",
+    "in malayalam": "ml",
+    മലയാളം: "ml",
+
+    punjabi: "pa",
+    "in punjabi": "pa",
+    ਪੰਜਾਬੀ: "pa",
+
+    odia: "or",
+    "in odia": "or",
+    ଓଡ଼ିଆ: "or",
+
+    assamese: "as",
+    "in assamese": "as",
+    অসমীয়া: "as",
+
+    urdu: "ur",
+    "in urdu": "ur",
+    اردو: "ur",
+
+    maithili: "mai",
+    "in maithili": "mai",
+    मैथिली: "mai",
+
+    bhojpuri: "bho",
+    "in bhojpuri": "bho",
+    भोजपुरी: "bho"
+};
+
+
+const languageRequestPattern =
+    /\b(?:talk|speak|respond|reply|answer|switch|change|use|communicate)\b/i;
+
+if (languageRequestPattern.test(text)) {
+
+    const normalizedLanguageText =
+        text
+            .toLowerCase()
+            .replace(/[.,!?]/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+
+    let requestedLanguage = null;
+
+    for (const [languageName, languageCode]
+        of Object.entries(CHAT_LANGUAGE_COMMANDS)) {
+
+        if (
+            normalizedLanguageText.includes(languageName)
+        ) {
+            requestedLanguage = languageCode;
+            break;
+        }
+    }
+
+
+    if (requestedLanguage) {
+
+        const languageSelect =
+            document.getElementById("languageSelect");
+
+        /*
+         * Change the actual website language selector.
+         * This means the navbar and the chatbot stay synchronized.
+         */
+        if (languageSelect) {
+            languageSelect.value = requestedLanguage;
+
+            if (typeof changeLanguage === "function") {
+                changeLanguage(requestedLanguage);
+            }
+        } else if (typeof changeLanguage === "function") {
+            changeLanguage(requestedLanguage);
+        } else {
+            localStorage.setItem(
+                "preferred_language",
+                requestedLanguage
+            );
+        }
+
+
+        /*
+         * Tell the assistant to use the newly selected language
+         * from this message onward.
+         */
+        const languageNames = {
+            en: "English",
+            hi: "Hindi",
+            mr: "Marathi",
+            bn: "Bengali",
+            gu: "Gujarati",
+            ta: "Tamil",
+            te: "Telugu",
+            kn: "Kannada",
+            ml: "Malayalam",
+            pa: "Punjabi",
+            or: "Odia",
+            as: "Assamese",
+            ur: "Urdu",
+            mai: "Maithili",
+            bho: "Bhojpuri"
+        };
+
+        const botDiv =
+            document.createElement("div");
+
+        botDiv.className = "message bot";
+
+        botDiv.textContent =
+            `Sure! I’ll continue speaking with you in ${
+                languageNames[requestedLanguage]
+            }.`;
+
+        messages.appendChild(botDiv);
+
+        messages.scrollTop =
+            messages.scrollHeight;
+
+        return;
+    }
+}
+
+    // Append Bot Loading Bubble
+ // --- FAST PATH: local navigation match (no API call needed) ---
+    const localRoute = localNavMatch(text);
+    if (localRoute) {
+        const botDiv = document.createElement("div");
+        botDiv.className = "message bot";
+        const navText = {
+          en:`Sure! Heading to <strong>${localRoute.label}</strong>.`, hi:`ज़रूर! <strong>${localRoute.label}</strong> पर ले जा रहा हूँ।`,
+          mr:`नक्की! <strong>${localRoute.label}</strong> कडे घेऊन जात आहे.`, bn:`অবশ্যই! <strong>${localRoute.label}</strong>-এ নিয়ে যাচ্ছি।`,
+          gu:`ચોક્કસ! <strong>${localRoute.label}</strong> પર લઈ જઈ રહ્યો છું.`, ta:`நிச்சயமாக! <strong>${localRoute.label}</strong> பகுதிக்கு அழைத்துச் செல்கிறேன்.`,
+          te:`తప్పకుండా! <strong>${localRoute.label}</strong>కి తీసుకెళ్తున్నాను.`, kn:`ಖಂಡಿತ! <strong>${localRoute.label}</strong> ಗೆ ಕರೆದೊಯ್ಯುತ್ತಿದ್ದೇನೆ.`,
+          ml:`തീർച്ചയായും! <strong>${localRoute.label}</strong> ലേക്ക് കൊണ്ടുപോകുന്നു.`, pa:`ਜ਼ਰੂਰ! <strong>${localRoute.label}</strong> ਵੱਲ ਲੈ ਕੇ ਜਾ ਰਿਹਾ ਹਾਂ.`,
+          or:`ନିଶ୍ଚିତ! <strong>${localRoute.label}</strong> କୁ ନେଇଯାଉଛି.`, as:`নিশ্চয়! <strong>${localRoute.label}</strong> লৈ লৈ গৈ আছোঁ.`,
+          ur:`ضرور! <strong>${localRoute.label}</strong> کی طرف لے جا رہا ہوں.`, mai:`जरूर! <strong>${localRoute.label}</strong> पर लऽ जा रहल छी.`,
+          bho:`जरूर! <strong>${localRoute.label}</strong> पर लेके जात बानी.`
+        };
+        botDiv.innerHTML = navText[currentLanguage] || navText.en;
+        messages.appendChild(botDiv);
+        messages.scrollTop = messages.scrollHeight;
+        executeNavigation(localRoute, botDiv);
+        return;
+    }
+
+    // --- FALLBACK PATH: ask the LLM ---
+    const botDiv = document.createElement("div");
+    botDiv.className = "message bot";
+    botDiv.innerHTML = "Thinking...";
+    messages.appendChild(botDiv);
+    messages.scrollTop = messages.scrollHeight;
+
+    conversationHistory.push({ role: "user", content: text });
+
+    try {
+        const liveAnswer = await callGroqAPI(conversationHistory);
+        conversationHistory.push({ role: "assistant", content: liveAnswer });
+        
+        const navMatch = liveAnswer.match(/\[NAVIGATE:([a-z_]+\.html)\]/i);
+        const cleanAnswer = liveAnswer.replace(/\[NAVIGATE:[a-z_]+\.html\]/i, "").trim();
+
+        botDiv.innerHTML = parseMarkdownWithTables(cleanAnswer);
+    
+        if (navMatch) {
+            const targetFile = navMatch[1].toLowerCase();
+            const route = NAV_ROUTES.find(r => r.file === targetFile);
+            if (route) executeNavigation(route, botDiv);
+        }
+    } catch (err) {
+        botDiv.innerHTML = `<span style="color: #ff7b72;">⚠️ ${err.message}</span>`;
+    } finally {
+        messages.scrollTop = messages.scrollHeight;
+    }
+}
+
+async function callGroqAPI(messages) {
+    let lastError = null;
+
+    const localizedMessages = messages.map((m, i) =>
+        i === 0
+            ? {
+                ...m,
+                content: `${m.content}\n\nLANGUAGE RULE: Reply in ${LANGUAGE_NAMES[currentLanguage] || "English"}. Keep [NAVIGATE:filename.html] markers unchanged.`
+            }
+            : m
+    );
+
+    for (const model of ACTIVE_MODELS) {
+        try {
+            const res = await fetch("http://localhost:3001/api/groq", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    model: model,
+                    messages: localizedMessages,
+                    temperature: 0.65,
+                    max_tokens: 1200
+                })
+            });
+
+            if (!res.ok) {
+                const errJson = await res.json().catch(() => ({}));
+                lastError =
+                    errJson.error?.message ||
+                    `HTTP ${res.status}`;
+                continue;
+            }
+
+            const data = await res.json();
+            const reply =
+                data.choices[0]?.message?.content;
+
+            if (reply) return reply;
+
+        } catch (netErr) {
+            lastError = netErr.message;
+        }
+    }
+
+    throw new Error(
+        lastError ||
+        "Could not connect to live model."
+    );
+}
+
+function parseMarkdownWithTables(text) {
+    const tableRegex = /((?:\|[^\n]+\|\r?\n)((?:\|[ \-\:\!\|\.]+\|)\r?\n)(?:\|[^\n]+\|\r?\n?)+)/g;
+    text = text.replace(tableRegex, (match) => {
+        const rows = match.trim().split('\n').map(r => r.trim());
+        if (rows.length < 2) return match;
+        const headers = rows[0].split('|').slice(1, -1).map(h => `<th>${h.trim()}</th>`).join('');
+        const bodyRows = rows.slice(2).map(r => {
+            const cells = r.split('|').slice(1, -1).map(c => `<td>${c.trim()}</td>`).join('');
+            return `<tr>${cells}</tr>`;
+        }).join('');
+        return `<div class="table-wrapper"><table><thead><tr>${headers}</tr></thead><tbody>${bodyRows}</tbody></table></div>`;
+    });
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    text = text.replace(/^\s*[\*\-]\s+(.*)$/gim, '• $1<br>');
+    text = text.replace(/\n\n/g, '<br><br>');
+    return text;
+}
+</script>
+<script src="profile-tracker.js"></script>
+</body>
+</html>

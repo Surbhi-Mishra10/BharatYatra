@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor Property Profile | BharatYatra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; color: #f7f0df; font-family: "DM Sans", sans-serif; background: radial-gradient(circle at 15% 10%, rgba(13, 91, 91, .42), transparent 32%), #050b12; }
+    .navbar { min-height: 74px; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid rgba(225,180,85,.2); background: rgba(4,10,16,.9); }
+    .logo { color: #f4e6c3; font: 700 22px Cinzel, serif; text-decoration: none; letter-spacing: 2px; }
+    .nav-links { display: flex; gap: 18px; align-items: center; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: rgba(255,255,255,.72); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .nav-links a:hover { color: #eab75a; }
+    main { width: min(900px, 92%); margin: 46px auto; }
+    .shell { border: 1px solid rgba(225,180,85,.24); background: rgba(10,20,27,.86); padding: 28px; }
+    .eyebrow { color: #e5b75b; font-size: 11px; letter-spacing: 3px; font-weight: 800; text-transform: uppercase; }
+    h1, h2 { font-family: Cinzel, serif; color: #f4e6c3; }
+    h1 { margin: 8px 0 12px; font-size: clamp(28px, 5vw, 44px); }
+    h2 { font-size: 20px; margin: 0 0 18px; }
+    .muted { color: rgba(255,255,255,.62); line-height: 1.6; }
+    .status { display: inline-block; padding: 8px 13px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 1px; margin: 8px 0 24px; }
+    .pending { color: #f6c453; border: 1px solid #f6c453; background: rgba(246,196,83,.1); }
+    .approved { color: #86efac; border: 1px solid #86efac; background: rgba(134,239,172,.1); }
+    .rejected { color: #fca5a5; border: 1px solid #fca5a5; background: rgba(252,165,165,.1); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    label { display: block; color: #e5b75b; font-size: 11px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; }
+    input, select { width: 100%; padding: 12px; color: #fff; background: #0b151d; border: 1px solid rgba(255,255,255,.16); border-radius: 8px; }
+    input:disabled, select:disabled { opacity: .55; }
+    .full { grid-column: 1 / -1; }
+    button, .button { border: 1px solid #d4af37; border-radius: 8px; padding: 12px 18px; color: #071015; background: #d4af37; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; }
+    .secondary { color: #f3d48c; background: transparent; }
+    .notice { border-left: 3px solid #f6c453; padding: 12px 14px; margin: 16px 0 22px; color: rgba(255,255,255,.7); background: rgba(246,196,83,.07); font-size: 13px; }
+    .hidden { display: none; }
+    @media (max-width: 700px) { .navbar { align-items: flex-start; flex-direction: column; padding: 18px 5%; } .nav-links { flex-wrap: wrap; } .form-grid { grid-template-columns: 1fr; } .full { grid-column: auto; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar"><a class="logo" href="index.html">BharatYatra</a><ul class="nav-links"><li><a href="index.html">Home Page</a></li><li><a href="admin_access.html" id="vendorRegisterLink">Register Property</a></li><li><a href="chatbot.html" id="vendorExploreLink">Explore Bharat</a></li><li><a href="login.html" onclick="logoutVendor(event)">Vendor Logout</a></li></ul></nav>
+  <main>
+    <section id="loginView" class="shell">
+      <div class="eyebrow">Vendor Access</div><h1>Property Profile</h1><p class="muted">Sign in with the vendor ID and password created during property registration.</p>
+      <form onsubmit="vendorLogin(event)"><div class="form-grid"><div><label for="vendorLoginId">Vendor ID</label><input id="vendorLoginId" required></div><div><label for="vendorLoginPassword">Password</label><input id="vendorLoginPassword" type="password" required></div><div class="full"><button type="submit">Open Vendor Profile</button></div></div></form>
+    </section>
+    <section id="profileView" class="shell hidden">
+      <div class="eyebrow">Vendor Property Profile</div><h1 id="propertyName">Property</h1><div id="statusBadge" class="status pending">PENDING VERIFICATION</div>
+      <p id="statusNotice" class="notice">Your documents are under admin review. Your profile is not public and editing is locked until approval.</p>
+      <form onsubmit="saveProfile(event)"><div class="form-grid"><div><label for="propertyType">Property Type</label><select id="propertyType"><option value="hotel">Hotel / Heritage Stay</option><option value="restaurant">Restaurant / Culinary Spot</option><option value="homestay">Homestay</option><option value="hostel">Hostel / PG</option></select></div><div><label for="propertyPrice">Price</label><input id="propertyPrice" type="number" min="0" required></div><div><label for="propertyCity">City / Location</label><input id="propertyCity" required></div><div><label for="propertyEmail">Contact Email</label><input id="propertyEmail" type="email" required></div><div class="full"><label for="propertyDescription">Description / Important Details</label><input id="propertyDescription" placeholder="Rooms, cuisine, amenities, timings, policies, and other public details"></div><div class="full"><button id="saveButton" type="submit">Save Profile Changes</button> <a class="button secondary" href="chatbot.html">Explore Bharat</a></div></div></form>
+    </section>
+  </main>
+  <script>
+    let currentProperty;
+    const readProperties = () => { try { return JSON.parse(localStorage.getItem('bharat_partner_props') || '[]'); } catch { return []; } };
+    const saveProperties = properties => localStorage.setItem('bharat_partner_props', JSON.stringify(properties));
+    function showProperty(property) {
+      currentProperty = property;
+      document.getElementById('loginView').classList.add('hidden');
+      document.getElementById('profileView').classList.remove('hidden');
+      document.getElementById('propertyName').textContent = property.name;
+      const status = property.verificationStatus || 'Pending verification';
+      const badge = document.getElementById('statusBadge');
+      badge.textContent = status.toUpperCase(); badge.className = `status ${status === 'Approved' ? 'approved' : status === 'Rejected' ? 'rejected' : 'pending'}`;
+      document.getElementById('statusNotice').textContent = status === 'Approved' ? 'Approved by BharatYatra admin. Your profile can now be updated and published.' : status === 'Rejected' ? 'This registration was rejected. Contact BharatYatra administration for the required corrections.' : 'Your documents are under admin review. Your profile is not public and editing is locked until approval.';
+      document.getElementById('propertyType').value = property.type;
+      document.getElementById('propertyPrice').value = property.price;
+      document.getElementById('propertyCity').value = property.city;
+      document.getElementById('propertyEmail').value = property.email;
+      document.getElementById('propertyDescription').value = property.description || '';
+      const editable = status === 'Approved';
+      document.getElementById('vendorRegisterLink').style.display = 'none';
+      document.getElementById('vendorExploreLink').style.display = 'none';
+      document.querySelectorAll('#profileView input, #profileView select').forEach(input => input.disabled = !editable);
+      document.getElementById('saveButton').disabled = !editable;
+    }
+    function vendorLogin(event) {
+      event.preventDefault();
+      const id = document.getElementById('vendorLoginId').value.trim();
+      const password = document.getElementById('vendorLoginPassword').value;
+      const property = readProperties().find(item => item.vendorId === id && item.vendorPassword === password);
+      if (!property) { alert('Invalid vendor ID or password.'); return; }
+      if (property.verificationStatus !== 'Approved') { alert('Your vendor account is waiting for admin document verification. Login is available after approval.'); return; }
+      localStorage.setItem('bharatVendorSession', JSON.stringify({ vendorId: id, propertyId: property.id })); showProperty(property);
+    }
+    function saveProfile(event) {
+      event.preventDefault();
+      if (!currentProperty || currentProperty.verificationStatus !== 'Approved') return;
+      const properties = readProperties(); const index = properties.findIndex(item => item.id === currentProperty.id); if (index < 0) return;
+      properties[index] = { ...properties[index], type: document.getElementById('propertyType').value, price: document.getElementById('propertyPrice').value, city: document.getElementById('propertyCity').value, email: document.getElementById('propertyEmail').value, description: document.getElementById('propertyDescription').value, updatedAt: new Date().toLocaleDateString() };
+      saveProperties(properties); showProperty(properties[index]); alert('Vendor profile updated.');
+    }
+    function logoutVendor(event) { event.preventDefault(); localStorage.removeItem('bharatVendorSession'); window.location.href = 'login.html'; }
+    const session = (() => { try { return JSON.parse(localStorage.getItem('bharatVendorSession') || 'null'); } catch { return null; } })();
+    const propertyFromUrl = new URLSearchParams(location.search).get('property');
+    const sessionProperty = readProperties().find(item => item.id === session?.propertyId && item.verificationStatus === 'Approved');
+    const pendingProperty = readProperties().find(item => item.id === propertyFromUrl && item.verificationStatus !== 'Approved');
+    const property = sessionProperty || pendingProperty;
+    if (property) showProperty(property);
+  </script>
+<script src="form-controls.js"></script>
+</body>
+</html>

@@ -1,0 +1,3715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BharatYatra | AI Travel Planner</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        :root {
+            --bg-dark: #0a0b0d;
+            --card-bg: rgba(18, 20, 26, 0.85);
+            --gold-primary: #d4af37;
+            --gold-hover: #f3e5ab;
+            --gold-glow: rgba(212, 175, 55, 0.25);
+            --text-muted: #9ba1a6;
+            --text-light: #f5f5f7;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --input-bg: rgba(255, 255, 255, 0.04);
+            --bot-msg-bg: rgba(25, 28, 36, 0.95);
+
+            --user-msg-bg: linear-gradient(
+                135deg,
+                rgba(212, 175, 55, 0.22),
+                rgba(179, 135, 40, 0.16)
+            );
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+
+            background-image:
+                radial-gradient(
+                    circle at 20% 15%,
+                    rgba(212, 175, 55, 0.06) 0%,
+                    transparent 45%
+                ),
+                radial-gradient(
+                    circle at 80% 85%,
+                    rgba(212, 175, 55, 0.05) 0%,
+                    transparent 50%
+                );
+
+            overflow: hidden;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 4rem;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(10, 11, 13, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold-primary);
+        }
+
+        .user-profile-btn {
+            border: 1px solid var(--gold-primary);
+            padding: 0.45rem 1.2rem;
+            border-radius: 999px;
+            color: var(--gold-primary) !important;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .chat-layout {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding: 1.2rem 1.5rem;
+            height: calc(100vh - 80px);
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 1020px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.6),
+                0 0 30px var(--gold-glow);
+
+            position: relative;
+        }
+
+        /* =========================
+           CHAT HEADER
+        ========================= */
+
+        .chat-header {
+            padding: 1.1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .chat-title h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            letter-spacing: 1px;
+        }
+
+        .chat-title p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .chat-status {
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold-primary);
+            box-shadow: 0 0 8px var(--gold-primary);
+        }
+
+        /* =========================
+           ROUTE MODAL
+        ========================= */
+
+        .route-modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 11, 13, 0.94);
+            backdrop-filter: blur(14px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .route-card {
+            width: 100%;
+            max-width: 580px;
+            background: rgba(18, 20, 26, 0.97);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 2.2rem 2.5rem;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.85),
+                0 0 25px var(--gold-glow);
+
+            text-align: center;
+        }
+
+        .route-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-primary);
+            font-size: 1.45rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: 1px;
+        }
+
+        .route-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .route-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            text-align: left;
+        }
+
+        .route-field label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--gold-hover);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .route-field input,
+        .route-field select {
+            width: 100%;
+            padding: 0.85rem 1.1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 0.92rem;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .route-field select option {
+            background: #12141a;
+            color: #fff;
+        }
+
+        .route-field input:focus,
+        .route-field select:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 12px var(--gold-glow);
+        }
+
+        .start-plan-btn {
+            margin-top: 1.6rem;
+            width: 100%;
+            padding: 0.95rem;
+
+            background: linear-gradient(
+                135deg,
+                var(--gold-primary),
+                #b38728
+            );
+
+            border: none;
+            border-radius: 12px;
+            color: #0a0b0d;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            letter-spacing: 0.6px;
+            transition: all 0.25s ease;
+        }
+
+        .start-plan-btn:hover {
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+            transform: translateY(-1px);
+        }
+
+        .start-plan-btn:active {
+            transform: translateY(0);
+        }
+
+        /* =========================
+           ACTIVE TRIP
+        ========================= */
+
+        .active-trip-banner {
+            display: none;
+            background: rgba(212, 175, 55, 0.08);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.6rem 2rem;
+            font-size: 0.82rem;
+            color: var(--gold-hover);
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .active-trip-banner button {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            border-radius: 6px;
+            padding: 0.25rem 0.65rem;
+            font-size: 0.72rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .active-trip-banner button:hover {
+            color: var(--gold-primary);
+            border-color: var(--gold-primary);
+        }
+
+        /* =========================
+           MESSAGES
+        ========================= */
+
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) transparent;
+        }
+
+        .message {
+            display: flex;
+            gap: 1rem;
+            max-width: 90%;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message.bot {
+            align-self: flex-start;
+            max-width: 95%;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .bot-avatar {
+            background: var(--gold-primary);
+            color: #0a0b0d;
+            box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        .user-avatar {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            color: var(--gold-hover);
+        }
+
+        .msg-bubble {
+            padding: 1.1rem 1.35rem;
+            border-radius: 16px;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            overflow-x: auto;
+        }
+
+        .bot .msg-bubble {
+            background: var(--bot-msg-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            border-top-left-radius: 4px;
+        }
+
+        .user .msg-bubble {
+            background: var(--user-msg-bg);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #fff;
+            border-top-right-radius: 4px;
+        }
+
+        /* =========================
+           TABLES
+        ========================= */
+
+        .msg-bubble .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: rgba(10, 11, 13, 0.6);
+        }
+
+        .msg-bubble table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.86rem;
+            text-align: left;
+        }
+
+        .msg-bubble th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-hover);
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        .msg-bubble td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #e6e8eb;
+            vertical-align: top;
+        }
+
+        .msg-bubble tr:last-child td {
+            border-bottom: none;
+        }
+
+        .msg-bubble tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* =========================
+           ONE-TICKET CTA
+        ========================= */
+
+        .ticket-cta-card {
+            margin-top: 1.25rem;
+            padding: 1.2rem 1.4rem;
+            border: 1px dashed var(--gold-primary);
+            border-radius: 14px;
+
+            background: linear-gradient(
+                135deg,
+                rgba(212, 175, 55, 0.09),
+                rgba(18, 20, 26, 0.7)
+            );
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .ticket-cta-card h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-hover);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .ticket-cta-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .cta-book-btn {
+            padding: 0.65rem 1.4rem;
+
+            background: linear-gradient(
+                135deg,
+                var(--gold-primary),
+                #b38728
+            );
+
+            color: #0a0b0d;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            font-size: 0.86rem;
+            white-space: nowrap;
+            transition: all 0.25s ease;
+            display: inline-block;
+        }
+
+        .cta-book-btn:hover {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           TYPING
+        ========================= */
+
+        .typing-indicator {
+            display: inline-flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .typing-indicator span {
+            width: 6px;
+            height: 6px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            display: inline-block;
+
+            animation:
+                bounce 1.4s infinite
+                ease-in-out both;
+        }
+
+        .typing-indicator span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+                opacity: 0.3;
+            }
+
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* =========================
+           QUICK CHIPS
+        ========================= */
+
+        .quick-chips {
+            display: flex;
+            gap: 0.6rem;
+            padding: 0 2rem 1rem;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .chip-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            border-radius: 999px;
+            padding: 0.45rem 1rem;
+            font-size: 0.78rem;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.25s ease;
+        }
+
+        .chip-btn:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        /* =========================
+           CHAT FOOTER
+        ========================= */
+
+        .chat-footer {
+            padding: 1.1rem 2rem;
+            border-top: 1px solid var(--border-color);
+            background: rgba(10, 11, 13, 0.85);
+        }
+
+        .chat-form {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.9rem 1.2rem;
+            background: var(--input-bg);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 12px;
+            color: var(--text-light);
+            font-size: 0.92rem;
+            font-family: inherit;
+            outline: none;
+
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .chat-input:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 12px var(--gold-glow);
+        }
+
+        .send-btn {
+            padding: 0 1.6rem;
+
+            background: linear-gradient(
+                135deg,
+                var(--gold-primary),
+                #b38728
+            );
+
+            border: none;
+            border-radius: 12px;
+            color: #0a0b0d;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .send-btn:hover {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* =========================
+           DATE SECTION
+        ========================= */
+
+        .date-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 18px;
+            margin-bottom: 18px;
+        }
+
+        .date-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .date-field label {
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .date-field input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid var(--gold-primary);
+            background: rgba(255, 255, 255, 0.04);
+            color: inherit;
+        }
+
+        .date-field small {
+            margin-top: 5px;
+            opacity: 0.65;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .date-row {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+                overflow-x: auto;
+            }
+
+            .chat-layout {
+                padding: 0.5rem;
+            }
+
+            .route-card {
+                padding: 1.5rem;
+            }
+
+            .ticket-cta-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        BharatYatra
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">
+                Home Page
+            </a>
+        </li>
+
+        <li>
+            <a href="chatbot.html" class="active">
+                AI Itinerary
+            </a>
+        </li>
+
+        <li>
+            <a 
+            href="javascript:void(0);"
+            id="oneTicketNavLink"
+            onclick="return requireCompletedItinerary(event);"
+            >
+                One-Ticket Pass
+            </a>
+        </li>
+
+        <li>
+            <a href="crafts.html">
+                Crafts
+            </a>
+        </li>
+
+        <li>
+            <a href="gi_tag.html">
+                GI Tag Products
+            </a>
+        </li>
+
+        <li>
+            <a href="calendar.html">
+                Calendar
+            </a>
+        </li>
+
+        <li>
+            <a href="unesco_sites.html">
+                UNESCO Sites
+            </a>
+        </li>
+
+        <li>
+            <a href="destinations.html">
+                Tourist Spots
+            </a>
+        </li>
+
+        <li>
+            <a
+                id="navUserBadge"
+                class="user-profile-btn"
+            >
+                TRAVELER
+            </a>
+        </li>
+        <li>
+            <a href="profile.html">
+                My Profile
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+
+<!-- =========================
+     CITY DATALIST
+========================= -->
+
+<datalist id="indianCitiesList">
+
+    <option value="Agra, Uttar Pradesh">
+    <option value="Ahmedabad, Gujarat">
+    <option value="Ajmer, Rajasthan">
+    <option value="Alappuzha (Alleppey), Kerala">
+    <option value="Amritsar, Punjab">
+    <option value="Aurangabad (Chhatrapati Sambhajinagar), Maharashtra">
+    <option value="Ayodhya, Uttar Pradesh">
+    <option value="Badami, Karnataka">
+    <option value="Bengaluru, Karnataka">
+    <option value="Bhopal, Madhya Pradesh">
+    <option value="Bhubaneswar, Odisha">
+    <option value="Chandigarh">
+    <option value="Chennai, Tamil Nadu">
+    <option value="Coorg (Madikeri), Karnataka">
+    <option value="Darjeeling, West Bengal">
+    <option value="Dehradun, Uttarakhand">
+    <option value="Delhi (NCR)">
+    <option value="Gangtok, Sikkim">
+    <option value="Goa (Panaji & Madgaon)">
+    <option value="Gwalior, Madhya Pradesh">
+    <option value="Hampi, Karnataka">
+    <option value="Haridwar, Uttarakhand">
+    <option value="Hyderabad, Telangana">
+    <option value="Jaipur, Rajasthan">
+    <option value="Jaisalmer, Rajasthan">
+    <option value="Jammu, Jammu & Kashmir">
+    <option value="Jodhpur, Rajasthan">
+    <option value="Kanyakumari, Tamil Nadu">
+    <option value="Kochi, Kerala">
+    <option value="Kolkata, West Bengal">
+    <option value="Leh, Ladakh">
+    <option value="Lucknow, Uttar Pradesh">
+    <option value="Madurai, Tamil Nadu">
+    <option value="Manali, Himachal Pradesh">
+    <option value="Mumbai, Maharashtra">
+    <option value="Munnar, Kerala">
+    <option value="Mysuru, Karnataka">
+    <option value="Nashik, Maharashtra">
+    <option value="Ooty, Tamil Nadu">
+    <option value="Patna, Bihar">
+    <option value="Puducherry (Pondicherry)">
+    <option value="Pune, Maharashtra">
+    <option value="Puri & Konark, Odisha">
+    <option value="Pushkar, Rajasthan">
+    <option value="Rameshwaram, Tamil Nadu">
+    <option value="Rishikesh, Uttarakhand">
+    <option value="Shillong, Meghalaya">
+    <option value="Shimla, Himachal Pradesh">
+    <option value="Srinagar, Jammu & Kashmir">
+    <option value="Surat, Gujarat">
+    <option value="Tirupati, Andhra Pradesh">
+    <option value="Udaipur, Rajasthan">
+    <option value="Ujjain, Madhya Pradesh">
+    <option value="Vadodara, Gujarat">
+    <option value="Varanasi (Kashi), Uttar Pradesh">
+    <option value="Visakhapatnam, Andhra Pradesh">
+
+</datalist>
+
+
+<!-- =========================
+     MAIN CHAT
+========================= -->
+
+<main class="chat-layout">
+
+    <div class="chat-container">
+
+
+        <!-- =========================
+             ROUTE MODAL
+        ========================= -->
+
+        <div
+            class="route-modal-overlay"
+            id="routeModal"
+        >
+
+            <div class="route-card">
+
+                <h3>
+                    Plan Your Cultural Yatra
+                </h3>
+
+                <p>
+                    Search your origin and destination
+                    across India to craft a customized
+                    itinerary.
+                </p>
+
+
+                <form
+                    id="routeForm"
+                    onsubmit="submitRoute(event)"
+                >
+
+                    <div class="route-fields">
+
+
+                        <div class="route-field">
+
+                            <label for="sourceCity">
+                                Origin City
+                                (Type to Search)
+                            </label>
+
+                            <input
+                                type="text"
+                                id="sourceCity"
+                                list="indianCitiesList"
+                                placeholder="e.g., Mumbai, Delhi, Pune, Bengaluru..."
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="route-field">
+
+                            <label for="destCity">
+                                Destination City /
+                                Heritage Hub
+                            </label>
+
+                            <input
+                                type="text"
+                                id="destCity"
+                                list="indianCitiesList"
+                                placeholder="e.g., Varanasi, Jaipur, Hampi, Jammu..."
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="route-field">
+
+                            <label for="tripDays">
+                                Duration (Days)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="tripDays"
+                                min="1"
+                                max="60"
+                                placeholder="e.g., 5, 7, 10, 14..."
+                                required
+                            >
+
+
+                            <div class="date-row">
+
+                                <div class="date-field">
+
+                                    <label for="travelStartDate">
+                                        FROM DATE
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="travelStartDate"
+                                        min="2026-01-01"
+                                        max="2099-12-31"
+                                        required
+                                    >
+
+                                    <small>
+                                        Calendar selection
+                                    </small>
+
+                                </div>
+
+
+                                <div class="date-field">
+
+                                    <label for="travelEndDate">
+                                        TO DATE
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="travelEndDate"
+                                        min="2026-01-01"
+                                        max="2099-12-31"
+                                        required
+                                    >
+
+                                    <small>
+                                        Calendar selection
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="start-plan-btn"
+                    >
+                        Generate Tailored Yatra
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CHAT HEADER
+        ========================= -->
+
+        <div class="chat-header">
+
+            <div class="chat-title">
+
+                <h2>
+                    Bharat AI Guide
+                </h2>
+
+                <p>
+                    Powered by BharatYatra AI •
+                    Real-Time Cultural Travel Planning
+                </p>
+
+            </div>
+
+
+            <div class="chat-status">
+
+                <span class="status-dot"></span>
+
+                Live Companion
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             TRIP BANNER
+        ========================= -->
+
+        <div
+            class="active-trip-banner"
+            id="tripBanner"
+        >
+
+            <span id="tripBannerText">
+                Route: Not Selected
+            </span>
+
+            <button
+                type="button"
+                onclick="resetRoute()"
+            >
+                Change Route
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             CHAT MESSAGES
+        ========================= -->
+
+        <div
+            class="chat-messages"
+            id="chatMessages"
+        ></div>
+
+
+        <!-- =========================
+             QUICK CHIPS
+        ========================= -->
+
+        <div
+            class="quick-chips"
+            id="quickChips"
+            style="display:none;"
+        >
+
+            <button
+                type="button"
+                class="chip-btn"
+                onclick="sendPrompt('Show detailed budget breakdown table: Backpacker vs Luxury')"
+            >
+                Budget Table
+            </button>
+
+            <button
+                type="button"
+                class="chip-btn"
+                onclick="sendPrompt('Provide a table of authentic GI Tag craft souvenirs, origin town, and where to buy')"
+            >
+                GI Crafts Table
+            </button>
+
+            <button
+                type="button"
+                class="chip-btn"
+                onclick="sendPrompt('Give me a table of top 5 must-try local foods and iconic eateries')"
+            >
+                Food Guide Table
+            </button>
+
+            <button
+                type="button"
+                class="chip-btn"
+                onclick="sendPrompt('Compare flight vs train transit options in a comparison table')"
+            >
+                Transit Modes
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             CHAT FOOTER
+        ========================= -->
+
+        <div class="chat-footer">
+
+            <form
+                class="chat-form"
+                id="chatForm"
+                onsubmit="handleSend(event)"
+            >
+
+                <input
+                    type="text"
+                    id="userInput"
+                    class="chat-input"
+                    placeholder="Select a route above to begin..."
+                    autocomplete="off"
+                    disabled
+                    required
+                >
+
+                <button
+                    type="submit"
+                    id="sendBtn"
+                    class="send-btn"
+                    disabled
+                >
+                    Send
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+"use strict";
+
+
+/* =========================================================
+   GROQ CONFIGURATION
+========================================================= */
+
+const ACTIVE_MODELS = [
+
+    "openai/gpt-oss-120b",
+
+    "openai/gpt-oss-20b",
+
+    "qwen/qwen3.6-27b"
+
+];
+
+
+/* =========================================================
+   AI SYSTEM INSTRUCTION
+========================================================= */
+
+const SYSTEM_INSTRUCTION = `
+
+You are "Bharat AI", the premier cultural travel
+companion of BharatYatra.
+
+When providing travel itineraries,
+transit comparisons, budget breakdowns,
+stays, and culinary guides:
+
+1. ALWAYS format multi-attribute comparisons
+   as clean Markdown Tables.
+
+2. For Day-by-Day plans, use:
+
+| Day | Region / City | Morning & Afternoon Heritage Plan | Evening Rituals & Night Stay |
+
+3. For Travel Modes, provide a table comparing:
+
+Flight | Train | Road
+
+with:
+
+Duration | Estimated Cost | Pros | Cons
+
+4. For Budget, provide a table comparing:
+
+Budget | Mid-Range | Luxury
+
+5. Provide cultural context, GI craft souvenirs,
+   and iconic cuisine recommendations with
+   bold headers and bullet points.
+
+6. Do not use unfinished sentences.
+
+7. Do not use ellipses such as "...".
+
+8. Do not leave incomplete brackets.
+
+9. Do not leave incomplete quotations.
+
+10. When using bullet points, provide at least
+    3 complete bullet points.
+
+11. Keep the itinerary consistent with the
+    requested travel dates.
+
+12. Do not change the requested destination
+    or travel duration.
+
+13. Never silently replace the user's selected
+    dates with today's date.
+
+14. Never silently change the user's selected
+    origin or destination.
+
+`;
+
+
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
+
+let conversationHistory = [
+
+    {
+        role: "system",
+        content: SYSTEM_INSTRUCTION
+    }
+
+];
+
+
+let travelerName = "Traveler";
+
+let activeSource = "";
+
+let activeDest = "";
+
+let activeDays = "";
+
+let activeStartDate = "";
+
+let activeEndDate = "";
+
+
+/* =========================================================
+   DOM REFERENCES
+========================================================= */
+
+const chatMessages =
+    document.getElementById("chatMessages");
+
+const userInput =
+    document.getElementById("userInput");
+
+const sendBtn =
+    document.getElementById("sendBtn");
+
+const routeModal =
+    document.getElementById("routeModal");
+
+const tripBanner =
+    document.getElementById("tripBanner");
+
+const tripBannerText =
+    document.getElementById("tripBannerText");
+
+const quickChips =
+    document.getElementById("quickChips");
+
+const routeForm =
+    document.getElementById("routeForm");
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+}
+
+
+/* =========================================================
+   DATE FORMAT
+========================================================= */
+
+function formatDateForDisplay(dateString) {
+
+    if (!dateString) {
+        return "";
+    }
+
+    const date =
+        new Date(
+            dateString + "T00:00:00"
+        );
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return dateString;
+
+    }
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+}
+
+function logoutFromTicketPage(event) {
+  event.preventDefault();
+
+  localStorage.removeItem("bharatUser");
+  sessionStorage.removeItem("bharatYatraItineraryCompleted");
+
+  window.location.href = "login.html";
+}
+
+/* =========================================================
+   RESET FORM COMPLETELY
+========================================================= */
+
+function clearRouteForm() {
+
+    const source =
+        document.getElementById(
+            "sourceCity"
+        );
+
+    const destination =
+        document.getElementById(
+            "destCity"
+        );
+
+    const days =
+        document.getElementById(
+            "tripDays"
+        );
+
+    const startDate =
+        document.getElementById(
+            "travelStartDate"
+        );
+
+    const endDate =
+        document.getElementById(
+            "travelEndDate"
+        );
+
+
+    if (source) {
+        source.value = "";
+    }
+
+    if (destination) {
+        destination.value = "";
+    }
+
+    if (days) {
+        days.value = "";
+    }
+
+    if (startDate) {
+        startDate.value = "";
+    }
+
+    if (endDate) {
+        endDate.value = "";
+    }
+
+}
+
+
+/* =========================================================
+   INITIALIZE AS A COMPLETELY NEW TRIP
+========================================================= */
+
+function initializeFreshTrip() {
+
+sessionStorage.removeItem("bharatYatraItineraryCompleted");
+sessionStorage.removeItem("bharatYatraTripContext");
+
+    /*
+       VERY IMPORTANT:
+
+       We intentionally DO NOT restore these:
+
+       bharatTripOrigin
+       bharatTripDestination
+       bharatTripDays
+       bharatTripStartDate
+       bharatTripEndDate
+
+       from localStorage.
+
+       This means refreshing chatbot.html gives
+       the user a completely fresh route form.
+    */
+
+    clearRouteForm();
+
+
+    activeSource = "";
+
+    activeDest = "";
+
+    activeDays = "";
+
+    activeStartDate = "";
+
+    activeEndDate = "";
+
+
+    conversationHistory = [
+
+        {
+            role: "system",
+            content: SYSTEM_INSTRUCTION
+        }
+
+    ];
+
+
+    if (chatMessages) {
+        chatMessages.innerHTML = "";
+    }
+
+
+    if (tripBanner) {
+
+        tripBanner.style.display =
+            "none";
+
+    }
+
+
+    if (quickChips) {
+
+        quickChips.style.display =
+            "none";
+
+    }
+
+
+    if (userInput) {
+
+        userInput.disabled =
+            true;
+
+        userInput.value = "";
+
+        userInput.placeholder =
+            "Select a route above to begin...";
+
+    }
+
+
+    if (sendBtn) {
+
+        sendBtn.disabled =
+            true;
+
+    }
+
+
+    if (routeModal) {
+
+        routeModal.style.display =
+            "flex";
+
+    }
+
+}
+
+
+/* =========================================================
+   USER SESSION
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const stored =
+            localStorage.getItem(
+                "bharatUser"
+            );
+
+
+        if (stored) {
+
+            try {
+
+                const user =
+                    JSON.parse(stored);
+
+
+                const navBadge =
+                    document.getElementById(
+                        "navUserBadge"
+                    );
+
+
+                if (
+                    navBadge &&
+                    user &&
+                    user.name
+                ) {
+
+                    navBadge.textContent =
+                        user.name.toUpperCase();
+
+                    travelerName =
+                        user.name;
+
+                }
+
+            } catch (err) {
+
+                console.error(
+                    "Error reading user session:",
+                    err
+                );
+
+            }
+
+        }
+
+
+        /*
+           Always start fresh.
+
+           This is the important fix for the
+           old destination/date/duration problem.
+        */
+
+        initializeFreshTrip();
+
+    }
+);
+
+
+/* =========================================================
+   APPEND MESSAGE
+========================================================= */
+
+function appendMessage(
+    sender,
+    htmlContent
+) {
+
+    const msgDiv =
+        document.createElement(
+            "div"
+        );
+
+
+    msgDiv.className =
+        `message ${sender}`;
+
+
+    const avatar =
+        document.createElement(
+            "div"
+        );
+
+
+    avatar.className =
+        `avatar ${sender}-avatar`;
+
+
+    avatar.textContent =
+        sender === "bot"
+            ? "BY"
+            : "YOU";
+
+
+    const bubble =
+        document.createElement(
+            "div"
+        );
+
+
+    bubble.className =
+        "msg-bubble";
+
+
+    bubble.innerHTML =
+        htmlContent;
+
+
+    msgDiv.appendChild(
+        avatar
+    );
+
+
+    msgDiv.appendChild(
+        bubble
+    );
+
+
+    chatMessages.appendChild(
+        msgDiv
+    );
+
+
+    chatMessages.scrollTop =
+        chatMessages.scrollHeight;
+
+
+    return bubble;
+
+}
+
+
+/* =========================================================
+   QUICK PROMPT
+========================================================= */
+
+function sendPrompt(text) {
+
+    if (
+        !userInput ||
+        userInput.disabled
+    ) {
+
+        return;
+
+    }
+
+
+    userInput.value =
+        text;
+
+
+    handleSend({
+        preventDefault() {}
+    });
+
+}
+
+
+/* =========================================================
+   RESET ROUTE / CHANGE ROUTE
+========================================================= */
+
+function resetRoute() {
+
+sessionStorage.removeItem("bharatYatraItineraryCompleted");
+sessionStorage.removeItem("bharatYatraTripContext");
+
+    /*
+       When the user intentionally clicks
+       "Change Route", start a new planning
+       session.
+    */
+
+    activeSource = "";
+
+    activeDest = "";
+
+    activeDays = "";
+
+    activeStartDate = "";
+
+    activeEndDate = "";
+
+
+    conversationHistory = [
+
+        {
+            role: "system",
+            content: SYSTEM_INSTRUCTION
+        }
+
+    ];
+
+
+    chatMessages.innerHTML =
+        "";
+
+
+    clearRouteForm();
+
+
+    tripBanner.style.display =
+        "none";
+
+
+    quickChips.style.display =
+        "none";
+
+
+    userInput.disabled =
+        true;
+
+
+    sendBtn.disabled =
+        true;
+
+
+    userInput.value =
+        "";
+
+
+    userInput.placeholder =
+        "Select a route above to begin...";
+
+
+    routeModal.style.display =
+        "flex";
+
+}
+
+
+/* =========================================================
+   ONE-TICKET CTA
+========================================================= */
+
+function buildOneTicketCard(
+    source,
+    dest,
+    days,
+    startDate,
+    endDate
+) {
+
+    const params =
+        new URLSearchParams();
+
+
+    params.set(
+        "origin",
+        source
+    );
+
+
+    params.set(
+        "dest",
+        dest
+    );
+
+
+    params.set(
+        "days",
+        String(days)
+    );
+
+
+    params.set(
+        "startDate",
+        startDate
+    );
+
+
+    params.set(
+        "endDate",
+        endDate
+    );
+
+    params.set(
+        "destination",
+        dest
+    );
+
+    params.set(
+        "nights",
+        String(Math.max(Number(days) - 1, 0))
+    );
+
+    return `
+
+        <div class="ticket-cta-card">
+
+            <div>
+
+                <h4>
+                    Turn this plan into a
+                    One-Ticket Pass
+                </h4>
+
+                <p>
+
+                    Bundle your transit,
+                    heritage stay, and tourist-site
+                    tickets for
+
+                    ${escapeHtml(source)}
+
+                    ➔
+
+                    ${escapeHtml(dest)}
+
+                    (${escapeHtml(days)} Days)
+
+                    from
+
+                    ${escapeHtml(
+                        formatDateForDisplay(
+                            startDate
+                        )
+                    )}
+
+                    to
+
+                    ${escapeHtml(
+                        formatDateForDisplay(
+                            endDate
+                        )
+                    )}
+
+                    into a unified
+                    verifiable pass.
+
+                </p>
+
+            </div>
+
+            <a
+                href="ticket_generator.html?${params.toString()}"
+                class="cta-book-btn"
+                onclick="return unlockOneTicketPass(event);"
+            >
+
+                Issue One-Ticket ➔
+
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   SUBMIT ROUTE
+========================================================= */
+
+async function submitRoute(e) {
+
+    if (e) {
+        e.preventDefault();
+    }
+
+
+    const sourceInput =
+        document.getElementById(
+            "sourceCity"
+        );
+
+
+    const destInput =
+        document.getElementById(
+            "destCity"
+        );
+
+
+    const daysInput =
+        document.getElementById(
+            "tripDays"
+        );
+
+
+    const startInput =
+        document.getElementById(
+            "travelStartDate"
+        );
+
+
+    const endInput =
+        document.getElementById(
+            "travelEndDate"
+        );
+
+
+    if (
+        !sourceInput ||
+        !destInput ||
+        !daysInput ||
+        !startInput ||
+        !endInput
+    ) {
+
+        alert(
+            "Route form could not be loaded correctly."
+        );
+
+        return;
+
+    }
+
+
+    const source =
+        sourceInput.value.trim();
+
+
+    const dest =
+        destInput.value.trim();
+
+
+    const startDate =
+        startInput.value;
+
+
+    const endDate =
+        endInput.value;
+
+
+    /* =========================
+       BASIC VALIDATION
+    ========================= */
+
+    if (!source) {
+
+        alert(
+            "Please enter your origin city."
+        );
+
+        sourceInput.focus();
+
+        return;
+
+    }
+
+
+    if (!dest) {
+
+        alert(
+            "Please enter your destination city."
+        );
+
+        destInput.focus();
+
+        return;
+
+    }
+
+
+    if (
+        source.toLowerCase() ===
+        dest.toLowerCase()
+    ) {
+
+        alert(
+            "Please select a destination that differs from your starting point."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !startDate ||
+        !endDate
+    ) {
+
+        alert(
+            "Please select both From Date and To Date."
+        );
+
+        return;
+
+    }
+
+
+    const start =
+        new Date(
+            startDate + "T00:00:00"
+        );
+
+
+    const end =
+        new Date(
+            endDate + "T00:00:00"
+        );
+
+
+    if (
+        Number.isNaN(start.getTime()) ||
+        Number.isNaN(end.getTime())
+    ) {
+
+        alert(
+            "Please select valid travel dates."
+        );
+
+        return;
+
+    }
+
+
+    if (end < start) {
+
+        alert(
+            "The To Date cannot be before the From Date."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Selected dates are authoritative.
+
+       Example:
+
+       20 Sep → 27 Sep
+       = 8 calendar days
+       = 7 nights
+    */
+
+    const actualDays =
+        Math.round(
+            (
+                end.getTime() -
+                start.getTime()
+            ) /
+            (1000 * 60 * 60 * 24)
+        ) + 1;
+
+
+    const actualNights =
+        Math.max(
+            actualDays - 1,
+            0
+        );
+
+
+    if (
+        actualDays < 1 ||
+        actualDays > 60
+    ) {
+
+        alert(
+            "Please select a travel period between 1 and 60 days."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Duration is automatically synchronized
+       with the actual calendar dates.
+    */
+
+    daysInput.value =
+        actualDays;
+
+
+    activeSource =
+        source;
+
+
+    activeDest =
+        dest;
+
+
+    activeDays =
+        String(actualDays);
+
+
+    activeStartDate =
+        startDate;
+
+
+    activeEndDate =
+        endDate;
+
+
+    /* =========================
+       SAVE THE CURRENT TRIP
+
+       These values are saved only AFTER
+       the user submits the form.
+
+       They are NOT restored when chatbot.html
+       is refreshed.
+    ========================= */
+
+    localStorage.setItem(
+        "bharatTripOrigin",
+        source
+    );
+
+
+    localStorage.setItem(
+        "bharatTripDestination",
+        dest
+    );
+
+
+    localStorage.setItem(
+        "bharatTripDays",
+        String(actualDays)
+    );
+
+
+    localStorage.setItem(
+        "bharatTripStartDate",
+        startDate
+    );
+
+
+    localStorage.setItem(
+        "bharatTripEndDate",
+        endDate
+    );
+
+
+    /* =========================
+       UPDATE BANNER
+    ========================= */
+
+    tripBanner.style.display =
+        "flex";
+
+
+    tripBannerText.innerHTML = `
+
+        <strong>
+            Selected Route:
+        </strong>
+
+        ${escapeHtml(source)}
+
+        →
+
+        ${escapeHtml(dest)}
+
+        (${actualDays} Days)
+
+        •
+
+        ${escapeHtml(
+            formatDateForDisplay(
+                startDate
+            )
+        )}
+
+        -
+
+        ${escapeHtml(
+            formatDateForDisplay(
+                endDate
+            )
+        )}
+
+    `;
+
+
+    /* =========================
+       CLOSE MODAL
+    ========================= */
+
+    routeModal.style.display =
+        "none";
+
+
+    /* =========================
+       ENABLE CHAT
+    ========================= */
+
+    quickChips.style.display =
+        "flex";
+
+
+    userInput.disabled =
+        false;
+
+
+    sendBtn.disabled =
+        false;
+
+
+    userInput.placeholder =
+        `Ask anything about your ${source} to ${dest} trip...`;
+
+
+    /* =========================
+       CLEAR OLD CHAT
+    ========================= */
+
+    chatMessages.innerHTML =
+        "";
+
+        sessionStorage.setItem(
+    "bharatYatraItineraryCompleted",
+    "true"
+);
+
+    conversationHistory = [
+
+        {
+            role: "system",
+            content: SYSTEM_INSTRUCTION
+        }
+
+    ];
+
+
+    /* =========================
+       WELCOME MESSAGE
+    ========================= */
+
+    appendMessage(
+        "bot",
+        `
+
+        Namaste,
+        <strong>
+            ${escapeHtml(travelerName)}
+        </strong>!
+
+        Welcome to your personalized
+        <strong>
+            BharatYatra Planner
+        </strong>.
+
+        <br><br>
+
+        You have selected a
+
+        <strong>
+            ${actualDays}-day cultural circuit
+            from
+            ${escapeHtml(source)}
+            to
+            ${escapeHtml(dest)}
+        </strong>.
+
+        <br><br>
+
+        <strong>
+            Travel dates:
+        </strong>
+
+        ${escapeHtml(
+            formatDateForDisplay(
+                startDate
+            )
+        )}
+
+        -
+
+        ${escapeHtml(
+            formatDateForDisplay(
+                endDate
+            )
+        )}
+
+        <br>
+
+        <strong>
+            ${actualNights} night(s)
+        </strong>
+
+        <br><br>
+
+        I am preparing your structured
+        itinerary, transit options,
+        stay suggestions, and regional
+        food guide...
+
+        `
+    );
+
+
+    /* =========================
+       AI PROMPT
+    ========================= */
+
+    const initialPrompt = `
+
+Create a complete ${actualDays}-day
+travel plan from
+
+${source}
+
+to
+
+${dest}.
+
+Travel dates:
+
+${formatDateForDisplay(startDate)}
+
+to
+
+${formatDateForDisplay(endDate)}
+
+Trip duration:
+
+${actualDays} days
+and
+${actualNights} nights.
+
+Include:
+
+1. **Travel Modes Table**
+
+Compare flight, train, and road options
+with duration, estimated cost,
+pros and cons.
+
+2. **Budget Table**
+
+Compare Budget vs Mid-Range vs Luxury.
+
+3. **Day-by-Day Plan Table**
+
+Use:
+
+| Day | Location / Route | Morning & Afternoon Sightseeing | Evening Heritage & Stay |
+
+4. **Recommended Accommodations**
+
+Include boutique / heritage stays
+and budget choices.
+
+5. **Authentic Regional Food & GI Crafts**
+
+Include must-try dishes and
+GI-tagged handicraft souvenirs.
+
+Important:
+
+Every itinerary point must be complete.
+
+Do not use unfinished sentences.
+
+Do not use ellipses such as "...".
+
+Do not leave incomplete brackets.
+
+Do not leave incomplete quotations.
+
+When providing bullet points,
+provide at least 3 complete points.
+
+Keep all dates consistent with:
+
+${formatDateForDisplay(startDate)}
+to
+${formatDateForDisplay(endDate)}.
+
+Do not replace the selected dates.
+
+Do not change the selected origin.
+
+Do not change the selected destination.
+
+`;
+
+
+    /* =========================
+       GENERATE THE COMPLETE ITINERARY
+
+       The itinerary is generated with a larger
+       response budget and a completion check so
+       the model cannot stop after only Day 3/Day 4
+       and incorrectly unlock the One-Ticket Pass.
+    ========================= */
+
+    const itineraryGenerated =
+        await generateCompleteInitialItinerary(
+            initialPrompt,
+            actualDays,
+            startDate,
+            endDate
+        );
+
+
+    /* =====================================================
+       AI ITINERARY COMPLETED
+       
+       The user has now supplied all required planning
+       details and generated the tailored itinerary.
+
+       Only NOW is the One-Ticket Pass unlocked.
+       The user must click the Issue One-Ticket button
+       shown at the end of the generated itinerary.
+    ===================================================== */
+
+    if (itineraryGenerated) {
+
+        sessionStorage.setItem(
+            "bharatYatraItineraryCompleted",
+            "true"
+        );
+
+        sessionStorage.setItem(
+            "bharatYatraTripContext",
+            JSON.stringify({
+                origin: source,
+                destination: dest,
+                days: actualDays,
+                nights: actualNights,
+                startDate: startDate,
+                endDate: endDate
+            })
+        );
+
+    }
+
+}
+
+/* =========================================================
+   GROQ API
+========================================================= */
+
+async function callGroqAPI( 
+    messages, 
+    maxTokens = 1800 
+) { 
+ 
+    let lastError = 
+        null; 
+ 
+ 
+    for ( 
+        const model of ACTIVE_MODELS 
+    ) { 
+ 
+        try { 
+ 
+            const res = 
+                await fetch( 
+                    "http://localhost:3001/api/groq", 
+                    { 
+                        method: "POST", 
+ 
+                        headers: { 
+ 
+                            "Content-Type": 
+                                "application/json" 
+ 
+                        }, 
+ 
+                        body: 
+                            JSON.stringify( 
+                                { 
+                                    model: model, 
+ 
+                                    messages: 
+                                        messages, 
+ 
+                                    temperature: 
+                                        0.65, 
+ 
+                                    max_tokens: 
+                                        maxTokens 
+                                } 
+                            ) 
+                    } 
+                ); 
+ 
+ 
+            if (!res.ok) { 
+ 
+                const errJson = 
+                    await res 
+                        .json() 
+                        .catch( 
+                            () => ({}) 
+                        ); 
+ 
+ 
+                lastError = 
+                    errJson.error?.message || 
+                    `HTTP ${res.status}`; 
+ 
+ 
+                continue; 
+ 
+            } 
+ 
+ 
+            const data = 
+                await res.json(); 
+ 
+ 
+            const reply = 
+                data 
+                    .choices?.[0] 
+                    ?.message 
+                    ?.content; 
+ 
+ 
+            if (reply) { 
+ 
+                return reply; 
+ 
+            } 
+ 
+        } catch (err) { 
+ 
+            lastError = 
+                err.message; 
+ 
+        } 
+ 
+    } 
+ 
+ 
+    throw new Error( 
+        lastError || 
+        "Could not connect to live model." 
+    ); 
+ 
+} 
+
+/* =========================================================
+   INCOMPLETE BULLET CLEANER
+========================================================= */
+
+function cleanIncompleteBulletGroups(
+    text
+) {
+
+    const lines =
+        String(text || "")
+            .split(/\r?\n/);
+
+
+    const output = [];
+
+    let group = [];
+
+
+    const isBullet =
+        line =>
+            /^\s*(?:[-*•])\s+/.test(
+                line
+            );
+
+
+    const isIncomplete =
+        line => {
+
+            const t =
+                line
+                    .replace(
+                        /^\s*(?:[-*•])\s+/,
+                        ""
+                    )
+                    .trim();
+
+
+            if (
+                !t ||
+                t.length < 12
+            ) {
+
+                return true;
+
+            }
+
+
+            if (
+                /(?:\.\.\.|…)\s*$/.test(t)
+            ) {
+
+                return true;
+
+            }
+
+
+            if (
+                /[:\-–—]\s*$/.test(t)
+            ) {
+
+                return true;
+
+            }
+
+
+            const opens =
+                (
+                    t.match(
+                        /[(“‘"]/g
+                    ) || []
+                ).length;
+
+
+            const closes =
+                (
+                    t.match(
+                        /[)”’"]/g
+                    ) || []
+                ).length;
+
+
+            return opens > closes;
+
+        };
+
+
+    const flush =
+        () => {
+
+            const valid =
+                group.filter(
+                    x =>
+                        !isIncomplete(x)
+                );
+
+
+            if (
+                valid.length >= 3
+            ) {
+
+                output.push(
+                    ...valid
+                );
+
+            }
+
+
+            group = [];
+
+        };
+
+
+    for (
+        const line of lines
+    ) {
+
+        if (
+            isBullet(line)
+        ) {
+
+            group.push(line);
+
+        } else {
+
+            flush();
+
+            output.push(line);
+
+        }
+
+    }
+
+
+    flush();
+
+
+    return output.join("\n");
+
+}
+
+
+/* =========================================================
+   COMPLETE-POINT ITINERARY CLEANUP
+
+   Keep the One-Ticket Pass available even when the model
+   response is shorter than expected, but never display a
+   visibly truncated final point/sentence.
+========================================================= */
+function cleanIncompleteItineraryContent(text) {
+    const rawLines = String(text || "").split(/\r?\n/);
+    const lines = rawLines.slice();
+
+    const isHeading = (line) => {
+        const t = line.trim();
+        return /^#{1,6}\s+/.test(t) ||
+               /^\*\*[^*]+\*\*\s*$/.test(t) ||
+               /^Day\s+\d+/i.test(t);
+    };
+
+    const looksIncomplete = (line) => {
+        const t = line
+            .replace(/^\s*[-*•]\s+/, "")
+            .trim();
+
+        if (!t || isHeading(line)) return false;
+
+        // A model-truncated line commonly ends with an ellipsis,
+        // colon, dash, slash, opening bracket, or connector word.
+        if (/(?:\.\.\.|…)\s*$/.test(t)) return true;
+        if (/[:\-–—\/,]\s*$/.test(t)) return true;
+        if (/[([{]\s*$/.test(t)) return true;
+        if (/\b(?:and|or|with|including|such as|to|from|for|at|on|in|by)\s*$/i.test(t)) return true;
+
+        const opens = (t.match(/[“‘\[(]/g) || []).length;
+        const closes = (t.match(/[”’\])]/g) || []).length;
+        if (opens > closes) return true;
+
+        return false;
+    };
+
+    // Remove incomplete bullet/point lines individually. Do not remove
+    // an entire section merely because one point is incomplete.
+    let cleaned = lines.filter(line => !looksIncomplete(line));
+
+    // If the model stopped mid-sentence, remove only that final fragment.
+    // Complete previous points remain visible and the pass is still issued.
+    let last = cleaned.length - 1;
+    while (last >= 0 && !cleaned[last].trim()) last--;
+    if (last >= 0 && looksIncomplete(cleaned[last])) {
+        cleaned.splice(last, 1);
+    }
+
+    return cleaned.join("\n");
+}
+
+
+/* =========================================================
+   MARKDOWN TABLE PARSER
+========================================================= */
+
+function parseMarkdownWithTables(
+    text
+) {
+
+    let safe =
+        escapeHtml(
+            String(text || "")
+        );
+
+
+    const lines =
+        safe.split(/\r?\n/);
+
+
+    const result = [];
+
+    let i = 0;
+
+
+    while (
+        i < lines.length
+    ) {
+
+        const line =
+            lines[i];
+
+
+        const isTableHeader =
+            /^\s*\|.*\|\s*$/.test(
+                line
+            );
+
+
+        const isTableSeparator =
+            i + 1 < lines.length &&
+            /^\s*\|(?:\s*:?-+:?\s*\|)+\s*$/.test(
+                lines[i + 1]
+            );
+
+
+        if (
+            isTableHeader &&
+            isTableSeparator
+        ) {
+
+            const headerCells =
+                line
+                    .trim()
+                    .replace(
+                        /^\||\|$/g,
+                        ""
+                    )
+                    .split("|")
+                    .map(
+                        x => x.trim()
+                    );
+
+
+            i += 2;
+
+
+            const bodyRows = [];
+
+
+            while (
+
+                i < lines.length &&
+
+                /^\s*\|.*\|\s*$/.test(
+                    lines[i]
+                )
+
+            ) {
+
+                const cells =
+                    lines[i]
+                        .trim()
+                        .replace(
+                            /^\||\|$/g,
+                            ""
+                        )
+                        .split("|")
+                        .map(
+                            x => x.trim()
+                        );
+
+
+                bodyRows.push(
+                    cells
+                );
+
+
+                i++;
+
+            }
+
+
+            const headers =
+                headerCells
+                    .map(
+                        h =>
+                            `<th>${h}</th>`
+                    )
+                    .join("");
+
+
+            const bodyHtml =
+                bodyRows
+                    .map(
+                        row => {
+
+                            const cells =
+                                headerCells
+                                    .map(
+                                        (_, index) =>
+                                            `<td>${
+                                                row[index] || ""
+                                            }</td>`
+                                    )
+                                    .join("");
+
+
+                            return `
+                                <tr>
+                                    ${cells}
+                                </tr>
+                            `;
+
+                        }
+                    )
+                    .join("");
+
+
+            result.push(
+
+                `<div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                ${headers}
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            ${bodyHtml}
+
+                        </tbody>
+
+                    </table>
+
+                </div>`
+
+            );
+
+
+            continue;
+
+        }
+
+
+        result.push(line);
+
+        i++;
+
+    }
+
+
+    safe =
+        result.join("\n");
+
+
+    /* =========================
+       MARKDOWN FORMATTING
+    ========================= */
+
+    safe =
+        safe.replace(
+            /\*\*(.+?)\*\*/g,
+            "<strong>$1</strong>"
+        );
+
+
+    safe =
+        safe.replace(
+            /(?<!\*)\*([^*\n]+)\*(?!\*)/g,
+            "<em>$1</em>"
+        );
+
+
+    safe =
+        safe.replace(
+            /^###\s+(.+)$/gim,
+            "<strong>$1</strong><br>"
+        );
+
+
+    safe =
+        safe.replace(
+            /^##\s+(.+)$/gim,
+            "<strong>$1</strong><br>"
+        );
+
+
+    safe =
+        safe.replace(
+            /^#\s+(.+)$/gim,
+            "<strong>$1</strong><br>"
+        );
+
+
+    safe =
+        safe.replace(
+            /^\s*[-*•]\s+(.+)$/gim,
+            "• $1<br>"
+        );
+
+
+    /* =========================
+       PROTECT TABLES
+    ========================= */
+
+    const placeholders = [];
+
+
+    safe =
+        safe.replace(
+            /<div class="table-wrapper">[\s\S]*?<\/div>/g,
+            match => {
+
+                const key =
+                    `___TABLE_${placeholders.length}___`;
+
+
+                placeholders.push(
+                    match
+                );
+
+
+                return key;
+
+            }
+        );
+
+
+    safe =
+        safe
+            .replace(
+                /\n\n+/g,
+                "<br><br>"
+            )
+            .replace(
+                /\n/g,
+                "<br>"
+            );
+
+
+    placeholders.forEach(
+        (table, index) => {
+
+            safe =
+                safe.replace(
+                    `___TABLE_${index}___`,
+                    table
+                );
+
+        }
+    );
+
+
+    return safe;
+
+}
+
+
+/* =========================================================
+   COMPLETE INITIAL ITINERARY GENERATOR
+
+   Groq responses can stop early when the itinerary
+   contains several tables and a long day-by-day plan.
+   This function treats the itinerary as incomplete
+   until every requested day is present. Missing days
+   are then requested explicitly before the One-Ticket
+   CTA is rendered.
+========================================================= */
+
+function getMissingItineraryDays(text, totalDays) {
+
+    const source = String(text || "");
+    const missing = [];
+
+    for (let day = 1; day <= Number(totalDays); day++) {
+        const pattern = new RegExp(
+            `(?:^|\\n)\\s*(?:#{1,6}\\s*)?(?:\\*\\*)?Day\\s+${day}\\b`,
+            "im"
+        );
+
+        if (!pattern.test(source)) {
+            missing.push(day);
+        }
+    }
+
+    return missing;
+}
+
+
+async function generateCompleteInitialItinerary(
+    prompt,
+    totalDays,
+    startDate,
+    endDate
+) {
+
+    const loadingBubble = appendMessage(
+        "bot",
+        `
+            <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        `
+    );
+
+    conversationHistory = [
+        {
+            role: "system",
+            content: SYSTEM_INSTRUCTION
+        },
+        {
+            role: "user",
+            content: prompt + `\n\nCOMPLETENESS REQUIREMENT:\n- The selected trip has exactly ${totalDays} calendar days.\n- Begin with the heading "## Complete Day-by-Day Itinerary".\n- Then write EVERY day in order using the exact heading format "### Day 1 — DATE", "### Day 2 — DATE", and so on through Day ${totalDays}.\n- Never stop the response before Day ${totalDays}.\n- Put the complete day-by-day section BEFORE the budget, transport comparison, food, crafts, or other supplementary sections.\n- Each day must contain a morning/afternoon plan, evening plan, meals/local experience, and overnight location where applicable.\n- Use the selected dates ${formatDateForDisplay(startDate)} through ${formatDateForDisplay(endDate)} exactly.\n- Do not add the One-Ticket Pass button or discuss ending the response before all ${totalDays} days are written.`
+        }
+    ];
+
+    try {
+        let answer = await callGroqAPI(
+            conversationHistory,
+            5200
+        );
+
+        conversationHistory.push({
+            role: "assistant",
+            content: answer
+        });
+
+        let missingDays = getMissingItineraryDays(
+            answer,
+            totalDays
+        );
+
+        /*
+         * If the model still stopped early, ask only for the
+         * missing day sections. This prevents the CTA from
+         * appearing beside a partial itinerary.
+         */
+        let attempts = 0;
+
+        while (missingDays.length && attempts < 2) {
+            attempts += 1;
+
+            const continuationPrompt = `The itinerary response is incomplete. The following day sections are missing: ${missingDays.map(day => `Day ${day}`).join(", ")}. Continue the SAME itinerary now. Output ONLY the missing day sections, in numerical order, using headings exactly like "### Day ${missingDays[0]} — DATE". Cover every missing day through Day ${totalDays}. Do not repeat earlier days. Do not add a One-Ticket Pass CTA. Use the already selected trip dates ${formatDateForDisplay(startDate)} through ${formatDateForDisplay(endDate)}.`;
+
+            conversationHistory.push({
+                role: "user",
+                content: continuationPrompt
+            });
+
+            const continuation = await callGroqAPI(
+                conversationHistory,
+                3000
+            );
+
+            conversationHistory.push({
+                role: "assistant",
+                content: continuation
+            });
+
+            answer += `\n\n${continuation}`;
+            missingDays = getMissingItineraryDays(
+                answer,
+                totalDays
+            );
+        }
+
+        if (missingDays.length) {
+            throw new Error(
+                `The itinerary could not be completed for Day ${missingDays.join(", Day ")}. Please generate the itinerary again.`
+            );
+        }
+
+        const cleaned = cleanIncompleteBulletGroups(answer);
+
+        loadingBubble.innerHTML =
+            parseMarkdownWithTables(cleaned);
+
+        loadingBubble.innerHTML +=
+            buildOneTicketCard(
+                activeSource,
+                activeDest,
+                activeDays,
+                activeStartDate,
+                activeEndDate
+            );
+
+        return true;
+
+    } catch (err) {
+        console.error("Complete Itinerary Error:", err);
+
+        loadingBubble.innerHTML = `
+            <span style="color:#ff7b72;">
+                ⚠️ ${escapeHtml(
+                    err.message ||
+                    "Unable to generate the complete itinerary."
+                )}
+            </span>
+        `;
+
+        return false;
+    }
+}
+
+
+/* =========================================================
+   AI RESPONSE
+========================================================= */
+
+async function triggerBotResponse(
+    prompt,
+    isInitial = false
+) {
+
+    if (isInitial) {
+
+        conversationHistory = [
+
+            {
+                role: "system",
+                content: SYSTEM_INSTRUCTION
+            }
+
+        ];
+
+    }
+
+
+    const loadingBubble =
+        appendMessage(
+            "bot",
+
+            `
+
+            <div class="typing-indicator">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            `
+        );
+
+
+    conversationHistory.push(
+        {
+            role: "user",
+            content: prompt
+        }
+    );
+
+
+    try {
+
+        const liveAnswer =
+            await callGroqAPI(
+                conversationHistory
+            );
+
+
+        conversationHistory.push(
+            {
+                role: "assistant",
+                content: liveAnswer
+            }
+        );
+
+
+        const cleaned =
+            cleanIncompleteItineraryContent(
+                cleanIncompleteBulletGroups(
+                    liveAnswer
+                )
+            );
+
+
+        loadingBubble.innerHTML =
+            parseMarkdownWithTables(
+                cleaned
+            );
+
+
+        /*
+           Only the initial itinerary gets
+           the Issue One-Ticket button.
+        */
+
+        if (isInitial) {
+
+            loadingBubble.innerHTML +=
+                buildOneTicketCard(
+                    activeSource,
+                    activeDest,
+                    activeDays,
+                    activeStartDate,
+                    activeEndDate
+                );
+
+        }
+
+        return true;
+
+    } catch (err) {
+
+        console.error(
+            "Chat Error:",
+            err
+        );
+
+
+        loadingBubble.innerHTML = `
+
+            <span style="color:#ff7b72;">
+
+                ⚠️
+
+                ${escapeHtml(
+                    err.message ||
+                    "Unable to generate the itinerary."
+                )}
+
+            </span>
+
+        `;
+
+
+        return false;
+
+    }
+
+
+    chatMessages.scrollTop =
+        chatMessages.scrollHeight;
+
+}
+
+
+/* =========================================================
+   NORMAL CHAT
+========================================================= */
+
+async function handleSend(e) {
+
+    if (e) {
+        e.preventDefault();
+    }
+
+
+    if (
+        !userInput ||
+        userInput.disabled
+    ) {
+
+        return;
+
+    }
+
+
+    const query =
+        userInput.value.trim();
+
+
+    if (!query) {
+        return;
+    }
+
+
+    appendMessage(
+        "user",
+        escapeHtml(query)
+    );
+
+
+    userInput.value =
+        "";
+
+
+    sendBtn.disabled =
+        true;
+
+
+    const loadingBubble =
+        appendMessage(
+            "bot",
+
+            `
+
+            <div class="typing-indicator">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            `
+        );
+
+
+    conversationHistory.push(
+        {
+            role: "user",
+            content: query
+        }
+    );
+
+
+    try {
+
+        const liveAnswer =
+            await callGroqAPI(
+                conversationHistory
+            );
+
+
+        conversationHistory.push(
+            {
+                role: "assistant",
+                content: liveAnswer
+            }
+        );
+
+
+        loadingBubble.innerHTML =
+            parseMarkdownWithTables(
+                cleanIncompleteBulletGroups(
+                    liveAnswer
+                )
+            );
+
+
+    } catch (err) {
+
+        console.error(
+            "Chat Error:",
+            err
+        );
+
+
+        loadingBubble.innerHTML = `
+
+            <span style="color:#ff7b72;">
+
+                ⚠️
+
+                ${escapeHtml(
+                    err.message ||
+                    "Unable to process your request."
+                )}
+
+            </span>
+
+        `;
+
+    } finally {
+
+        sendBtn.disabled =
+            false;
+
+
+        chatMessages.scrollTop =
+            chatMessages.scrollHeight;
+
+
+        userInput.focus();
+
+    }
+
+}
+
+
+/* =========================================================
+   PREVENT DATE/DURATION MISMATCH
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const startInput =
+            document.getElementById(
+                "travelStartDate"
+            );
+
+
+        const endInput =
+            document.getElementById(
+                "travelEndDate"
+            );
+
+
+        const daysInput =
+            document.getElementById(
+                "tripDays"
+            );
+
+
+        function validateFourDigitYear(input) {
+
+            if (!input) return true;
+
+            const value = String(input.value || "").trim();
+
+            // Native date inputs may display DD/MM/YYYY, but their
+            // underlying value is YYYY-MM-DD. Enforce exactly 4 digits
+            // for the year so 123-01-01 and 12345-01-01 are rejected.
+            if (!value) {
+                input.setCustomValidity("");
+                return true;
+            }
+
+            const match = value.match(/^(\d+)-(\d{2})-(\d{2})$/);
+            if (!match || match[1].length !== 4) {
+                input.setCustomValidity("Year must contain exactly 4 digits (YYYY). Example: 2026.");
+                return false;
+            }
+
+            const year = Number(match[1]);
+            const month = Number(match[2]);
+            const day = Number(match[3]);
+            const date = new Date(year, month - 1, day);
+
+            if (
+                Number.isNaN(date.getTime()) ||
+                date.getFullYear() !== year ||
+                date.getMonth() !== month - 1 ||
+                date.getDate() !== day
+            ) {
+                input.setCustomValidity("Please enter a valid date in DD/MM/YYYY format.");
+                return false;
+            }
+
+            input.setCustomValidity("");
+            return true;
+        }
+
+
+        startInput.addEventListener("input", () => validateFourDigitYear(startInput));
+        startInput.addEventListener("change", () => validateFourDigitYear(startInput));
+        endInput.addEventListener("input", () => validateFourDigitYear(endInput));
+        endInput.addEventListener("change", () => validateFourDigitYear(endInput));
+
+
+        function updateDurationFromDates() {
+
+            if (
+                !startInput.value ||
+                !endInput.value
+            ) {
+
+                return;
+
+            }
+
+
+            const start =
+                new Date(
+                    startInput.value +
+                    "T00:00:00"
+                );
+
+
+            const end =
+                new Date(
+                    endInput.value +
+                    "T00:00:00"
+                );
+
+
+            if (
+                Number.isNaN(
+                    start.getTime()
+                ) ||
+                Number.isNaN(
+                    end.getTime()
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            if (end < start) {
+
+                return;
+
+            }
+
+
+            const days =
+                Math.round(
+                    (
+                        end.getTime() -
+                        start.getTime()
+                    ) /
+                    (1000 * 60 * 60 * 24)
+                ) + 1;
+
+
+            daysInput.value =
+                days;
+
+        }
+
+
+        startInput.addEventListener(
+            "change",
+            updateDurationFromDates
+        );
+
+
+        endInput.addEventListener(
+            "change",
+            updateDurationFromDates
+        );
+
+    }
+);
+
+function unlockOneTicketPass(event) {
+    sessionStorage.setItem(
+        "bharatYatraOneTicketUnlocked",
+        "true"
+    );
+
+    return true;
+}
+
+</script>
+
+<script>
+
+function requireOneTicketUnlock(event) {
+    event.preventDefault();
+
+    const unlocked =
+        sessionStorage.getItem(
+            "bharatYatraOneTicketUnlocked"
+        ) === "true";
+
+    if (!unlocked) {
+        alert(
+            "Please review your itinerary and click 'Issue One-Ticket' to continue."
+        );
+        return false;
+    }
+
+    window.location.href = "ticket_generator.html";
+    return true;
+}
+
+function requireCompletedItinerary(event) {
+
+    const completed =
+        sessionStorage.getItem(
+            "bharatYatraItineraryCompleted"
+        ) === "true";
+
+    if (!completed) {
+
+        event.preventDefault();
+
+        alert(
+            "Please complete your AI Itinerary first before opening the One-Ticket Pass."
+        );
+
+        return false;
+    }
+
+    return true;
+}
+
+</script>
+
+</body>
+</html>

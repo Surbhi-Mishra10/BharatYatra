@@ -1,0 +1,2885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hotels & Stays | BharatYatra</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+
+      background:
+        radial-gradient(
+          circle at 50% 28%,
+          rgba(12, 74, 83, 0.38),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 12% 60%,
+          rgba(196, 75, 31, 0.14),
+          transparent 28%
+        ),
+        #050b12;
+
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+
+      background-image:
+        radial-gradient(
+          circle at 1px 1px,
+          #e5b75b 1px,
+          transparent 1px
+        );
+
+      background-size: 30px 30px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent
+        );
+
+      z-index: -1;
+    }
+
+    /* =========================================================
+       NAVBAR
+       ========================================================= */
+
+    .navbar {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 74px;
+
+      padding: 0 4%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      z-index: 1000;
+
+      background:
+        rgba(4, 10, 16, 0.78);
+
+      backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(225, 180, 85, 0.18);
+    }
+
+    .logo {
+      font-family: Cinzel, serif;
+
+      font-size: 23px;
+
+      letter-spacing: 2px;
+
+      color: #f4e6c3;
+
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+
+      align-items: center;
+
+      gap: 22px;
+
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+
+      color:
+        rgba(255, 255, 255, 0.72);
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+      letter-spacing: 0.75px;
+
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #eab75a;
+    }
+
+    .login-btn {
+      padding: 9px 19px;
+
+      border-radius: 25px;
+
+      border:
+        1px solid rgba(234, 183, 90, 0.7);
+
+      color: #f3d48c !important;
+
+      background:
+        rgba(234, 183, 90, 0.06);
+    }
+
+    /* =========================================================
+       HERO HEADER
+       ========================================================= */
+
+    .stays-hero {
+      margin-top: 114px;
+
+      text-align: center;
+
+      padding: 0 5%;
+    }
+
+    .stays-hero small {
+      color: #e5b75b;
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+
+      font-weight: 700;
+
+      display: block;
+
+      margin-bottom: 8px;
+    }
+
+    .stays-hero h1 {
+      font-family: Cinzel, serif;
+
+      font-size:
+        clamp(30px, 4.5vw, 54px);
+
+      color: #f3e7ca;
+
+      margin-bottom: 12px;
+    }
+
+    .stays-hero p {
+      color:
+        rgba(255, 255, 255, 0.65);
+
+      font-size: 14px;
+
+      max-width: 600px;
+
+      margin: 0 auto 30px;
+
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       CONTROL / SEARCH PANEL
+       ========================================================= */
+
+    .controls-container {
+      max-width: 1100px;
+
+      margin: 0 auto 40px;
+
+      padding: 0 4%;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+      justify-content: center;
+
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+
+      min-width: 260px;
+
+      max-width: 350px;
+
+      padding: 12px 18px;
+
+      background:
+        rgba(11, 21, 29, 0.9);
+
+      border:
+        1px solid rgba(229, 183, 91, 0.35);
+
+      border-radius: 12px;
+
+      color: #fff;
+
+      font-family:
+        "DM Sans", sans-serif;
+
+      font-size: 13px;
+
+      outline: none;
+    }
+
+    .search-box:focus {
+      border-color: #e5b75b;
+
+      box-shadow:
+        0 0 12px
+        rgba(229, 183, 91, 0.2);
+    }
+
+    .filter-tabs {
+      display: flex;
+
+      gap: 8px;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+    }
+
+    .filter-tab {
+      padding: 9px 16px;
+
+      border-radius: 20px;
+
+      border:
+        1px solid rgba(230, 184, 88, 0.28);
+
+      background:
+        rgba(230, 184, 88, 0.05);
+
+      color: #f2dfb3;
+
+      font-family: Cinzel, serif;
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+      letter-spacing: 0.8px;
+
+      cursor: pointer;
+
+      transition: 0.25s;
+    }
+
+    .filter-tab:hover,
+    .filter-tab.active {
+      background: #e5b75b;
+
+      color: #071015;
+
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       STAYS GRID
+       ========================================================= */
+
+    .stays-section {
+      max-width: 1300px;
+
+      margin: 0 auto 80px;
+
+      padding: 0 4%;
+    }
+
+    .stays-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fill,
+          minmax(300px, 1fr)
+        );
+
+      gap: 24px;
+    }
+
+    .stay-card {
+      background:
+        rgba(255, 255, 255, 0.03);
+
+      border:
+        1px solid rgba(230, 184, 88, 0.22);
+
+      border-radius: 16px;
+
+      overflow: hidden;
+
+      display: flex;
+
+      flex-direction: column;
+
+      transition: 0.3s ease;
+    }
+
+    .stay-card:hover {
+      transform: translateY(-5px);
+
+      border-color: #e5b75b;
+
+      box-shadow:
+        0 15px 35px
+        rgba(229, 183, 91, 0.15);
+    }
+
+    .stay-img-wrap {
+      height: 200px;
+
+      width: 100%;
+
+      position: relative;
+    }
+
+    .stay-img {
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .type-badge {
+      position: absolute;
+
+      top: 12px;
+      left: 12px;
+
+      background:
+        rgba(4, 10, 16, 0.85);
+
+      border:
+        1px solid rgba(229, 183, 91, 0.5);
+
+      color: #f2dfb3;
+
+      font-size: 9px;
+
+      font-weight: 700;
+
+      padding: 4px 10px;
+
+      border-radius: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+    }
+
+    .rating-badge {
+      position: absolute;
+
+      top: 12px;
+      right: 12px;
+
+      background:
+        rgba(214, 123, 44, 0.9);
+
+      color: #fff;
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+      padding: 4px 8px;
+
+      border-radius: 8px;
+    }
+
+    .stay-body {
+      padding: 18px;
+
+      flex: 1;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+    }
+
+    .stay-title {
+      font-family: Cinzel, serif;
+
+      font-size: 17px;
+
+      color: #f3e7ca;
+
+      margin-bottom: 4px;
+    }
+
+    .stay-location {
+      font-size: 12px;
+
+      color: #e5b75b;
+
+      margin-bottom: 12px;
+    }
+
+    .live-data-box {
+      background:
+        rgba(0, 0, 0, 0.3);
+
+      border:
+        1px dashed rgba(229, 183, 91, 0.3);
+
+      border-radius: 10px;
+
+      padding: 10px 12px;
+
+      margin-bottom: 14px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+    .rooms-left {
+      font-size: 11px;
+
+      color: #76e19d;
+
+      font-weight: 600;
+    }
+
+    .rooms-left.low {
+      color: #e87272;
+    }
+
+    .price-tag {
+      font-family: Cinzel, serif;
+
+      font-size: 16px;
+
+      font-weight: 700;
+
+      color: #f3d48c;
+    }
+
+    .price-tag span {
+      font-size: 10px;
+
+      font-weight: 400;
+
+      color:
+        rgba(255, 255, 255, 0.5);
+    }
+
+    .book-btn {
+      width: 100%;
+
+      padding: 11px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #d67b2c,
+          #9d3f35
+        );
+
+      color: #fff;
+
+      border: 0;
+
+      border-radius: 9px;
+
+      font-weight: 700;
+
+      font-size: 11px;
+
+      letter-spacing: 0.8px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .book-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* =========================================================
+       CHATBOT
+       ========================================================= */
+
+    .chatbot-button {
+      position: fixed;
+
+      right: 25px;
+      bottom: 25px;
+
+      width: 64px;
+      height: 64px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid #e8b95c;
+
+      background:
+        linear-gradient(
+          135deg,
+          #d67b2c,
+          #9d3f35
+        );
+
+      color: #fff;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 27px;
+
+      cursor: pointer;
+
+      z-index: 999;
+
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.5),
+        0 0 25px
+        rgba(227, 154, 50, 0.15);
+
+      transition: 0.3s;
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.08);
+    }
+
+    .chatbot {
+      position: fixed;
+
+      right: 25px;
+
+      bottom: 102px;
+
+      width: 350px;
+
+      height: 450px;
+
+      background: #0b151d;
+
+      border:
+        1px solid rgba(229, 181, 84, 0.35);
+
+      border-radius: 20px;
+
+      z-index: 998;
+
+      overflow: hidden;
+
+      display: none;
+
+      flex-direction: column;
+
+      box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.7);
+    }
+
+    .chatbot.active {
+      display: flex;
+    }
+
+    .chat-header {
+      padding: 17px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #153b40,
+          #13232c
+        );
+
+      border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+    }
+
+    .chat-header strong {
+      font-family: Cinzel, serif;
+
+      color: #f0d18b;
+    }
+
+    .chat-header small {
+      display: block;
+
+      margin-top: 4px;
+
+      color:
+        rgba(255, 255, 255, 0.5);
+
+      font-size: 10px;
+    }
+
+    .chat-messages {
+      flex: 1;
+
+      padding: 15px;
+
+      overflow-y: auto;
+    }
+
+    .message {
+      max-width: 85%;
+
+      padding: 10px 12px;
+
+      margin-bottom: 10px;
+
+      border-radius: 12px;
+
+      font-size: 11px;
+
+      line-height: 1.55;
+
+      word-wrap: break-word;
+    }
+
+    .message.bot {
+      background:
+        rgba(255, 255, 255, 0.07);
+
+      color:
+        rgba(255, 255, 255, 0.78);
+    }
+
+    .message.user {
+      margin-left: auto;
+
+      background:
+        rgba(222, 157, 54, 0.18);
+
+      border:
+        1px solid
+        rgba(222, 157, 54, 0.25);
+    }
+
+    .chat-input {
+      display: flex;
+
+      gap: 7px;
+
+      padding: 12px;
+
+      border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+    }
+
+    .chat-input input {
+      flex: 1;
+
+      padding: 11px;
+
+      border-radius: 9px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+      background: #101b22;
+
+      color: #fff;
+
+      outline: 0;
+    }
+
+    .chat-input input::placeholder {
+      color:
+        rgba(255, 255, 255, 0.4);
+    }
+
+    .chat-input button {
+      width: 42px;
+
+      border: 0;
+
+      border-radius: 9px;
+
+      background: #e5a341;
+
+      color: #071015;
+
+      cursor: pointer;
+
+      font-weight: 700;
+    }
+
+    .chat-input button:hover {
+      background: #f0bb60;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 35px 6%;
+
+      text-align: center;
+
+      border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+      color:
+        rgba(255, 255, 255, 0.38);
+
+      font-size: 10px;
+
+      letter-spacing: 1px;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1100px) {
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+
+    }
+
+    @media (max-width: 900px) {
+
+      .controls-container {
+        flex-direction: column;
+
+        align-items: stretch;
+      }
+
+      .search-box {
+        max-width: 100%;
+      }
+
+      .chatbot {
+        width:
+          calc(100vw - 30px);
+
+        right: 15px;
+
+        bottom: 92px;
+      }
+
+      .chatbot-button {
+        right: 15px;
+
+        bottom: 15px;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      .navbar {
+        height: auto;
+
+        min-height: 74px;
+
+        padding: 12px 4%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .stays-hero {
+        margin-top: 100px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+       ========================================================= -->
+
+  <nav class="navbar">
+
+    <div class="logo">
+      BharatYatra
+    </div>
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="index.html">
+          Home Page
+        </a>
+      </li>
+
+      <li>
+        <a href="crafts.html">
+          Crafts
+        </a>
+      </li>
+
+      <li>
+        <a href="gi_tag.html">
+          GI Tag Products
+        </a>
+      </li>
+
+      <li>
+        <a href="calendar.html">
+          Calendar
+        </a>
+      </li>
+
+      <li>
+        <a href="unesco_sites.html">
+          UNESCO Sites
+        </a>
+      </li>
+
+      <li>
+        <a href="destinations.html">
+          Tourist Spots
+        </a>
+      </li>
+
+      <li>
+        <a href="hotels.html" class="active">
+          Hotels &amp; Stays
+        </a>
+      </li>
+
+      <li>
+        <a href="transport.html">
+          Transport
+        </a>
+      </li>
+
+      <li>
+        <a href="admin_access.html">
+          Vendors
+        </a>
+      </li>
+
+      <li>
+        <a href="login.html" class="login-btn">
+          LOGIN
+        </a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+
+  <!-- =========================================================
+       HERO HEADER
+       ========================================================= -->
+
+  <section class="stays-hero">
+
+    <small>
+      VERIFIED ACCOMMODATIONS
+    </small>
+
+    <h1>
+      Hotels &amp; Stays across India
+    </h1>
+
+    <p>
+      Explore verified hotels, cozy homestays, student PGs,
+      backpacker hostels, and peaceful ashrams with real-time
+      room availability and best live rates.
+    </p>
+
+  </section>
+
+
+  <!-- =========================================================
+       SEARCH & FILTER CONTROLS
+       ========================================================= -->
+
+  <div class="controls-container">
+
+    <input
+      type="text"
+      id="citySearch"
+      class="search-box"
+      placeholder="🔍 Search city (e.g. Agra, Varanasi, Mumbai)..."
+      oninput="filterStays()"
+    >
+
+    <div class="filter-tabs">
+
+      <button
+        class="filter-tab active"
+        onclick="filterCategory('All', this)"
+      >
+        All Stays
+      </button>
+
+      <button
+        class="filter-tab"
+        onclick="filterCategory('Hotel', this)"
+      >
+        Hotels
+      </button>
+
+      <button
+        class="filter-tab"
+        onclick="filterCategory('Homestay', this)"
+      >
+        Homestays
+      </button>
+
+      <button
+        class="filter-tab"
+        onclick="filterCategory('Hostel', this)"
+      >
+        Hostels
+      </button>
+
+      <button
+        class="filter-tab"
+        onclick="filterCategory('PG', this)"
+      >
+        PGs
+      </button>
+
+      <button
+        class="filter-tab"
+        onclick="filterCategory('Ashram', this)"
+      >
+        Ashrams
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       STAYS GRID
+       ========================================================= -->
+
+  <section class="stays-section">
+
+    <div
+      class="stays-grid"
+      id="staysGrid"
+    ></div>
+
+  </section>
+
+
+  <!-- =========================================================
+       CHATBOT BUTTON
+       ========================================================= -->
+
+  <div
+    class="chatbot-button"
+    onclick="toggleChat()"
+    aria-label="Open travel assistant"
+    title="BharatYatra Travel Assistant"
+  >
+    🤖
+  </div>
+
+
+  <!-- =========================================================
+       CHATBOT
+       ========================================================= -->
+
+  <div
+    class="chatbot"
+    id="chatbot"
+  >
+
+    <div class="chat-header">
+
+      <strong>
+        BharatYatra Travel Assistant
+      </strong>
+
+      <small>
+        Ask about stays or navigate anywhere
+      </small>
+
+    </div>
+
+
+    <div
+      class="chat-messages"
+      id="chatMessages"
+    >
+
+      <div class="message bot">
+
+        Namaste! 🙏
+
+        <br><br>
+
+        I can help you explore hotels,
+        homestays, hostels, PGs and
+        ashrams across India.
+
+        <br><br>
+
+        You can also say:
+
+        <br>
+        • "Open Tourist Spots"
+        <br>
+        • "Take me to Transport"
+        <br>
+        • "Go to Calendar"
+        <br>
+        • "Open AI Itinerary Planner"
+
+      </div>
+
+    </div>
+
+
+    <div class="chat-input">
+
+      <input
+        id="chatInput"
+        type="text"
+        placeholder="Ask about a stay..."
+        onkeydown="handleChat(event)"
+      >
+
+      <button
+        onclick="sendMessage()"
+        aria-label="Send message"
+      >
+        ➤
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+    BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT
+  </footer>
+
+
+  <script>
+
+    /* =========================================================
+       HOTEL DATA
+       ========================================================= */
+
+    let staysData = [];
+
+    let selectedCategory = "All";
+
+
+    /* =========================================================
+       LOAD CSV DATA
+       ========================================================= */
+
+    async function loadStaysData() {
+
+      try {
+
+        const response =
+          await fetch("data/hotels.csv");
+
+        if (!response.ok) {
+          throw new Error(
+            `HTTP ${response.status}`
+          );
+        }
+
+        const csvText =
+          await response.text();
+
+        staysData =
+          parseCSV(csvText);
+
+        renderStays(staysData);
+
+      } catch (error) {
+
+        console.error(
+          "Error loading stays CSV data:",
+          error
+        );
+
+        document
+          .getElementById("staysGrid")
+          .innerHTML = `
+
+            <div
+              style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:40px;
+                color:#e87272;
+              "
+            >
+
+              Failed to load stays dataset from
+              data/hotels.csv.
+
+              <br><br>
+
+              Please ensure you are running the
+              project through a local server
+              such as VS Code Live Server.
+
+            </div>
+
+          `;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       CSV PARSER
+       ========================================================= */
+
+    function parseCSV(text) {
+
+      const lines =
+        text
+          .trim()
+          .split(/\r?\n/);
+
+      if (!lines.length) {
+        return [];
+      }
+
+      const headers =
+        lines[0]
+          .split(",")
+          .map(
+            header =>
+              header.trim()
+          );
+
+      const result = [];
+
+
+      for (
+        let i = 1;
+        i < lines.length;
+        i++
+      ) {
+
+        if (!lines[i].trim()) {
+          continue;
+        }
+
+        const currentLine =
+          lines[i].split(
+            /,(?=(?:(?:[^"]*"){2})*[^"]*$)/
+          );
+
+        const obj = {};
+
+
+        for (
+          let j = 0;
+          j < headers.length;
+          j++
+        ) {
+
+          let val =
+            currentLine[j]
+              ? currentLine[j].trim()
+              : "";
+
+
+          if (
+            val.startsWith('"') &&
+            val.endsWith('"')
+          ) {
+
+            val =
+              val.slice(1, -1)
+                .replace(/""/g, '"');
+
+          }
+
+
+          if (
+            headers[j] === "id" ||
+            headers[j] === "roomsLeft" ||
+            headers[j] === "price"
+          ) {
+
+            val = Number(val);
+
+          }
+
+
+          obj[headers[j]] = val;
+
+        }
+
+
+        result.push(obj);
+
+      }
+
+
+      return result;
+
+    }
+
+
+    /* =========================================================
+       RENDER STAYS
+       ========================================================= */
+
+    function renderStays(dataToRender) {
+
+      const grid =
+        document.getElementById(
+          "staysGrid"
+        );
+
+      grid.innerHTML = "";
+
+
+      if (
+        dataToRender.length === 0
+      ) {
+
+        grid.innerHTML = `
+
+          <div
+            style="
+              grid-column:1/-1;
+              text-align:center;
+              padding:60px;
+              color:rgba(255,255,255,0.5);
+              font-family:Cinzel,serif;
+            "
+          >
+            No stays found matching your search.
+            Try another city or category!
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      dataToRender.forEach(stay => {
+
+        const roomsLeft =
+          Number(stay.roomsLeft) || 0;
+
+        const price =
+          Number(stay.price) || 0;
+
+        const isLowStock =
+          roomsLeft <= 3;
+
+
+        const card =
+          document.createElement("div");
+
+        card.className =
+          "stay-card";
+
+
+        card.innerHTML = `
+
+          <div class="stay-img-wrap">
+
+            <img
+              class="stay-img"
+              src="${escapeAttribute(stay.img)}"
+              alt="${escapeAttribute(stay.name)}"
+              onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80'"
+            >
+
+            <span class="type-badge">
+              ${escapeHtml(stay.type)}
+            </span>
+
+            <span class="rating-badge">
+              ${escapeHtml(stay.rating)}
+            </span>
+
+          </div>
+
+
+          <div class="stay-body">
+
+            <div>
+
+              <h3 class="stay-title">
+                ${escapeHtml(stay.name)}
+              </h3>
+
+              <div class="stay-location">
+                📍
+                ${escapeHtml(stay.address)},
+                ${escapeHtml(stay.city)},
+                ${escapeHtml(stay.state)}
+              </div>
+
+
+              <div class="live-data-box">
+
+                <span
+                  class="rooms-left ${isLowStock ? "low" : ""}"
+                >
+
+                  ⚡
+
+                  ${
+                    isLowStock
+                      ? `Only ${roomsLeft} rooms left!`
+                      : `${roomsLeft} rooms available`
+                  }
+
+                </span>
+
+
+                <div class="price-tag">
+
+                  ₹${price.toLocaleString("en-IN")}
+
+                  <span>
+                    / night
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <button
+              class="book-btn"
+              type="button"
+            >
+              Book Stay Now ➔
+            </button>
+
+          </div>
+
+        `;
+
+
+        card
+          .querySelector(".book-btn")
+          .addEventListener(
+            "click",
+            () => openStayPlanner(stay)
+          );
+
+
+        grid.appendChild(card);
+
+      });
+
+    }
+
+
+    /* =========================================================
+       OPEN STAY PLANNER
+       ========================================================= */
+
+    function openStayPlanner(stay) {
+
+      const params =
+        new URLSearchParams({
+
+          origin:
+            "Your City",
+
+          dest:
+            `${stay.city}, ${stay.state}`,
+
+          days:
+            "5",
+
+          hotel:
+            stay.name
+
+        });
+
+
+      window.location.href =
+        `chatbot.html?${params.toString()}`;
+
+    }
+
+
+    /* =========================================================
+       CATEGORY FILTER
+       ========================================================= */
+
+    function filterCategory(
+      category,
+      btnElement
+    ) {
+
+      selectedCategory =
+        category;
+
+
+      document
+        .querySelectorAll(".filter-tab")
+        .forEach(tab => {
+
+          tab.classList.remove(
+            "active"
+          );
+
+        });
+
+
+      btnElement.classList.add(
+        "active"
+      );
+
+
+      filterStays();
+
+    }
+
+
+    /* =========================================================
+       SEARCH / FILTER STAYS
+       ========================================================= */
+
+    function filterStays() {
+
+      const input =
+        document.getElementById(
+          "citySearch"
+        );
+
+      const query =
+        input.value
+          .toLowerCase()
+          .trim();
+
+
+      const filtered =
+        staysData.filter(stay => {
+
+          const type =
+            String(stay.type || "")
+              .toLowerCase();
+
+          const city =
+            String(stay.city || "")
+              .toLowerCase();
+
+          const name =
+            String(stay.name || "")
+              .toLowerCase();
+
+          const state =
+            String(stay.state || "")
+              .toLowerCase();
+
+
+          const matchesCategory =
+            selectedCategory === "All" ||
+            stay.type ===
+              selectedCategory;
+
+
+          const matchesCity =
+            city.includes(query) ||
+            name.includes(query) ||
+            state.includes(query);
+
+
+          return (
+            matchesCategory &&
+            matchesCity
+          );
+
+        });
+
+
+      renderStays(filtered);
+
+    }
+
+
+    /* =========================================================
+       INITIALIZE HOTEL DATA
+       ========================================================= */
+
+    loadStaysData();
+
+
+    /* =========================================================
+       BHARATYATRA NAVIGATION REGISTRY
+       ========================================================= */
+
+    const NAV_ROUTES = [
+
+      {
+        file: "index.html",
+        label: "Home Page",
+
+        keywords: [
+          "home",
+          "homepage",
+          "home page",
+          "main page",
+          "landing page",
+          "bharatyatra home"
+        ]
+      },
+
+      {
+        file: "chatbot.html",
+        label: "AI Itinerary Planner",
+
+        keywords: [
+          "itinerary",
+          "itinerary planner",
+          "ai itinerary",
+          "ai itinerary planner",
+          "trip planner",
+          "travel planner",
+          "plan a trip",
+          "plan my trip",
+          "travel plan",
+          "ai guide",
+          "bharat ai guide",
+          "bharat ai",
+          "plan a yatra"
+        ]
+      },
+
+      {
+        file: "ticket_generator.html",
+        label: "One-Ticket Pass",
+
+        keywords: [
+          "ticket",
+          "tickets",
+          "one ticket",
+          "one-ticket",
+          "one ticket pass",
+          "pass",
+          "travel pass",
+          "ticket generator",
+          "generate ticket",
+          "book ticket",
+          "booking",
+          "book travel"
+        ]
+      },
+
+      {
+        file: "crafts.html",
+        label: "Crafts",
+
+        keywords: [
+          "craft",
+          "crafts",
+          "handicraft",
+          "handicrafts",
+          "handloom",
+          "artisan",
+          "artisans",
+          "souvenir",
+          "souvenirs"
+        ]
+      },
+
+      {
+        file: "gi_tag.html",
+        label: "GI Tag Products",
+
+        keywords: [
+          "gi tag",
+          "gi-tag",
+          "gi tags",
+          "geographical indication",
+          "gi products",
+          "regional products"
+        ]
+      },
+
+      {
+        file: "calendar.html",
+        label: "Calendar",
+
+        keywords: [
+          "calendar",
+          "festival calendar",
+          "events calendar",
+          "festival",
+          "festivals",
+          "events",
+          "upcoming events"
+        ]
+      },
+
+      {
+        file: "unesco_sites.html",
+        label: "UNESCO Sites",
+
+        keywords: [
+          "unesco",
+          "unesco sites",
+          "world heritage",
+          "world heritage sites",
+          "heritage site",
+          "heritage sites"
+        ]
+      },
+
+      {
+        file: "destinations.html",
+        label: "Tourist Spots",
+
+        keywords: [
+          "destination",
+          "destinations",
+          "tourist spot",
+          "tourist spots",
+          "tourist places",
+          "places to visit",
+          "places to see",
+          "sightseeing",
+          "tourist attractions",
+          "tourist attraction"
+        ]
+      },
+
+      {
+        file: "hotels.html",
+        label: "Hotels & Stays",
+
+        keywords: [
+          "hotel",
+          "hotels",
+          "stay",
+          "stays",
+          "accommodation",
+          "accommodations",
+          "hotel booking",
+          "places to stay",
+          "homestay",
+          "homestays",
+          "hostel",
+          "hostels"
+        ]
+      },
+
+      {
+        file: "transport.html",
+        label: "Transport",
+
+        keywords: [
+          "transport",
+          "transportation",
+          "travel transport",
+          "flight",
+          "flights",
+          "train",
+          "trains",
+          "bus",
+          "buses",
+          "travel options",
+          "travel by train",
+          "travel by flight",
+          "travel by bus"
+        ]
+      },
+
+      {
+        file: "admin_access.html",
+        label: "Vendors",
+
+        keywords: [
+          "vendor",
+          "vendors",
+          "vendor portal",
+          "seller",
+          "sellers",
+          "admin",
+          "admin access"
+        ]
+      },
+
+      {
+        file: "login.html",
+        label: "Login / Profile",
+
+        keywords: [
+          "login",
+          "log in",
+          "sign in",
+          "signin",
+          "profile",
+          "my profile",
+          "account",
+          "my account",
+          "register",
+          "sign up",
+          "signup"
+        ]
+      }
+
+    ];
+
+
+    /* =========================================================
+       NAVIGATION PHRASES
+       ========================================================= */
+
+    const NAVIGATION_PHRASES = [
+
+      "go to",
+      "take me to",
+      "take me back to",
+      "show me",
+      "open",
+      "navigate to",
+      "navigate",
+      "switch to",
+      "bring me to",
+      "send me to",
+      "move to",
+      "let me see",
+      "can you open",
+      "please open",
+      "please take me to",
+      "i want to see",
+      "i want to go",
+      "i want to visit",
+      "visit the",
+      "take me"
+
+    ];
+
+
+    const INFO_PHRASES = [
+
+      "tell me about",
+      "what is",
+      "what are",
+      "who is",
+      "how is",
+      "how are",
+      "how does",
+      "how do",
+      "why",
+      "explain",
+      "information about",
+      "details about",
+      "describe",
+      "give me information",
+      "tell me more about"
+
+    ];
+
+
+    /* =========================================================
+       CURRENT PAGE
+       ========================================================= */
+
+    const CURRENT_PAGE =
+      (
+        window.location.pathname
+          .split("/")
+          .pop() ||
+        "index.html"
+      ).toLowerCase();
+
+
+    /* =========================================================
+       NORMALIZE QUERY
+       ========================================================= */
+
+    function normalizeQuery(text) {
+
+      return text
+        .toLowerCase()
+        .replace(/[?!.,]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    }
+
+
+    /* =========================================================
+       LOCAL NAVIGATION MATCH
+       ========================================================= */
+
+    function localNavMatch(
+      rawQuery
+    ) {
+
+      const query =
+        normalizeQuery(
+          rawQuery
+        );
+
+
+      if (!query) {
+        return null;
+      }
+
+
+      const startsWithNavigation =
+        NAVIGATION_PHRASES.some(
+          phrase =>
+            query === phrase ||
+            query.startsWith(
+              phrase + " "
+            )
+        );
+
+
+      const containsNavigation =
+        NAVIGATION_PHRASES.some(
+          phrase =>
+            query.includes(phrase)
+        );
+
+
+      const isInfoQuestion =
+        INFO_PHRASES.some(
+          phrase =>
+            query === phrase ||
+            query.startsWith(
+              phrase + " "
+            ) ||
+            query.includes(
+              " " + phrase + " "
+            )
+        );
+
+
+      let best = null;
+
+      let bestScore = 0;
+
+
+      for (
+        const route of NAV_ROUTES
+      ) {
+
+        let score = 0;
+
+
+        for (
+          const keyword of route.keywords
+        ) {
+
+          const k =
+            keyword.toLowerCase();
+
+
+          if (query === k) {
+
+            score += 100;
+
+          }
+
+          else if (
+            query.includes(k)
+          ) {
+
+            score +=
+              k.split(" ").length * 5;
+
+          }
+
+        }
+
+
+        if (
+          score > bestScore
+        ) {
+
+          bestScore =
+            score;
+
+          best =
+            route;
+
+        }
+
+      }
+
+
+      if (
+        !best ||
+        bestScore === 0
+      ) {
+
+        return null;
+
+      }
+
+
+      /*
+       * Do not navigate when the user
+       * is asking for information.
+       */
+
+      if (
+        isInfoQuestion &&
+        !startsWithNavigation
+      ) {
+
+        return null;
+
+      }
+
+
+      /*
+       * Explicit informational phrases
+       * should remain informational.
+       */
+
+      if (
+        query.includes(
+          "information about"
+        ) ||
+        query.includes(
+          "details about"
+        ) ||
+        query.includes(
+          "tell me about"
+        ) ||
+        query.includes(
+          "tell me more about"
+        )
+      ) {
+
+        return null;
+
+      }
+
+
+      /*
+       * Explicit navigation command.
+       */
+
+      if (
+        startsWithNavigation
+      ) {
+
+        return best;
+
+      }
+
+
+      /*
+       * Exact page-name request.
+       */
+
+      const exactPageName =
+        best.keywords.some(
+          keyword =>
+            query ===
+            keyword.toLowerCase()
+        );
+
+
+      if (
+        exactPageName
+      ) {
+
+        return best;
+
+      }
+
+
+      if (
+        containsNavigation
+      ) {
+
+        return best;
+
+      }
+
+
+      return null;
+
+    }
+
+
+    /* =========================================================
+       EXECUTE NAVIGATION
+       ========================================================= */
+
+    function executeNavigation(
+      route,
+      botDiv
+    ) {
+
+      console.log(
+        "[NavAssistant] navigating to:",
+        route.file
+      );
+
+
+      if (
+        route.file.toLowerCase() ===
+        CURRENT_PAGE
+      ) {
+
+        botDiv.innerHTML += `
+
+          <br><br>
+
+          <em>
+            You're already on the
+            ${escapeHtml(route.label)}
+            page!
+          </em>
+
+        `;
+
+        return;
+
+      }
+
+
+      botDiv.innerHTML += `
+
+        <br><br>
+
+        <em>
+          Taking you to
+          ${escapeHtml(route.label)}...
+        </em>
+
+      `;
+
+
+      setTimeout(
+        () => {
+
+          window.location.href =
+            route.file;
+
+        },
+        900
+      );
+
+    }
+
+
+    /* =========================================================
+       GROQ CONFIGURATION
+       ========================================================= */
+
+    /*
+     * Add your own Groq key here for the
+     * AI conversation functionality.
+     *
+     * Local page navigation works without
+     * the API because navigation is handled
+     * locally first.
+     */
+
+    const ACTIVE_MODELS = [
+
+      "openai/gpt-oss-120b",
+
+      "openai/gpt-oss-20b",
+
+      "qwen/qwen3.6-27b"
+
+    ];
+
+
+    /* =========================================================
+       SYSTEM INSTRUCTION
+       ========================================================= */
+
+    const SYSTEM_INSTRUCTION = `
+
+You are "Bharat AI", the official interactive
+travel assistant for BharatYatra.
+
+You are currently on the Hotels & Stays page.
+
+This page provides hotel and accommodation
+options including:
+
+- Hotels
+- Homestays
+- Hostels
+- PGs
+- Ashrams
+
+The website contains these main pages:
+
+Home Page:
+index.html
+
+AI Itinerary Planner:
+chatbot.html
+
+One-Ticket Pass:
+ticket_generator.html
+
+Crafts:
+crafts.html
+
+GI Tag Products:
+gi_tag.html
+
+Calendar:
+calendar.html
+
+UNESCO Sites:
+unesco_sites.html
+
+Tourist Spots:
+destinations.html
+
+Hotels & Stays:
+hotels.html
+
+Transport:
+transport.html
+
+Vendors:
+admin_access.html
+
+Login / Profile:
+login.html
+
+Rules:
+
+1. Answer accommodation and travel questions
+   helpfully.
+
+2. Help users understand the available stay
+   categories.
+
+3. If the user asks about a hotel or stay,
+   answer normally.
+
+4. Do not navigate merely because the user
+   mentions a page or topic.
+
+5. Only use a navigation marker when the user
+   clearly asks to open, visit, go to, navigate
+   to or switch to another page.
+
+6. Valid navigation marker format:
+
+[NAVIGATE:filename.html]
+
+7. Only use these valid files:
+
+index.html
+chatbot.html
+ticket_generator.html
+crafts.html
+gi_tag.html
+calendar.html
+unesco_sites.html
+destinations.html
+hotels.html
+transport.html
+admin_access.html
+login.html
+
+Examples:
+
+"Open Tourist Spots"
+[NAVIGATE:destinations.html]
+
+"Take me to Transport"
+[NAVIGATE:transport.html]
+
+"Go to Calendar"
+[NAVIGATE:calendar.html]
+
+"Open the AI Itinerary Planner"
+[NAVIGATE:chatbot.html]
+
+"Tell me about hotels"
+Do NOT add a navigation marker.
+
+"What hotels are available?"
+Do NOT add a navigation marker.
+
+"Explain homestays"
+Do NOT add a navigation marker.
+
+`;
+
+
+    let conversationHistory = [
+
+      {
+        role: "system",
+
+        content:
+          SYSTEM_INSTRUCTION
+
+      }
+
+    ];
+
+
+    /* =========================================================
+       CHAT TOGGLE
+       ========================================================= */
+
+    function toggleChat() {
+
+      const chatbot =
+        document.getElementById(
+          "chatbot"
+        );
+
+
+      chatbot.classList.toggle(
+        "active"
+      );
+
+
+      if (
+        chatbot.classList.contains(
+          "active"
+        )
+      ) {
+
+        setTimeout(
+          () => {
+
+            document
+              .getElementById(
+                "chatInput"
+              )
+              .focus();
+
+          },
+          100
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       ENTER KEY
+       ========================================================= */
+
+    function handleChat(event) {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        sendMessage();
+
+      }
+
+    }
+
+
+    /* =========================================================
+       SEND MESSAGE
+       ========================================================= */
+
+    async function sendMessage() {
+
+      const input =
+        document.getElementById(
+          "chatInput"
+        );
+
+
+      const messages =
+        document.getElementById(
+          "chatMessages"
+        );
+
+
+      const text =
+        input.value.trim();
+
+
+      if (!text) {
+        return;
+      }
+
+
+      /* =====================================================
+         USER MESSAGE
+         ===================================================== */
+
+      const userDiv =
+        document.createElement(
+          "div"
+        );
+
+
+      userDiv.className =
+        "message user";
+
+
+      userDiv.textContent =
+        text;
+
+
+      messages.appendChild(
+        userDiv
+      );
+
+
+      input.value = "";
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      /* =====================================================
+         LOCAL NAVIGATION FIRST
+         ===================================================== */
+
+      const localRoute =
+        localNavMatch(text);
+
+
+      if (localRoute) {
+
+        const botDiv =
+          document.createElement(
+            "div"
+          );
+
+
+        botDiv.className =
+          "message bot";
+
+
+        botDiv.innerHTML = `
+
+          Sure! Heading to
+          <strong>
+            ${escapeHtml(
+              localRoute.label
+            )}
+          </strong>.
+
+        `;
+
+
+        messages.appendChild(
+          botDiv
+        );
+
+
+        messages.scrollTop =
+          messages.scrollHeight;
+
+
+        executeNavigation(
+          localRoute,
+          botDiv
+        );
+
+
+        return;
+
+      }
+
+
+      /* =====================================================
+         AI RESPONSE
+         ===================================================== */
+
+      const botDiv =
+        document.createElement(
+          "div"
+        );
+
+
+      botDiv.className =
+        "message bot";
+
+
+      botDiv.innerHTML =
+        "Thinking...";
+
+
+      messages.appendChild(
+        botDiv
+      );
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      conversationHistory.push({
+
+        role: "user",
+
+        content: text
+
+      });
+
+
+      try {
+
+        const liveAnswer =
+          await callGroqAPI(
+            conversationHistory
+          );
+
+
+        conversationHistory.push({
+
+          role: "assistant",
+
+          content: liveAnswer
+
+        });
+
+
+        /* =================================================
+           NAVIGATION MARKER PARSER
+           ================================================= */
+
+        const validFiles =
+          new Set(
+            NAV_ROUTES.map(
+              route =>
+                route.file
+            )
+          );
+
+
+        const navRegex =
+          /\[NAVIGATE:([a-z0-9_-]+\.html)\]/ig;
+
+
+        let targetFile = null;
+
+
+        const cleanAnswer =
+          liveAnswer.replace(
+            navRegex,
+            (
+              match,
+              file
+            ) => {
+
+              const normalizedFile =
+                file.toLowerCase();
+
+
+              if (
+                !targetFile &&
+                validFiles.has(
+                  normalizedFile
+                )
+              ) {
+
+                targetFile =
+                  normalizedFile;
+
+              }
+
+
+              return "";
+
+            }
+          ).trim();
+
+
+        botDiv.innerHTML =
+          parseMarkdown(
+            cleanAnswer
+          );
+
+
+        /* =================================================
+           EXECUTE NAVIGATION
+           ================================================= */
+
+        if (
+          targetFile
+        ) {
+
+          const route =
+            NAV_ROUTES.find(
+              r =>
+                r.file ===
+                targetFile
+            );
+
+
+          if (route) {
+
+            executeNavigation(
+              route,
+              botDiv
+            );
+
+          }
+
+        }
+
+      }
+
+      catch (error) {
+
+        botDiv.innerHTML = `
+
+          <span
+            style="color:#ff7b72;"
+          >
+            ⚠️
+            ${escapeHtml(
+              error.message
+            )}
+          </span>
+
+        `;
+
+      }
+
+      finally {
+
+        messages.scrollTop =
+          messages.scrollHeight;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       GROQ API
+       ========================================================= */
+
+    async function callGroqAPI( 
+      messages 
+    ) { 
+ 
+      let lastError = null; 
+ 
+ 
+      for ( 
+        const model of ACTIVE_MODELS 
+      ) { 
+ 
+        try { 
+ 
+          const response = 
+            await fetch( 
+              "http://localhost:3001/api/groq", 
+              { 
+ 
+                method: "POST", 
+ 
+                headers: { 
+ 
+                  "Content-Type": 
+                    "application/json" 
+ 
+                }, 
+ 
+                body: 
+                  JSON.stringify({ 
+ 
+                    model: 
+ 
+                      model, 
+ 
+                    messages: 
+ 
+                      messages, 
+ 
+                    temperature: 
+ 
+                      0.65, 
+ 
+                    max_tokens: 
+ 
+                      1200 
+ 
+                  }) 
+ 
+              } 
+            ); 
+ 
+ 
+          if ( 
+            !response.ok 
+          ) { 
+ 
+            const errorJson = 
+              await response 
+                .json() 
+                .catch( 
+                  () => ({}) 
+                ); 
+ 
+ 
+            lastError = 
+              errorJson 
+                .error 
+                ?.message || 
+              `HTTP ${response.status}`; 
+ 
+ 
+            continue; 
+ 
+          } 
+ 
+ 
+          const data = 
+            await response.json(); 
+ 
+ 
+          const reply = 
+            data 
+              .choices?.[0] 
+              ?.message 
+              ?.content; 
+ 
+ 
+          if (reply) { 
+ 
+            return reply; 
+ 
+          } 
+ 
+        } 
+ 
+        catch ( 
+          networkError 
+        ) { 
+ 
+          lastError = 
+            networkError.message; 
+ 
+        } 
+ 
+      } 
+ 
+ 
+      throw new Error( 
+        lastError || 
+        "Could not connect to live model." 
+      ); 
+ 
+    }
+    /* =========================================================
+       SIMPLE MARKDOWN PARSER
+       ========================================================= */
+
+    function parseMarkdown(
+      text
+    ) {
+
+      let output =
+        escapeHtml(text);
+
+
+      output =
+        output.replace(
+          /\*\*(.*?)\*\*/g,
+          "<strong>$1</strong>"
+        );
+
+
+      output =
+        output.replace(
+          /\*(.*?)\*/g,
+          "<em>$1</em>"
+        );
+
+
+      output =
+        output.replace(
+          /^\s*[-*]\s+(.+)$/gim,
+          "• $1<br>"
+        );
+
+
+      output =
+        output.replace(
+          /\n\n/g,
+          "<br><br>"
+        );
+
+
+      output =
+        output.replace(
+          /\n/g,
+          "<br>"
+        );
+
+
+      return output;
+
+    }
+
+
+    /* =========================================================
+       ESCAPE HTML
+       ========================================================= */
+
+    function escapeHtml(
+      value
+    ) {
+
+      return String(value)
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    /* =========================================================
+       ESCAPE HTML ATTRIBUTES
+       ========================================================= */
+
+    function escapeAttribute(
+      value
+    ) {
+
+      return escapeHtml(
+        value || ""
+      );
+
+    }
+
+
+    /* =========================================================
+       ESC KEY CLOSES CHAT
+       ========================================================= */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          document
+            .getElementById(
+              "chatbot"
+            )
+            .classList.remove(
+              "active"
+            );
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+  <script src="profile-tracker.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Food & Restaurants | BharatYatra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at 50% 28%, rgba(12, 74, 83, 0.38), transparent 34%),
+                  radial-gradient(circle at 12% 60%, rgba(196, 75, 31, 0.14), transparent 28%),
+                  #050b12;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image: radial-gradient(circle at 1px 1px, #e5b75b 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      z-index: -1;
+    }
+
+    /* ---- Navbar ---- */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      height: 74px;
+      padding: 0 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      background: rgba(4, 10, 16, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(225, 180, 85, 0.18);
+    }
+    .logo {
+      font-family: Cinzel, serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      color: #f4e6c3;
+      white-space: nowrap;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.75px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #eab75a; }
+    .login-btn {
+      padding: 9px 19px;
+      border-radius: 25px;
+      border: 1px solid rgba(234, 183, 90, 0.7);
+      color: #f3d48c !important;
+      background: rgba(234, 183, 90, 0.06);
+    }
+
+    /* ---- Hero Header ---- */
+    .food-hero {
+      margin-top: 114px;
+      text-align: center;
+      padding: 0 5%;
+    }
+    .food-hero small {
+      color: #e5b75b;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .food-hero h1 {
+      font-family: Cinzel, serif;
+      font-size: clamp(30px, 4.5vw, 54px);
+      color: #f3e7ca;
+      margin-bottom: 12px;
+    }
+    .food-hero p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 14px;
+      max-width: 600px;
+      margin: 0 auto 25px;
+      line-height: 1.6;
+    }
+
+    /* ---- Search & Toggle Controls Panel ---- */
+    .controls-container {
+      max-width: 700px;
+      margin: 0 auto 35px;
+      padding: 0 4%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+    .search-box {
+      width: 100%;
+      padding: 13px 20px;
+      background: rgba(11, 21, 29, 0.9);
+      border: 1px solid rgba(229, 183, 91, 0.35);
+      border-radius: 14px;
+      color: #fff;
+      font-family: "DM Sans", sans-serif;
+      font-size: 14px;
+      outline: none;
+      text-align: center;
+    }
+    .search-box:focus { border-color: #e5b75b; box-shadow: 0 0 15px rgba(229,183,91,0.25); }
+
+    /* Toggle Buttons */
+    .view-toggle-bar {
+      display: flex;
+      gap: 12px;
+    }
+    .view-btn {
+      padding: 10px 22px;
+      border-radius: 25px;
+      border: 1px solid rgba(230, 184, 88, 0.35);
+      background: rgba(230, 184, 88, 0.05);
+      color: #f2dfb3;
+      font-family: Cinzel, serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .view-btn:hover, .view-btn.active {
+      background: #e5b75b;
+      color: #071015;
+      font-weight: 700;
+      box-shadow: 0 0 15px rgba(229, 183, 91, 0.35);
+    }
+
+    /* ---- Content Sections ---- */
+    .content-section {
+      max-width: 1300px;
+      margin: 0 auto 80px;
+      padding: 0 4%;
+      display: none; /* Controlled by toggle buttons */
+    }
+    .content-section.active {
+      display: block;
+    }
+    .section-header-title {
+      font-family: Cinzel, serif;
+      font-size: 22px;
+      color: #f3e7ca;
+      margin-bottom: 20px;
+      border-left: 3px solid #e5b75b;
+      padding-left: 12px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    /* Shared Card Design */
+    .item-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(230, 184, 88, 0.22);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s ease;
+    }
+    .item-card:hover {
+      transform: translateY(-5px);
+      border-color: #e5b75b;
+      box-shadow: 0 15px 35px rgba(229, 183, 91, 0.15);
+    }
+    .img-wrap {
+      height: 190px;
+      width: 100%;
+      position: relative;
+    }
+    .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(4, 10, 16, 0.85);
+      border: 1px solid rgba(229, 183, 91, 0.5);
+      color: #f2dfb3;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .rating {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(214, 123, 44, 0.9);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 8px;
+    }
+    .card-body {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-title {
+      font-family: Cinzel, serif;
+      font-size: 17px;
+      color: #f3e7ca;
+      margin-bottom: 4px;
+    }
+    .card-location {
+      font-size: 12px;
+      color: #e5b75b;
+      margin-bottom: 12px;
+    }
+    .card-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 14px;
+    }
+    .meta-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px dashed rgba(229, 183, 91, 0.3);
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+    .meta-highlight {
+      font-family: Cinzel, serif;
+      font-weight: 700;
+      color: #f3d48c;
+    }
+
+    footer {
+      padding: 35px 6%;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.38);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">BharatYatra</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home Page</a></li>
+      <li><a href="crafts.html">Crafts</a></li>
+      <li><a href="gi_tag.html">GI Tag Products</a></li>
+      <li><a href="unesco.html">UNESCO Sites</a></li>
+      <li><a href="destinations.html">Tourist Spots</a></li>
+      <li><a href="hotels.html">Hotels &amp; Stays</a></li>
+      <li><a href="transport.html">Transport</a></li>
+      <li><a href="admin_access.html">Vendors</a></li>
+      <li><a href="food.html" class="active">Local Food</a></li>
+      <li><a href="login.html" class="login-btn">LOGIN</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Header -->
+  <section class="food-hero">
+    <small>AUTHENTIC CULINARY HERITAGE</small>
+    <h1>Local Food & Restaurants</h1>
+    <p>Switch between top-rated restaurants and must-try regional delicacies for any city across India.</p>
+  </section>
+
+  <!-- Search & View Toggle Controls -->
+  <div class="controls-container">
+    <input type="text" id="citySearch" class="search-box" placeholder="🔍 Search by city (e.g. Varanasi, Mumbai, Delhi)..." oninput="filterFoodData()">
+    
+    <div class="view-toggle-bar">
+      <button class="view-btn active" id="btnRest" onclick="switchTab('restaurants')">🍽️ View Restaurants</button>
+      <button class="view-btn" id="btnFood" onclick="switchTab('localFood')">🥘 View Local Food</button>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Restaurants Suggestions -->
+  <section class="content-section active" id="secRestaurants">
+    <h2 class="section-header-title">🍽️ Recommended Restaurants & Eateries</h2>
+    <div class="cards-grid" id="restaurantsGrid"></div>
+  </section>
+
+  <!-- SECTION 2: Must-Try Local Food -->
+  <section class="content-section" id="secLocalFood">
+    <h2 class="section-header-title">🥘 Must-Try Regional Local Food</h2>
+    <div class="cards-grid" id="localFoodGrid"></div>
+  </section>
+
+  <footer>BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT</footer>
+
+  <script>
+    let restaurantsData = [];
+    let localFoodData = [];
+    let currentTab = 'restaurants';
+
+    async function loadFoodData() {
+      try {
+        const resRes = await fetch('data/restaurants.csv');
+        const resText = await resRes.text();
+        restaurantsData = parseCSV(resText);
+
+        const foodRes = await fetch('data/local_food.csv');
+        const foodText = await foodRes.text();
+        localFoodData = parseCSV(foodText);
+
+        filterFoodData();
+      } catch (err) {
+        console.error("Error loading food CSV files:", err);
+      }
+    }
+
+    function parseCSV(text) {
+      const lines = text.trim().split('\n');
+      const headers = lines[0].split(',').map(h => h.trim());
+      const result = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        const currentLine = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+        const obj = {};
+        for (let j = 0; j < headers.length; j++) {
+          let val = currentLine[j] ? currentLine[j].trim() : '';
+          if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+          if (['id', 'costForTwo'].includes(headers[j])) val = Number(val);
+          obj[headers[j]] = val;
+        }
+        result.push(obj);
+      }
+      return result;
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById("btnRest").classList.toggle("active", tab === 'restaurants');
+      document.getElementById("btnFood", tab === 'localFood').classList.toggle("active", tab === 'localFood');
+      
+      document.getElementById("secRestaurants").classList.toggle("active", tab === 'restaurants');
+      document.getElementById("secLocalFood").classList.toggle("active", tab === 'localFood');
+
+      // Also fix active class on second button selector
+      if(tab === 'restaurants') {
+        document.getElementById("btnRest").classList.add("active");
+        document.getElementById("btnFood").classList.remove("active");
+      } else {
+        document.getElementById("btnFood").classList.add("active");
+        document.getElementById("btnRest").classList.remove("active");
+      }
+    }
+
+    function renderRestaurants(data) {
+      const grid = document.getElementById("restaurantsGrid");
+      grid.innerHTML = "";
+
+      if (data.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; color: rgba(255,255,255,0.5); text-align: center; padding: 40px; font-family: Cinzel, serif;">No restaurants found for this search.</div>`;
+        return;
+      }
+
+      data.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "item-card";
+        card.innerHTML = `
+          <div class="img-wrap">
+            <img src="${item.img}" alt="${item.name}">
+            <span class="badge">${item.cuisine}</span>
+            <span class="rating">${item.rating}</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">${item.name}</h3>
+              <div class="card-location">📍 ${item.address}, ${item.city}</div>
+            </div>
+            <div class="meta-box">
+              <span style="color: rgba(255,255,255,0.6);">Cost for Two</span>
+              <span class="meta-highlight">₹${item.costForTwo}</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function renderLocalFood(data) {
+      const grid = document.getElementById("localFoodGrid");
+      grid.innerHTML = "";
+
+      if (data.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; color: rgba(255,255,255,0.5); text-align: center; padding: 40px; font-family: Cinzel, serif;">No local food specialties found for this search.</div>`;
+        return;
+      }
+
+      data.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "item-card";
+        card.innerHTML = `
+          <div class="img-wrap">
+            <img src="${item.img}" alt="${item.dishName}">
+            <span class="badge">${item.tasteProfile}</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">${item.dishName}</h3>
+              <div class="card-location">🏙️ ${item.city}, ${item.state}</div>
+              <p class="card-desc">${item.description}</p>
+            </div>
+            <div class="meta-box">
+              <span style="color: rgba(255,255,255,0.6);">Must Try At</span>
+              <span class="meta-highlight">${item.famousSpot}</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterFoodData() {
+      const query = document.getElementById("citySearch").value.toLowerCase().trim();
+
+      const filteredRestaurants = restaurantsData.filter(r => 
+        r.city.toLowerCase().includes(query) || r.name.toLowerCase().includes(query) || r.cuisine.toLowerCase().includes(query)
+      );
+
+      const filteredLocalFood = localFoodData.filter(f => 
+        f.city.toLowerCase().includes(query) || f.dishName.toLowerCase().includes(query) || f.state.toLowerCase().includes(query)
+      );
+
+      renderRestaurants(filteredRestaurants);
+      renderLocalFood(filteredLocalFood);
+    }
+
+    loadFoodData();
+  </script>
+<script src="profile-tracker.js"></script>
+</body>
+</html>

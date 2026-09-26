@@ -1,0 +1,3720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GI Tagged Products of India | BharatYatra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: #fff;
+            background:
+                radial-gradient(circle at 50% 28%, rgba(12, 74, 83, .38), transparent 34%),
+                radial-gradient(circle at 12% 60%, rgba(196, 75, 31, .14), transparent 28%),
+                #050b12;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .1;
+            background-image:
+                radial-gradient(circle at 1px 1px, #e5b75b 1px, transparent 1px);
+            background-size: 30px 30px;
+            mask-image: linear-gradient(to bottom, black, transparent);
+            z-index: -1;
+        }
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 74px;
+            padding: 0 4%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            background: rgba(4, 10, 16, .78);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(225, 180, 85, .18);
+        }
+
+        .logo {
+            font-family: Cinzel, serif;
+            font-size: 23px;
+            letter-spacing: 2px;
+            color: #f4e6c3;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, .72);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .75px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: #eab75a;
+        }
+
+        .nav-links a.active {
+            color: #eab75a;
+        }
+
+        .login-btn {
+            padding: 9px 19px;
+            border-radius: 25px;
+            border: 1px solid rgba(234, 183, 90, .7);
+            color: #f3d48c !important;
+            background: rgba(234, 183, 90, .06);
+        }
+
+        /* =========================================================
+           CHATBOT
+        ========================================================= */
+
+        .chatbot-button {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 1px solid #e8b95c;
+            background: linear-gradient(135deg, #d67b2c, #9d3f35);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, .5),
+                0 0 25px rgba(227, 154, 50, .15);
+            transition: .3s;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.08);
+        }
+
+        .chatbot {
+            position: fixed;
+            right: 25px;
+            bottom: 102px;
+            width: 350px;
+            height: 450px;
+            background: #0b151d;
+            border: 1px solid rgba(229, 181, 84, .35);
+            border-radius: 20px;
+            z-index: 998;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .7);
+        }
+
+        .chatbot.active {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 17px;
+            background: linear-gradient(135deg, #153b40, #13232c);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .chat-header strong {
+            font-family: Cinzel, serif;
+            color: #f0d18b;
+        }
+
+        .chat-header small {
+            display: block;
+            margin-top: 4px;
+            color: rgba(255, 255, 255, .5);
+            font-size: 10px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            line-height: 1.55;
+            word-wrap: break-word;
+        }
+
+        .message.bot {
+            background: rgba(255, 255, 255, .07);
+            color: rgba(255, 255, 255, .78);
+        }
+
+        .message.user {
+            margin-left: auto;
+            background: rgba(222, 157, 54, .18);
+            border: 1px solid rgba(222, 157, 54, .25);
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 7px;
+            padding: 12px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 11px;
+            border-radius: 9px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            background: #101b22;
+            color: #fff;
+            outline: 0;
+        }
+
+        .chat-input input::placeholder {
+            color: rgba(255, 255, 255, .4);
+        }
+
+        .chat-input button {
+            width: 42px;
+            border: 0;
+            border-radius: 9px;
+            background: #e5a341;
+            color: #071015;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .chat-input button:hover {
+            background: #f0b454;
+        }
+
+        /* =========================================================
+           MUSIC
+        ========================================================= */
+
+        .music-toggle {
+            position: fixed;
+            left: 25px;
+            bottom: 25px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 1px solid #e8b95c;
+            background: rgba(16, 24, 32, .85);
+            backdrop-filter: blur(10px);
+            color: #f3d48c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+            transition: .3s;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.08);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 35px 6%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            color: rgba(255, 255, 255, .38);
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================================
+           GI HERO
+        ========================================================= */
+
+        .gi-hero {
+            position: relative;
+            height: 78vh;
+            min-height: 520px;
+            margin-top: 74px;
+            overflow: hidden;
+            background: #0b1119;
+        }
+
+        .gi-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gi-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(5, 11, 18, .35) 0%,
+                    rgba(5, 11, 18, .55) 55%,
+                    rgba(5, 11, 18, .92) 100%
+                );
+        }
+
+        .gi-hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .gi-hero-content h1 {
+            font-family: Cinzel, serif;
+            font-weight: 800;
+            font-size: clamp(38px, 6.5vw, 92px);
+            color: #fff;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, .65);
+            letter-spacing: 1.5px;
+            line-height: 1.08;
+        }
+
+        .gi-hero-content p {
+            margin-top: 16px;
+            font-family: Cinzel, serif;
+            font-size: clamp(15px, 2vw, 23px);
+            color: #e8b85c;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================================
+           INFO
+        ========================================================= */
+
+        .gi-info {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 55px 5% 10px;
+            text-align: center;
+        }
+
+        .gi-info h2 {
+            font-family: Cinzel, serif;
+            font-size: clamp(22px, 2.8vw, 32px);
+            color: #f3e7ca;
+            margin-bottom: 16px;
+        }
+
+        .gi-info p {
+            font-size: 13px;
+            line-height: 1.85;
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 18px;
+        }
+
+        .gi-facts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .gi-fact {
+            padding: 10px 18px;
+            border-radius: 20px;
+            background: rgba(230, 184, 88, .07);
+            border: 1px solid rgba(230, 184, 88, .25);
+            font-size: 11px;
+            color: #f2dfb3;
+            letter-spacing: .3px;
+        }
+
+        /* =========================================================
+           FILTER
+        ========================================================= */
+
+        .filter-section {
+            padding: 45px 5% 10px;
+            text-align: center;
+        }
+
+        .filter-btn {
+            border: 1px solid rgba(234, 183, 90, .7);
+            padding: 13px 30px;
+            border-radius: 30px;
+            background: rgba(234, 183, 90, .08);
+            color: #f3d48c;
+            font-family: Cinzel, serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: .3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-btn:hover {
+            background: rgba(234, 183, 90, .16);
+        }
+
+        .filter-btn .arrow {
+            transition: transform .3s;
+        }
+
+        .filter-btn.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .filter-dropdown {
+            max-width: 1000px;
+            margin: 20px auto 0;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition:
+                max-height .4s ease,
+                opacity .3s ease;
+            border-radius: 16px;
+        }
+
+        .filter-dropdown.open {
+            max-height: 900px;
+            opacity: 1;
+            padding: 22px;
+            background: rgba(255, 255, 255, .045);
+            border: 1px solid rgba(255, 255, 255, .12);
+        }
+
+        .filter-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .filter-chip {
+            padding: 9px 17px;
+            border-radius: 20px;
+            border: 1px solid rgba(230, 184, 88, .3);
+            background: rgba(230, 184, 88, .05);
+            color: #f2dfb3;
+            font-size: 12px;
+            cursor: pointer;
+            transition: .25s;
+            white-space: nowrap;
+        }
+
+        .filter-chip:hover {
+            background: rgba(230, 184, 88, .2);
+            border-color: #e5b75b;
+            transform: translateY(-2px);
+        }
+
+        .filter-chip.empty {
+            opacity: .4;
+            font-style: italic;
+        }
+
+        .gi-instruction-note {
+            margin-top: 14px;
+            font-size: 12px;
+            color: #e8b85c;
+            letter-spacing: .5px;
+            font-weight: 500;
+        }
+
+        /* =========================================================
+           GI STATE SECTIONS
+        ========================================================= */
+
+        .gi-container {
+            padding: 20px 5% 90px;
+        }
+
+        .gi-state-section {
+            padding: 45px 0 15px;
+            scroll-margin-top: 90px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .state-heading {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .state-heading small {
+            display: block;
+            color: #e5b75b;
+            font-size: 10px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+
+        .state-heading h2 {
+            font-family: Cinzel, serif;
+            font-size: clamp(24px, 3.2vw, 38px);
+            color: #f3e7ca;
+        }
+
+        .gi-empty-note {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .gi-grid {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gi-card {
+            border-radius: 16px;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, .06),
+                    rgba(255, 255, 255, .02)
+                );
+            border: 1px solid rgba(255, 255, 255, .1);
+            transition: .3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gi-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(230, 181, 86, .42);
+            background: rgba(230, 181, 86, .05);
+        }
+
+        .gi-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            background: #0d151c;
+        }
+
+        .gi-year-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 5px 11px;
+            border-radius: 14px;
+            background: rgba(5, 11, 18, .82);
+            border: 1px solid rgba(230, 184, 88, .4);
+            color: #e5b75b;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            backdrop-filter: blur(6px);
+        }
+
+        .gi-card-body {
+            padding: 14px 16px;
+        }
+
+        .gi-card-body h4 {
+            font-family: Cinzel, serif;
+            color: #f4e4bc;
+            font-size: 14.5px;
+            margin-bottom: 6px;
+        }
+
+        .gi-card-body p {
+            font-size: 11px;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, .53);
+        }
+
+        .gi-card-footer {
+            padding: 0 16px 14px;
+            font-size: 10.5px;
+            color: #e8b85c;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* =========================================================
+           MODAL
+        ========================================================= */
+
+        .gi-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 11, 18, .85);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .gi-modal-content {
+            background: #0b151d;
+            border: 1px solid rgba(230, 184, 88, .4);
+            border-radius: 20px;
+            max-width: 550px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .8);
+        }
+
+        .gi-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: #e8b85c;
+            cursor: pointer;
+            background: none;
+            border: 0;
+        }
+
+        .gi-modal-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(230, 184, 88, .15);
+            border: 1px solid rgba(230, 184, 88, .3);
+            color: #e8b85c;
+            font-size: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .gi-modal-title {
+            font-family: Cinzel, serif;
+            font-size: 22px;
+            color: #f3e7ca;
+            margin-bottom: 8px;
+        }
+
+        .gi-modal-loc {
+            font-size: 13px;
+            color: #00d2d3;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .gi-modal-desc {
+            font-size: 12px;
+            color: rgba(255, 255, 255, .7);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .gi-modal-suggestions {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            padding: 14px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .gi-modal-suggestions h5 {
+            font-family: Cinzel, serif;
+            color: #f4e4bc;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .gi-modal-suggestions ul {
+            padding-left: 16px;
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, .65);
+            line-height: 1.6;
+        }
+
+        .gi-modal-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #d67b2c, #9d3f35);
+            color: #fff;
+            border: 0;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            letter-spacing: .5px;
+            transition: .3s;
+        }
+
+        .gi-modal-btn:hover {
+            opacity: .9;
+        }
+
+        /* =========================================================
+           CHAT TABLES / MARKDOWN
+        ========================================================= */
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10px;
+        }
+
+        .table-wrapper th,
+        .table-wrapper td {
+            padding: 7px 8px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            text-align: left;
+        }
+
+        .table-wrapper th {
+            color: #f0d18b;
+            background: rgba(229, 183, 91, .08);
+        }
+
+        .table-wrapper td {
+            color: rgba(255, 255, 255, .68);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+            .gi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                height: 66px;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .gi-hero {
+                margin-top: 66px;
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .gi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chatbot {
+                width: calc(100vw - 30px);
+                right: 15px;
+                height: 430px;
+            }
+
+            .chatbot-button {
+                right: 18px;
+                bottom: 18px;
+            }
+
+            .music-toggle {
+                left: 18px;
+                bottom: 18px;
+                width: 46px;
+                height: 46px;
+            }
+
+            .gi-modal-content {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">BharatYatra</div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home Page</a>
+            </li>
+
+            <li>
+                <a href="crafts.html">Crafts</a>
+            </li>
+
+            <li><a href="gi_tag.html" class="active">GI Tag Products</a></li>
+
+            <li>
+                <a href="calendar.html">Calendar</a>
+            </li>
+
+            <li>
+                <a href="unesco_sites.html">UNESCO Sites</a>
+            </li>
+
+            <li>
+                <a href="destinations.html">Tourist Spots</a>
+            </li>
+
+            <li>
+                <a href="hotels.html">Hotels &amp; Stays</a>
+            </li>
+
+            <li>
+                <a href="transport.html">Transport</a>
+            </li>
+
+            <li>
+                <a href="admin_access.html">Vendors</a>
+            </li>
+
+            <li>
+                <a href="login.html" class="login-btn">LOGIN</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="gi-hero">
+
+        <img
+            class="gi-hero-img"
+            src="assets/image/gi_tag_background.png"
+            alt="GI Tagged Products of India"
+        >
+
+        <div class="gi-hero-overlay"></div>
+
+        <div class="gi-hero-content">
+
+            <h1>GI Tagged Products in India</h1>
+
+            <p>
+                Certified. Authentic. Rooted in the soil they come from.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         INFORMATION
+    ========================================================== -->
+
+    <section class="gi-info">
+
+        <h2>What Is a GI Tag?</h2>
+
+        <p>
+            A Geographical Indication (GI) tag is an official certification
+            given to products that originate from a specific region and possess
+            qualities, reputation or characteristics essentially attributable
+            to that origin. It legally protects the name so that only genuine
+            producers from that region can use it — safeguarding traditional
+            artisans, farmers and their livelihoods from imitation.
+        </p>
+
+        <div class="gi-facts">
+
+            <div class="gi-fact">
+                🏆 First GI in India: Darjeeling Tea, 2004-05
+            </div>
+
+            <div class="gi-fact">
+                📜 Governed by the GI Act, 1999
+            </div>
+
+            <div class="gi-fact">
+                🏛️ Registry based in Chennai, under DPIIT
+            </div>
+
+            <div class="gi-fact">
+                ⏳ Valid for 10 years, renewable
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         STATE FILTER
+    ========================================================== -->
+
+    <section class="filter-section">
+
+        <button
+            class="filter-btn"
+            id="filterBtn"
+            onclick="toggleFilter()"
+        >
+            EXPLORE BY STATE &amp; UNION TERRITORY
+
+            <span class="arrow">▾</span>
+        </button>
+
+        <div
+            class="filter-dropdown"
+            id="filterDropdown"
+        >
+            <div
+                class="filter-grid"
+                id="filterGrid"
+            ></div>
+        </div>
+
+        <div class="gi-instruction-note">
+            💡 Click any GI-tagged product card to view origin details,
+            reviews, and open exact location on Google Maps.
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         GI DATA CONTAINER
+    ========================================================== -->
+
+    <div
+        class="gi-container"
+        id="giContainer"
+    ></div>
+
+
+    <!-- =========================================================
+         MODAL
+    ========================================================== -->
+
+    <div
+        class="gi-modal-overlay"
+        id="giModal"
+    >
+
+        <div class="gi-modal-content">
+
+            <button
+                class="gi-modal-close"
+                onclick="closeGiModal()"
+            >
+                &times;
+            </button>
+
+            <span
+                class="gi-modal-tag"
+                id="modalYear"
+            >
+                Registered: 2004-05
+            </span>
+
+            <h3
+                class="gi-modal-title"
+                id="modalTitle"
+            >
+                Product Name
+            </h3>
+
+            <p
+                class="gi-modal-loc"
+                id="modalLocation"
+            >
+                📍 Origin Hub: State / Region
+            </p>
+
+            <p
+                class="gi-modal-desc"
+                id="modalDesc"
+            >
+                Detailed product description goes here.
+            </p>
+
+            <div class="gi-modal-suggestions">
+
+                <h5>
+                    🌟 Local Traveler Suggestions &amp; Reviews
+                </h5>
+
+                <ul id="modalReviews">
+
+                    <li>
+                        Authenticity verified directly from local producer cooperatives.
+                    </li>
+
+                    <li>
+                        Recommended visiting hours: 10:00 AM – 5:00 PM for live artisan demonstrations.
+                    </li>
+
+                    <li>
+                        Top traveler rating: 4.9 / 5 based on heritage exploration tours.
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <button
+                class="gi-modal-btn"
+                onclick="openGoogleMaps()"
+            >
+                Open Exact Location on Google Maps ➔
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         CHATBOT BUTTON
+    ========================================================== -->
+
+    <div
+        class="chatbot-button"
+        onclick="toggleChat()"
+        aria-label="Open BharatYatra travel assistant"
+    >
+        🤖
+    </div>
+
+
+    <!-- =========================================================
+         CHATBOT
+    ========================================================== -->
+
+    <div
+        class="chatbot"
+        id="chatbot"
+    >
+
+        <div class="chat-header">
+
+            <strong>
+                BharatYatra Travel Assistant
+            </strong>
+
+            <small>
+                Your intelligent companion for exploring India
+            </small>
+
+        </div>
+
+        <div
+            class="chat-messages"
+            id="chatMessages"
+        >
+
+            <div class="message bot">
+                Namaste! 🙏
+                <br>
+                <br>
+                Ask me about any state's GI-tagged products,
+                crafts or produce.
+            </div>
+
+        </div>
+
+        <div class="chat-input">
+
+            <input
+                id="chatInput"
+                type="text"
+                placeholder="Ask about a GI product or state..."
+                onkeydown="handleChat(event)"
+            >
+
+            <button onclick="sendMessage()">
+                ➤
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+        BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT
+    </footer>
+
+
+    <!-- =========================================================
+         MAIN JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =========================================================
+           GI DATA
+        ========================================================== */
+
+        const giData = {
+
+            "Andaman and Nicobar Islands": [
+                {
+                    name: "Andaman Karen Musley Rice",
+                    year: "2023-24",
+                    desc: "A traditional aromatic rice variety grown by the Karen community.",
+                    img: "assets/image/gi_tag/andaman_karen_musley_rice.png"
+                }
+            ],
+
+            "Andhra Pradesh": [
+                {
+                    name: "Srikalahasthi Kalamkari",
+                    year: "2004-05",
+                    desc: "Hand-painted temple-style textile art using natural dyes.",
+                    img: "assets/image/gi_tag/srikalahasthi_kalamkari.png"
+                },
+                {
+                    name: "Kondapalli Bommallu",
+                    year: "2007-08",
+                    desc: "Lightweight painted wooden toys carved from Tella Poniki wood.",
+                    img: "assets/image/gi_tag/kondapalli_bommallu.png"
+                },
+                {
+                    name: "Machilipatnam Kalamkari",
+                    year: "2008-09",
+                    desc: "Block-printed textile art with Persian-influenced motifs.",
+                    img: "assets/image/gi_tag/machilipatnam_kalamkari.png"
+                },
+                {
+                    name: "Uppada Jamdani Sarees",
+                    year: "2008-09",
+                    desc: "Fine handwoven sarees with intricate jamdani weaving.",
+                    img: "assets/image/gi_tag/uppada_jamdani_sarees.png"
+                },
+                {
+                    name: "Tirupati Laddu",
+                    year: "2009-10",
+                    desc: "The iconic temple prasadam sweet offered at Tirumala.",
+                    img: "assets/image/gi_tag/tirupati_laddu.png"
+                },
+                {
+                    name: "Guntur Sannam Chilli",
+                    year: "2010-11",
+                    desc: "A pungent red chilli variety widely used and exported.",
+                    img: "assets/image/gi_tag/guntur_sannam_chilli.png"
+                }
+            ],
+
+            "Arunachal Pradesh": [
+                {
+                    name: "Arunachal Orange",
+                    year: "2014-15",
+                    desc: "A juicy citrus fruit cultivated across the state's hill terrain.",
+                    img: "assets/image/gi_tag/arunachal_orange.png"
+                },
+                {
+                    name: "Idu Mishmi Textiles",
+                    year: "2019-20",
+                    desc: "Handwoven textiles carrying Idu Mishmi tribal motifs.",
+                    img: "assets/image/gi_tag/idu_mishmi_textiles.png"
+                },
+                {
+                    name: "Arunachal Pradesh Khaw Tai (Khamti Rice)",
+                    year: "2023-24",
+                    desc: "A traditional rice variety grown by the Khamti community.",
+                    img: "assets/image/gi_tag/arunachal_pradesh_khaw_tai_khamti_rice.png"
+                },
+                {
+                    name: "Arunachal Pradesh Apatani Textile",
+                    year: "2023-24",
+                    desc: "Handloom textile woven by the Apatani tribal community.",
+                    img: "assets/image/gi_tag/arunachal_pradesh_apatani_textile.png"
+                }
+            ],
+
+            "Assam": [
+                {
+                    name: "Muga Silk of Assam",
+                    year: "2007-08",
+                    desc: "Golden-hued natural silk unique to the Brahmaputra valley.",
+                    img: "assets/image/gi_tag/muga_silk_of_assam.png"
+                },
+                {
+                    name: "Assam (Orthodox) Tea",
+                    year: "2008-09",
+                    desc: "Premium orthodox-processed tea grown in Assam's gardens.",
+                    img: "assets/image/gi_tag/assam_orthodox_tea.png"
+                },
+                {
+                    name: "Tezpur Litchi",
+                    year: "2014-15",
+                    desc: "A sweet, aromatic litchi variety grown near Tezpur.",
+                    img: "assets/image/gi_tag/tezpur_litchi.png"
+                },
+                {
+                    name: "Judima",
+                    year: "2021-22",
+                    desc: "A traditional fermented rice wine of the Dimasa community.",
+                    img: "assets/image/gi_tag/judima.png"
+                },
+                {
+                    name: "Gamosa of Assam",
+                    year: "2022-23",
+                    desc: "The iconic handwoven Assamese cotton cloth of respect.",
+                    img: "assets/image/gi_tag/gamosa_of_assam.png"
+                },
+                {
+                    name: "Kaji Nemu",
+                    year: "2019-20",
+                    desc: "A distinctly flavoured Assamese citrus fruit.",
+                    img: "assets/image/gi_tag/kaji_nemu.png"
+                }
+            ],
+
+            "Bihar": [
+                {
+                    name: "Madhubani Paintings",
+                    year: "2006-07",
+                    desc: "Vivid folk paintings using natural dyes and geometric patterns.",
+                    img: "assets/image/gi_tag/madhubani_paintings.png"
+                },
+                {
+                    name: "Applique (Khatwa) Work of Bihar",
+                    year: "2007-08",
+                    desc: "Patchwork textile art stitched into decorative fabric panels.",
+                    img: "assets/image/gi_tag/applique_khatwa_work_of_bihar.png"
+                },
+                {
+                    name: "Sikki Grass Products of Bihar",
+                    year: "2007-08",
+                    desc: "Golden grass woven into baskets, boxes and toys.",
+                    img: "assets/image/gi_tag/sikki_grass_products_of_bihar.png"
+                },
+                {
+                    name: "Bhagalpur Silk",
+                    year: "2012-13",
+                    desc: "Textured 'Tussar' silk textiles woven in Bhagalpur.",
+                    img: "assets/image/gi_tag/bhagalpur_silk.png"
+                },
+                {
+                    name: "Shahi Litchi of Bihar",
+                    year: "2018-19",
+                    desc: "A fragrant, sweet litchi variety from Muzaffarpur.",
+                    img: "assets/image/gi_tag/shahi_litchi_of_bihar.png"
+                },
+                {
+                    name: "Mithila Makhana",
+                    year: "2022-23",
+                    desc: "Fox-nut (makhana) grown in the wetlands of the Mithila region.",
+                    img: "assets/image/gi_tag/mithila_makhana.png"
+                }
+            ],
+
+            "Chandigarh": [],
+
+            "Chhattisgarh": [
+                {
+                    name: "Bastar Dhokra",
+                    year: "2008-09",
+                    desc: "Ancient lost-wax bell-metal casting from the Bastar region.",
+                    img: "assets/image/gi_tag/bastar_dhokra.png"
+                },
+                {
+                    name: "Bastar Wooden Craft",
+                    year: "2008-09",
+                    desc: "Tribal wooden sculptures carved by Bastar artisans.",
+                    img: "assets/image/gi_tag/bastar_wooden_craft.png"
+                },
+                {
+                    name: "Bastar Iron Craft",
+                    year: "2008-09",
+                    desc: "Wrought-iron tribal art forged by Bastar craftsmen.",
+                    img: "assets/image/gi_tag/bastar_iron_craft.png"
+                },
+                {
+                    name: "Champa Silk Saree and Fabrics",
+                    year: "2010-11",
+                    desc: "Handwoven silk textiles from the Champa region.",
+                    img: "assets/image/gi_tag/champa_silk_saree_and_fabrics.png"
+                },
+                {
+                    name: "Jeeraphool Rice",
+                    year: "2018-19",
+                    desc: "A fine-grained aromatic rice native to Chhattisgarh.",
+                    img: "assets/image/gi_tag/jeeraphool_rice.png"
+                }
+            ],
+
+            "Dadra and Nagar Haveli and Daman and Diu": [],
+
+            "Delhi": [
+                {
+                    name: "Basmati",
+                    year: "2015-16",
+                    desc: "The long-grained aromatic rice grown across the Indo-Gangetic belt, including Delhi's National Capital Region.",
+                    img: "assets/image/gi_tag/basmati.png"
+                }
+            ],
+
+            "Goa": [
+                {
+                    name: "Feni",
+                    year: "2008-09",
+                    desc: "A traditional spirit distilled from cashew apples or coconut sap.",
+                    img: "assets/image/gi_tag/feni.png"
+                },
+                {
+                    name: "Khola Chilli",
+                    year: "2019-20",
+                    desc: "A distinctly flavoured chilli grown in Khola village.",
+                    img: "assets/image/gi_tag/khola_chilli.png"
+                },
+                {
+                    name: "Harmal Chilli",
+                    year: "2021-22",
+                    desc: "A regional chilli variety grown around Harmal.",
+                    img: "assets/image/gi_tag/harmal_chilli.png"
+                },
+                {
+                    name: "Goa Mankurad Mango",
+                    year: "2023-24",
+                    desc: "A rich, fibreless mango variety prized in Goan cuisine.",
+                    img: "assets/image/gi_tag/goa_mankurad_mango.png"
+                },
+                {
+                    name: "Goan Bebinca",
+                    year: "2023-24",
+                    desc: "The iconic layered coconut-milk dessert of Goa.",
+                    img: "assets/image/gi_tag/goan_bebinca.png"
+                },
+                {
+                    name: "Goa Cashew (Kaju)",
+                    year: "2023-24",
+                    desc: "Premium cashew nuts grown in Goa's coastal soil.",
+                    img: "assets/image/gi_tag/goa_cashew_kaju.png"
+                }
+            ],
+
+            "Gujarat": [
+                {
+                    name: "Patan Patola",
+                    year: "2013-14",
+                    desc: "Double-ikat woven silk sarees from Patan.",
+                    img: "assets/image/gi_tag/patan_patola.png"
+                },
+                {
+                    name: "Kutch Embroidery",
+                    year: "2008-09",
+                    desc: "Colorful mirror-and-thread embroidery from the Kutch region.",
+                    img: "assets/image/gi_tag/kutch_embroidery.png"
+                },
+                {
+                    name: "Sankheda Furniture",
+                    year: "2008-09",
+                    desc: "Lacquered, lathe-turned wooden furniture from Sankheda.",
+                    img: "assets/image/gi_tag/sankheda_furniture.png"
+                },
+                {
+                    name: "Gir Kesar Mango",
+                    year: "2011-12",
+                    desc: "A saffron-hued, aromatic mango grown near the Gir forest.",
+                    img: "assets/image/gi_tag/gir_kesar_mango.png"
+                },
+                {
+                    name: "Tangaliya Shawl",
+                    year: "2009-10",
+                    desc: "A unique dotted-weave woolen shawl craft.",
+                    img: "assets/image/gi_tag/tangaliya_shawl.png"
+                },
+                {
+                    name: "Kutch Bandhani",
+                    year: "2023-24",
+                    desc: "Intricate resist-dyed tie-and-dye textile from Kutch.",
+                    img: "assets/image/gi_tag/kutch_bandhani.png"
+                }
+            ],
+
+            "Haryana": [
+                {
+                    name: "Basmati",
+                    year: "2015-16",
+                    desc: "The long-grained aromatic rice grown across Haryana's Basmati belt.",
+                    img: "assets/image/gi_tag/basmati.png"
+                },
+                {
+                    name: "Phulkari",
+                    year: "2010-11",
+                    desc: "Vibrant floral thread embroidery, shared across Punjab, Haryana and Rajasthan.",
+                    img: "assets/image/gi_tag/phulkari.png"
+                }
+            ],
+
+            "Himachal Pradesh": [
+                {
+                    name: "Kullu Shawl",
+                    year: "2004-05",
+                    desc: "Warm handwoven shawls with vivid geometric borders.",
+                    img: "assets/image/gi_tag/kullu_shawl.png"
+                },
+                {
+                    name: "Kangra Tea",
+                    year: "2004-05",
+                    desc: "A distinctive, mild-flavoured tea grown in the Kangra valley.",
+                    img: "assets/image/gi_tag/kangra_tea.png"
+                },
+                {
+                    name: "Chamba Rumal",
+                    year: "2008-09",
+                    desc: "Hand-embroidered decorative handkerchiefs depicting folklore.",
+                    img: "assets/image/gi_tag/chamba_rumal.png"
+                },
+                {
+                    name: "Kinnauri Shawl",
+                    year: "2010-11",
+                    desc: "Intricately patterned woolen shawls from Kinnaur.",
+                    img: "assets/image/gi_tag/kinnauri_shawl.png"
+                },
+                {
+                    name: "Kangra Paintings",
+                    year: "2013-14",
+                    desc: "Miniature paintings depicting romantic and devotional themes.",
+                    img: "assets/image/gi_tag/kangra_paintings.png"
+                },
+                {
+                    name: "Himachali Kala Zeera",
+                    year: "2018-19",
+                    desc: "A prized black-cumin spice grown in high-altitude Himachal.",
+                    img: "assets/image/gi_tag/himachali_kala_zeera.png"
+                }
+            ],
+
+            "Jammu and Kashmir": [
+                {
+                    name: "Kani Shawl",
+                    year: "2008-09",
+                    desc: "Intricately woven shawls using small wooden spools.",
+                    img: "assets/image/gi_tag/kani_shawl.png"
+                },
+                {
+                    name: "Kashmir Pashmina",
+                    year: "2008-09",
+                    desc: "Ultra-fine handwoven shawls from Changthangi goat wool.",
+                    img: "assets/image/gi_tag/kashmir_pashmina.png"
+                },
+                {
+                    name: "Kashmir Sozani Craft",
+                    year: "2008-09",
+                    desc: "Fine needlework embroidery on Pashmina and wool.",
+                    img: "assets/image/gi_tag/kashmir_sozani_craft.png"
+                },
+                {
+                    name: "Kashmir Walnut Wood Carving",
+                    year: "2011-12",
+                    desc: "Ornately carved furniture and decor from walnut wood.",
+                    img: "assets/image/gi_tag/kashmir_walnut_wood_carving.png"
+                },
+                {
+                    name: "Kashmir Papier-Mache",
+                    year: "2011-12",
+                    desc: "Hand-painted decorative items molded from paper pulp.",
+                    img: "assets/image/gi_tag/kashmir_papier_mache.png"
+                },
+                {
+                    name: "Kashmir Saffron",
+                    year: "2020-21",
+                    desc: "The prized, deep-red saffron grown in the Kashmir valley.",
+                    img: "assets/image/gi_tag/kashmir_saffron.png"
+                }
+            ],
+
+            "Jharkhand": [
+                {
+                    name: "Sohrai-Khovar Painting",
+                    year: "2020-21",
+                    desc: "Tribal wall art created during harvest and marriage festivals.",
+                    img: "assets/image/gi_tag/sohrai_khovar_painting.png"
+                }
+            ],
+
+            "Karnataka": [
+                {
+                    name: "Mysore Silk",
+                    year: "2004-05",
+                    desc: "Luxurious pure silk sarees with real zari borders.",
+                    img: "assets/image/gi_tag/mysore_silk.png"
+                },
+                {
+                    name: "Channapatna Toys and Dolls",
+                    year: "2004-05",
+                    desc: "Lacquered wooden toys colored with natural dyes.",
+                    img: "assets/image/gi_tag/channapatna_toys_and_dolls.png"
+                },
+                {
+                    name: "Bidriware",
+                    year: "2004-05",
+                    desc: "Blackened metal inlay craft with silver detailing.",
+                    img: "assets/image/gi_tag/bidriware.png"
+                },
+                {
+                    name: "Coorg Orange",
+                    year: "2004-05",
+                    desc: "A tangy citrus fruit grown in the Coorg hills.",
+                    img: "assets/image/gi_tag/coorg_orange.png"
+                },
+                {
+                    name: "Mysore Sandalwood Oil",
+                    year: "2004-05",
+                    desc: "Fragrant essential oil distilled from Mysore sandalwood.",
+                    img: "assets/image/gi_tag/mysore_sandalwood_oil.png"
+                },
+                {
+                    name: "Coorg Arabica Coffee",
+                    year: "2018-19",
+                    desc: "Aromatic high-altitude Arabica coffee from Coorg estates.",
+                    img: "assets/image/gi_tag/coorg_arabica_coffee.png"
+                }
+            ],
+
+            "Kerala": [
+                {
+                    name: "Aranmula Kannadi",
+                    year: "2004-05",
+                    desc: "Handmade metal mirrors with a centuries-old alloy secret.",
+                    img: "assets/image/gi_tag/aranmula_kannadi.png"
+                },
+                {
+                    name: "Alleppey Coir",
+                    year: "2007-08",
+                    desc: "Mats, rugs and rope woven from coconut coir.",
+                    img: "assets/image/gi_tag/alleppey_coir.png"
+                },
+                {
+                    name: "Palakkadan Matta Rice",
+                    year: "2007-08",
+                    desc: "A red parboiled rice variety native to Palakkad.",
+                    img: "assets/image/gi_tag/palakkadan_matta_rice.png"
+                },
+                {
+                    name: "Navara Rice",
+                    year: "2007-08",
+                    desc: "A short-grain medicinal rice used in Ayurveda.",
+                    img: "assets/image/gi_tag/navara_rice.png"
+                },
+                {
+                    name: "Screw Pine Craft of Kerala",
+                    year: "2008-09",
+                    desc: "Mats and baskets woven from screw pine leaves.",
+                    img: "assets/image/gi_tag/screw_pine_craft_of_kerala.png"
+                },
+                {
+                    name: "Marayoor Jaggery",
+                    year: "2018-19",
+                    desc: "Traditional cane jaggery made in Marayoor.",
+                    img: "assets/image/gi_tag/marayoor_jaggery.png"
+                }
+            ],
+
+            "Ladakh": [
+                {
+                    name: "Ladakh Raktsey Karpo Apricot",
+                    year: "2022-23",
+                    desc: "A prized white apricot variety grown in Ladakh.",
+                    img: "assets/image/gi_tag/ladakh_raktsey_karpo_apricot.png"
+                },
+                {
+                    name: "Pashmina Wool of Ladakh",
+                    year: "2022-23",
+                    desc: "Fine handspun wool from high-altitude Changthangi goats.",
+                    img: "assets/image/gi_tag/pashmina_wool_of_ladakh.png"
+                },
+                {
+                    name: "Ladakh Shingskos",
+                    year: "2022-23",
+                    desc: "A traditional Ladakhi barley variety.",
+                    img: "assets/image/gi_tag/ladakh_shingskos.png"
+                },
+                {
+                    name: "Ladakh Seabuckthorn",
+                    year: "2023-24",
+                    desc: "A nutrient-rich wild berry native to the Ladakh region.",
+                    img: "assets/image/gi_tag/ladakh_seabuckthorn.png"
+                }
+            ],
+
+            "Lakshadweep": [],
+
+            "Madhya Pradesh": [
+                {
+                    name: "Chanderi Sarees",
+                    year: "2004-05",
+                    desc: "Sheer, lightweight handwoven sarees with zari motifs.",
+                    img: "assets/image/gi_tag/chanderi_sarees.png"
+                },
+                {
+                    name: "Bagh Prints of Madhya Pradesh",
+                    year: "2008-09",
+                    desc: "Natural block-printed textiles from the Bagh region.",
+                    img: "assets/image/gi_tag/bagh_prints_of_madhya_pradesh.png"
+                },
+                {
+                    name: "Maheshwari Saree and Fabrics",
+                    year: "2012-13",
+                    desc: "Distinctive cotton-silk sarees with reversible borders.",
+                    img: "assets/image/gi_tag/maheshwari_saree_and_fabrics.png"
+                },
+                {
+                    name: "Gond Painting of Madhya Pradesh",
+                    year: "2022-23",
+                    desc: "Tribal dot-and-line art depicting nature and folklore.",
+                    img: "assets/image/gi_tag/gond_painting_of_madhya_pradesh.png"
+                },
+                {
+                    name: "Jhabua Kadaknath Black Chicken Meat",
+                    year: "2018-19",
+                    desc: "A distinctive black-fleshed poultry breed prized for nutrition.",
+                    img: "assets/image/gi_tag/jhabua_kadaknath_black_chicken_meat.png"
+                },
+                {
+                    name: "Balaghat Chinnor Rice",
+                    year: "2021-22",
+                    desc: "A short-grain aromatic rice grown in Balaghat.",
+                    img: "assets/image/gi_tag/balaghat_chinnor_rice.png"
+                }
+            ],
+
+            "Maharashtra": [
+                {
+                    name: "Solapuri Chaddar",
+                    year: "2004-05",
+                    desc: "Handwoven cotton bedsheets known for their texture.",
+                    img: "assets/image/gi_tag/solapuri_chaddar.png"
+                },
+                {
+                    name: "Paithani Sarees and Fabrics",
+                    year: "2010-11",
+                    desc: "Richly woven silk sarees with peacock motif borders.",
+                    img: "assets/image/gi_tag/paithani_sarees_and_fabrics.png"
+                },
+                {
+                    name: "Warli Painting",
+                    year: "2013-14",
+                    desc: "Minimalist tribal wall art, shared with Gujarat.",
+                    img: "assets/image/gi_tag/warli_painting.png"
+                },
+                {
+                    name: "Nagpur Orange",
+                    year: "2013-14",
+                    desc: "A juicy citrus variety grown around Nagpur, shared with MP.",
+                    img: "assets/image/gi_tag/nagpur_orange.png"
+                },
+                {
+                    name: "Alphonso Mango",
+                    year: "2018-19",
+                    desc: "The world-renowned 'king of mangoes' from the Konkan coast.",
+                    img: "assets/image/gi_tag/alphonso_mango.png"
+                },
+                {
+                    name: "Kolhapuri Chappal",
+                    year: "2018-19",
+                    desc: "Handcrafted leather sandals, shared with Karnataka.",
+                    img: "assets/image/gi_tag/kolhapuri_chappal.png"
+                }
+            ],
+
+            "Manipur": [
+                {
+                    name: "Shaphee Lanphee",
+                    year: "2013-14",
+                    desc: "Ceremonial shawls woven with traditional Meitei motifs.",
+                    img: "assets/image/gi_tag/shaphee_lanphee.png"
+                },
+                {
+                    name: "Wangkhei Phee",
+                    year: "2013-14",
+                    desc: "Fine muslin-like handwoven fabric with intricate borders.",
+                    img: "assets/image/gi_tag/wangkhei_phee.png"
+                },
+                {
+                    name: "Moirang Phee",
+                    year: "2013-14",
+                    desc: "Traditional handwoven textile with symbolic motifs.",
+                    img: "assets/image/gi_tag/moirang_phee.png"
+                },
+                {
+                    name: "Chak-Hao (Black Rice)",
+                    year: "2019-20",
+                    desc: "An aromatic black rice, shared with Nagaland.",
+                    img: "assets/image/gi_tag/chak_hao_black_rice.png"
+                },
+                {
+                    name: "Sirarakhong Hathei Chilli",
+                    year: "2021-22",
+                    desc: "A distinctly aromatic chilli grown in Ukhrul district.",
+                    img: "assets/image/gi_tag/sirarakhong_hathei_chilli.png"
+                }
+            ],
+
+            "Meghalaya": [
+                {
+                    name: "Khasi Mandarin",
+                    year: "2014-15",
+                    desc: "A sweet, juicy mandarin orange grown in the Khasi hills.",
+                    img: "assets/image/gi_tag/khasi_mandarin.png"
+                },
+                {
+                    name: "Memong Narang",
+                    year: "2015-16",
+                    desc: "A traditional citrus variety native to Meghalaya.",
+                    img: "assets/image/gi_tag/memong_narang.png"
+                },
+                {
+                    name: "Lakadong Turmeric",
+                    year: "2023-24",
+                    desc: "A high-curcumin turmeric prized for its potency.",
+                    img: "assets/image/gi_tag/lakadong_turmeric.png"
+                },
+                {
+                    name: "Meghalaya Garo Textile",
+                    year: "2023-24",
+                    desc: "Handwoven textiles carrying Garo tribal motifs.",
+                    img: "assets/image/gi_tag/meghalaya_garo_textile.png"
+                },
+                {
+                    name: "Meghalaya Lyrnai Pottery",
+                    year: "2023-24",
+                    desc: "Hand-molded pottery made without a potter's wheel.",
+                    img: "assets/image/gi_tag/meghalaya_lyrnai_pottery.png"
+                }
+            ],
+
+            "Mizoram": [
+                {
+                    name: "Mizo Chilli",
+                    year: "2014-15",
+                    desc: "A fiery, aromatic chilli variety native to Mizoram.",
+                    img: "assets/image/gi_tag/mizo_chilli.png"
+                },
+                {
+                    name: "Pawndum",
+                    year: "2019-20",
+                    desc: "A traditional black-and-white handwoven Mizo textile.",
+                    img: "assets/image/gi_tag/pawndum.png"
+                },
+                {
+                    name: "Tawlhlohpuan",
+                    year: "2019-20",
+                    desc: "A thick, durable handwoven Mizo textile.",
+                    img: "assets/image/gi_tag/tawlhlohpuan.png"
+                },
+                {
+                    name: "Mizo Puanchei",
+                    year: "2019-20",
+                    desc: "Vividly colored ceremonial shawls of the Mizo people.",
+                    img: "assets/image/gi_tag/mizo_puanchei.png"
+                },
+                {
+                    name: "Mizo Ginger",
+                    year: "2021-22",
+                    desc: "An aromatic ginger variety grown across Mizoram.",
+                    img: "assets/image/gi_tag/mizo_ginger.png"
+                }
+            ],
+
+            "Nagaland": [
+                {
+                    name: "Naga Mircha",
+                    year: "2008-09",
+                    desc: "One of the world's hottest chillies, native to Nagaland.",
+                    img: "assets/image/gi_tag/naga_mircha.png"
+                },
+                {
+                    name: "Chakshesang Shawl",
+                    year: "2017-18",
+                    desc: "A tribal shawl woven with symbolic identity patterns.",
+                    img: "assets/image/gi_tag/chakshesang_shawl.png"
+                },
+                {
+                    name: "Naga Tree Tomato",
+                    year: "2014-15",
+                    desc: "A tangy tree-grown tomato variety unique to the region.",
+                    img: "assets/image/gi_tag/naga_tree_tomato.png"
+                },
+                {
+                    name: "Naga Cucumber",
+                    year: "2021-22",
+                    desc: "A distinct local cucumber variety grown in Nagaland.",
+                    img: "assets/image/gi_tag/naga_cucumber.png"
+                }
+            ],
+
+            "Odisha": [
+                {
+                    name: "Kotpad Handloom Fabrics",
+                    year: "2004-05",
+                    desc: "Naturally dyed handloom textiles from Kotpad.",
+                    img: "assets/image/gi_tag/kotpad_handloom_fabrics.png"
+                },
+                {
+                    name: "Orissa Ikat",
+                    year: "2004-05",
+                    desc: "Tie-dyed handwoven textiles with intricate patterns.",
+                    img: "assets/image/gi_tag/orissa_ikat.png"
+                },
+                {
+                    name: "Orissa Pattachitra",
+                    year: "2008-09",
+                    desc: "Traditional cloth-based scroll paintings of mythological themes.",
+                    img: "assets/image/gi_tag/orissa_pattachitra.png"
+                },
+                {
+                    name: "Konark Stone Carving",
+                    year: "2008-09",
+                    desc: "Temple-style stone sculptures inspired by the Sun Temple.",
+                    img: "assets/image/gi_tag/konark_stone_carving.png"
+                },
+                {
+                    name: "Sambalpuri Bandha Saree and Fabrics",
+                    year: "2012-13",
+                    desc: "Tie-dyed ikat sarees with geometric motifs.",
+                    img: "assets/image/gi_tag/sambalpuri_bandha_saree_and_fabrics.png"
+                },
+                {
+                    name: "Odisha Rasagola",
+                    year: "2019-20",
+                    desc: "The traditional spongy chhena-based sweet of Odisha.",
+                    img: "assets/image/gi_tag/odisha_rasagola.png"
+                }
+            ],
+
+            "Puducherry": [
+                {
+                    name: "Villianur Terracotta Works",
+                    year: "2011-12",
+                    desc: "Hand-molded terracotta craft from Villianur.",
+                    img: "assets/image/gi_tag/villianur_terracotta_works.png"
+                },
+                {
+                    name: "Tirukanur Papier Mache Craft",
+                    year: "2011-12",
+                    desc: "Decorative items hand-molded from paper pulp.",
+                    img: "assets/image/gi_tag/tirukanur_papier_mache_craft.png"
+                }
+            ],
+
+            "Punjab": [
+                {
+                    name: "Phulkari",
+                    year: "2010-11",
+                    desc: "Vibrant floral thread embroidery, shared with Haryana and Rajasthan.",
+                    img: "assets/image/gi_tag/phulkari.png"
+                },
+                {
+                    name: "Basmati",
+                    year: "2015-16",
+                    desc: "The long-grained aromatic rice grown across Punjab's fields.",
+                    img: "assets/image/gi_tag/basmati.png"
+                }
+            ],
+
+            "Rajasthan": [
+                {
+                    name: "Kota Doria",
+                    year: "2004-05",
+                    desc: "Sheer, lightweight handwoven cotton-silk fabric.",
+                    img: "assets/image/gi_tag/kota_doria.png"
+                },
+                {
+                    name: "Blue Pottery of Jaipur",
+                    year: "2008-09",
+                    desc: "Glazed ceramic pottery in signature cobalt-blue hues.",
+                    img: "assets/image/gi_tag/blue_pottery_of_jaipur.png"
+                },
+                {
+                    name: "Molela Clay Work",
+                    year: "2008-09",
+                    desc: "Hand-molded terracotta relief plaques of deities.",
+                    img: "assets/image/gi_tag/molela_clay_work.png"
+                },
+                {
+                    name: "Kathputlis of Rajasthan",
+                    year: "2008-09",
+                    desc: "Handcrafted wooden string puppets used in folk theatre.",
+                    img: "assets/image/gi_tag/kathputlis_of_rajasthan.png"
+                },
+                {
+                    name: "Sanganeri Hand Block Printing",
+                    year: "2009-10",
+                    desc: "Natural-dye block-printed textiles from Sanganer.",
+                    img: "assets/image/gi_tag/sanganeri_hand_block_printing.png"
+                },
+                {
+                    name: "Bikaneri Bhujia",
+                    year: "2010-11",
+                    desc: "The famous crispy, spiced gram-flour snack from Bikaner.",
+                    img: "assets/image/gi_tag/bikaneri_bhujia.png"
+                }
+            ],
+
+            "Sikkim": [
+                {
+                    name: "Sikkim Large Cardamom",
+                    year: "2014-15",
+                    desc: "A prized, aromatic cardamom variety grown in Sikkim.",
+                    img: "assets/image/gi_tag/sikkim_large_cardamom.png"
+                },
+                {
+                    name: "Dalle Khursani",
+                    year: "2021-22",
+                    desc: "A round, fiery chilli grown in Sikkim and West Bengal hills.",
+                    img: "assets/image/gi_tag/dalle_khursani.png"
+                }
+            ],
+
+            "Tamil Nadu": [
+                {
+                    name: "Kancheepuram Silk",
+                    year: "2004-05",
+                    desc: "Opulent silk sarees with wide contrasting zari borders.",
+                    img: "assets/image/gi_tag/kancheepuram_silk.png"
+                },
+                {
+                    name: "Thanjavur Paintings",
+                    year: "2007-08",
+                    desc: "Gold-leaf embellished classical paintings of deities.",
+                    img: "assets/image/gi_tag/thanjavur_paintings.png"
+                },
+                {
+                    name: "Coimbatore Wet Grinder",
+                    year: "2004-05",
+                    desc: "A traditional stone-based batter grinder manufactured in Coimbatore.",
+                    img: "assets/image/gi_tag/coimbatore_wet_grinder.png"
+                },
+                {
+                    name: "Swamimalai Bronze Icons",
+                    year: "2008-09",
+                    desc: "Lost-wax cast bronze idols in the Chola tradition.",
+                    img: "assets/image/gi_tag/swamimalai_bronze_icons.png"
+                },
+                {
+                    name: "Madurai Malli",
+                    year: "2012-13",
+                    desc: "The fragrant jasmine flower grown around Madurai.",
+                    img: "assets/image/gi_tag/madurai_malli.png"
+                },
+                {
+                    name: "Palani Panchamirtham",
+                    year: "2019-20",
+                    desc: "The sacred five-ingredient temple prasadam of Palani.",
+                    img: "assets/image/gi_tag/palani_panchamirtham.png"
+                }
+            ],
+
+            "Telangana": [
+                {
+                    name: "Pochampally Sari",
+                    year: "2004-05",
+                    desc: "Geometric tie-dyed handwoven textiles from Pochampally.",
+                    img: "assets/image/gi_tag/pochampally_sari.png"
+                },
+                {
+                    name: "Nirmal Toys and Craft",
+                    year: "2008-09",
+                    desc: "Lacquered wooden toys with natural dyes.",
+                    img: "assets/image/gi_tag/nirmal_toys_and_craft.png"
+                },
+                {
+                    name: "Cheriyal Paintings",
+                    year: "2010-11",
+                    desc: "Narrative scroll art depicting folklore and epics.",
+                    img: "assets/image/gi_tag/cheriyal_paintings.png"
+                },
+                {
+                    name: "Silver Filigree of Karimnagar",
+                    year: "2007-08",
+                    desc: "Delicate silver wire craft from Karimnagar.",
+                    img: "assets/image/gi_tag/silver_filigree_of_karimnagar.png"
+                },
+                {
+                    name: "Gadwal Sarees",
+                    year: "2010-11",
+                    desc: "Cotton-bodied sarees with contrasting silk zari borders.",
+                    img: "assets/image/gi_tag/gadwal_sarees.png"
+                },
+                {
+                    name: "Hyderabad Haleem",
+                    year: "2010-11",
+                    desc: "The rich, slow-cooked wheat-and-meat delicacy of Hyderabad.",
+                    img: "assets/image/gi_tag/hyderabad_haleem.png"
+                }
+            ],
+
+            "Tripura": [
+                {
+                    name: "Tripura Queen Pineapple",
+                    year: "2014-15",
+                    desc: "A sweet, fragrant pineapple variety grown in Tripura.",
+                    img: "assets/image/gi_tag/tripura_queen_pineapple.png"
+                },
+                {
+                    name: "Tripura Risa Textile",
+                    year: "2023-24",
+                    desc: "Traditional handwoven textile worn by Tripuri women.",
+                    img: "assets/image/gi_tag/tripura_risa_textile.png"
+                },
+                {
+                    name: "Tripura Pachra-Rignai",
+                    year: "2023-24",
+                    desc: "Traditional handwoven wraparound garments of Tripura.",
+                    img: "assets/image/gi_tag/tripura_pachra_rignai.png"
+                }
+            ],
+
+            "Uttar Pradesh": [
+                {
+                    name: "Banaras Brocades and Sarees",
+                    year: "2009-10",
+                    desc: "Opulent silk sarees with intricate zari brocade.",
+                    img: "assets/image/gi_tag/banaras_brocades_and_sarees.png"
+                },
+                {
+                    name: "Lucknow Chikan Craft",
+                    year: "2008-09",
+                    desc: "Delicate white-thread embroidery on fine fabric.",
+                    img: "assets/image/gi_tag/lucknow_chikan_craft.png"
+                },
+                {
+                    name: "Banaras Paan",
+                    year: "2022-23",
+                    desc: "Prepared freshly using betal leaf, slaked lime, betel nut,etc.",
+                    img: "assets/image/gi_tag/banaras_paan.png"
+                },
+                {
+                    name: "Kannauj Perfume",
+                    year: "2013-14",
+                    desc: "Traditional attar perfumery distilled the ancient way.",
+                    img: "assets/image/gi_tag/kannauj_perfume.png"
+                },
+                {
+                    name: "Moradabad Metal Craft",
+                    year: "2013-14",
+                    desc: "Ornate brass artifacts from the 'Brass City'.",
+                    img: "assets/image/gi_tag/moradabad_metal_craft.png"
+                },
+                {
+                    name: "Mango Malihabadi Dusseheri",
+                    year: "2009-10",
+                    desc: "A fibreless, fragrant mango variety from Malihabad.",
+                    img: "assets/image/gi_tag/mango_malihabadi_dusseheri.png"
+                }
+            ],
+
+            "Uttarakhand": [
+                {
+                    name: "Uttarakhand Tejpat",
+                    year: "2016-17",
+                    desc: "Aromatic bay leaf grown in Uttarakhand's hill forests.",
+                    img: "assets/image/gi_tag/uttarakhand_tejpat.png"
+                },
+                {
+                    name: "Uttarakhand Aipan",
+                    year: "2021-22",
+                    desc: "Ritual floor and wall art drawn with rice-paste.",
+                    img: "assets/image/gi_tag/uttarakhand_aipan.png"
+                },
+                {
+                    name: "Uttarakhand Ringal Craft",
+                    year: "2021-22",
+                    desc: "Baskets and utility items woven from hill bamboo.",
+                    img: "assets/image/gi_tag/uttarakhand_ringal_craft.png"
+                },
+                {
+                    name: "Uttarakhand Tamta Product",
+                    year: "2021-22",
+                    desc: "Hand-beaten copper and brass utensils and decor.",
+                    img: "assets/image/gi_tag/uttarakhand_tamta_product.png"
+                },
+                {
+                    name: "Munsyari Razma",
+                    year: "2021-22",
+                    desc: "A prized variety of kidney beans grown in Munsyari.",
+                    img: "assets/image/gi_tag/munsyari_razma.png"
+                },
+                {
+                    name: "Uttarakhand Berinag Tea",
+                    year: "2023-24",
+                    desc: "A delicately flavoured tea grown in the Berinag hills.",
+                    img: "assets/image/gi_tag/uttarakhand_berinag_tea.png"
+                }
+            ],
+
+            "West Bengal": [
+                {
+                    name: "Darjeeling Tea",
+                    year: "2004-05",
+                    desc: "India's first-ever registered GI — world-famous for its muscatel flavour.",
+                    img: "assets/image/gi_tag/darjeeling_tea.png"
+                },
+                {
+                    name: "Nakshi Kantha",
+                    year: "2007-08",
+                    desc: "Running-stitch embroidery upcycling layers of old cloth.",
+                    img: "assets/image/gi_tag/nakshi_kantha.png"
+                },
+                {
+                    name: "Santiniketan Leather Goods",
+                    year: "2008-09",
+                    desc: "Hand-tooled leather craft originating in Santiniketan.",
+                    img: "assets/image/gi_tag/santiniketan_leather_goods.png"
+                },
+                {
+                    name: "Baluchari Saree",
+                    year: "2011-12",
+                    desc: "Silk sarees with mythological scenes woven into the pallu.",
+                    img: "assets/image/gi_tag/baluchari_saree.png"
+                },
+                {
+                    name: "Bankura Panchmura Terracotta Craft",
+                    year: "2017-18",
+                    desc: "The iconic elongated-neck terracotta horse figurines.",
+                    img: "assets/image/gi_tag/bankura_panchmura_terracotta_craft.png"
+                },
+                {
+                    name: "Joynagar Moa",
+                    year: "2014-15",
+                    desc: "A winter sweet made from date-palm jaggery and puffed rice.",
+                    img: "assets/image/gi_tag/joynagar_moa.png"
+                }
+            ]
+
+        };
+
+
+        /* =========================================================
+           HELPER
+        ========================================================== */
+
+        function slugify(value) {
+            return value
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/(^-|-$)/g, "");
+        }
+
+
+        /* =========================================================
+           BUILD STATE FILTER
+        ========================================================== */
+
+        const stateNames = Object.keys(giData).sort();
+
+        const filterGrid = document.getElementById("filterGrid");
+
+        stateNames.forEach(name => {
+
+            const chip = document.createElement("div");
+
+            chip.className =
+                "filter-chip" +
+                (giData[name].length === 0 ? " empty" : "");
+
+            chip.textContent =
+                name +
+                (giData[name].length === 0
+                    ? " (0)"
+                    : " (" + giData[name].length + ")");
+
+            chip.onclick = () => {
+                scrollToState(slugify(name));
+            };
+
+            filterGrid.appendChild(chip);
+
+        });
+
+
+        /* =========================================================
+           BUILD GI SECTIONS
+        ========================================================== */
+
+        function buildGiSection(container, stateName, items) {
+
+            const section = document.createElement("section");
+
+            section.className = "gi-state-section";
+
+            section.id = "state-" + slugify(stateName);
+
+
+            if (items.length === 0) {
+
+                section.innerHTML = `
+                    <div class="state-heading">
+                        <small>GEOGRAPHICAL INDICATIONS</small>
+                        <h2>${stateName}</h2>
+                    </div>
+
+                    <p class="gi-empty-note">
+                        No dedicated GI-tagged product is registered for this
+                        Union Territory yet in the official registry —
+                        check back as new GIs are added every year.
+                    </p>
+                `;
+
+                container.appendChild(section);
+
+                return;
+            }
+
+
+            section.innerHTML = `
+                <div class="state-heading">
+                    <small>GEOGRAPHICAL INDICATIONS</small>
+                    <h2>${stateName}</h2>
+                </div>
+
+                <div class="gi-grid"></div>
+            `;
+
+
+            const grid = section.querySelector(".gi-grid");
+
+
+            items.forEach(product => {
+
+                const card = document.createElement("div");
+
+                card.className = "gi-card";
+
+                card.onclick = () => {
+                    openGiModal(
+                        product.name,
+                        stateName,
+                        product.year,
+                        product.desc
+                    );
+                };
+
+
+                const image = document.createElement("img");
+
+                image.src = product.img;
+
+                image.alt = product.name;
+
+                image.onerror = function () {
+                    this.style.background = "#0d151c";
+                };
+
+
+                const yearBadge = document.createElement("div");
+
+                yearBadge.className = "gi-year-badge";
+
+                yearBadge.textContent = product.year;
+
+
+                const body = document.createElement("div");
+
+                body.className = "gi-card-body";
+
+                const title = document.createElement("h4");
+
+                title.textContent = product.name;
+
+                const description = document.createElement("p");
+
+                description.textContent = product.desc;
+
+                body.appendChild(title);
+
+                body.appendChild(description);
+
+
+                const footer = document.createElement("div");
+
+                footer.className = "gi-card-footer";
+
+                footer.textContent = "📍 View Origin & Map ➔";
+
+
+                card.appendChild(image);
+
+                card.appendChild(yearBadge);
+
+                card.appendChild(body);
+
+                card.appendChild(footer);
+
+                grid.appendChild(card);
+
+            });
+
+
+            container.appendChild(section);
+
+        }
+
+
+        const giContainer = document.getElementById("giContainer");
+
+
+        stateNames.forEach(name => {
+
+            buildGiSection(
+                giContainer,
+                name,
+                giData[name]
+            );
+
+        });
+
+
+        /* =========================================================
+           FILTER DROPDOWN
+        ========================================================== */
+
+        function toggleFilter() {
+
+            document
+                .getElementById("filterBtn")
+                .classList.toggle("open");
+
+            document
+                .getElementById("filterDropdown")
+                .classList.toggle("open");
+
+        }
+
+
+        function scrollToState(id) {
+
+            document
+                .getElementById("filterBtn")
+                .classList.remove("open");
+
+            document
+                .getElementById("filterDropdown")
+                .classList.remove("open");
+
+
+            const target =
+                document.getElementById("state-" + id);
+
+
+            if (target) {
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        }
+
+
+        /* =========================================================
+           GI MODAL
+        ========================================================== */
+
+        let currentProductName = "";
+
+        let currentStateName = "";
+
+
+        function openGiModal(
+            productName,
+            stateName,
+            year,
+            desc
+        ) {
+
+            currentProductName = productName;
+
+            currentStateName = stateName;
+
+
+            document.getElementById("modalTitle").innerText =
+                productName;
+
+            document.getElementById("modalLocation").innerText =
+                "📍 Origin Hub: " + stateName;
+
+            document.getElementById("modalYear").innerText =
+                "Registered: " + year;
+
+            document.getElementById("modalDesc").innerText =
+                desc;
+
+
+            document.getElementById("giModal").style.display =
+                "flex";
+
+        }
+
+
+        function closeGiModal() {
+
+            document.getElementById("giModal").style.display =
+                "none";
+
+        }
+
+
+        function openGoogleMaps() {
+
+            const searchQuery = encodeURIComponent(
+                currentProductName +
+                " origin production center " +
+                currentStateName +
+                " India"
+            );
+
+
+            window.open(
+                "https://www.google.com/maps/search/?api=1&query=" +
+                searchQuery,
+                "_blank"
+            );
+
+        }
+
+
+        /* =========================================================
+           CHATBOT
+           FULL WEBSITE NAVIGATION REGISTRY
+        ========================================================== */
+
+        /*
+         * IMPORTANT:
+         */
+
+        const ACTIVE_MODELS = [
+            "openai/gpt-oss-120b",
+            "openai/gpt-oss-20b",
+            "qwen/qwen3.6-27b"
+        ];
+
+
+        /* =========================================================
+           ALL BHARATYATRA PAGES
+        ========================================================== */
+
+        const NAV_ROUTES = [
+
+            {
+                file: "index.html",
+                label: "Home Page",
+                keywords: [
+                    "home",
+                    "homepage",
+                    "home page",
+                    "main page",
+                    "landing page",
+                    "bharatyatra home"
+                ]
+            },
+
+            {
+                file: "chatbot.html",
+                label: "AI Itinerary Planner",
+                keywords: [
+                    "itinerary",
+                    "itinerary planner",
+                    "ai itinerary",
+                    "ai itinerary planner",
+                    "trip planner",
+                    "travel planner",
+                    "plan a trip",
+                    "plan my trip",
+                    "travel plan",
+                    "ai guide",
+                    "bharat ai guide",
+                    "bharat ai",
+                    "plan a yatra"
+                ]
+            },
+
+            {
+                file: "ticket_generator.html",
+                label: "One-Ticket Pass",
+                keywords: [
+                    "one ticket",
+                    "one-ticket",
+                    "one ticket pass",
+                    "travel pass",
+                    "ticket generator",
+                    "generate ticket",
+                    "book ticket",
+                    "ticket booking",
+                    "travel ticket"
+                ]
+            },
+
+            {
+                file: "crafts.html",
+                label: "Crafts",
+                keywords: [
+                    "craft",
+                    "crafts",
+                    "handicraft",
+                    "handicrafts",
+                    "handloom",
+                    "artisan",
+                    "artisans",
+                    "souvenir",
+                    "souvenirs"
+                ]
+            },
+
+            {
+                file: "gi_tag.html",
+                label: "GI Tag Products",
+                keywords: [
+                    "gi tag",
+                    "gi-tag",
+                    "gi tags",
+                    "geographical indication",
+                    "gi products",
+                    "regional products"
+                ]
+            },
+
+            {
+                file: "calendar.html",
+                label: "Calendar",
+                keywords: [
+                    "calendar",
+                    "festival",
+                    "festivals",
+                    "events",
+                    "festival calendar",
+                    "upcoming events",
+                    "events calendar"
+                ]
+            },
+
+            {
+                file: "unesco_sites.html",
+                label: "UNESCO Sites",
+                keywords: [
+                    "unesco",
+                    "unesco sites",
+                    "world heritage",
+                    "world heritage sites",
+                    "heritage site",
+                    "heritage sites"
+                ]
+            },
+
+            {
+                file: "destinations.html",
+                label: "Tourist Spots",
+                keywords: [
+                    "destination",
+                    "destinations",
+                    "tourist spot",
+                    "tourist spots",
+                    "tourist places",
+                    "places to visit",
+                    "places to see",
+                    "sightseeing",
+                    "tourist attractions",
+                    "tourist attraction"
+                ]
+            },
+
+            {
+                file: "hotels.html",
+                label: "Hotels & Stays",
+                keywords: [
+                    "hotel",
+                    "hotels",
+                    "stay",
+                    "stays",
+                    "accommodation",
+                    "accommodations",
+                    "hotel booking",
+                    "places to stay",
+                    "homestay",
+                    "homestays",
+                    "hostel",
+                    "hostels"
+                ]
+            },
+
+            {
+                file: "transport.html",
+                label: "Transport",
+                keywords: [
+                    "transport",
+                    "transportation",
+                    "travel transport",
+                    "flight",
+                    "flights",
+                    "train",
+                    "trains",
+                    "bus",
+                    "buses",
+                    "travel options",
+                    "travel by train",
+                    "travel by flight",
+                    "travel by bus"
+                ]
+            },
+
+            {
+                file: "admin_access.html",
+                label: "Vendors",
+                keywords: [
+                    "vendor",
+                    "vendors",
+                    "vendor portal",
+                    "seller",
+                    "sellers",
+                    "admin",
+                    "admin access"
+                ]
+            },
+
+            {
+                file: "login.html",
+                label: "Login / Profile",
+                keywords: [
+                    "login",
+                    "log in",
+                    "sign in",
+                    "signin",
+                    "profile",
+                    "my profile",
+                    "account",
+                    "my account",
+                    "register",
+                    "sign up",
+                    "signup"
+                ]
+            }
+
+        ];
+
+
+        /* =========================================================
+           NAVIGATION VERBS
+        ========================================================== */
+
+        const NAV_VERBS = [
+
+            "go to",
+            "take me to",
+            "take me back to",
+            "show me",
+            "open",
+            "navigate to",
+            "navigate",
+            "i want to see",
+            "i want to go",
+            "i want to visit",
+            "where is",
+            "find",
+            "switch to",
+            "bring me to",
+            "send me to",
+            "move to",
+            "let me see",
+            "can you open",
+            "please open",
+            "please take me to",
+            "take me there"
+
+        ];
+
+
+        /* =========================================================
+           INFORMATION / QUESTION PHRASES
+           Prevent accidental navigation
+        ========================================================== */
+
+        const INFORMATION_PATTERNS = [
+
+            /^tell me about\b/i,
+            /^tell me more about\b/i,
+            /^what is\b/i,
+            /^what are\b/i,
+            /^what's\b/i,
+            /^who is\b/i,
+            /^where can i\b/i,
+            /^how can i\b/i,
+            /^how do i\b/i,
+            /^how does\b/i,
+            /^how much\b/i,
+            /^why\b/i,
+            /^explain\b/i,
+            /^give me information about\b/i,
+            /^information about\b/i,
+            /^details about\b/i,
+            /^describe\b/i,
+            /^can you tell me\b/i,
+            /^i want information about\b/i
+
+        ];
+
+
+        /* =========================================================
+           CURRENT PAGE
+        ========================================================== */
+
+        const CURRENT_PAGE =
+            (
+                window.location.pathname
+                    .split("/")
+                    .pop() ||
+                "index.html"
+            ).toLowerCase();
+
+
+        /* =========================================================
+           NORMALIZE QUERY
+        ========================================================== */
+
+        function normalizeNavigationQuery(rawQuery) {
+
+            return rawQuery
+                .toLowerCase()
+                .replace(/[?!.,;:]/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+
+        }
+
+
+        /* =========================================================
+           CHECK INFORMATION QUESTION
+        ========================================================== */
+
+        function isInformationQuestion(query) {
+
+            return INFORMATION_PATTERNS.some(pattern =>
+                pattern.test(query)
+            );
+
+        }
+
+
+        /* =========================================================
+           CHECK NAVIGATION VERB
+        ========================================================== */
+
+        function hasNavigationVerb(query) {
+
+            return NAV_VERBS.some(verb =>
+                query.includes(verb)
+            );
+
+        }
+
+
+        /* =========================================================
+           LOCAL NAVIGATION MATCHER
+        ========================================================== */
+
+        function localNavMatch(rawQuery) {
+
+            const query =
+                normalizeNavigationQuery(rawQuery);
+
+
+            if (!query) {
+                return null;
+            }
+
+
+            /*
+             * If the user clearly asks an information question,
+             * do NOT navigate automatically.
+             *
+             * Example:
+             * "tell me about hotels"
+             * "what are UNESCO sites?"
+             *
+             * These remain normal chatbot questions.
+             */
+
+            if (isInformationQuestion(query)) {
+
+                return null;
+
+            }
+
+
+            const navigationRequested =
+                hasNavigationVerb(query);
+
+
+            let bestRoute = null;
+
+            let bestScore = 0;
+
+
+            for (const route of NAV_ROUTES) {
+
+                let score = 0;
+
+
+                for (const keyword of route.keywords) {
+
+                    const normalizedKeyword =
+                        keyword.toLowerCase();
+
+
+                    /*
+                     * Exact page name is very strong.
+                     */
+
+                    if (query === normalizedKeyword) {
+
+                        score += 100;
+
+                    }
+
+                    /*
+                     * Exact phrase appearing in a navigation request.
+                     */
+
+                    else if (
+                        query.includes(normalizedKeyword)
+                    ) {
+
+                        const words =
+                            normalizedKeyword.split(" ").length;
+
+                        score += words * 10;
+
+                    }
+
+                }
+
+
+                if (score > bestScore) {
+
+                    bestScore = score;
+
+                    bestRoute = route;
+
+                }
+
+            }
+
+
+            if (!bestRoute || bestScore === 0) {
+
+                return null;
+
+            }
+
+
+            /*
+             * Explicit navigation command:
+             *
+             * "go to hotels"
+             * "open crafts"
+             * "take me to UNESCO sites"
+             */
+
+            if (navigationRequested) {
+
+                return bestRoute;
+
+            }
+
+
+            /*
+             * Allow direct short commands:
+             *
+             * "hotels"
+             * "crafts"
+             * "calendar"
+             * "UNESCO"
+             *
+             * but only when the whole query is essentially
+             * the page name.
+             */
+
+            const directPageRequest =
+                NAV_ROUTES.some(route =>
+                    route.keywords.some(keyword =>
+                        query === keyword.toLowerCase()
+                    )
+                );
+
+
+            if (directPageRequest) {
+
+                return bestRoute;
+
+            }
+
+
+            return null;
+
+        }
+
+
+        /* =========================================================
+           EXECUTE NAVIGATION
+        ========================================================== */
+
+        function executeNavigation(route, botDiv) {
+
+            console.log(
+                "[NavAssistant] navigating to:",
+                route.file
+            );
+
+
+            if (
+                route.file.toLowerCase() ===
+                CURRENT_PAGE
+            ) {
+
+                botDiv.innerHTML +=
+                    `<br><br><em>
+                        You're already on the ${route.label} page!
+                    </em>`;
+
+                return;
+
+            }
+
+
+            botDiv.innerHTML +=
+                `<br><br><em>
+                    Taking you to ${route.label}...
+                </em>`;
+
+
+            setTimeout(() => {
+
+                window.location.href =
+                    route.file;
+
+            }, 900);
+
+        }
+
+
+        /* =========================================================
+           SYSTEM INSTRUCTION
+        ========================================================== */
+
+        const SYSTEM_INSTRUCTION = `
+
+You are "Bharat AI", the official interactive guide for the BharatYatra website.
+
+You are currently helping a visitor on the GI Tag Products page.
+
+Your job is to answer travel, tourism, heritage, GI-tag, crafts,
+destination and BharatYatra website questions naturally.
+
+WEBSITE NAVIGATION:
+
+1. Home Page
+File: index.html
+
+2. AI Itinerary Planner
+File: chatbot.html
+
+3. One-Ticket Pass
+File: ticket_generator.html
+
+4. Crafts
+File: crafts.html
+
+5. GI Tag Products
+File: gi_tag.html
+
+6. Calendar
+File: calendar.html
+
+7. UNESCO Sites
+File: unesco_sites.html
+
+8. Tourist Spots
+File: destinations.html
+
+9. Hotels & Stays
+File: hotels.html
+
+10. Transport
+File: transport.html
+
+11. Vendors
+File: admin_access.html
+
+12. Login / Profile
+File: login.html
+
+
+NAVIGATION RULE:
+
+Only navigate when the visitor clearly asks to open, visit,
+go to, take me to, show me, navigate to, or switch to a specific
+BharatYatra page.
+
+For example:
+
+"take me to crafts"
+
+"open the calendar"
+
+"go to hotels"
+
+"show me UNESCO sites"
+
+"open transport"
+
+"take me to the AI itinerary planner"
+
+"open one ticket pass"
+
+"go to login"
+
+"take me to vendors"
+
+
+When navigation intent is clear, add this exact marker
+on its own new line at the end of the response:
+
+[NAVIGATE:filename.html]
+
+
+Valid navigation filenames are:
+
+index.html
+chatbot.html
+ticket_generator.html
+crafts.html
+gi_tag.html
+calendar.html
+unesco_sites.html
+destinations.html
+hotels.html
+transport.html
+admin_access.html
+login.html
+
+
+IMPORTANT:
+
+Do NOT add a navigation marker when the visitor is simply asking
+for information.
+
+For example:
+
+"tell me about hotels"
+
+"what are UNESCO sites?"
+
+"what is Darjeeling Tea?"
+
+"tell me about crafts"
+
+These are information questions and should be answered normally.
+
+GI TAG PAGE:
+
+You can answer questions about GI products, their origin states,
+registration years, regional significance, traditional crafts,
+foods and agricultural products using the information available
+on this page.
+
+Keep answers useful, concise and natural.
+
+Use Markdown tables when a comparison is genuinely useful.
+
+Do not invent a navigation marker unless the visitor clearly
+requests navigation.
+
+`;
+
+
+        let conversationHistory = [
+
+            {
+                role: "system",
+                content: SYSTEM_INSTRUCTION
+            }
+
+        ];
+
+
+        /* =========================================================
+           CHAT TOGGLE
+        ========================================================== */
+
+        function toggleChat() {
+
+            const chatbot =
+                document.getElementById("chatbot");
+
+
+            chatbot.classList.toggle("active");
+
+
+            if (chatbot.classList.contains("active")) {
+
+                setTimeout(() => {
+
+                    document
+                        .getElementById("chatInput")
+                        .focus();
+
+                }, 100);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           ENTER KEY
+        ========================================================== */
+
+        function handleChat(event) {
+
+            if (event.key === "Enter") {
+
+                sendMessage();
+
+            }
+
+        }
+
+
+        /* =========================================================
+           SEND MESSAGE
+        ========================================================== */
+
+        async function sendMessage() {
+
+            const input =
+                document.getElementById("chatInput");
+
+            const messages =
+                document.getElementById("chatMessages");
+
+
+            const text =
+                input.value.trim();
+
+
+            if (!text) {
+
+                return;
+
+            }
+
+
+            /* USER MESSAGE */
+
+            const userDiv =
+                document.createElement("div");
+
+            userDiv.className =
+                "message user";
+
+            userDiv.textContent =
+                text;
+
+            messages.appendChild(userDiv);
+
+
+            input.value = "";
+
+
+            messages.scrollTop =
+                messages.scrollHeight;
+
+
+            /* =====================================================
+               FAST LOCAL NAVIGATION
+            ====================================================== */
+
+            const localRoute =
+                localNavMatch(text);
+
+
+            if (localRoute) {
+
+                const botDiv =
+                    document.createElement("div");
+
+                botDiv.className =
+                    "message bot";
+
+
+                botDiv.innerHTML =
+                    `Sure! Heading to
+                    <strong>${localRoute.label}</strong>.`;
+
+
+                messages.appendChild(botDiv);
+
+
+                messages.scrollTop =
+                    messages.scrollHeight;
+
+
+                executeNavigation(
+                    localRoute,
+                    botDiv
+                );
+
+
+                return;
+
+            }
+
+
+            /* =====================================================
+               GROQ FALLBACK
+            ====================================================== */
+
+            const botDiv =
+                document.createElement("div");
+
+
+            botDiv.className =
+                "message bot";
+
+            botDiv.innerHTML =
+                "Thinking...";
+
+
+            messages.appendChild(botDiv);
+
+
+            messages.scrollTop =
+                messages.scrollHeight;
+
+
+            conversationHistory.push({
+
+                role: "user",
+
+                content: text
+
+            });
+
+
+            try {
+
+                const liveAnswer =
+                    await callGroqAPI(
+                        conversationHistory
+                    );
+
+
+                conversationHistory.push({
+
+                    role: "assistant",
+
+                    content: liveAnswer
+
+                });
+
+
+                /* =================================================
+                   NAVIGATION MARKER
+                ================================================== */
+
+                const navMatch =
+                    liveAnswer.match(
+                        /\[NAVIGATE:([a-z0-9_-]+\.html)\]/i
+                    );
+
+
+                const cleanAnswer =
+                    liveAnswer
+                        .replace(
+                            /\[NAVIGATE:[a-z0-9_-]+\.html\]/i,
+                            ""
+                        )
+                        .trim();
+
+
+                botDiv.innerHTML =
+                    parseMarkdownWithTables(
+                        cleanAnswer
+                    );
+
+
+                if (navMatch) {
+
+                    const targetFile =
+                        navMatch[1].toLowerCase();
+
+
+                    const route =
+                        NAV_ROUTES.find(
+                            r =>
+                                r.file.toLowerCase() ===
+                                targetFile
+                        );
+
+
+                    if (route) {
+
+                        executeNavigation(
+                            route,
+                            botDiv
+                        );
+
+                    }
+
+                }
+
+            }
+
+            catch (error) {
+
+                botDiv.innerHTML =
+                    `<span style="color:#ff7b72;">
+                        ⚠️ ${escapeHtml(error.message)}
+                    </span>`;
+
+            }
+
+            finally {
+
+                messages.scrollTop =
+                    messages.scrollHeight;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           GROQ API
+        ========================================================== */
+
+        async function callGroqAPI(messages) { 
+ 
+            let lastError = null; 
+ 
+ 
+            for (const model of ACTIVE_MODELS) { 
+ 
+                try { 
+ 
+                    const response = 
+                        await fetch( 
+                            "http://localhost:3001/api/groq", 
+                            { 
+                                method: "POST", 
+ 
+                                headers: { 
+                                    "Content-Type": 
+                                        "application/json" 
+                                }, 
+ 
+                                body: JSON.stringify({ 
+ 
+                                    model: model, 
+ 
+                                    messages: messages, 
+ 
+                                    temperature: 0.65, 
+ 
+                                    max_tokens: 1200 
+ 
+                                }) 
+ 
+                            } 
+                        ); 
+ 
+ 
+                    if (!response.ok) { 
+ 
+                        const errorJson = 
+                            await response 
+                                .json() 
+                                .catch(() => ({})); 
+ 
+ 
+                        lastError = 
+                            errorJson.error?.message || 
+                            `HTTP ${response.status}`; 
+ 
+ 
+                        continue; 
+ 
+                    } 
+ 
+ 
+                    const data = 
+                        await response.json(); 
+ 
+ 
+                    const reply = 
+                        data 
+                            .choices?.[0] 
+                            ?.message 
+                            ?.content; 
+ 
+ 
+                    if (reply) { 
+ 
+                        return reply; 
+ 
+                    } 
+ 
+                } 
+ 
+                catch (networkError) { 
+ 
+                    lastError = 
+                        networkError.message; 
+ 
+                } 
+ 
+            } 
+ 
+ 
+            throw new Error( 
+                lastError || 
+                "Could not connect to live model." 
+            ); 
+ 
+        }
+        /* =========================================================
+           ESCAPE HTML
+        ========================================================== */
+
+        function escapeHtml(value) {
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /* =========================================================
+           MARKDOWN PARSER
+        ========================================================== */
+
+        function parseMarkdownWithTables(text) {
+
+            let safeText =
+                escapeHtml(text);
+
+
+            /*
+             * Tables
+             */
+
+            const tableRegex =
+                /((?:\|[^\n]+\|\r?\n)(?:\|[\s\-:|]+\|\r?\n)(?:\|[^\n]+\|\r?\n?)+)/g;
+
+
+            safeText =
+                safeText.replace(
+                    tableRegex,
+                    match => {
+
+                        const rows =
+                            match
+                                .trim()
+                                .split("\n")
+                                .map(
+                                    row =>
+                                        row.trim()
+                                );
+
+
+                        if (rows.length < 2) {
+
+                            return match;
+
+                        }
+
+
+                        const headers =
+                            rows[0]
+                                .split("|")
+                                .slice(1, -1)
+                                .map(
+                                    header =>
+                                        `<th>
+                                            ${header.trim()}
+                                         </th>`
+                                )
+                                .join("");
+
+
+                        const bodyRows =
+                            rows
+                                .slice(2)
+                                .map(row => {
+
+                                    const cells =
+                                        row
+                                            .split("|")
+                                            .slice(1, -1)
+                                            .map(
+                                                cell =>
+                                                    `<td>
+                                                        ${cell.trim()}
+                                                     </td>`
+                                            )
+                                            .join("");
+
+
+                                    return `
+                                        <tr>
+                                            ${cells}
+                                        </tr>
+                                    `;
+
+                                })
+                                .join("");
+
+
+                        return `
+                            <div class="table-wrapper">
+
+                                <table>
+
+                                    <thead>
+                                        <tr>
+                                            ${headers}
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        ${bodyRows}
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        `;
+
+                    }
+                );
+
+
+            /*
+             * Bold
+             */
+
+            safeText =
+                safeText.replace(
+                    /\*\*(.*?)\*\*/g,
+                    "<strong>$1</strong>"
+                );
+
+
+            /*
+             * Italic
+             */
+
+            safeText =
+                safeText.replace(
+                    /\*(.*?)\*/g,
+                    "<em>$1</em>"
+                );
+
+
+            /*
+             * Bullet points
+             */
+
+            safeText =
+                safeText.replace(
+                    /^\s*[-*]\s+(.+)$/gim,
+                    "• $1<br>"
+                );
+
+
+            /*
+             * Line breaks
+             */
+
+            safeText =
+                safeText.replace(
+                    /\n\n/g,
+                    "<br><br>"
+                );
+
+
+            safeText =
+                safeText.replace(
+                    /\n/g,
+                    "<br>"
+                );
+
+
+            return safeText;
+
+        }
+
+
+        /* =========================================================
+           ESC CLOSE CHAT / MODAL
+        ========================================================== */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key === "Escape") {
+
+                    document
+                        .getElementById("chatbot")
+                        .classList.remove("active");
+
+
+                    document
+                        .getElementById("giModal")
+                        .style.display = "none";
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           CLOSE MODAL WHEN CLICKING OUTSIDE
+        ========================================================== */
+
+        document
+            .getElementById("giModal")
+            .addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target.id ===
+                        "giModal"
+                    ) {
+
+                        closeGiModal();
+
+                    }
+
+                }
+            );
+
+    </script>
+
+
+    <!-- =========================================================
+         PROFILE TRACKER
+    ========================================================== -->
+
+    <script src="profile-tracker.js"></script>
+
+</body>
+
+</html>

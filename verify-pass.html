@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BharatYatra Pass Verification</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1117;
+      --panel: #171a22;
+      --panel-2: #11141b;
+      --gold: #d4af37;
+      --gold-light: #f0cf63;
+      --text: #f5f5f5;
+      --muted: #a7acb8;
+      --green: #4ade80;
+      --red: #f87171;
+      --border: rgba(212,175,55,.32);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top, rgba(212,175,55,.10), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    .verification-card {
+      width: min(680px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
+    }
+
+    .header {
+      padding: 24px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-family: Cinzel, serif;
+      color: var(--gold-light);
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .seal-mini {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      padding: 4px;
+      background: rgba(212,175,55,.06);
+    }
+
+    .content { padding: 28px; }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 17px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .status.valid {
+      color: var(--green);
+      background: rgba(74,222,128,.09);
+      border: 1px solid rgba(74,222,128,.28);
+    }
+
+    .status.invalid {
+      color: var(--red);
+      background: rgba(248,113,113,.08);
+      border: 1px solid rgba(248,113,113,.25);
+    }
+
+    .status.pending {
+      color: var(--gold-light);
+      background: rgba(212,175,55,.08);
+      border: 1px solid var(--border);
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .detail {
+      background: var(--panel-2);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 12px;
+      padding: 15px;
+    }
+
+    .detail.full { grid-column: span 2; }
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      margin-bottom: 5px;
+    }
+
+    .value { font-weight: 600; line-height: 1.45; }
+
+    .notice {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: .76rem;
+      line-height: 1.55;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 11px 18px;
+      border-radius: 9px;
+      background: var(--gold);
+      color: #111;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .back-btn:hover { background: var(--gold-light); }
+
+    @media (max-width: 560px) {
+      body { padding: 12px; }
+      .header, .content { padding: 20px; }
+      .details { grid-template-columns: 1fr; }
+      .detail.full { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="verification-card">
+    <header class="header">
+      <div>
+        <div class="brand">BHARATYATRA</div>
+        <div style="color:var(--muted);font-size:.78rem;margin-top:5px;">One-Ticket Pass Verification</div>
+      </div>
+      <img class="seal-mini" src="assets/image/logo.png" alt="BharatYatra seal"
+           onerror="this.style.display='none'">
+    </header>
+
+    <section class="content" id="verificationContent">
+      <div class="status pending">Checking pass...</div>
+    </section>
+  </main>
+
+  <script>
+  const VERIFICATION_API_BASE = "http://localhost:5000";
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function formatINR(value) {
+    const number = Number(value);
+
+    if (!Number.isFinite(number)) {
+      return "₹0";
+    }
+
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0
+    }).format(number);
+  }
+
+  function showInvalid(message) {
+    const content =
+      document.getElementById("verificationContent");
+
+    content.innerHTML = `
+      <div class="status invalid">
+        ✕ Pass could not be verified
+      </div>
+
+      <div class="notice">
+        ${escapeHtml(message)}
+      </div>
+
+      <a class="back-btn" href="ticket_generator.html">
+        Back to BharatYatra
+      </a>
+    `;
+  }
+
+  function getVerificationDetails(data) {
+    /*
+     * The backend returns the booking object from PostgreSQL.
+     * Keep this helper tolerant of small response-shape changes.
+     */
+    return data?.booking || data;
+  }
+
+  async function renderVerification() {
+    const content =
+      document.getElementById("verificationContent");
+
+    const params =
+      new URLSearchParams(window.location.search);
+
+    const pnr = params.get("pnr");
+    const token = params.get("token");
+
+    /*
+     * The QR must contain both values.
+     */
+    if (!pnr || !token) {
+      content.innerHTML = `
+        <div class="status invalid">
+          ✕ Invalid verification link
+        </div>
+
+        <div class="notice">
+          The QR link does not contain the required
+          pass number and verification token.
+        </div>
+
+        <a class="back-btn" href="ticket_generator.html">
+          Back to BharatYatra
+        </a>
+      `;
+
+      return;
+    }
+
+    /*
+     * Show a loading state while contacting the backend.
+     */
+    content.innerHTML = `
+      <div class="status pending">
+        ⏳ Verifying pass with BharatYatra server...
+      </div>
+
+      <div class="notice">
+        Checking the booking record and payment status.
+      </div>
+    `;
+
+    try {
+      /*
+       * The token is the secure verification identifier.
+       * PostgreSQL is queried through the backend.
+       */
+      const response = await fetch(
+        `${VERIFICATION_API_BASE}/api/verify/${encodeURIComponent(token)}`,
+        {
+          method: "GET",
+          headers: {
+            "Accept": "application/json"
+          }
+        }
+      );
+
+      const data =
+        await response.json().catch(() => ({}));
+
+      /*
+       * Any non-2xx response means verification failed.
+       */
+      if (!response.ok) {
+        showInvalid(
+          data.error ||
+          "This pass is not valid, could not be found, or is no longer active."
+        );
+
+        return;
+      }
+
+      const booking =
+        getVerificationDetails(data);
+
+      /*
+       * Extra protection:
+       * make sure the PNR in the QR matches the PNR
+       * returned by the backend.
+       */
+      if (
+        !booking ||
+        String(booking.pnr || "") !== String(pnr)
+      ) {
+        showInvalid(
+          "The pass number does not match the verification record."
+        );
+
+        return;
+      }
+
+      /*
+       * Backend verification has succeeded.
+       */
+      const attractions =
+        Array.isArray(booking.attractions)
+          ? booking.attractions
+          : [];
+
+      const attractionText =
+        attractions.length
+          ? attractions
+              .map(item => {
+                const name =
+                  item?.name || "Tourist attraction";
+
+                const price =
+                  item?.price != null
+                    ? ` (${formatINR(item.price)})`
+                    : "";
+
+                return `${escapeHtml(name)}${price}`;
+              })
+              .join("<br>")
+          : "None";
+
+      const passengerName =
+  booking.passengerName ||
+  "Traveler";
+
+const startDate =
+  booking.startDate ||
+  "";
+
+const endDate =
+  booking.endDate ||
+  "";
+
+const origin =
+  booking.origin ||
+  "";
+
+const destination =
+  booking.destination ||
+  "";
+
+const transitName =
+  booking.transitName ||
+  "Transit";
+
+const transitNumber =
+  booking.transitNumber ||
+  "";
+
+const transitClass =
+  booking.transitClass ||
+  "";
+
+const hotelName =
+  booking.hotelName ||
+  "Stay";
+
+const hotelRoom =
+  booking.hotelRoom ||
+  "";
+
+const crowdPercentage =
+  booking.crowdPercentage ?? 0;
+
+const totalAmount =
+  booking.totalAmount ?? 0;
+
+const paymentStatus =
+  data.status ||
+  "PAID";
+
+const bookingStatus =
+  booking.bookingStatus ||
+  "CONFIRMED";
+
+      /*
+       * Build a readable transit description.
+       */
+      const transitParts = [
+        transitName,
+        transitNumber,
+        transitClass
+      ].filter(Boolean);
+
+      const transitText =
+        transitParts.length
+          ? transitParts.join(" • ")
+          : "Transit";
+
+      /*
+       * Display the server-verified booking.
+       */
+      content.innerHTML = `
+        <div class="status valid">
+          ✓ PASS VERIFIED
+        </div>
+
+        <div class="details">
+
+          <div class="detail">
+            <span class="label">PNR</span>
+            <div class="value">
+              ${escapeHtml(booking.pnr)}
+            </div>
+          </div>
+
+          <div class="detail">
+            <span class="label">Payment</span>
+            <div
+              class="value"
+              style="color:var(--green);"
+            >
+              ${escapeHtml(paymentStatus)}
+            </div>
+          </div>
+
+          <div class="detail">
+            <span class="label">Booking Status</span>
+            <div
+              class="value"
+              style="color:var(--green);"
+            >
+              ${escapeHtml(bookingStatus)}
+            </div>
+          </div>
+
+          <div class="detail">
+            <span class="label">Passenger</span>
+            <div class="value">
+              ${escapeHtml(passengerName)}
+            </div>
+          </div>
+
+          <div class="detail">
+            <span class="label">Trip Dates</span>
+            <div class="value">
+              ${escapeHtml(startDate)}
+              ${startDate && endDate ? " – " : ""}
+              ${escapeHtml(endDate)}
+            </div>
+          </div>
+
+          <div class="detail">
+            <span class="label">Route</span>
+            <div class="value">
+              ${escapeHtml(origin)}
+              → 
+              ${escapeHtml(destination)}
+            </div>
+          </div>
+
+          <div class="detail full">
+            <span class="label">Transit</span>
+            <div class="value">
+              ${escapeHtml(transitText)}
+            </div>
+          </div>
+
+          <div class="detail full">
+            <span class="label">Accommodation</span>
+            <div class="value">
+              ${escapeHtml(hotelName)}
+              ${hotelRoom ? ` — ${escapeHtml(hotelRoom)}` : ""}
+            </div>
+          </div>
+
+          <div class="detail full">
+            <span class="label">
+              Tourist Attraction Tickets
+            </span>
+
+            <div class="value">
+              ${attractionText}
+            </div>
+          </div>
+
+          <div class="detail">
+            <span class="label">Crowd Advisory</span>
+            <div class="value">
+              ${escapeHtml(crowdPercentage)}%
+            </div>
+          </div>
+
+          <div class="detail">
+            <span class="label">Total Paid</span>
+            <div class="value">
+              ${formatINR(totalAmount)}
+            </div>
+          </div>
+
+        </div>
+
+        <div class="notice">
+          <strong style="color:var(--gold-light);">
+            Server-verified pass:
+          </strong>
+
+          This pass was verified against the
+          BharatYatra backend and PostgreSQL booking
+          database. The payment status and booking
+          status were confirmed by the server.
+        </div>
+
+        <a
+          class="back-btn"
+          href="ticket_generator.html"
+        >
+          Back to BharatYatra
+        </a>
+      `;
+
+    } catch (error) {
+      console.error(
+        "BharatYatra verification error:",
+        error
+      );
+
+      showInvalid(
+        "The BharatYatra verification server could not be reached. Please make sure the backend is running and try again."
+      );
+    }
+  }
+
+  renderVerification();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tourist Spots & Destinations in India | BharatYatra</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+
+      background:
+        radial-gradient(
+          circle at 50% 28%,
+          rgba(12, 74, 83, 0.38),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 12% 60%,
+          rgba(196, 75, 31, 0.14),
+          transparent 28%
+        ),
+        #050b12;
+
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+
+      background-image:
+        radial-gradient(
+          circle at 1px 1px,
+          #e5b75b 1px,
+          transparent 1px
+        );
+
+      background-size: 30px 30px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      z-index: -1;
+    }
+
+    /* =========================================================
+       NAVBAR
+       ========================================================= */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 74px;
+
+      padding: 0 4%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      z-index: 1000;
+
+      background: rgba(4, 10, 16, 0.78);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(225, 180, 85, 0.18);
+    }
+
+    .logo {
+      font-family: Cinzel, serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      color: #f4e6c3;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.75px;
+
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #eab75a;
+    }
+
+    .login-btn {
+      padding: 9px 19px;
+      border-radius: 25px;
+
+      border: 1px solid rgba(234, 183, 90, 0.7);
+
+      color: #f3d48c !important;
+      background: rgba(234, 183, 90, 0.06);
+    }
+
+    /* =========================================================
+       HERO SECTION
+       ========================================================= */
+
+    .dest-hero {
+      position: relative;
+
+      height: 65vh;
+      min-height: 440px;
+
+      margin-top: 74px;
+
+      overflow: hidden;
+      background: #0b1119;
+    }
+
+    .dest-hero-img {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .dest-hero-overlay {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(5, 11, 18, 0.3) 0%,
+          rgba(5, 11, 18, 0.65) 60%,
+          rgba(5, 11, 18, 0.98) 100%
+        );
+    }
+
+    .dest-hero-content {
+      position: relative;
+      z-index: 2;
+
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 0 5%;
+    }
+
+    .dest-hero-content h1 {
+      font-family: Cinzel, serif;
+      font-weight: 800;
+
+      font-size: clamp(32px, 5.2vw, 68px);
+
+      color: #fff;
+
+      text-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+
+      letter-spacing: 1.5px;
+      line-height: 1.15;
+    }
+
+    .dest-hero-content p {
+      margin-top: 14px;
+
+      font-family: Cinzel, serif;
+
+      font-size: clamp(13px, 1.7vw, 18px);
+
+      color: #e8b85c;
+
+      letter-spacing: 1.2px;
+    }
+
+    /* =========================================================
+       ZONES SECTION
+       ========================================================= */
+
+    .zones-section {
+      max-width: 1400px;
+
+      margin: 45px auto 80px;
+
+      padding: 0 4%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .section-title small {
+      color: #e5b75b;
+
+      font-size: 11px;
+      letter-spacing: 3px;
+
+      font-weight: 700;
+
+      display: block;
+
+      margin-bottom: 6px;
+    }
+
+    .section-title h3 {
+      font-family: Cinzel, serif;
+
+      font-size: 28px;
+
+      color: #f3e7ca;
+    }
+
+    /* =========================================================
+       FILTER & SEARCH
+       ========================================================= */
+
+    .filter-controls-bar {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+      margin-bottom: 30px;
+
+      background: rgba(11, 21, 29, 0.6);
+
+      border: 1px solid rgba(230, 184, 88, 0.2);
+
+      padding: 12px 20px;
+
+      border-radius: 16px;
+
+      backdrop-filter: blur(10px);
+    }
+
+    .filter-pills {
+      display: flex;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      background: rgba(230, 184, 88, 0.05);
+
+      border: 1px solid rgba(230, 184, 88, 0.3);
+
+      color: #f2dfb3;
+
+      padding: 6px 16px;
+
+      border-radius: 20px;
+
+      font-family: Cinzel, serif;
+
+      font-size: 11px;
+      font-weight: 600;
+
+      letter-spacing: 0.8px;
+
+      cursor: pointer;
+
+      transition: 0.25s ease;
+    }
+
+    .filter-pill:hover,
+    .filter-pill.active {
+      background: #e5b75b;
+
+      color: #050b12;
+
+      border-color: #e5b75b;
+
+      box-shadow: 0 0 15px rgba(229, 183, 91, 0.35);
+    }
+
+    .state-search-box {
+      display: flex;
+
+      align-items: center;
+
+      background: rgba(5, 11, 18, 0.9);
+
+      border: 1px solid rgba(230, 184, 88, 0.35);
+
+      border-radius: 20px;
+
+      padding: 6px 16px;
+
+      min-width: 260px;
+    }
+
+    .state-search-box input {
+      background: transparent;
+
+      border: none;
+      outline: none;
+
+      color: #fff;
+
+      font-family: inherit;
+
+      font-size: 12px;
+
+      width: 100%;
+    }
+
+    .state-search-box input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* =========================================================
+       ZONES ROW
+       ========================================================= */
+
+    .zones-row {
+      display: flex;
+
+      gap: 20px;
+
+      overflow-x: auto;
+
+      padding-bottom: 15px;
+
+      scrollbar-width: thin;
+
+      scrollbar-color:
+        rgba(230, 184, 88, 0.4)
+        transparent;
+    }
+
+    .zones-row::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .zones-row::-webkit-scrollbar-thumb {
+      background: rgba(230, 184, 88, 0.4);
+
+      border-radius: 6px;
+    }
+
+    .zone-card {
+      flex: 0 0 210px;
+
+      background: rgba(255, 255, 255, 0.02);
+
+      border: 1px solid rgba(230, 184, 88, 0.2);
+
+      border-radius: 16px;
+
+      padding: 22px 15px;
+
+      text-align: center;
+
+      transition: 0.3s ease;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+    }
+
+    .zone-card:hover {
+      transform: translateY(-5px);
+
+      border-color: #e5b75b;
+
+      background: rgba(230, 184, 88, 0.04);
+
+      box-shadow:
+        0 10px 30px rgba(229, 183, 91, 0.12);
+    }
+
+    .zone-map-img {
+      width: 75px;
+      height: 85px;
+
+      object-fit: contain;
+
+      margin-bottom: 12px;
+
+      filter:
+        drop-shadow(
+          0 0 8px rgba(229, 183, 91, 0.25)
+        );
+
+      transition: transform 0.3s ease;
+    }
+
+    .zone-card:hover .zone-map-img {
+      transform: scale(1.08);
+    }
+
+    .zone-title {
+      font-family: Cinzel, serif;
+
+      font-size: 15px;
+
+      color: #f3e7ca;
+
+      margin-bottom: 14px;
+
+      font-weight: 700;
+
+      letter-spacing: 0.8px;
+
+      border-bottom:
+        1px solid rgba(230, 184, 88, 0.2);
+
+      width: 100%;
+
+      padding-bottom: 8px;
+    }
+
+    .zone-links-list {
+      list-style: none;
+
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 7px;
+
+      max-height: 260px;
+
+      overflow-y: auto;
+
+      padding-right: 2px;
+    }
+
+    .zone-links-list::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .zone-links-list::-webkit-scrollbar-thumb {
+      background: rgba(230, 184, 88, 0.3);
+
+      border-radius: 3px;
+    }
+
+    .zone-links-list a {
+      text-decoration: none;
+
+      color: rgba(255, 255, 255, 0.72);
+
+      font-size: 12px;
+
+      transition: 0.2s;
+
+      display: block;
+
+      padding: 3px 0;
+    }
+
+    .zone-links-list a:hover {
+      color: #e5b75b;
+
+      padding-left: 4px;
+    }
+
+    /* =========================================================
+       MUSIC TOGGLE
+       ========================================================= */
+
+    .music-toggle {
+      position: fixed;
+
+      left: 25px;
+      bottom: 25px;
+
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+
+      border: 1px solid #e8b95c;
+
+      background: rgba(16, 24, 32, 0.85);
+
+      backdrop-filter: blur(10px);
+
+      color: #f3d48c;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 20px;
+
+      cursor: pointer;
+
+      z-index: 999;
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45);
+
+      transition: 0.3s;
+    }
+
+    .music-toggle:hover {
+      transform: scale(1.08);
+    }
+
+    /* =========================================================
+       CHATBOT
+       ========================================================= */
+
+    .chatbot-button {
+      position: fixed;
+
+      right: 25px;
+      bottom: 25px;
+
+      width: 64px;
+      height: 64px;
+
+      border-radius: 50%;
+
+      border: 1px solid #e8b95c;
+
+      background:
+        linear-gradient(
+          135deg,
+          #d67b2c,
+          #9d3f35
+        );
+
+      color: #fff;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 27px;
+
+      cursor: pointer;
+
+      z-index: 999;
+
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(227, 154, 50, 0.15);
+
+      transition: 0.3s;
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.08);
+    }
+
+    .chatbot {
+      position: fixed;
+
+      right: 25px;
+      bottom: 102px;
+
+      width: 350px;
+      height: 450px;
+
+      background: #0b151d;
+
+      border:
+        1px solid rgba(229, 181, 84, 0.35);
+
+      border-radius: 20px;
+
+      z-index: 998;
+
+      overflow: hidden;
+
+      display: none;
+
+      flex-direction: column;
+
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.7);
+    }
+
+    .chatbot.active {
+      display: flex;
+    }
+
+    .chat-header {
+      padding: 17px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #153b40,
+          #13232c
+        );
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chat-header strong {
+      font-family: Cinzel, serif;
+
+      color: #f0d18b;
+    }
+
+    .chat-header small {
+      display: block;
+
+      margin-top: 4px;
+
+      color: rgba(255, 255, 255, 0.5);
+
+      font-size: 10px;
+    }
+
+    .chat-messages {
+      flex: 1;
+
+      padding: 15px;
+
+      overflow-y: auto;
+    }
+
+    .message {
+      max-width: 85%;
+
+      padding: 10px 12px;
+
+      margin-bottom: 10px;
+
+      border-radius: 12px;
+
+      font-size: 11px;
+
+      line-height: 1.55;
+
+      word-wrap: break-word;
+    }
+
+    .message.bot {
+      background: rgba(255, 255, 255, 0.07);
+
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .message.user {
+      margin-left: auto;
+
+      background:
+        rgba(222, 157, 54, 0.18);
+
+      border:
+        1px solid rgba(222, 157, 54, 0.25);
+    }
+
+    .chat-input {
+      display: flex;
+
+      gap: 7px;
+
+      padding: 12px;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chat-input input {
+      flex: 1;
+
+      padding: 11px;
+
+      border-radius: 9px;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.1);
+
+      background: #101b22;
+
+      color: #fff;
+
+      outline: 0;
+    }
+
+    .chat-input input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .chat-input button {
+      width: 42px;
+
+      border: 0;
+
+      border-radius: 9px;
+
+      background: #e5a341;
+
+      color: #071015;
+
+      cursor: pointer;
+
+      font-weight: 700;
+    }
+
+    .chat-input button:hover {
+      background: #f0bb60;
+    }
+
+    /* =========================================================
+       CHATBOT TABLES / MARKDOWN
+       ========================================================= */
+
+    .table-wrapper {
+      width: 100%;
+
+      overflow-x: auto;
+
+      margin: 8px 0;
+    }
+
+    .table-wrapper table {
+      width: 100%;
+
+      border-collapse: collapse;
+
+      font-size: 10px;
+    }
+
+    .table-wrapper th,
+    .table-wrapper td {
+      border:
+        1px solid rgba(229, 183, 91, 0.25);
+
+      padding: 6px;
+
+      text-align: left;
+    }
+
+    .table-wrapper th {
+      color: #e5b75b;
+
+      background:
+        rgba(229, 183, 91, 0.08);
+    }
+
+    .table-wrapper td {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    footer {
+      padding: 35px 6%;
+
+      text-align: center;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+      color: rgba(255, 255, 255, 0.38);
+
+      font-size: 10px;
+
+      letter-spacing: 1px;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1100px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .filter-controls-bar {
+        flex-direction: column;
+
+        align-items: stretch;
+      }
+
+      .state-search-box {
+        width: 100%;
+
+        min-width: 0;
+      }
+
+      .chatbot {
+        width: calc(100vw - 30px);
+
+        right: 15px;
+
+        bottom: 92px;
+      }
+
+      .chatbot-button {
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .music-toggle {
+        left: 15px;
+        bottom: 15px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        height: auto;
+
+        min-height: 74px;
+
+        padding: 12px 4%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .dest-hero {
+        margin-top: 74px;
+      }
+
+      .dest-hero-content h1 {
+        font-size: 38px;
+      }
+
+      .dest-hero-content p {
+        font-size: 13px;
+      }
+
+      .zones-section {
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+       ========================================================= -->
+
+  <nav class="navbar">
+
+    <div class="logo">
+      BharatYatra
+    </div>
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="index.html">
+          Home Page
+        </a>
+      </li>
+
+      <li>
+        <a href="crafts.html">
+          Crafts
+        </a>
+      </li>
+
+      <li>
+        <a href="gi_tag.html">
+          GI Tag Products
+        </a>
+      </li>
+
+      <li>
+        <a href="calendar.html">
+          Calendar
+        </a>
+      </li>
+
+      <li>
+        <a href="unesco_sites.html">
+          UNESCO Sites
+        </a>
+      </li>
+
+      <li>
+        <a href="destinations.html" class="active">
+          Tourist Spots
+        </a>
+      </li>
+
+      <li>
+        <a href="hotels.html">
+          Hotels &amp; Stays
+        </a>
+      </li>
+
+      <li>
+        <a href="transport.html">
+          Transport
+        </a>
+      </li>
+
+      <li>
+        <a href="admin_access.html">
+          Vendors
+        </a>
+      </li>
+
+      <li>
+        <a href="login.html" class="login-btn">
+          LOGIN
+        </a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+  <!-- =========================================================
+       HERO SECTION
+       ========================================================= -->
+
+  <section class="dest-hero">
+
+    <img
+      class="dest-hero-img"
+      src="assets/image/destinations_hero_banner.png"
+      alt="Tourist Spots in India"
+      onerror="this.src='https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1600&q=80'"
+    >
+
+    <div class="dest-hero-overlay"></div>
+
+    <div class="dest-hero-content">
+
+      <h1>
+        Tourist Spots
+      </h1>
+
+      <p>
+        Explore Iconic Landmarks, Scenic Escapes &amp; Spiritual Sanctuaries Across India
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONES SECTION
+       ========================================================= -->
+
+  <section class="zones-section">
+
+    <div class="section-title">
+
+      <small>
+        EXPLORE BY REGIONS
+      </small>
+
+      <h3>
+        States and UTs by Zones
+      </h3>
+
+    </div>
+
+    <!-- Filter Bar -->
+
+    <div class="filter-controls-bar">
+
+      <div class="filter-pills">
+
+        <button
+          class="filter-pill active"
+          onclick="filterType('all', this)"
+        >
+          All Regions
+        </button>
+
+        <button
+          class="filter-pill"
+          onclick="filterType('state', this)"
+        >
+          States Only
+        </button>
+
+        <button
+          class="filter-pill"
+          onclick="filterType('ut', this)"
+        >
+          Union Territories
+        </button>
+
+      </div>
+
+      <div class="state-search-box">
+
+        <input
+          type="text"
+          id="stateSearchInput"
+          placeholder="Search state or UT..."
+          oninput="handleStateSearch(this.value)"
+        >
+
+      </div>
+
+    </div>
+
+    <!-- Zones -->
+
+    <div
+      class="zones-row"
+      id="zonesRow"
+    >
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       CHATBOT
+       ========================================================= -->
+
+  <div
+    class="chatbot-button"
+    onclick="toggleChat()"
+    aria-label="Open travel assistant"
+    title="BharatYatra Travel Assistant"
+  >
+    🤖
+  </div>
+
+  <div
+    class="chatbot"
+    id="chatbot"
+  >
+
+    <div class="chat-header">
+
+      <strong>
+        BharatYatra Travel Assistant
+      </strong>
+
+      <small>
+        Ask about destinations or navigate anywhere
+      </small>
+
+    </div>
+
+    <div
+      class="chat-messages"
+      id="chatMessages"
+    >
+
+      <div class="message bot">
+        Namaste! 🙏
+        <br><br>
+        I can help you explore tourist destinations across India.
+        <br><br>
+        You can also say:
+        <br>
+        • "Open Hotels"
+        <br>
+        • "Take me to Calendar"
+        <br>
+        • "Go to AI Itinerary Planner"
+        <br>
+        • "Open One-Ticket Pass"
+      </div>
+
+    </div>
+
+    <div class="chat-input">
+
+      <input
+        id="chatInput"
+        type="text"
+        placeholder="Ask about a destination..."
+        onkeydown="handleChat(event)"
+      >
+
+      <button
+        onclick="sendMessage()"
+        aria-label="Send message"
+      >
+        ➤
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+    BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT
+  </footer>
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
+  <script>
+
+    /* =========================================================
+       INDIA ZONES DATA
+       ========================================================= */
+
+    const INDIA_ZONES = [
+
+      {
+        name: "North",
+
+        mapImg: "assets/image/state_zone/north.jpg",
+
+        items: [
+
+          {
+            name: "Chandigarh",
+            type: "ut",
+            url: "ut/chandigarh.html"
+          },
+
+          {
+            name: "Delhi",
+            type: "ut",
+            url: "ut/delhi.html"
+          },
+
+          {
+            name: "Haryana",
+            type: "state",
+            url: "states/haryana.html"
+          },
+
+          {
+            name: "Himachal Pradesh",
+            type: "state",
+            url: "states/himachal-pradesh.html"
+          },
+
+          {
+            name: "Jammu and Kashmir",
+            type: "ut",
+            url: "ut/jammu-and-kashmir.html"
+          },
+
+          {
+            name: "Ladakh",
+            type: "ut",
+            url: "ut/ladakh.html"
+          },
+
+          {
+            name: "Punjab",
+            type: "state",
+            url: "states/punjab.html"
+          },
+
+          {
+            name: "Rajasthan",
+            type: "state",
+            url: "states/rajasthan.html"
+          },
+
+          {
+            name: "Uttar Pradesh",
+            type: "state",
+            url: "states/uttar-pradesh.html"
+          },
+
+          {
+            name: "Uttarakhand",
+            type: "state",
+            url: "states/uttarakhand.html"
+          }
+
+        ]
+      },
+
+      {
+        name: "North East",
+
+        mapImg: "assets/image/state_zone/northeast.jpg",
+
+        items: [
+
+          {
+            name: "Arunachal Pradesh",
+            type: "state",
+            url: "states/arunachal-pradesh.html"
+          },
+
+          {
+            name: "Assam",
+            type: "state",
+            url: "states/assam.html"
+          },
+
+          {
+            name: "Manipur",
+            type: "state",
+            url: "states/manipur.html"
+          },
+
+          {
+            name: "Meghalaya",
+            type: "state",
+            url: "states/meghalaya.html"
+          },
+
+          {
+            name: "Mizoram",
+            type: "state",
+            url: "states/mizoram.html"
+          },
+
+          {
+            name: "Nagaland",
+            type: "state",
+            url: "states/nagaland.html"
+          },
+
+          {
+            name: "Sikkim",
+            type: "state",
+            url: "states/sikkim.html"
+          },
+
+          {
+            name: "Tripura",
+            type: "state",
+            url: "states/tripura.html"
+          }
+
+        ]
+      },
+
+      {
+        name: "East",
+
+        mapImg: "assets/image/state_zone/east.jpg",
+
+        items: [
+
+          {
+            name: "Andaman and Nicobar Islands",
+            type: "ut",
+            url: "ut/andaman-and-nicobar-islands.html"
+          },
+
+          {
+            name: "Bihar",
+            type: "state",
+            url: "states/bihar.html"
+          },
+
+          {
+            name: "Jharkhand",
+            type: "state",
+            url: "states/jharkhand.html"
+          },
+
+          {
+            name: "Odisha",
+            type: "state",
+            url: "states/odisha.html"
+          },
+
+          {
+            name: "West Bengal",
+            type: "state",
+            url: "states/west-bengal.html"
+          }
+
+        ]
+      },
+
+      {
+        name: "Central",
+
+        mapImg: "assets/image/state_zone/central.jpg",
+
+        items: [
+
+          {
+            name: "Chhattisgarh",
+            type: "state",
+            url: "states/chhattisgarh.html"
+          },
+
+          {
+            name: "Madhya Pradesh",
+            type: "state",
+            url: "states/madhya-pradesh.html"
+          }
+
+        ]
+      },
+
+      {
+        name: "West",
+
+        mapImg: "assets/image/state_zone/west.jpg",
+
+        items: [
+
+          {
+            name: "Dadra and Nagar Haveli and Daman and Diu",
+            type: "ut",
+            url: "ut/dadra-and-nagar-haveli-and-daman-and-diu.html"
+          },
+
+          {
+            name: "Goa",
+            type: "state",
+            url: "states/goa.html"
+          },
+
+          {
+            name: "Gujarat",
+            type: "state",
+            url: "states/gujarat.html"
+          },
+
+          {
+            name: "Maharashtra",
+            type: "state",
+            url: "states/maharashtra.html"
+          }
+
+        ]
+      },
+
+      {
+        name: "South",
+
+        mapImg: "assets/image/state_zone/south.jpg",
+
+        items: [
+
+          {
+            name: "Andhra Pradesh",
+            type: "state",
+            url: "states/andhra-pradesh.html"
+          },
+
+          {
+            name: "Karnataka",
+            type: "state",
+            url: "states/karnataka.html"
+          },
+
+          {
+            name: "Kerala",
+            type: "state",
+            url: "states/kerala.html"
+          },
+
+          {
+            name: "Lakshadweep",
+            type: "ut",
+            url: "ut/lakshadweep.html"
+          },
+
+          {
+            name: "Puducherry",
+            type: "ut",
+            url: "ut/puducherry.html"
+          },
+
+          {
+            name: "Tamil Nadu",
+            type: "state",
+            url: "states/tamil-nadu.html"
+          },
+
+          {
+            name: "Telangana",
+            type: "state",
+            url: "states/telangana.html"
+          }
+
+        ]
+      }
+
+    ];
+
+    let activeFilter = "all";
+
+    let searchQuery = "";
+
+
+    /* =========================================================
+       RENDER ZONES
+       ========================================================= */
+
+    function renderZones() {
+
+      const zonesRow =
+        document.getElementById("zonesRow");
+
+      zonesRow.innerHTML = "";
+
+      INDIA_ZONES.forEach(zone => {
+
+        const filteredItems =
+          zone.items.filter(item => {
+
+            const matchesType =
+              activeFilter === "all" ||
+              item.type === activeFilter;
+
+            const matchesSearch =
+              item.name
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase());
+
+            return matchesType && matchesSearch;
+
+          });
+
+        if (filteredItems.length === 0) {
+          return;
+        }
+
+        const card =
+          document.createElement("div");
+
+        card.className = "zone-card";
+
+        let linksHtml = "";
+
+        filteredItems.forEach(item => {
+
+          linksHtml += `
+            <li>
+              <a href="${item.url}">
+                ${item.name}
+              </a>
+            </li>
+          `;
+
+        });
+
+        card.innerHTML = `
+
+          <img
+            class="zone-map-img"
+            src="${zone.mapImg}"
+            alt="${zone.name} Zone Map"
+            onerror="this.src='https://api.iconify.design/lucide:map-pin.svg?color=%23e5b75b'"
+          >
+
+          <div class="zone-title">
+            ${zone.name}
+          </div>
+
+          <ul class="zone-links-list">
+            ${linksHtml}
+          </ul>
+
+        `;
+
+        zonesRow.appendChild(card);
+
+      });
+
+    }
+
+
+    /* =========================================================
+       FILTER
+       ========================================================= */
+
+    function filterType(type, btn) {
+
+      activeFilter = type;
+
+      document
+        .querySelectorAll(".filter-pill")
+        .forEach(p => {
+          p.classList.remove("active");
+        });
+
+      btn.classList.add("active");
+
+      renderZones();
+
+    }
+
+
+    /* =========================================================
+       SEARCH
+       ========================================================= */
+
+    function handleStateSearch(query) {
+
+      searchQuery = query.trim();
+
+      renderZones();
+
+    }
+
+
+    /* =========================================================
+       INITIAL RENDER
+       ========================================================= */
+
+    renderZones();
+
+
+    /* =========================================================
+       BHARAT AI — NAVIGATION REGISTRY
+       ========================================================= */
+
+    const NAV_ROUTES = [
+
+      {
+        file: "index.html",
+        label: "Home Page",
+
+        keywords: [
+          "home",
+          "homepage",
+          "home page",
+          "main page",
+          "landing page",
+          "bharatyatra home"
+        ]
+      },
+
+      {
+        file: "chatbot.html",
+        label: "AI Itinerary Planner",
+
+        keywords: [
+          "itinerary",
+          "itinerary planner",
+          "ai itinerary",
+          "ai itinerary planner",
+          "trip planner",
+          "travel planner",
+          "plan a trip",
+          "plan my trip",
+          "travel plan",
+          "ai guide",
+          "bharat ai guide",
+          "bharat ai",
+          "plan a yatra"
+        ]
+      },
+
+      {
+        file: "ticket_generator.html",
+        label: "One-Ticket Pass",
+
+        keywords: [
+          "ticket",
+          "tickets",
+          "one ticket",
+          "one-ticket",
+          "one ticket pass",
+          "pass",
+          "travel pass",
+          "ticket generator",
+          "generate ticket",
+          "book ticket",
+          "booking",
+          "book travel"
+        ]
+      },
+
+      {
+        file: "crafts.html",
+        label: "Crafts",
+
+        keywords: [
+          "craft",
+          "crafts",
+          "handicraft",
+          "handicrafts",
+          "handloom",
+          "artisan",
+          "artisans",
+          "souvenir",
+          "souvenirs"
+        ]
+      },
+
+      {
+        file: "gi_tag.html",
+        label: "GI Tag Products",
+
+        keywords: [
+          "gi tag",
+          "gi-tag",
+          "gi tags",
+          "geographical indication",
+          "gi products",
+          "regional products"
+        ]
+      },
+
+      {
+        file: "calendar.html",
+        label: "Calendar",
+
+        keywords: [
+          "calendar",
+          "festival calendar",
+          "events calendar",
+          "festival",
+          "festivals",
+          "events",
+          "upcoming events"
+        ]
+      },
+
+      {
+        file: "unesco_sites.html",
+        label: "UNESCO Sites",
+
+        keywords: [
+          "unesco",
+          "unesco sites",
+          "world heritage",
+          "world heritage sites",
+          "heritage site",
+          "heritage sites"
+        ]
+      },
+
+      {
+        file: "destinations.html",
+        label: "Tourist Spots",
+
+        keywords: [
+          "destination",
+          "destinations",
+          "tourist spot",
+          "tourist spots",
+          "tourist places",
+          "places to visit",
+          "places to see",
+          "sightseeing",
+          "tourist attractions",
+          "tourist attraction"
+        ]
+      },
+
+      {
+        file: "hotels.html",
+        label: "Hotels & Stays",
+
+        keywords: [
+          "hotel",
+          "hotels",
+          "stay",
+          "stays",
+          "accommodation",
+          "accommodations",
+          "hotel booking",
+          "places to stay",
+          "homestay",
+          "homestays",
+          "hostel",
+          "hostels"
+        ]
+      },
+
+      {
+        file: "transport.html",
+        label: "Transport",
+
+        keywords: [
+          "transport",
+          "transportation",
+          "travel transport",
+          "flight",
+          "flights",
+          "train",
+          "trains",
+          "bus",
+          "buses",
+          "travel options",
+          "travel by train",
+          "travel by flight",
+          "travel by bus"
+        ]
+      },
+
+      {
+        file: "admin_access.html",
+        label: "Vendors",
+
+        keywords: [
+          "vendor",
+          "vendors",
+          "vendor portal",
+          "seller",
+          "sellers",
+          "admin",
+          "admin access"
+        ]
+      },
+
+      {
+        file: "login.html",
+        label: "Login / Profile",
+
+        keywords: [
+          "login",
+          "log in",
+          "sign in",
+          "signin",
+          "profile",
+          "my profile",
+          "account",
+          "my account",
+          "register",
+          "sign up",
+          "signup"
+        ]
+      }
+
+    ];
+
+
+    /* =========================================================
+       NAVIGATION INTENT
+       ========================================================= */
+
+    const NAVIGATION_PHRASES = [
+
+      "go to",
+      "take me to",
+      "take me back to",
+      "show me",
+      "open",
+      "navigate to",
+      "navigate",
+      "switch to",
+      "bring me to",
+      "send me to",
+      "move to",
+      "let me see",
+      "can you open",
+      "please open",
+      "please take me to",
+      "i want to see",
+      "i want to go",
+      "i want to visit",
+      "visit the",
+      "take me"
+
+    ];
+
+
+    const INFO_PHRASES = [
+
+      "tell me about",
+      "what is",
+      "what are",
+      "who is",
+      "how is",
+      "how are",
+      "how does",
+      "how do",
+      "why",
+      "explain",
+      "information about",
+      "details about",
+      "describe",
+      "give me information",
+      "tell me more about"
+
+    ];
+
+
+    /* =========================================================
+       CURRENT PAGE
+       ========================================================= */
+
+    const CURRENT_PAGE =
+      (
+        window.location.pathname
+          .split("/")
+          .pop() ||
+        "index.html"
+      ).toLowerCase();
+
+
+    /* =========================================================
+       NORMALIZE QUERY
+       ========================================================= */
+
+    function normalizeQuery(text) {
+
+      return text
+        .toLowerCase()
+        .replace(/[?!.,]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    }
+
+
+    /* =========================================================
+       LOCAL NAVIGATION MATCHER
+       ========================================================= */
+
+    function localNavMatch(rawQuery) {
+
+      const query =
+        normalizeQuery(rawQuery);
+
+      if (!query) {
+        return null;
+      }
+
+      const startsWithNavigation =
+        NAVIGATION_PHRASES.some(
+          phrase =>
+            query === phrase ||
+            query.startsWith(phrase + " ")
+        );
+
+      const containsNavigation =
+        NAVIGATION_PHRASES.some(
+          phrase =>
+            query.includes(phrase)
+        );
+
+      const isInfoQuestion =
+        INFO_PHRASES.some(
+          phrase =>
+            query === phrase ||
+            query.startsWith(phrase + " ") ||
+            query.includes(" " + phrase + " ")
+        );
+
+      let best = null;
+      let bestScore = 0;
+
+      for (const route of NAV_ROUTES) {
+
+        let score = 0;
+
+        for (const keyword of route.keywords) {
+
+          const k =
+            keyword.toLowerCase();
+
+          if (query === k) {
+
+            score += 100;
+
+          } else if (
+            query.includes(k)
+          ) {
+
+            score +=
+              k.split(" ").length * 5;
+
+          }
+
+        }
+
+        if (score > bestScore) {
+
+          bestScore = score;
+          best = route;
+
+        }
+
+      }
+
+      if (!best || bestScore === 0) {
+        return null;
+      }
+
+
+      /*
+       * Prevent normal information questions
+       * from accidentally opening a page.
+       *
+       * Example:
+       * "Tell me about hotels"
+       * should NOT navigate.
+       */
+
+      if (
+        isInfoQuestion &&
+        !startsWithNavigation
+      ) {
+
+        return null;
+
+      }
+
+
+      /*
+       * "Show me information about hotels"
+       * is informational, not navigation.
+       */
+
+      if (
+        query.includes("information about") ||
+        query.includes("details about") ||
+        query.includes("tell me about") ||
+        query.includes("tell me more about")
+      ) {
+
+        return null;
+
+      }
+
+
+      /*
+       * Explicit navigation command.
+       */
+
+      if (startsWithNavigation) {
+
+        return best;
+
+      }
+
+
+      /*
+       * Short exact page-name commands.
+       *
+       * Examples:
+       * "Hotels"
+       * "Calendar"
+       * "Crafts"
+       */
+
+      const exactPageName =
+        best.keywords.some(
+          keyword =>
+            query === keyword.toLowerCase()
+        );
+
+      if (exactPageName) {
+
+        return best;
+
+      }
+
+
+      /*
+       * Do not navigate on ambiguous
+       * topic mentions.
+       */
+
+      if (containsNavigation) {
+
+        return best;
+
+      }
+
+      return null;
+
+    }
+
+
+    /* =========================================================
+       EXECUTE NAVIGATION
+       ========================================================= */
+
+    function executeNavigation(route, botDiv) {
+
+      console.log(
+        "[NavAssistant] navigating to:",
+        route.file
+      );
+
+      if (
+        route.file.toLowerCase() ===
+        CURRENT_PAGE
+      ) {
+
+        botDiv.innerHTML += `
+          <br><br>
+          <em>
+            You're already on the
+            ${route.label} page!
+          </em>
+        `;
+
+        return;
+
+      }
+
+      botDiv.innerHTML += `
+        <br><br>
+        <em>
+          Taking you to
+          ${route.label}...
+        </em>
+      `;
+
+      setTimeout(() => {
+
+        window.location.href =
+          route.file;
+
+      }, 900);
+
+    }
+
+
+    /* =========================================================
+       GROQ CONFIGURATION
+       ========================================================= */
+
+    /*
+     * IMPORTANT:
+     * Do not place a permanent production API key
+     * directly inside frontend HTML.
+     *
+     * For your local/demo setup, put your own key below.
+     */
+    
+    const ACTIVE_MODELS = [
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b",
+      "qwen/qwen3.6-27b"
+    ];
+
+
+    /* =========================================================
+       SYSTEM INSTRUCTION
+       ========================================================= */
+
+    const SYSTEM_INSTRUCTION = `
+You are "Bharat AI", the official interactive guide
+for the BharatYatra website.
+
+You are currently helping a visitor on the Tourist
+Spots page.
+
+This page allows visitors to explore Indian states
+and Union Territories by geographical zones:
+
+North
+North East
+East
+Central
+West
+South
+
+You can answer questions about Indian destinations,
+tourist spots, regions, heritage locations and travel
+planning.
+
+Website Navigation Guide:
+
+Home Page:
+Main BharatYatra gateway.
+
+AI Itinerary Planner:
+Full day-by-day trip planning tool.
+
+One-Ticket Pass:
+Travel ticket and unified pass generation.
+
+Crafts:
+Traditional Indian handicrafts, handlooms and
+artisan traditions.
+
+GI Tag Products:
+Geographical Indication tagged regional products.
+
+Calendar:
+Indian festivals, events and celebration dates.
+
+UNESCO Sites:
+Indian UNESCO and world heritage sites.
+
+Tourist Spots:
+Indian destinations organized by regions,
+states and Union Territories.
+
+Hotels & Stays:
+Accommodation and stay options.
+
+Transport:
+Flights, trains, buses and travel options.
+
+Vendors:
+Vendor/admin access.
+
+Login / Profile:
+User authentication and profile.
+
+Rules:
+
+1. Answer destination questions helpfully.
+
+2. Give useful cultural and travel context.
+
+3. If the user asks about a specific state or UT,
+   use the destination information available on
+   this page when relevant.
+
+4. If the user clearly asks to navigate to another
+   page, include a navigation marker at the end.
+
+5. Only use a navigation marker when the user clearly
+   wants to OPEN, GO TO, NAVIGATE TO or SWITCH TO
+   another page.
+
+6. Do NOT navigate merely because the user mentions
+   a page topic.
+
+For navigation use exactly:
+
+[NAVIGATE:filename.html]
+
+Valid filenames:
+
+index.html
+chatbot.html
+ticket_generator.html
+crafts.html
+gi_tag.html
+calendar.html
+unesco_sites.html
+destinations.html
+hotels.html
+transport.html
+admin_access.html
+login.html
+
+Examples:
+
+"Take me to hotels"
+[NAVIGATE:hotels.html]
+
+"Open the calendar"
+[NAVIGATE:calendar.html]
+
+"Go to the AI itinerary planner"
+[NAVIGATE:chatbot.html]
+
+"Tell me about hotels"
+Do NOT add a navigation marker.
+
+"What are tourist spots in Rajasthan?"
+Do NOT add a navigation marker.
+
+"Explain UNESCO sites"
+Do NOT add a navigation marker.
+`;
+
+
+    let conversationHistory = [
+
+      {
+        role: "system",
+        content: SYSTEM_INSTRUCTION
+      }
+
+    ];
+
+
+    /* =========================================================
+       CHAT TOGGLE
+       ========================================================= */
+
+    function toggleChat() {
+
+      const chatbot =
+        document.getElementById("chatbot");
+
+      chatbot.classList.toggle("active");
+
+      if (
+        chatbot.classList.contains("active")
+      ) {
+
+        setTimeout(() => {
+
+          document
+            .getElementById("chatInput")
+            .focus();
+
+        }, 100);
+
+      }
+
+    }
+
+
+    /* =========================================================
+       ENTER KEY
+       ========================================================= */
+
+    function handleChat(event) {
+
+      if (event.key === "Enter") {
+
+        sendMessage();
+
+      }
+
+    }
+
+
+    /* =========================================================
+       SEND MESSAGE
+       ========================================================= */
+
+    async function sendMessage() {
+
+      const input =
+        document.getElementById("chatInput");
+
+      const messages =
+        document.getElementById("chatMessages");
+
+      const text =
+        input.value.trim();
+
+      if (!text) {
+        return;
+      }
+
+
+      /* User message */
+
+      const userDiv =
+        document.createElement("div");
+
+      userDiv.className =
+        "message user";
+
+      userDiv.textContent =
+        text;
+
+      messages.appendChild(userDiv);
+
+      input.value = "";
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      /* =====================================================
+         FAST LOCAL NAVIGATION
+         ===================================================== */
+
+      const localRoute =
+        localNavMatch(text);
+
+      if (localRoute) {
+
+        const botDiv =
+          document.createElement("div");
+
+        botDiv.className =
+          "message bot";
+
+        botDiv.innerHTML = `
+          Sure! Heading to
+          <strong>
+            ${localRoute.label}
+          </strong>.
+        `;
+
+        messages.appendChild(botDiv);
+
+        messages.scrollTop =
+          messages.scrollHeight;
+
+        executeNavigation(
+          localRoute,
+          botDiv
+        );
+
+        return;
+
+      }
+
+
+      /* =====================================================
+         LLM FALLBACK
+         ===================================================== */
+
+      const botDiv =
+        document.createElement("div");
+
+      botDiv.className =
+        "message bot";
+
+      botDiv.innerHTML =
+        "Thinking...";
+
+      messages.appendChild(botDiv);
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      conversationHistory.push({
+
+        role: "user",
+
+        content: text
+
+      });
+
+
+      try {
+
+        const liveAnswer =
+          await callGroqAPI(
+            conversationHistory
+          );
+
+
+        conversationHistory.push({
+
+          role: "assistant",
+
+          content: liveAnswer
+
+        });
+
+
+        /* =================================================
+           SAFE NAVIGATION MARKER PARSING
+           ================================================= */
+
+        const validFiles =
+          new Set(
+            NAV_ROUTES.map(
+              route => route.file
+            )
+          );
+
+
+        const navRegex =
+          /\[NAVIGATE:([a-z0-9_-]+\.html)\]/ig;
+
+
+        let targetFile = null;
+
+
+        const cleanAnswer =
+          liveAnswer
+            .replace(
+              navRegex,
+              (match, file) => {
+
+                const normalizedFile =
+                  file.toLowerCase();
+
+                if (
+                  !targetFile &&
+                  validFiles.has(normalizedFile)
+                ) {
+
+                  targetFile =
+                    normalizedFile;
+
+                }
+
+                return "";
+
+              }
+            )
+            .trim();
+
+
+        botDiv.innerHTML =
+          parseMarkdownWithTables(
+            cleanAnswer
+          );
+
+
+        /* =================================================
+           EXECUTE VALID NAVIGATION
+           ================================================= */
+
+        if (targetFile) {
+
+          const route =
+            NAV_ROUTES.find(
+              r =>
+                r.file === targetFile
+            );
+
+          if (route) {
+
+            executeNavigation(
+              route,
+              botDiv
+            );
+
+          }
+
+        }
+
+      } catch (error) {
+
+        botDiv.innerHTML = `
+          <span style="color:#ff7b72;">
+            ⚠️ ${escapeHtml(error.message)}
+          </span>
+        `;
+
+      } finally {
+
+        messages.scrollTop =
+          messages.scrollHeight;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       GROQ API
+       ========================================================= */
+
+    async function callGroqAPI(messages) { 
+ 
+      let lastError = null; 
+ 
+ 
+      for ( 
+        const model of ACTIVE_MODELS 
+      ) { 
+ 
+        try { 
+ 
+          const response = 
+            await fetch( 
+              "http://localhost:3001/api/groq", 
+              { 
+ 
+                method: "POST", 
+ 
+                headers: { 
+ 
+                  "Content-Type": 
+                    "application/json" 
+ 
+                }, 
+ 
+                body: 
+                  JSON.stringify({ 
+ 
+                    model: model, 
+ 
+                    messages: messages, 
+ 
+                    temperature: 0.65, 
+ 
+                    max_tokens: 1200 
+ 
+                  }) 
+ 
+              } 
+            ); 
+ 
+ 
+          if (!response.ok) { 
+ 
+            const errorJson = 
+              await response 
+                .json() 
+                .catch(() => ({})); 
+ 
+ 
+            lastError = 
+              errorJson.error?.message || 
+              `HTTP ${response.status}`; 
+ 
+            continue; 
+ 
+          } 
+ 
+ 
+          const data = 
+            await response.json(); 
+ 
+ 
+          const reply = 
+            data 
+              .choices?.[0] 
+              ?.message 
+              ?.content; 
+ 
+ 
+          if (reply) { 
+ 
+            return reply; 
+ 
+          } 
+ 
+        } catch (networkError) { 
+ 
+          lastError = 
+            networkError.message; 
+ 
+        } 
+ 
+      } 
+ 
+ 
+      throw new Error( 
+        lastError || 
+        "Could not connect to live model." 
+      ); 
+ 
+    }
+
+    /* =========================================================
+       MARKDOWN TABLE PARSER
+       ========================================================= */
+
+    function parseMarkdownWithTables(text) {
+
+      let output =
+        escapeHtml(text);
+
+
+      /*
+       * Bold
+       */
+
+      output =
+        output.replace(
+          /\*\*(.*?)\*\*/g,
+          "<strong>$1</strong>"
+        );
+
+
+      /*
+       * Italic
+       */
+
+      output =
+        output.replace(
+          /\*(.*?)\*/g,
+          "<em>$1</em>"
+        );
+
+
+      /*
+       * Simple bullet lists
+       */
+
+      output =
+        output.replace(
+          /^\s*[-*]\s+(.+)$/gim,
+          "• $1<br>"
+        );
+
+
+      /*
+       * Line breaks
+       */
+
+      output =
+        output.replace(
+          /\n\n/g,
+          "<br><br>"
+        );
+
+      output =
+        output.replace(
+          /\n/g,
+          "<br>"
+        );
+
+
+      return output;
+
+    }
+
+
+    /* =========================================================
+       HTML ESCAPE
+       ========================================================= */
+
+    function escapeHtml(value) {
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* =========================================================
+       ESCAPE KEY CLOSES CHAT
+       ========================================================= */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          document
+            .getElementById("chatbot")
+            .classList.remove("active");
+
+        }
+
+      }
+    );
+
+  </script>
+
+  <script src="profile-tracker.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Food & Restaurant Management | BharatYatra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+      background: #050b12;
+      min-height: 100vh;
+      padding: 30px 5%;
+    }
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(229, 183, 91, 0.2);
+      padding-bottom: 20px;
+    }
+    .admin-logo {
+      font-family: Cinzel, serif;
+      font-size: 22px;
+      color: #f4e6c3;
+    }
+    .admin-badge {
+      background: rgba(229, 183, 91, 0.15);
+      border: 1px solid rgba(229, 183, 91, 0.4);
+      color: #e5b75b;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-family: Cinzel, serif;
+      font-size: 20px;
+      color: #f3e7ca;
+      margin-bottom: 15px;
+    }
+
+    .add-form-box {
+      background: rgba(11, 21, 29, 0.9);
+      border: 1px solid rgba(229, 183, 91, 0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      align-items: end;
+    }
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      color: #e5b75b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      background: #050b12;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 12px;
+      outline: none;
+    }
+    .add-btn {
+      padding: 10px 16px;
+      background: #e5b75b;
+      color: #071015;
+      font-weight: 700;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+      height: 38px;
+    }
+    .add-btn:hover { background: #f2dfb3; }
+
+    .table-container {
+      background: rgba(11, 21, 29, 0.8);
+      border: 1px solid rgba(229, 181, 84, 0.25);
+      border-radius: 16px;
+      overflow-x: auto;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    th {
+      background: rgba(21, 59, 64, 0.5);
+      color: #e5b75b;
+      font-family: Cinzel, serif;
+      font-size: 12px;
+    }
+    td { color: rgba(255, 255, 255, 0.8); }
+
+    .delete-btn {
+      padding: 6px 12px;
+      background: rgba(232, 114, 114, 0.15);
+      border: 1px solid rgba(232, 114, 114, 0.4);
+      color: #e87272;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 11px;
+    }
+    .delete-btn:hover { background: #e87272; color: #fff; }
+
+    .export-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #d67b2c, #9d3f35);
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #e5b75b;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem('bharatAdmin')) window.location.replace('../admin_access.html');
+  </script>
+
+  <div class="admin-header">
+    <div>
+      <div class="admin-logo">BharatYatra Admin Portal</div>
+      <small style="color: rgba(255,255,255,0.5);">Restaurants & Local Food Inventory Manager</small>
+    </div>
+    <div class="admin-badge">ADMIN AUTHENTICATED 🛡️</div>
+  </div>
+
+  <!-- ADD RESTAURANT FORM -->
+  <h3 class="section-title">Add New Restaurant</h3>
+  <div class="add-form-box">
+    <div class="form-group"><label>Name</label><input type="text" id="rName" placeholder="e.g. Spice Route"></div>
+    <div class="form-group"><label>City</label><input type="text" id="rCity" placeholder="e.g. Pune"></div>
+    <div class="form-group"><label>State</label><input type="text" id="rState" placeholder="e.g. Maharashtra"></div>
+    <div class="form-group"><label>Cuisine</label><input type="text" id="rCuisine" placeholder="e.g. Multi-cuisine"></div>
+    <div class="form-group"><label>Cost for Two (₹)</label><input type="number" id="rCost" placeholder="800"></div>
+    <button class="add-btn" onclick="addRestaurant()">+ Add Restaurant</button>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+    <h3 class="section-title" style="margin:0;">Restaurants Database Inventory</h3>
+    <button class="export-btn" onclick="exportCSV('restaurants')">📥 Download restaurants.csv</button>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>City</th><th>Cuisine</th><th>Cost for Two</th><th>Action</th></tr>
+      </thead>
+      <tbody id="restTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- ADD LOCAL FOOD FORM -->
+  <h3 class="section-title">Add Must-Try Local Food Specialty</h3>
+  <div class="add-form-box">
+    <div class="form-group"><label>Dish Name</label><input type="text" id="fName" placeholder="e.g. Misal Pav"></div>
+    <div class="form-group"><label>City</label><input type="text" id="fCity" placeholder="e.g. Pune"></div>
+    <div class="form-group"><label>State</label><input type="text" id="fState" placeholder="e.g. Maharashtra"></div>
+    <div class="form-group"><label>Taste Profile</label><input type="text" id="fTaste" placeholder="e.g. Spicy / Tangy"></div>
+    <div class="form-group"><label>Famous Spot</label><input type="text" id="fSpot" placeholder="e.g. Bedekar Tea House"></div>
+    <button class="add-btn" onclick="addLocalFood()">+ Add Local Food</button>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+    <h3 class="section-title" style="margin:0;">Local Food Database Inventory</h3>
+    <button class="export-btn" onclick="exportCSV('local_food')">📥 Download local_food.csv</button>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Dish Name</th><th>City</th><th>Taste Profile</th><th>Famous Spot</th><th>Action</th></tr>
+      </thead>
+      <tbody id="foodTableBody"></tbody>
+    </table>
+  </div>
+
+  <a href="../food.html" class="back-link">← Return to Public Local Food Page</a>
+
+  <script>
+    let restaurants = [];
+    let localFood = [];
+
+    async function loadAdminFood() {
+      const res1 = await fetch('../data/restaurants.csv');
+      restaurants = parseCSV(await res1.text());
+
+      const res2 = await fetch('../data/local_food.csv');
+      localFood = parseCSV(await res2.text());
+
+      renderTables();
+    }
+
+    function parseCSV(text) {
+      const lines = text.trim().split('\n');
+      const headers = lines[0].split(',').map(h => h.trim());
+      const result = [];
+      for (let i = 1; i < lines.length; i++) {
+        const currentLine = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+        const obj = {};
+        for (let j = 0; j < headers.length; j++) {
+          let val = currentLine[j] ? currentLine[j].trim() : '';
+          if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+          if (['id', 'costForTwo'].includes(headers[j])) val = Number(val);
+          obj[headers[j]] = val;
+        }
+        result.push(obj);
+      }
+      return result;
+    }
+
+    function renderTables() {
+      const rBody = document.getElementById("restTableBody");
+      rBody.innerHTML = "";
+      restaurants.forEach((r, idx) => {
+        rBody.innerHTML += `<tr><td>#${r.id}</td><td><strong>${r.name}</strong></td><td>${r.city}</td><td>${r.cuisine}</td><td>₹${r.costForTwo}</td><td><button class="delete-btn" onclick="deleteItem('rest', ${idx})">Delete</button></td></tr>`;
+      });
+
+      const fBody = document.getElementById("foodTableBody");
+      fBody.innerHTML = "";
+      localFood.forEach((f, idx) => {
+        fBody.innerHTML += `<tr><td>#${f.id}</td><td><strong>${f.dishName}</strong></td><td>${f.city}</td><td>${f.tasteProfile}</td><td>${f.famousSpot}</td><td><button class="delete-btn" onclick="deleteItem('food', ${idx})">Delete</button></td></tr>`;
+      });
+    }
+
+    function addRestaurant() {
+      const name = document.getElementById("rName").value;
+      const city = document.getElementById("rCity").value;
+      const state = document.getElementById("rState").value;
+      const cuisine = document.getElementById("rCuisine").value;
+      const costForTwo = Number(document.getElementById("rCost").value);
+      if(!name || !city) return alert("Please fill required fields");
+
+      restaurants.push({ id: restaurants.length+1, name, city, state, cuisine, rating: "4.5 ★", costForTwo, img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80", address: "City Center" });
+      renderTables();
+    }
+
+    function addLocalFood() {
+      const dishName = document.getElementById("fName").value;
+      const city = document.getElementById("fCity").value;
+      const state = document.getElementById("fState").value;
+      const tasteProfile = document.getElementById("fTaste").value;
+      const famousSpot = document.getElementById("fSpot").value;
+      if(!dishName || !city) return alert("Please fill required fields");
+
+      localFood.push({ id: localFood.length+1, dishName, city, state, tasteProfile, famousSpot, img: "https://images.unsplash.com/photo-1599785209707-a456fc1337bb?auto=format&fit=crop&w=800&q=80", description: "Authentic local specialty of the region." });
+      renderTables();
+    }
+
+    function deleteItem(type, idx) {
+      if(type === 'rest') restaurants.splice(idx, 1);
+      else localFood.splice(idx, 1);
+      renderTables();
+    }
+
+    function exportCSV(type) {
+      const data = type === 'restaurants' ? restaurants : localFood;
+      const headers = type === 'restaurants' ? ["id","name","city","state","cuisine","rating","costForTwo","img","address"] : ["id","dishName","city","state","tasteProfile","famousSpot","img","description"];
+      
+      let csvContent = headers.join(",") + "\n";
+      data.forEach(item => {
+        csvContent += headers.map(h => `"${item[h] !== undefined ? item[h] : ''}"`).join(",") + "\n";
+      });
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${type}.csv`;
+      link.click();
+    }
+
+    loadAdminFood();
+  </script>
+<script src="../form-controls.js"></script>
+</body>
+</html>

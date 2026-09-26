@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BharatYatra | Account Access</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Google Identity Services library -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <style>
+    :root {
+      --bg-dark: #0a0b0d;
+      --card-bg: rgba(18, 20, 26, 0.75);
+      --gold-primary: #d4af37;
+      --gold-hover: #f3e5ab;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --text-muted: #9ba1a6;
+      --text-light: #f5f5f7;
+      --border-color: rgba(212, 175, 55, 0.2);
+      --input-bg: rgba(255, 255, 255, 0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 45%);
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 4rem;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(10, 11, 13, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold-primary);
+    }
+
+    .login-btn {
+      border: 1px solid var(--gold-primary);
+      padding: 0.5rem 1.4rem;
+      border-radius: 999px;
+      color: var(--gold-primary) !important;
+      transition: all 0.3s ease !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .login-btn:hover {
+      background: var(--gold-primary);
+      color: var(--bg-dark) !important;
+      box-shadow: 0 0 15px var(--gold-glow);
+    }
+
+    /* Main Auth Container */
+    .auth-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px var(--gold-glow);
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .auth-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      letter-spacing: 1px;
+      margin-bottom: 0.4rem;
+    }
+
+    .auth-header p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Tab Switcher */
+    .tab-container {
+      display: flex;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 12px;
+      margin-bottom: 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 0.65rem 0;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--gold-primary);
+      color: #0a0b0d;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: var(--input-bg);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 10px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .form-group input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 10px var(--gold-glow);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.85rem;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold-primary), #b38728);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Social Divider */
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      margin: 1.75rem 0;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .auth-divider span {
+      padding: 0 1rem;
+    }
+
+    /* Google Button Wrapper */
+    .google-signin-box {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">BharatYatra</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home Page</a></li>
+      <li><a href="crafts.html">Crafts</a></li>
+      <li><a href="gi_tag.html">GI Tag Products</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="unesco_sites.html">UNESCO Sites</a></li>
+      <li><a href="destinations.html">Tourist Spots</a></li>
+      <li><a href="hotels.html">Hotels &amp; Stays</a></li>
+      <li><a href="transport.html">Transport</a></li>
+      <li><a href="admin_access.html">Vendors</a></li>
+      <li><a href="login.html" id="navAuthBtn" class="login-btn active">LOGIN</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Login Card -->
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>BharatYatra</h2>
+        <p>Access your travel portal & personal guides</p>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="tab-container">
+        <button id="signInTabBtn" class="tab-btn active" onclick="switchMode('signin')">Sign In</button>
+        <button id="signUpTabBtn" class="tab-btn" onclick="switchMode('signup')">Create Account</button>
+      </div>
+
+      <!-- Sign In Form -->
+      <form id="signInForm" onsubmit="handleManualSignIn(event)">
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" placeholder="name@domain.com" required>
+        </div>
+        <div class="form-group">
+          <label for="login-pass">Password</label>
+          <input type="password" id="login-pass" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="submit-btn">Sign In to BharatYatra</button>
+      </form>
+
+      <!-- Create Account Form -->
+      <form id="signUpForm" class="hidden" onsubmit="handleManualSignUp(event)">
+        <div class="form-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" placeholder="name@domain.com" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-pass">Create Password</label>
+          <input type="password" id="signup-pass" placeholder="Min. 8 characters" required>
+        </div>
+        <button type="submit" class="submit-btn">Create Free Account</button>
+      </form>
+
+      <!-- Social Login Area -->
+      <div class="auth-divider">
+        <span>OR CONTINUE WITH</span>
+      </div>
+
+      <div class="google-signin-box">
+        <!-- Google GIS Element -->
+        <div id="g_id_onload"
+             data-client_id="364325198945-vh8a2tulb5sbjmsin00eemlhqasa7j4k.apps.googleusercontent.com"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-callback="handleGoogleCredentialResponse"
+             data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="filled_black"
+             data-text="continue_with"
+             data-size="large"
+             data-logo_alignment="left"
+             data-width="380">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Tab toggle logic
+    function switchMode(mode) {
+      const signInForm = document.getElementById('signInForm');
+      const signUpForm = document.getElementById('signUpForm');
+      const signInBtn = document.getElementById('signInTabBtn');
+      const signUpBtn = document.getElementById('signUpTabBtn');
+
+      if (mode === 'signin') {
+        signInForm.classList.remove('hidden');
+        signUpForm.classList.add('hidden');
+        signInBtn.classList.add('active');
+        signUpBtn.classList.remove('active');
+      } else {
+        signUpForm.classList.remove('hidden');
+        signInForm.classList.add('hidden');
+        signUpBtn.classList.add('active');
+        signInBtn.classList.remove('active');
+      }
+    }
+
+    // Helper to fetch/initialize mock SQL-like database table
+    function getUsersTable() {
+      const users = localStorage.getItem('bharat_users_table');
+      return users ? JSON.parse(users) : [];
+    }
+
+    function saveUsersTable(users) {
+      localStorage.setItem('bharat_users_table', JSON.stringify(users));
+    }
+
+    // Helper to store active session, update UI, and redirect
+    function authenticateUser(userData) {
+      localStorage.setItem('bharatUser', JSON.stringify(userData));
+
+      const navBtn = document.getElementById('navAuthBtn');
+      if (navBtn) {
+        navBtn.textContent = userData.name.toUpperCase();
+        navBtn.href = "profile.html";
+      }
+
+      setTimeout(() => {
+        window.location.href = "chatbot.html";
+      }, 700);
+    }
+
+    // Manual Sign In Handler (Acts like SELECT query checking records)
+    function handleManualSignIn(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-pass').value;
+
+      const usersTable = getUsersTable();
+      const foundUser = usersTable.find(u => u.email === email);
+
+      if (!foundUser) {
+        alert("No account found with this email. Please sign up first.");
+        return;
+      }
+
+      if (foundUser.password !== password) {
+        alert("Incorrect password. Please try again.");
+        return;
+      }
+
+      authenticateUser({
+        name: foundUser.name,
+        email: foundUser.email,
+        authType: 'manual'
+      });
+    }
+
+    // Manual Sign Up Handler (Acts like INSERT INTO table query)
+    function handleManualSignUp(event) {
+      event.preventDefault();
+      const name = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-pass').value;
+
+      let usersTable = getUsersTable();
+
+      const existingUser = usersTable.find(u => u.email === email);
+      if (existingUser) {
+        alert("An account with this email already exists! Please sign in.");
+        switchMode('signin');
+        return;
+      }
+
+      // Insert row into table array
+      usersTable.push({ name, email, password });
+      saveUsersTable(usersTable);
+
+      alert("Account created successfully! Logging you in...");
+
+      authenticateUser({
+        name: name,
+        email: email,
+        authType: 'manual'
+      });
+    }
+
+    // Google JWT callback
+    function handleGoogleCredentialResponse(response) {
+      try {
+        const payloadBase64 = response.credential.split('.')[1];
+        const decodedPayload = JSON.parse(atob(payloadBase64));
+
+        let usersTable = getUsersTable();
+        let existingUser = usersTable.find(u => u.email === decodedPayload.email);
+
+        if (!existingUser) {
+          usersTable.push({
+            name: decodedPayload.name,
+            email: decodedPayload.email,
+            password: 'GOOGLE_AUTH_USER'
+          });
+          saveUsersTable(usersTable);
+        }
+
+        authenticateUser({
+          name: decodedPayload.name,
+          email: decodedPayload.email,
+          picture: decodedPayload.picture,
+          authType: 'google'
+        });
+      } catch (e) {
+        console.error("Failed to parse Google credential token", e);
+      }
+    }
+
+    // Check existing session on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const storedUser = localStorage.getItem('bharatUser');
+      if (storedUser) {
+        const parsed = JSON.parse(storedUser);
+        const navBtn = document.getElementById('navAuthBtn');
+        if (navBtn && parsed.name) {
+          navBtn.textContent = parsed.name.toUpperCase();
+          navBtn.href = "profile.html";
+        }
+      }
+    });
+  </script>
+<script src="form-controls.js"></script>
+<script src="profile-tracker.js"></script>
+</body>
+</html>
