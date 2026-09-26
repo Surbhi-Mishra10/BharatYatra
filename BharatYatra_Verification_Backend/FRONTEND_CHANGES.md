@@ -3,12 +3,12 @@
 ## ticket_generator.html
 Keep your current AI/data/booking flow. In `confirmPaymentAndIssue()`, after payment success and after `bookingDraft.paymentId` is set, POST the final booking to:
 
-`http://localhost:5000/api/bookings`
+`https://bharatyatra-verification-backend-zkhy.onrender.com/api/bookings`
 
 Example:
 
 ```js
-const response = await fetch('http://localhost:5000/api/bookings', {
+const response = await fetch('https://bharatyatra-verification-backend-zkhy.onrender.com/api/bookings', {
   method: 'POST',
   headers: {'Content-Type':'application/json'},
   body: JSON.stringify({
@@ -35,14 +35,14 @@ bookingDraft.verificationUrl = savedBooking.verificationUrl;
 
 Use `bookingDraft.verificationUrl` in your QR function. Do not create a new local-only token when the backend has returned one.
 
-For development, the API URL is `http://localhost:5000`. For a phone on another device, `localhost` will not work; use a LAN-accessible host for a local demo or deploy the backend/frontend to HTTPS.
+For development, the API URL is `https://bharatyatra-verification-backend-zkhy.onrender.com`. For a phone on another device, `localhost` will not work; use a LAN-accessible host for a local demo or deploy the backend/frontend to HTTPS.
 
 ## verify-pass.html
 Read `token` from the query string and call:
 
 ```js
 const token = new URLSearchParams(location.search).get('token');
-const response = await fetch(`http://localhost:5000/api/verify/${encodeURIComponent(token)}`);
+const response = await fetch(`https://bharatyatra-verification-backend-zkhy.onrender.com/api/verify/${encodeURIComponent(token)}`);
 const data = await response.json();
 ```
 

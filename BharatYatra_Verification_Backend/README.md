@@ -8,7 +8,7 @@ Stores paid BharatYatra passes in PostgreSQL and verifies them cross-device thro
 3. Create database `bharatyatra`.
 4. Run `database/schema.sql` in PostgreSQL/pgAdmin.
 5. `npm start` (or `npm run dev`).
-6. Test `GET http://localhost:5000/api/health`.
+6. Test `GET https://bharatyatra-verification-backend-zkhy.onrender.com/api/health`.
 
 ## API
 - `POST /api/bookings` — store a paid booking and return verification URL/token.
