@@ -2803,7 +2803,7 @@ async function callGroqAPI(messages) {
 
     for (const model of ACTIVE_MODELS) {
         try {
-            const res = await fetch("http://localhost:3001/api/groq", {
+            const res = await fetch("https://bharatyatra-groq-backend.onrender.com/api/groq", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
